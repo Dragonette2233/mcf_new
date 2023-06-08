@@ -18,7 +18,7 @@ class MCF_Gamechecker:
         self.search_button = mcf_styles.Button(display=master.button_images['Search'],
                                                command=self.search_for_game)
         self.arrow_button = mcf_styles.Button(display=master.button_images['Arrow'])
-    
+        
     def search_for_game(self):
 
         CurrentGameData.region, CurrentGameData.area = None, None

@@ -15,9 +15,9 @@ from mcf_data import (
 
 )
 
-class MCFWindow(tk.Tk, mcf_singleton.Singleton):
+class MCFWindow(tk.Tk):
     def __init__(self):
-        tk.Tk.__init__(self)
+        super().__init__()
         self.wm_attributes('-topmost', True)
         self.title(APP_TITLE)
         self.resizable(False, False)
