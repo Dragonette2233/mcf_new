@@ -1,0 +1,54 @@
+2023-03-31 11:08:15,061 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_dev.py", line 37, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_dev.py", line 364, in parsePoroGames
+    result = PoroAPI.get_poro_games(red_champion=converted_champion, gamemode=event)
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_api.py", line 156, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_api.py", line 156, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+IndexError: list index out of range
+2023-03-31 11:09:23,344 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_dev.py", line 37, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_dev.py", line 364, in parsePoroGames
+    result = PoroAPI.get_poro_games(red_champion=converted_champion, gamemode=event)
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_api.py", line 156, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_api.py", line 156, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+IndexError: list index out of range
+2023-03-31 11:09:30,681 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_dev.py", line 37, in wrapper
+    result = func(*args, **kwargs)
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_dev.py", line 364, in parsePoroGames
+    result = PoroAPI.get_poro_games(red_champion=converted_champion, gamemode=event)
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_api.py", line 156, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+  File "C:\_PyPr\MCF_ARAM_dev\mcf_api.py", line 156, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+IndexError: list index out of range
+2023-05-27 05:17:58,836 ERROR No module named 'mcf_build_dev'
+Traceback (most recent call last):
+  File "C:\_PyPr\MCF_ARAM\mcf_main.py", line 37, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\_PyPr\MCF_ARAM\mcf_main.py", line 371, in parseAramGames
+    from modules.GamesOnline import parsing_aram_api
+  File "C:\_PyPr\MCF_ARAM\modules\GamesOnline.py", line 9, in <module>
+    from mcf_build_dev import REGIONS_TUPLE, ELO_SYMBOLS
+ModuleNotFoundError: No module named 'mcf_build_dev'
+2023-05-27 05:21:05,096 ERROR name 'sw_afters' is not defined
+Traceback (most recent call last):
+  File "C:\_PyPr\MCF_ARAM\mcf_main.py", line 37, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\_PyPr\MCF_ARAM\mcf_main.py", line 578, in runMainParser
+    showMainInfo(text='Searching..')
+  File "C:\_PyPr\MCF_ARAM\mcf_main.py", line 194, in showMainInfo
+    if sw_afters['info'][0] is not None:
+       ^^^^^^^^^
+NameError: name 'sw_afters' is not defined

@@ -1,4 +1,5 @@
 import os
+import json
 
 """
     Values for interacting with League of Legends data
@@ -71,11 +72,45 @@ BUTTONS_PATH = os.path.join('.', 'images_lib', 'buttons/')
 APP_ICON_PATH = os.path.join('.', 'images_lib', 'backgrounds', 'icon_f.png')
 BACKGROUND_IMAGES_PATH = os.path.join('.', 'images_lib', 'backgrounds')
 CHARARACTER_ICON_PATH = os.path.join('.', 'images_lib', 'chars', 'display_icons')
+LOADING_STOP_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_end.png')
+LOADING_START_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_{index}.png')
+JSON_GAMEDATA_PATH = os.path.join('.', 'mcf_lib', 'GameData.json')
+PAPICH_SONG_PATH = os.path.join('.', 'mcf_lib', 'song.mp3')
 
 """
     Classes for finded game and switches for controling threads and activity 
 
 """
+class MCFStorage:
+    @classmethod
+    def get_selective_data(cls, route: tuple):
+        data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
+        if isinstance(route, tuple):
+            if len(route) > 1:
+                return data[route[0]][route[1]]
+            else:
+                return data[route[0]]
+        else:
+            raise TypeError('Provide touple for executing MCFData')
+
+
+    @classmethod
+    def get_all_data(cls) -> dict:
+        data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
+        return data
+
+    @classmethod
+    def write_data(cls, route: tuple, value):
+        data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
+        if isinstance(route, tuple):
+            if len(route) > 1:
+                data[route[0]][route[1]] = value
+            else:
+                data[route[0]] = value
+            json.dump(data, open(JSON_GAMEDATA_PATH, 'w+'), indent=4)
+        else:
+            raise TypeError('Provide touple for executing MCFData')
+
 class CurrentGameData:
     response = None
     area = None
@@ -91,6 +126,15 @@ class CurrentGameData:
         game_id: {self.game_id}
         match_id: {self.match_id}
         """
+    
+    def reset(self):
+        self.response = None
+        self.area = None
+        self.region = None
+        self.game_id = None
+        self.match_id = None
+
+currentGameData = CurrentGameData()
 
 class Switches:
     request = False

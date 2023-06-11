@@ -1,8 +1,9 @@
 import tkinter as tk
 
 class Button(tk.Button):
-    def __init__(self, display=None, command=None, args=None, width=None):
-        tk.Button.__init__(self)
+    def __init__(self, master=None, display=None, command=None, args=None, width=None):
+        tk.Button.__init__(self, master)
+        
         self.config(
             width=width,
             image=display,
@@ -46,15 +47,6 @@ class Image(tk.Label):
 
         self.bind('<Enter>', lambda e: self.config(bg='#652f87'))
         self.bind('<Leave>', lambda e: self.config(bg='#370d3d'))
-
-    def bound_dropdown_buttons(self, start_x, buttons: tuple[tk.Button]):
-
-        self.bind('<Enter>', lambda e: [self.config(bg='#652f87'), 
-                                        [button.place(x=start_x, y=y) for button, y in zip(buttons, [i * 20 for i in range(1, 10)])]])
-        
-    def place_rightpanel_buttons(self, x, y, panel: tk.Frame):
-
-        self.bind('<Enter>', lambda e: [panel.place(x=x, y=y), self.place_forget()])
 
 class StatsRateLabel(tk.Label):
     def __init__(self, width=6):

@@ -3,6 +3,15 @@ import requests
 import json
 from bs4 import BeautifulSoup as bs
 from mcf_data import ALL_CHAMPIONS_IDs
+import threading
+
+class MCFTimeoutError():
+    def __repr__(self) -> str:
+        return 'Error: Timeout'
+
+class MCFNoConnectionError():
+    def __repr__(self) -> str:
+        return 'Error: Connection lost'
 
 class RiotAPI:
     if len(sys.argv) < 2:
@@ -27,9 +36,9 @@ class RiotAPI:
             try:
                 result = func(*args, **kwargs)
             except requests.exceptions.ConnectTimeout:
-                result = "Error | Timeout"
+                result = MCFTimeoutError()
             except Exception:
-                result = 'Error | No connection'
+                result = MCFNoConnectionError()
             return result
         return wrapper
 

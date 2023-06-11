@@ -1,22 +1,31 @@
 import tkinter as tk
 import os
+from itertools import cycle
 from modules import mcf_singleton
 from modules import mcf_styles
-from modules import mcf_aram
-from modules import mcf_featured
-from modules import mcf_tophead
-from modules import mcf_gamechecker
+from modules import (
+    mcf_gamechecker,
+    mcf_aram,
+    mcf_featured,
+    mcf_tophead
+)
+
 from mcf_data import (
+    ALL_CHAMPIONS_IDs,
     APP_ICON_PATH,
     APP_TITLE,
     BACKGROUND_IMAGES_PATH,
     BUTTONS_PATH,
+    LOADING_STOP_PATH,
+    LOADING_START_PATH,
+    CHARARACTER_ICON_PATH,
+    currentGameData,
     Switches
 
 )
 
-class MCFWindow(tk.Tk):
-    def __init__(self):
+class MCFWindow(tk.Tk, mcf_singleton.Singleton):
+    def init(self):
         super().__init__()
         self.wm_attributes('-topmost', True)
         self.title(APP_TITLE)
@@ -28,6 +37,10 @@ class MCFWindow(tk.Tk):
         self.rift_image = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, 'skeleton_classic.png'))
         self.skeleton_image = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, 'skeleton_advance.png'))
         self.background_image = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, 'Custom.png'))
+        self.loading_images = (
+            tk.PhotoImage(file=LOADING_STOP_PATH),
+            tuple(tk.PhotoImage(file=LOADING_START_PATH.format(index=i)) for i in range(1, 31))
+        )
         self.button_images = {
             'Kindred': tk.PhotoImage(file=BUTTONS_PATH + 'Kindred_btn.png'),
             'Vayne': tk.PhotoImage(file=BUTTONS_PATH + 'Vayne_btn.png'),
@@ -53,103 +66,140 @@ class MCFWindow(tk.Tk):
             'Spec': tk.PhotoImage(file=BUTTONS_PATH + '_spec_btn.png'),
             'calculate': tk.PhotoImage(file=BUTTONS_PATH + '_calculate_btn.png'), 
         }
-        # self.background_image = 'Custom.png'
+        self.character_icons = {
+            name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
+            if name not in ('Kayn_b')
+        }
+        self.canvas = MCFCanvas(self)
+        self.info_view = MCFInfo(self)
+        self.obj_aram = mcf_aram.MCF_Aram(self)
+        self.obj_featured = mcf_featured.MCF_Featured(self)
+        self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
+        self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
+        self.rmc_menu = RMCMenu(self, self.canvas)
+        
+    def refresh(self):
+        """
+            Clearing all widgets and data in entrys
 
-class MCFCanvas(tk.Canvas):
-    def __init__(self, master):
-        tk.Canvas.__init__(self, master)
+        """
+        Switches.request = False
+        self.obj_gamechecker.refresh()
+        ...
+
+    def __init__(self):
+        ...
+
+class MCFCanvas(tk.Canvas, mcf_singleton.Singleton):
+    def init(self, master: MCFWindow):
+        super().__init__()
+        # self.parent = master
+        self.background_objects = {
+            "background": self.create_image(0, 0, image=master.background_image, anchor=tk.NW),
+            "skeleton": self.create_image(0, 0, image=master.skeleton_image, anchor=tk.NW),
+            "loading": self.create_image(465, 388, image=master.loading_images[0], anchor=tk.NW),
+            "aram": self.create_image(4, 156, image=self.master.aram_image, anchor=tk.NW, tag='34'),
+            "rift": self.create_image(100, 156, image=self.master.rift_image, anchor=tk.NW)
+        }
+        self.temp_photoimage = None
         self.config(
             width=500,
             height=420,
             highlightthickness=0
         )
+        
         self.place(x=0, y=0, relheight=1, relwidth=1)
-        self.background_image = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, 'Custom.png'))
-        self.skeleton = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, 'skeleton_advance.png'))
-        self.obj_tophead = mcf_tophead.MCF_Tophead(master)
-        self.obj_aram = mcf_aram.MCF_Aram(master)
-        self.obj_featured = mcf_featured.MCF_Featured(master)
-        self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(master)
-        self.info_view = MCFInfo(master)
-        self.rmc_menu = RMCMenu(master, self)
+
+    def start_circle(self):
+        cycle_loading = cycle(self.master.loading_images[1])
+
+        def _update_circle():
         
-        self.create_background(master)
-        self.place_app_buttons()
+            if not Switches.request:
+                self.delete(self.background_objects['loading'])
+                self.background_objects['loading'] = self.create_image(465, 388, image=self.master.loading_images[0], anchor=tk.NW)
+                return
 
-        self.rmc_menu.add_command('Refresh', 
-                                  command=lambda: self.info_view.display_info(self, text='Refresh command', ground='green', delay=2.5))
-        self.bind('<Button 3>', lambda e: self.rmc_menu.show(master))
+            image = next(cycle_loading)
+            self.delete(self.background_objects['loading'])
+            self.background_objects['loading'] = self.create_image(465, 388, image=image, anchor=tk.NW)
+            self.after(35, _update_circle)
+        _update_circle()
+
+    def change_background_image(self, character):
+        for img in self.background_objects.values():
+            self.delete(img)
+
+        self.temp_photoimage = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, f'{character}.png'))
         
-    def place_app_buttons(self):
-        
-        self.obj_tophead.stats.place(x=0, y=0)
-        self.obj_tophead.magic.place(x=62, y=0)
-        self.obj_tophead.ground.place(x=439, y=0)
+        self.background_objects = {
+            "background": self.create_image(0, 0, image=self.temp_photoimage, anchor=tk.NW),
+            "skeleton": self.create_image(0, 0, image=self.master.skeleton_image, anchor=tk.NW),
+            "loading": self.create_image(465, 388, image=self.master.loading_images[0], anchor=tk.NW),
+            "aram": self.create_image(4, 156, image=self.master.aram_image, anchor=tk.NW, tag='34'),
+            "rift": self.create_image(100, 156, image=self.master.rift_image, anchor=tk.NW)
+           
+        }
+    
+    def get_icon_photoimage(character):
+    
+        return tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{character}.png'))
 
-        self.obj_aram.blue_entry.place(x=38, y=52)
-        self.obj_aram.red_entry.place(x=38, y=78)
-        self.obj_aram.calculate.place(x=415, y=121)
-
-        self.obj_featured.parsed_aram_entry.place(x=16, y=253)
-        self.obj_featured.parsed_rift_entry.place(x=111, y=253)
-        self.obj_featured.character_rift.place(x=111, y=183)
-        self.obj_featured.aram_get_button.place(x=24, y=208)
-        self.obj_featured.rift_get_button.place(x=119, y=210)
-
-        self.obj_gamechecker.entry.place(x=11, y=343)
-        self.obj_gamechecker.search_button.place(x=11, y=370)
-        self.obj_gamechecker.arrow_button.place(x=120, y=370)
-
-    def create_background(self, master):
-        self.create_image(0, 0, image=master.background_image, anchor=tk.NW)
-        self.create_image(0, 0, image=master.skeleton_image, anchor=tk.NW),
-        # self.create_image(465, 388, image=self.loading_objects[0], anchor=tk.NW)
+    def __init__(self, master):
+         ...
  
-class MCFInfo:
-    def __init__(self, master) -> None:
+class MCFInfo(tk.Frame, mcf_singleton.Singleton):
+    def init(self, master: MCFWindow) -> None:    
+        tk.Frame.__init__(self, master)
         self.info_image = tk.Label(master, 
                                    image=master.button_images['i_label'], 
                                    borderwidth=0, 
                                    highlightthickness=2, 
-                                   highlightbackground='#cc9c1b')
+                                   highlightbackground='#cc9c1b',
+                                    )
         self.info_label = mcf_styles.Label(height=1, hlb='#cc9c1b', hlt=2)
+
+        self.info_image.pack(in_=self, side='left')
+        self.info_label.pack(in_=self, side='right')
     
     def hide_info(self):
-        self.info_label.place_forget()
-        self.info_image.place_forget()
+        self.place_forget()
 
-    def display_info(self, master, text, ground, delay: int = None):
+    def display_info(self, text, ground='yellow', delay: int = None):
 
         if Switches.after_info[0] is not None:
-            master.after_cancel([0])
+            self.master.after_cancel(Switches.after_info[0])
             
         self.info_label['text'] = f' {text} '
         self.info_label['highlightbackground'] = ground
         self.info_image['highlightbackground'] = ground
-        self.info_label.place(x=143, y=1)
-        self.info_image.place(x=125, y=1)
+        self.place(x=125, y=0)
 
         if delay:
-            Switches.after_info[0] = master.after(int(delay * 1000), self.hide_info)
+            Switches.after_info[0] = self.master.after(int(delay * 1000), self.hide_info)
+    
+    def __init__(self, master) -> None:
+        ...
 
 class RMCMenu(tk.Frame):
-    def __init__(self, master, slave):
-        tk.Frame.__init__(self, master)
+    def __init__(self, supermaster: MCFWindow, master: MCFCanvas):
+        tk.Frame.__init__(self, supermaster)
+        # self.parent = master
         self.config(
             highlightthickness=1,
             highlightbackground='#1aaeb0'
         )
-        slave.bind('<Button 1>',lambda e: self.place_forget())
 
+        supermaster.bind('<Button 3>', lambda e: self.show(master))
+        master.bind('<Button 1>', lambda e: self.place_forget())
         self.buttons = {}
-        
-    def show(self, master):
-        
+    
+    def show(self: tk.Frame, master: MCFCanvas):
         x = master.winfo_pointerx() - master.winfo_rootx()
         y = master.winfo_pointery() - master.winfo_rooty()
-        self.place(x=x, y=y, bordermode='inside')
+        self.place(x=x, y=y)
         
-    def add_command(self, text, command, button_forget=False, switch_button=False):
+    def add_command(self, text, command, button_forget=True, switch_button=False):
         kwargs = {
             'text': text,
             'command': command,
