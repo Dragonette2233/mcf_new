@@ -117,6 +117,9 @@ class CurrentGameData:
     region = None
     game_id = None
     match_id = None
+    summoner_puuid = None
+    # lastgame_data = None
+    teams_info = None
 
     def __str__(self) -> str:
         return f"""
@@ -137,6 +140,7 @@ class CurrentGameData:
 currentGameData = CurrentGameData()
 
 class Switches:
+    decorator = False
     request = False
     checkgame = False
     elorank = False

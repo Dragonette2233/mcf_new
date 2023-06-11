@@ -123,7 +123,7 @@ class MCFCanvas(tk.Canvas, mcf_singleton.Singleton):
             image = next(cycle_loading)
             self.delete(self.background_objects['loading'])
             self.background_objects['loading'] = self.create_image(465, 388, image=image, anchor=tk.NW)
-            self.after(35, _update_circle)
+            self.after(65, _update_circle)
         _update_circle()
 
     def change_background_image(self, character):

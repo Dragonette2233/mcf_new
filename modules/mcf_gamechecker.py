@@ -2,6 +2,7 @@ import tkinter as tk
 from playsound import playsound
 import time
 from modules import mcf_styles
+import mcf_build
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
 from mcf_riot_api import (
@@ -43,6 +44,23 @@ class MCF_Gamechecker:
         self.search_button.place(in_=master, x=11, y=370)
         self.arrow_button.place(in_=master, x=120, y=370)
 
+    # Decorator for handling connection in methods
+    def connection_handler(func):
+        def wrapper(self, *args, **kwargs):
+            
+            Switches.decorator = True
+            while Switches.decorator:
+                try:
+                    func(self, *args, **kwargs)
+                    Switches.decorator = False
+                except (MCFNoConnectionError, MCFTimeoutError) as ex:
+                    self.parent.info_view.display_info(text=str(ex) + ' | Press refresh to stop', ground='red', delay=2)
+                    time.sleep(2.5)
+                    # func(self, *args, **kwargs)
+            
+        return wrapper
+                
+    # Decorator for disabling buttons for secure threading
     def disable_while_running(func):
         def wrapper(self, *args, **kwargs):
             self.search_button['state'] = 'disabled'
@@ -77,6 +95,7 @@ class MCF_Gamechecker:
 
         self.parent.after(1500, lambda: MCFThread(func=self.awaiting_game_end).start())
 
+    @connection_handler
     @disable_while_running
     def search_for_game(self):
 
@@ -103,35 +122,29 @@ class MCF_Gamechecker:
     
         summoner_name = RiotAPI.get_summoner_by_name(region=currentGameData.region, name=summoner_name[0])
         
-        if isinstance(summoner_name, (MCFTimeoutError, MCFNoConnectionError)):
-            self.parent.info_view.display_info(text=summoner_name, ground='red', delay=2)
-            return
-
         if summoner_name.get('status'):
             self.parent.info_view.display_info(text='Summoner not found', ground='red', delay=1.75)
             return
         
+        currentGameData.summoner_puuid = summoner_name['puuid']
         response_activegame = RiotAPI.get_active_by_summonerid(region=currentGameData.region, 
                                                                summid=summoner_name['id'],
                                                                status=True)
             
-        if isinstance(response_activegame, (MCFTimeoutError, MCFNoConnectionError)):
-            self.parent.info_view.display_info(text='Timeout, try again', ground='red', delay=1.75)
-            return
-        
         # Writing nick and region to json
         MCFStorage.write_data(route=('CheckerLast',), value=self.entry.get())
         
         if response_activegame.status_code != 200:
             self.parent.info_view.display_info(text='Loading last game')
-            # showLastgameInfo(response_name)
+            self.show_lastgame_info()
         else:
         
             '''Запрос активной игры'''
 
             currentGameData.response = response_activegame.json()
-            currentGameData.game_id = str(currentGameData.response['gameId'])
-            currentGameData.match_id = currentGameData.region.upper() + '_' + currentGameData.game_id
+            currentGameData.game_id = str(currentGameData.response['gameId']) # 1237890
+            currentGameData.match_id = currentGameData.region.upper() + '_' + currentGameData.game_id # EUW_12378912
+            currentGameData.players_count = currentGameData.response['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
             self.show_icons_from_activegame()
             
             self.specated_button.place(x=427, y=342)
@@ -143,13 +156,13 @@ class MCF_Gamechecker:
         global cnv_images, canvas
 
         characters_name = []
-        players_count = currentGameData.response['participants']
+        # players_count = currentGameData.response['participants']
         
-        if len(players_count) == 10:
+        if len(currentGameData.players_count) == 10:
             print('Ten players')
             
             for p in range(0, 10):
-                champ_name = ALL_CHAMPIONS_IDs.get(players_count[p]['championId'])
+                champ_name = ALL_CHAMPIONS_IDs.get(currentGameData.players_count[p]['championId'])
                 self.characters[p]['image'] = self.parent.character_icons[champ_name]
                 characters_name.append(champ_name)
             for i, x in zip(range(5), (168, 210, 252, 294, 336)):
@@ -165,6 +178,8 @@ class MCF_Gamechecker:
 
             # if Switches.elorank:
             #     cnv_images['elocanvas'] = canvas.create_image(383, 345, image=cnv_images['eloimage'], anchor=tk.NW)
+    
+    @connection_handler
     @disable_while_running
     def awaiting_game_end(self):
     # global sw_switches
@@ -179,15 +194,8 @@ class MCF_Gamechecker:
                                                         gameid=currentGameData.match_id, 
                                                         status=True)
             
-            if isinstance(finished_game, (MCFNoConnectionError, MCFTimeoutError)):
-
-                self.parent.info_view_display_info(text=finished_game + ' | Reconnection')
-                self.parent.info_view_display_info(text='Reconnection', seconds=3)
-                print('Last connection was down, trying to reconect')
                 
-            if not isinstance(finished_game, (
-                MCFNoConnectionError, MCFTimeoutError
-            )) and finished_game.status_code == 200:
+            if finished_game.status_code == 200:
 
                 response = finished_game.json()
                 kills = sum(response['info']['participants'][k]['kills'] for k in range(10))
@@ -219,4 +227,49 @@ class MCF_Gamechecker:
                 
             
             time.sleep(2.2)
-        # print('out')
+
+    @connection_handler
+    def show_lastgame_info(self):
+        
+        games_list = RiotAPI.get_matches_by_puuid(area=currentGameData.area, 
+                                                  puuid=currentGameData.summoner_puuid)
+        
+        if len(games_list) == 0:
+
+            self.parent.info_view.display_info(text='No games for this summoner', ground='red', delay=1.5)
+            return
+
+        lastgame = RiotAPI.get_match_by_gameid(area=currentGameData.area, gameid=games_list[0])
+        
+        currentGameData.players_count = lastgame['info']['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
+        currentGameData.teams_info = lastgame['info']['teams'] # [0] {}, [1] .
+        
+        if len(currentGameData.players_count) < 10:
+            self.parent.info_view.display_info(text='Corrupted data or very old', ground='red', delay=1.5)
+            return
+        
+        self.show_icons_from_activegame(activegame=False)
+        kills = sum(currentGameData.players_count[k]['kills'] for k in range(10))
+        # print(currentGameData.players_count.keys())
+        if currentGameData.teams_info[0]['win']:
+            text, color = f' W1 | {kills} ', 'blue'
+        else:
+            text, color = f' W2 | {kills} ', 'red'
+            
+        timestamp = list(divmod(lastgame['info']['gameDuration'], 60))
+        if timestamp[1] < 10:
+            timestamp[1] = f"0{timestamp[1]}"
+        
+        self.endtime.configure(
+                text=f"  {timestamp[0]}:{timestamp[1]}  ",
+                highlightbackground=color
+            )
+        
+        self.lastgame.configure(
+                text=text, # bg=color
+                highlightbackground=color
+            )
+
+        self.lastgame.place(x=183, y=342)
+        self.endtime.place(x=309, y=342)
+        self.parent.info_view.hide_info()
