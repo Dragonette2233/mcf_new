@@ -5,6 +5,9 @@ from bs4 import BeautifulSoup as bs
 from mcf_data import ALL_CHAMPIONS_IDs
 import threading
 
+class MCFException(Exception):
+    ...
+
 class MCFTimeoutError(Exception):
     ...
 
@@ -27,6 +30,10 @@ class RiotAPI:
     @classmethod
     def get_api(cls):
         return cls.__api_key
+    
+    @classmethod
+    def get_headers(cls):
+        return cls.__headers_timeout
 
     @staticmethod
     def connection_handler(func):

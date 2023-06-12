@@ -1,14 +1,15 @@
-import tkinter as tk
 from modules import mcf_styles
 from tkinter import Event, EventType
 
+
 class MCF_Tophead:
     def __init__(self, master, canvas) -> None:
-        # self.parent = master
+        self.parent = master
         self.stats = mcf_styles.Button(display=master.button_images['Stats'])
         self.magic = mcf_styles.Image(display=master.button_images['Magic'])
         self.magic_dropdown = (
-                        mcf_styles.Button(display=master.button_images['ARAM']),
+                        mcf_styles.Button(display=master.button_images['ARAM'],
+                                          command=self.pillow_icons_recognition),
                         mcf_styles.Button(display=master.button_images['Rift'])
         )
         self.ground = mcf_styles.Image(display=master.button_images['Ground'])
@@ -49,7 +50,26 @@ class MCF_Tophead:
         for button in *self.ground_dropdown, *self.magic_dropdown:
             button.place_forget()
         
-        
+    def pillow_icons_recognition(self):
+        from .scripts.pillow_recognition import RecognizedCharacters
+        blue_team = RecognizedCharacters(team_color='blue', calibration_index=0)
+        red_team = RecognizedCharacters(team_color='red', calibration_index=0)
+        blue_team.run()
+        red_team.run()
+
+        blue_count, red_count = len(blue_team.characters), len(red_team.characters)
+
+        self.parent.obj_aram.refill_characters_entrys(
+            blue_chars=' '.join(blue_team.characters),
+            red_chars=' '.join(red_team.characters),
+        )
+
+        if any([blue_count < 5, red_count < 5]):
+            self.parent.info_view.display_info(
+                text=f'Missing: {5 - blue_count} blue | {5 - red_count} red', 
+                delay=2,
+                ground='red')
+    
     def display_stats():
         ...
     

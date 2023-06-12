@@ -52,11 +52,12 @@ ALL_CHAMPIONS_IDs = {
 }
 APP_TITLE = 'mcf_development'
 ELO_SYMBOLS = ('BR', 'CH', 'DI', 'GO', 'GR', 'IR', 'MA', 'PL', 'PP', 'SI', 'UN')
+SPECTATOR_MODE = 'spectator-consumer.{reg}.lol.pvp.net:80'
 REGIONS_TUPLE = (
     ('br', 'br1', 'americas'), ('lan', 'la1', 'americas'),
     ('na', 'na1', 'americas'), ('las', 'la2', 'americas'),
     ('oce', 'oc1', 'sea'), ('eune', 'eun1', 'europe'),
-    ('tr', 'tr1', 'europe'), ('ru', 'ru', 'europe'), 
+    ('tr', 'tr1', 'europe'), ('ru', 'ru', 'europe'),
     ('euw', 'euw1', 'europe'), ('kr', 'kr', 'asia'), 
     ('jp', 'jp1', 'asia'), ('vn', 'vn2', 'sea'),
     ('sg', 'sg2', 'sea'), ('ph', 'ph2', 'sea'),
@@ -76,6 +77,8 @@ LOADING_STOP_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_end.png
 LOADING_START_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_{index}.png')
 JSON_GAMEDATA_PATH = os.path.join('.', 'mcf_lib', 'GameData.json')
 PAPICH_SONG_PATH = os.path.join('.', 'mcf_lib', 'song.mp3')
+SPECTATOR_FILE_PATH = os.path.join('.', 'mcf_lib', 'spectate.bat')
+SCREENSHOT_FILE_PATH = os.path.join('.', 'images_lib', 'screenshot_PIL.png')
 
 """
     Classes for finded game and switches for controling threads and activity 

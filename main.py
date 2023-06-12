@@ -1,6 +1,15 @@
 from mcf_build import MCFWindow
 from mcf_data import Switches
 from mcf_data import currentGameData
+import mcf_testfield
+
+
+def check_gamedata_test():
+
+    # print(currentGameData.response['gameId'] if currentGameData.response.get('gameId') else 'Nothing here')
+    print(currentGameData)
+    # print(currentGameData.game_id)
+    # print(currentGameData.match_id)
 
 if __name__ == '__main__':
     
@@ -10,8 +19,8 @@ if __name__ == '__main__':
                              command=lambda: app.obj_gamechecker._debug_lastgame())
     app.rmc_menu.add_command('cnv check', 
                              command=lambda: print(app.canvas.find_all()))
-    app.rmc_menu.add_command('test circle', 
-                             command=lambda: app.canvas.start_circle())
+    app.rmc_menu.add_command('test currentGameData', 
+                             command=check_gamedata_test)
     app.rmc_menu.add_command('switch aram/rift logo', 
                              command=lambda: app.canvas.test_switch_request())
     app.rmc_menu.add_command('current game data', 

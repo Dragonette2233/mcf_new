@@ -112,9 +112,8 @@ if exist "League of Legends.exe" (
 )
 
 goto notfound
-
 :start
-@start "" "League of Legends.exe" "spectator %1.%2.%3:80 %4 %5 %6" -UseRads -GameBaseDir=.. "-Locale=%locale%" -SkipBuild -EnableCrashpad=true -EnableLNP
+@start "" "League of Legends.exe" "spectator %1 %2 %3 %4" -UseRads -GameBaseDir=.. "-Locale=%locale%" -SkipBuild -EnableCrashpad=true -EnableLNP
 goto exit
 
 :Trim
@@ -133,5 +132,5 @@ IF "!manualFolder!" NEQ "" (
     echo !manualFolder! > "%APPDATA%\LoG_lolinstallpath.txt"
 )
 goto start
-
+pause
 :exit

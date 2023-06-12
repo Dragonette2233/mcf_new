@@ -68,8 +68,9 @@ class MCFWindow(tk.Tk, mcf_singleton.Singleton):
         }
         self.character_icons = {
             name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
-            if name not in ('Kayn_b')
+            if name != ('Kayn_b')
         }
+        # print(self.character_icons)
         self.canvas = MCFCanvas(self)
         self.info_view = MCFInfo(self)
         self.obj_aram = mcf_aram.MCF_Aram(self)
@@ -84,7 +85,8 @@ class MCFWindow(tk.Tk, mcf_singleton.Singleton):
 
         """
         Switches.request = False
-        self.obj_gamechecker.refresh()
+        self.obj_aram._refresh()
+        self.obj_gamechecker._refresh()
         ...
 
     def __init__(self):

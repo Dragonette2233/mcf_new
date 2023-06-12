@@ -1,8 +1,9 @@
 import tkinter as tk
 from playsound import playsound
 import time
+import os
+import subprocess
 from modules import mcf_styles
-import mcf_build
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
 from mcf_riot_api import (
@@ -15,6 +16,8 @@ from mcf_data import (
     currentGameData,
     ALL_CHAMPIONS_IDs,
     PAPICH_SONG_PATH,
+    SPECTATOR_FILE_PATH,
+    SPECTATOR_MODE,
     MCFStorage,
     Switches
 )
@@ -32,7 +35,8 @@ class MCF_Gamechecker:
                                             command=lambda: MCFThread(
                                                     func=self.awaiting_game_end
                                             ).start())
-        self.specated_button = mcf_styles.Button(display=master.button_images['Spec'])
+        self.specated_button = mcf_styles.Button(display=master.button_images['Spec'],
+                                                 command=self.specate_active_game)
         self.search_button = mcf_styles.Button(display=master.button_images['Search'],
                                                command=lambda: MCFThread(
                                                     func=self.search_for_game
@@ -73,7 +77,7 @@ class MCF_Gamechecker:
 
         return wrapper
     
-    def refresh(self):
+    def _refresh(self):
 
         for widget in *self.characters, self.specated_button, self.run_button, \
                        self.endtime, self.win, self.lastgame:
@@ -85,15 +89,6 @@ class MCF_Gamechecker:
 
         stored_nickname = MCFStorage.get_selective_data(route=('CheckerLast',))
         self.entry.insert(0, stored_nickname)
-
-    def _debug_lastgame(self):
-
-        currentGameData.area = 'europe'
-        currentGameData.region = 'euw1'
-        currentGameData.game_id = '5942324637'
-        currentGameData.match_id = 'EUW1_5942324637'
-
-        self.parent.after(1500, lambda: MCFThread(func=self.awaiting_game_end).start())
 
     @connection_handler
     @disable_while_running
@@ -145,14 +140,14 @@ class MCF_Gamechecker:
             currentGameData.game_id = str(currentGameData.response['gameId']) # 1237890
             currentGameData.match_id = currentGameData.region.upper() + '_' + currentGameData.game_id # EUW_12378912
             currentGameData.players_count = currentGameData.response['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
-            self.show_icons_from_activegame()
+            self.show_character_icons()
             
             self.specated_button.place(x=427, y=342)
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
         # canvas.info_manager(forget=True)
     
-    def show_icons_from_activegame(self, activegame=True):
+    def show_character_icons(self, activegame=True):
         global cnv_images, canvas
 
         characters_name = []
@@ -173,12 +168,36 @@ class MCF_Gamechecker:
         
         # Inserting names in stats entries
         if activegame:
-            self.parent.obj_aram.blue_entry.insert(0, ' '.join(characters_name[0:5]))
-            self.parent.obj_aram.red_entry.insert(0, ' '.join(characters_name[5:10]))
-
+            self.parent.obj_aram.refill_characters_entrys(
+                blue_chars = ' '.join(characters_name[0:5]),
+                red_chars = ' '.join(characters_name[5:10])
+            )
+            MCFStorage.write_data(route=('Stats', ),
+                                  value={
+                                      'T1': ' '.join(characters_name[0:5]),
+                                      'T2': ' '.join(characters_name[5:10])
+                                  })
+                                  
             # if Switches.elorank:
             #     cnv_images['elocanvas'] = canvas.create_image(383, 345, image=cnv_images['eloimage'], anchor=tk.NW)
     
+    def specate_active_game(self):
+        list_task = os.popen('tasklist /FI "IMAGENAME eq League of Legends*"').readlines()
+        
+        if len(list_task) != 1:
+            self.parent.info_view.display_info(text='Game already running', ground='red', delay=1.75)
+            return
+        
+        self.parent.info_view.display_info(text='Launching spectator..', delay=1.75)
+
+        enc_key = currentGameData.response['observers']['encryptionKey']
+        spectator = SPECTATOR_MODE.format(reg=currentGameData.region)
+        args = spectator, enc_key, str(currentGameData.game_id), currentGameData.region.upper()
+
+        MCFStorage.write_data(route=("0", ), value=str(args))
+
+        subprocess.call([SPECTATOR_FILE_PATH, *args])
+
     @connection_handler
     @disable_while_running
     def awaiting_game_end(self):
@@ -222,9 +241,7 @@ class MCF_Gamechecker:
                 self.run_button.place_forget()
                 Switches.request = False
                 playsound(PAPICH_SONG_PATH)
-                # break
                 finished_game.close()
-                
             
             time.sleep(2.2)
 
@@ -248,7 +265,7 @@ class MCF_Gamechecker:
             self.parent.info_view.display_info(text='Corrupted data or very old', ground='red', delay=1.5)
             return
         
-        self.show_icons_from_activegame(activegame=False)
+        self.show_character_icons(activegame=False)
         kills = sum(currentGameData.players_count[k]['kills'] for k in range(10))
         # print(currentGameData.players_count.keys())
         if currentGameData.teams_info[0]['win']:

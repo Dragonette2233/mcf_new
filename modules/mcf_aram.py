@@ -20,3 +20,14 @@ class MCF_Aram():
         self.blue_entry.place(in_=master, x=38, y=52)
         self.red_entry.place(x=38, y=78)
         self.calculate.place(x=415, y=121)
+    
+    def refill_characters_entrys(self, blue_chars, red_chars):
+        self.blue_entry.delete(0, 'end')
+        self.red_entry.delete(0, 'end')
+        self.blue_entry.insert(0, blue_chars)
+        self.red_entry.insert(0, red_chars)
+
+    def _refresh(self):
+        self.blue_entry.delete(0, 'end')
+        self.red_entry.delete(0, 'end')
+    

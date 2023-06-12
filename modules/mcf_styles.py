@@ -16,6 +16,9 @@ class Button(tk.Button):
         if args:
             self.config(command=lambda: command(*args))
         
+        if isinstance(master, tk.LabelFrame):
+            self.pack()
+        
         self.bind('<Enter>', lambda e: self.config(bg='#652f87'))
         self.bind('<Leave>', lambda e: self.config(bg='#370d3d'))
 
