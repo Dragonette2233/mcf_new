@@ -1,16 +1,15 @@
 import tkinter as tk
 from playsound import playsound
 import time
-import os
-import subprocess
 from modules import mcf_styles
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
+from .mcf_decortators import disable_button_while_running
 from mcf_riot_api import (
     RiotAPI,  
-    MCFNoConnectionError,
-    MCFTimeoutError
+    MCFException,
 )
+from mcf_build import MCFWindow
 from mcf_data import (
     REGIONS_TUPLE,
     currentGameData,
@@ -24,19 +23,18 @@ from mcf_data import (
 
 
 class MCF_Gamechecker:
-    def __init__(self, master) -> None:
+    def __init__(self, master: MCFWindow) -> None:
         self.parent = master
         self.entry = mcf_styles.Entry(width=19)
         self.endtime = mcf_styles.Label(fsize=9)
-        self.characters = [tk.Label(master, borderwidth=0) for _ in range(0, 10)]
         self.win = mcf_styles.Label(fsize=26, height=3, width=14, hlb='#370d3d')
         self.lastgame = mcf_styles.Label(fsize=9, hlb='#370d3d', width=8)
         self.run_button = mcf_styles.Button(display=master.button_images['Run'],
                                             command=lambda: MCFThread(
                                                     func=self.awaiting_game_end
                                             ).start())
-        self.specated_button = mcf_styles.Button(display=master.button_images['Spec'],
-                                                 command=self.specate_active_game)
+        self.spectate_button = mcf_styles.Button(display=master.button_images['Spec'],
+                                                 command=self.spectate_active_game)
         self.search_button = mcf_styles.Button(display=master.button_images['Search'],
                                                command=lambda: MCFThread(
                                                     func=self.search_for_game
@@ -50,36 +48,23 @@ class MCF_Gamechecker:
 
     # Decorator for handling connection in methods
     def connection_handler(func):
-        def wrapper(self, *args, **kwargs):
+        def wrapper(self: "MCF_Gamechecker", *args, **kwargs):
             
             Switches.decorator = True
             while Switches.decorator:
                 try:
                     func(self, *args, **kwargs)
                     Switches.decorator = False
-                except (MCFNoConnectionError, MCFTimeoutError) as ex:
-                    self.parent.info_view.display_info(text=str(ex) + ' | Press refresh to stop', ground='red', delay=2)
+                except MCFException as ex:
+                    self.parent.info_view.exception(str(ex) + ' | Press refresh to stop')
                     time.sleep(2.5)
                     # func(self, *args, **kwargs)
             
         return wrapper
                 
-    # Decorator for disabling buttons for secure threading
-    def disable_while_running(func):
-        def wrapper(self, *args, **kwargs):
-            self.search_button['state'] = 'disabled'
-            self.run_button['state'] = 'disabled'
-            self.arrow_button['state'] = 'disabled'
-            func(self, *args, **kwargs)
-            self.search_button['state'] = 'normal'
-            self.run_button['state'] = 'normal'
-            self.arrow_button['state'] = 'normal'
-
-        return wrapper
-    
     def _refresh(self):
 
-        for widget in *self.characters, self.specated_button, self.run_button, \
+        for widget in self.spectate_button, self.run_button, \
                        self.endtime, self.win, self.lastgame:
             widget.place_forget()
         
@@ -91,7 +76,8 @@ class MCF_Gamechecker:
         self.entry.insert(0, stored_nickname)
 
     @connection_handler
-    @disable_while_running
+    @disable_button_while_running(object_='obj_gamechecker', 
+                                  buttons=('search_button', 'run_button', 'arrow_button', 'spectate_button'))
     def search_for_game(self):
 
         currentGameData.region, currentGameData.area = None, None
@@ -100,7 +86,7 @@ class MCF_Gamechecker:
         self.lastgame.place_forget()
         
         if len(summoner_name) != 2:
-            self.parent.info_view.display_info(text='Use ":"', ground='red', delay=3)
+            self.parent.info_view.exception('Use ":"')
             return
         
         for short, code, area in REGIONS_TUPLE:
@@ -110,15 +96,15 @@ class MCF_Gamechecker:
                 break
 
         if currentGameData.region is None:
-            self.parent.info_view.display_info(text='Wrong region', ground='red', delay=1.75)
+            self.parent.info_view.exception('Wrong region')
             return
         
-        self.parent.info_view.display_info(text='Searching', ground='yellow')
+        self.parent.info_view.notification('Searching...')
     
         summoner_name = RiotAPI.get_summoner_by_name(region=currentGameData.region, name=summoner_name[0])
         
         if summoner_name.get('status'):
-            self.parent.info_view.display_info(text='Summoner not found', ground='red', delay=1.75)
+            self.parent.info_view.exception('Summoner not found')
             return
         
         currentGameData.summoner_puuid = summoner_name['puuid']
@@ -130,7 +116,7 @@ class MCF_Gamechecker:
         MCFStorage.write_data(route=('CheckerLast',), value=self.entry.get())
         
         if response_activegame.status_code != 200:
-            self.parent.info_view.display_info(text='Loading last game')
+            self.parent.info_view.notification('Loading last game')
             self.show_lastgame_info()
         else:
         
@@ -139,56 +125,30 @@ class MCF_Gamechecker:
             currentGameData.response = response_activegame.json()
             currentGameData.game_id = str(currentGameData.response['gameId']) # 1237890
             currentGameData.match_id = currentGameData.region.upper() + '_' + currentGameData.game_id # EUW_12378912
-            currentGameData.players_count = currentGameData.response['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
-            self.show_character_icons()
+            currentGameData.champions_ids = [currentGameData.response['participants'][p]['championId'] for p in 
+                                             range(10)]
             
-            self.specated_button.place(x=427, y=342)
+            champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
+            
+            print(champions_names)
+
+            self.parent.place_character_icons(champions_names)
+            
+            self.spectate_button.place(x=427, y=342)
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
         # canvas.info_manager(forget=True)
     
-    def show_character_icons(self, activegame=True):
-        global cnv_images, canvas
-
-        characters_name = []
-        # players_count = currentGameData.response['participants']
-        
-        if len(currentGameData.players_count) == 10:
-            print('Ten players')
-            
-            for p in range(0, 10):
-                champ_name = ALL_CHAMPIONS_IDs.get(currentGameData.players_count[p]['championId'])
-                self.characters[p]['image'] = self.parent.character_icons[champ_name]
-                characters_name.append(champ_name)
-            for i, x in zip(range(5), (168, 210, 252, 294, 336)):
-                self.characters[i].place(x=x, y=300)
-            
-            for i, x in zip(range(5, 10), (185, 227, 269, 311, 353 )):
-                self.characters[i].place(x=x, y=367)
-        
-        # Inserting names in stats entries
-        if activegame:
-            self.parent.obj_aram.refill_characters_entrys(
-                blue_chars = ' '.join(characters_name[0:5]),
-                red_chars = ' '.join(characters_name[5:10])
-            )
-            MCFStorage.write_data(route=('Stats', ),
-                                  value={
-                                      'T1': ' '.join(characters_name[0:5]),
-                                      'T2': ' '.join(characters_name[5:10])
-                                  })
-                                  
-            # if Switches.elorank:
-            #     cnv_images['elocanvas'] = canvas.create_image(383, 345, image=cnv_images['eloimage'], anchor=tk.NW)
-    
-    def specate_active_game(self):
+    def spectate_active_game(self):
+        import os
+        import subprocess
         list_task = os.popen('tasklist /FI "IMAGENAME eq League of Legends*"').readlines()
         
         if len(list_task) != 1:
-            self.parent.info_view.display_info(text='Game already running', ground='red', delay=1.75)
+            self.parent.info_view.exception('Game already running')
             return
         
-        self.parent.info_view.display_info(text='Launching spectator..', delay=1.75)
+        self.parent.info_view.success('Launching spectator...')
 
         enc_key = currentGameData.response['observers']['encryptionKey']
         spectator = SPECTATOR_MODE.format(reg=currentGameData.region)
@@ -199,12 +159,13 @@ class MCF_Gamechecker:
         subprocess.call([SPECTATOR_FILE_PATH, *args])
 
     @connection_handler
-    @disable_while_running
+    @disable_button_while_running(object_='obj_gamechecker', 
+                                  buttons=('search_button', 'run_button', 'arrow_button', 'spectate_button'))
     def awaiting_game_end(self):
     # global sw_switches
         Switches.request = True
         self.parent.canvas.start_circle()
-        self.parent.info_view.display_info(text='Matcher checker started', ground='#25D500', delay=1.5)
+        self.parent.info_view.success('Matcher checker started')
 
         while Switches.request:
 
@@ -237,7 +198,7 @@ class MCF_Gamechecker:
                 # switchAppAndGhostView(minimize=False)
                 self.endtime.place(x=223, y=275)
                 self.win.place(x=92, y=143)
-                self.specated_button.place_forget()
+                self.spectate_button.place_forget()
                 self.run_button.place_forget()
                 Switches.request = False
                 playsound(PAPICH_SONG_PATH)
@@ -253,21 +214,27 @@ class MCF_Gamechecker:
         
         if len(games_list) == 0:
 
-            self.parent.info_view.display_info(text='No games for this summoner', ground='red', delay=1.5)
+            self.parent.info_view.exception('No games for this summoner')
             return
 
         lastgame = RiotAPI.get_match_by_gameid(area=currentGameData.area, gameid=games_list[0])
         
-        currentGameData.players_count = lastgame['info']['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
-        currentGameData.teams_info = lastgame['info']['teams'] # [0] {}, [1] .
+        # currentGameData.players_count = lastgame['info']['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
         
-        if len(currentGameData.players_count) < 10:
-            self.parent.info_view.display_info(text='Corrupted data or very old', ground='red', delay=1.5)
+        if len(lastgame['info']['participants']) < 10:
+            self.parent.info_view.exception('Summoner data corrupted')
             return
         
-        self.show_character_icons(activegame=False)
-        kills = sum(currentGameData.players_count[k]['kills'] for k in range(10))
-        # print(currentGameData.players_count.keys())
+        currentGameData.teams_info = lastgame['info']['teams'] # [0] {}, [1] .
+        currentGameData.champions_ids = [lastgame['info']['participants'][p]['championId'] for p in 
+                                             range(10)]
+        
+        
+        champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
+        # print(currentGameData.response['participants'])
+        self.parent.place_character_icons(champions_names, place=3, activegame=False)
+        kills = sum(lastgame['info']['participants'][k]['kills'] for k in range(10))
+        
         if currentGameData.teams_info[0]['win']:
             text, color = f' W1 | {kills} ', 'blue'
         else:

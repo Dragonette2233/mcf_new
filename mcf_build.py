@@ -1,15 +1,7 @@
 import tkinter as tk
 import os
 from itertools import cycle
-from modules import mcf_singleton
 from modules import mcf_styles
-from modules import (
-    mcf_gamechecker,
-    mcf_aram,
-    mcf_featured,
-    mcf_tophead
-)
-
 from mcf_data import (
     ALL_CHAMPIONS_IDs,
     APP_ICON_PATH,
@@ -20,11 +12,28 @@ from mcf_data import (
     LOADING_START_PATH,
     CHARARACTER_ICON_PATH,
     currentGameData,
-    Switches
+    Switches,
+    MCFStorage
 
 )
 
-class MCFWindow(tk.Tk, mcf_singleton.Singleton):
+class MCFException(Exception): ...
+class MCFTimeoutError(Exception): ...
+class MCFNoConnectionError(Exception): ...
+
+class Singleton(object):
+    def __new__(cls, *args, **kwargs):
+        it = cls.__dict__.get("__it__")
+        if it is not None:
+            return it
+        cls.__it__ = it = object.__new__(cls)
+        it.init(*args, **kwargs)
+        return it
+    
+    def init(self, *args, **kwargs):
+        ...
+
+class MCFWindow(tk.Tk, Singleton):
     def init(self):
         super().__init__()
         self.wm_attributes('-topmost', True)
@@ -66,19 +75,114 @@ class MCFWindow(tk.Tk, mcf_singleton.Singleton):
             'Spec': tk.PhotoImage(file=BUTTONS_PATH + '_spec_btn.png'),
             'calculate': tk.PhotoImage(file=BUTTONS_PATH + '_calculate_btn.png'), 
         }
+        self.test_label = tk.Label(self, text=222)
+        # print(self.character_icons)
+        self.canvas = MCFCanvas(self)
+        self.info_view = MCFInfo(self)
+        from modules import (
+            mcf_tophead, mcf_aram,
+            mcf_featured, mcf_gamechecker
+        )
+        self.obj_featured = mcf_featured.MCF_Featured(self)
+        self.obj_aram = mcf_aram.MCF_Aram(self)
+        self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
+        self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
+        self.rmc_menu = RMCMenu(self, self.canvas)
         self.character_icons = {
             name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
             if name != ('Kayn_b')
         }
-        # print(self.character_icons)
-        self.canvas = MCFCanvas(self)
-        self.info_view = MCFInfo(self)
-        self.obj_aram = mcf_aram.MCF_Aram(self)
-        self.obj_featured = mcf_featured.MCF_Featured(self)
-        self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
-        self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
-        self.rmc_menu = RMCMenu(self, self.canvas)
+        self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
+    
+    def change_calibration_index(self):
+    
+        match Switches.calibration_index:
+            case 0:
+                Switches.calibration_index = 1
+                text, ground = 'PIL Calibration [1]', '#7718C3'
+            case 1:
+                Switches.calibration_index = 2
+                text, ground = 'PIL Calibration [2]', '#7718C3'
+            case 2:
+                Switches.calibration_index = 0
+                text, ground = 'PIL Calibration', 'black'
+            case _:
+                Switches.calibration_index = 0
+                text, ground = 'PIL Calibration', 'black'
+                self.info_view.exception('Unknown error')
         
+        self.rmc_menu.buttons['PIL Calibration'].configure(fg=ground, text=text)
+        
+    def close_league_of_legends(self):
+
+        list_task = os.popen('tasklist /FI "IMAGENAME eq League of Legends*"').readlines()
+        if len(list_task) == 1:
+            self.info_view.exception('Game not launched')
+            return
+        
+        list_task[3] = list_task[3].replace(' ', '')
+        process_pid = list_task[3].split('exe')[1].split('Console')[0]
+        os.popen(f'taskkill /PID {process_pid} /F')
+        self.info_view.success('League of Legends closed')
+
+    def find_characters_name(self, characters_list: list[str]):
+        """
+            Returns a list of characters that match the pattern
+            Example: wuk -> Wukong | kha -> Khazix 
+        
+        """
+        
+        for i, name in enumerate(characters_list):
+            for p in ALL_CHAMPIONS_IDs.values():
+                if p.casefold().startswith(name.casefold()) and len(name) != 0:
+                    characters_list[i] = p
+                    break
+            else:
+                if len(name) == 0:
+                    raise MCFException(f'Error: empty value')
+                raise MCFException(f'Error: |{name}| not a character')
+            
+        return characters_list
+
+    def place_character_icons(self, champions_list: list, activegame=True, place=3):
+
+
+        if place == 3:
+            blue_x = (168, 210, 252, 294, 336)
+            blue_y = 300
+            red_x = (185, 227, 269, 311, 353)
+            red_y = 367
+        elif place == 1:
+            blue_x = (270, 315, 360, 405, 450)
+            blue_y = 31
+            red_x = blue_x
+            red_y = 77
+
+        """Declaring character icon for label"""
+        for i, character in enumerate(champions_list):
+            self.characters_labels[i]['image'] = self.character_icons[character]
+
+        """Placing blue team icons"""
+        for i, x in zip(range(len(champions_list)), blue_x):
+            self.characters_labels[i].place(x=x, y=blue_y)
+        
+        """Placing red team icons"""
+        if len(champions_list) > 5:
+            for i, x in zip(range(5, len(champions_list)), red_x):
+                self.characters_labels[i].place(x=x, y=red_y)
+
+        # Inserting names in stats entries
+        if activegame:
+            self.obj_aram.refill_characters_entrys(
+                blue_chars = ' '.join(champions_list[0:5]),
+                red_chars = ' '.join(champions_list[5:10])
+            )
+            MCFStorage.write_data(route=('Stats', ),
+                                  value={
+                                      'T1': champions_list[0:5],
+                                      'T2': champions_list[5:10]
+                                  })
+
     def refresh(self):
         """
             Clearing all widgets and data in entrys
@@ -87,12 +191,15 @@ class MCFWindow(tk.Tk, mcf_singleton.Singleton):
         Switches.request = False
         self.obj_aram._refresh()
         self.obj_gamechecker._refresh()
+        self.obj_featured._refresh()
+        for label in self.characters_labels:
+            label.place_forget()
         ...
 
     def __init__(self):
         ...
 
-class MCFCanvas(tk.Canvas, mcf_singleton.Singleton):
+class MCFCanvas(tk.Canvas, Singleton):
     def init(self, master: MCFWindow):
         super().__init__()
         # self.parent = master
@@ -150,7 +257,7 @@ class MCFCanvas(tk.Canvas, mcf_singleton.Singleton):
     def __init__(self, master):
          ...
  
-class MCFInfo(tk.Frame, mcf_singleton.Singleton):
+class MCFInfo(tk.Frame, Singleton):
     def init(self, master: MCFWindow) -> None:    
         tk.Frame.__init__(self, master)
         self.info_image = tk.Label(master, 
@@ -167,10 +274,19 @@ class MCFInfo(tk.Frame, mcf_singleton.Singleton):
     def hide_info(self):
         self.place_forget()
 
-    def display_info(self, text, ground='yellow', delay: int = None):
+    def success(self, text):
+        self._display_info(text, ground='#32CD32', delay=2)
+    
+    def notification(self, text):
+        self._display_info(text, ground='#87CEEB')
+    
+    def exception(self, text):
+        self._display_info(text, ground='#DC143C', delay=2)
+    
+    def _display_info(self, text, ground, delay: int = None):
 
-        if Switches.after_info[0] is not None:
-            self.master.after_cancel(Switches.after_info[0])
+        if Switches.after_info is not None:
+            self.master.after_cancel(Switches.after_info)
             
         self.info_label['text'] = f' {text} '
         self.info_label['highlightbackground'] = ground
@@ -178,7 +294,7 @@ class MCFInfo(tk.Frame, mcf_singleton.Singleton):
         self.place(x=125, y=0)
 
         if delay:
-            Switches.after_info[0] = self.master.after(int(delay * 1000), self.hide_info)
+            Switches.after_info = self.master.after(int(delay * 1000), self.hide_info)
     
     def __init__(self, master) -> None:
         ...
@@ -201,7 +317,7 @@ class RMCMenu(tk.Frame):
         y = master.winfo_pointery() - master.winfo_rooty()
         self.place(x=x, y=y)
         
-    def add_command(self, text, command, button_forget=True, switch_button=False):
+    def add_command(self, text, command, button_forget=True):
         kwargs = {
             'text': text,
             'command': command,

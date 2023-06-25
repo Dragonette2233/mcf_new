@@ -1,18 +1,20 @@
 import sys
 import requests
-import json
 from bs4 import BeautifulSoup as bs
-from mcf_data import ALL_CHAMPIONS_IDs
-import threading
+from mcf_data import ALL_CHAMPIONS_IDs, MCFStorage
+from mcf_build import MCFException
+import logging
+from pprint import pprint
 
-class MCFException(Exception):
-    ...
+logging.basicConfig(
+    format='%(asctime)s %(levelname)s %(message)s\n',
+    level=logging.ERROR,
+    handlers=[
+        logging.FileHandler('.\mcf_lib\mcf_logs.log'),
+        logging.StreamHandler()
+    ]
+)
 
-class MCFTimeoutError(Exception):
-    ...
-
-class MCFNoConnectionError(Exception):
-    ...
 
 class RiotAPI:
     if len(sys.argv) < 2:
@@ -28,11 +30,11 @@ class RiotAPI:
     __link_active_by_summid = "https://{region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/{summid}"
     
     @classmethod
-    def get_api(cls):
+    def get_api_key(cls):
         return cls.__api_key
     
     @classmethod
-    def get_headers(cls):
+    def get_headers_timeeout(cls):
         return cls.__headers_timeout
 
     @staticmethod
@@ -40,10 +42,14 @@ class RiotAPI:
         def wrapper(*args, **kwargs):
             try:
                 result = func(*args, **kwargs)
-            except requests.exceptions.ConnectTimeout:
-                raise MCFTimeoutError('Error: Connection timeout')
-            except Exception:
-                raise MCFNoConnectionError('Error: Connection lost')
+            except (requests.exceptions.ConnectTimeout, 
+                    requests.exceptions.ConnectionError):
+                raise MCFException('No connection | Timeout')
+            except MCFException as mcf_ex:
+                raise MCFException(str(mcf_ex))
+            except Exception as exc:
+                logging.error(exc, exc_info=True)
+                raise MCFException('Unknown error')
             return result
         return wrapper
 
@@ -95,26 +101,49 @@ class PoroAPI:
     __link_rnk_solo = 'https://porofessor.gg/current-games/{champion}/queue-420'
     __link_rnk_flex = 'https://porofessor.gg/current-games/{champion}/queue-440'
     __link_aram = 'https://porofessor.gg/current-games/{champion}/queue-450'
+
+    @RiotAPI.connection_handler
     @staticmethod
     def get_poro_games(red_champion: str = None, gamemode: str = None):
+        """
+            Avaliable gamemods: aram | ranked-flex | ranked-solo
 
-        if red_champion.title() not in ALL_CHAMPIONS_IDs.values():
-            print('This champion unaccesible')
-            return
+        """
+
+        if len(red_champion) < 2:
+            raise MCFException('Short')
+
+        converted_champion = None
+        for champion in ALL_CHAMPIONS_IDs.values():
+            if champion.lower().startswith(red_champion):
+                converted_champion = champion.lower()
+                break
+        else:
+            raise MCFException(f'Who is {red_champion}')
         
+        match converted_champion:
+            case 'wukong':
+                converted_champion = 'monkeyking'
+            case 'violet':
+                converted_champion = 'vi'
+            case _:
+                pass
+
         match gamemode:
             case 'aram':
-                url = PoroAPI.__link_aram.format(champion=red_champion)
+                url = PoroAPI.__link_aram.format(champion=converted_champion)
             case 'ranked-flex':
-                url = PoroAPI.__link_rnk_flex.format(champion=red_champion)
+                url = PoroAPI.__link_rnk_flex.format(champion=converted_champion)
             case 'ranked-solo':
-                url = PoroAPI.__link_rnk_solo.format(champion=red_champion)
+                url = PoroAPI.__link_rnk_solo.format(champion=converted_champion)
             case _:
-                print('This gamemode unaccesible')
-                return
-
+                raise MCFException('This gamemod is unaccesible')
+                
         result = requests.get(url, **PoroAPI.__headers_timeout)
         soup: bs = bs(result.text, "html.parser").find_all('div', class_='cardTeam')
+
+        if result.status_code != 200:
+            raise MCFException(f'Error. Status: {result.status_code}')
         
         games = {
             'teams': [team.find_all('img') for i, team in enumerate(soup) if i % 2 == 0],
@@ -126,21 +155,22 @@ class PoroAPI:
 
         for game in games['teams']:
             
+            for i, champ in enumerate(game):
+                if len(champ.get('class')) == 0:
+                   del game[i]
+            
             ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
             converted_ids = [ALL_CHAMPIONS_IDs.get(i) for i in ids]
             games['champions'].append(converted_ids)
 
-        with open('.\mcf_lib\GamesPoro.json', 'r', encoding='utf-8') as json_executable:
-            json_object = json.load(json_executable)
-            json_object[gamemode].clear()
-        
-        for c, n, r, e in zip(games['champions'], games['nicknames'], games['regions'], games['elorank']):
-            json_object[gamemode].append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}:{e}")
+        featured_games = []
+       
 
-        with open('.\mcf_lib\GamesPoro.json', 'w+', encoding='utf-8') as json_generated:
-             json.dump(json_object, json_generated, indent=4)
-        
-        return 0
+        for c, n, r in zip(games['champions'], games['nicknames'], games['regions']): # games['elorank']):
+            featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
+
+        MCFStorage.write_data(route=('MatchesRift', ), value=featured_games)
+      
         
         
 if __name__ == '__main__':

@@ -1,15 +1,23 @@
 from modules import mcf_styles
 from tkinter import Event, EventType
+from mcf_data import (
+    currentGameData, 
+    MCFStorage,
+    Switches
+)
+from mcf_build import MCFWindow
+from mcf_threads import MCFThread
 
 
 class MCF_Tophead:
-    def __init__(self, master, canvas) -> None:
+    def __init__(self, master: MCFWindow, canvas) -> None:
         self.parent = master
-        self.stats = mcf_styles.Button(display=master.button_images['Stats'])
+        self.stats = mcf_styles.Button(display=master.button_images['Stats'],
+                                       command=self.get_stats_teams_from_storage)
         self.magic = mcf_styles.Image(display=master.button_images['Magic'])
         self.magic_dropdown = (
                         mcf_styles.Button(display=master.button_images['ARAM'],
-                                          command=self.pillow_icons_recognition),
+                                          command=lambda: MCFThread(func=self.pillow_icons_recognition).start()),
                         mcf_styles.Button(display=master.button_images['Rift'])
         )
         self.ground = mcf_styles.Image(display=master.button_images['Ground'])
@@ -49,11 +57,23 @@ class MCF_Tophead:
     def all_dropdown_hide(self, e: Event):
         for button in *self.ground_dropdown, *self.magic_dropdown:
             button.place_forget()
+    
+    def get_stats_teams_from_storage(self):
+
+        teams = MCFStorage.get_selective_data(route=('Stats', ))
+        self.parent.obj_aram.refill_characters_entrys(
+            blue_chars=' '.join(teams['T1']),
+            red_chars=' '.join(teams['T2'])
+        )
         
     def pillow_icons_recognition(self):
         from .scripts.pillow_recognition import RecognizedCharacters
-        blue_team = RecognizedCharacters(team_color='blue', calibration_index=0)
-        red_team = RecognizedCharacters(team_color='red', calibration_index=0)
+        self.parent.info_view.notification('Comparing icons...')
+
+        blue_team = RecognizedCharacters(team_color='blue', 
+                                         calibration_index=Switches.calibration_index)
+        red_team = RecognizedCharacters(team_color='red', 
+                                        calibration_index=Switches.calibration_index)
         blue_team.run()
         red_team.run()
 
@@ -65,16 +85,6 @@ class MCF_Tophead:
         )
 
         if any([blue_count < 5, red_count < 5]):
-            self.parent.info_view.display_info(
-                text=f'Missing: {5 - blue_count} blue | {5 - red_count} red', 
-                delay=2,
-                ground='red')
-    
-    def display_stats():
-        ...
-    
-    def compare_icons():
-        ...
-    
-    def reveal_possible_backgrounds():
-        ...
+            self.parent.info_view.exception(f'Missing: {5 - blue_count} blue | {5 - red_count} red')
+            
+        currentGameData.highlight_game = '_'.join(sorted(blue_team.characters))

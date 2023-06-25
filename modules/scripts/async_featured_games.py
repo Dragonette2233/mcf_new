@@ -1,29 +1,38 @@
-import gc
 import asyncio
 import logging
 from mcf_riot_api import RiotAPI
 from aiohttp import ClientSession
-from aiohttp.client_exceptions import ClientProxyConnectionError
+from aiohttp.client_exceptions import (
+    ClientProxyConnectionError,
+    ClientConnectionError
+)
 from mcf_data import (
     ALL_CHAMPIONS_IDs,
     REGIONS_TUPLE,
+    FEATURED_GAMES_URL,
     MCFStorage
 )
 
 def parse_games():
+    """
+        This function parsing games from Riot API Featured Games into
+        GameData.json and returning count of missing regions
+    
+    """
 
     async def parsing(region):
         nonlocal missing_regions
         
         async with ClientSession() as session:
-            url = f"https://{region}.api.riotgames.com/lol/spectator/v4/featured-games"
-            
-            async with session.get(url=url, **RiotAPI.get_headers()) as response_:
+            async with session.get(url=FEATURED_GAMES_URL.format(region=region), 
+                                   **RiotAPI.get_headers_timeeout()) as response:
                 
-                response = await response_.json()
+                data = await response.json()
+                gameList = data['gameList']
+
                 
                 try:
-                    if len(response['gameList']) < 1:
+                    if len(gameList) < 1:
                         missing_regions += 1
                         return
                 except KeyError:
@@ -32,17 +41,17 @@ def parse_games():
 
         
                 routelist = []
-                for s in range(0, len(response['gameList'])):
+                for s in range(0, len(gameList)):
                     
                     # Создаем список из id персонажей для дальнейшей конвертации в имени
-                    id_names = [int(response['gameList'][s]['participants'][k]['championId']) for k in range(5)]
+                    id_names = [int(gameList[s]['participants'][k]['championId']) for k in range(5)]
 
                     # Создаем список конвертированных id в имена персонажей
                     champ_list = [ALL_CHAMPIONS_IDs.get(id_name) for id_name in id_names]
                     
                     champ_string = ' | '.join([str(item) for item in champ_list])
-                    summoner = response['gameList'][s]['participants'][0]['summonerName']
-                    route = response['gameList'][s]['platformId']
+                    summoner = gameList[s]['participants'][0]['summonerName']
+                    route = gameList[s]['platformId']
 
                     for r, g, _ in REGIONS_TUPLE:
                         if route.lower() == g: 
@@ -68,7 +77,7 @@ def parse_games():
                 await asyncio.gather(task)
             except asyncio.exceptions.TimeoutError:
                 missing_regions += 1
-            except ClientProxyConnectionError:
+            except (ClientConnectionError, ClientProxyConnectionError):
                 missing_regions = 20
                 
     missing_regions = 0

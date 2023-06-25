@@ -5,6 +5,7 @@ class Button(tk.Button):
         tk.Button.__init__(self, master)
         
         self.config(
+            font=('Calibri', 9),
             width=width,
             image=display,
             borderwidth=0,

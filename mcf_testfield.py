@@ -6,32 +6,37 @@ import threading
 
 def debugMode(event):
 
-    selftest = test_app.obj_gamechecker.entry.get()
+    selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
         case 'my':
-            test_app.obj_gamechecker.entry.delete(0, 'end')
-            test_app.obj_gamechecker.entry.insert(0, 'myloveisafteryou:EUW')
-            MCFThread(func=test_app.obj_gamechecker.search_for_game).start()
+            app_test_context.obj_gamechecker.entry.delete(0, 'end')
+            app_test_context.obj_gamechecker.entry.insert(0, 'myloveisafteryou:EUW')
+            MCFThread(func=app_test_context.obj_gamechecker.search_for_game).start()
         case 'last':
-            test_app.info_view.display_info(text='DBG: Last game', ground='white', delay=1.5)
+            app_test_context.info_view.__display_info(text='DBG: Last game', ground='white', delay=1.5)
             # global sw_switches, GAMEDATA
             currentGameData.area = 'europe'
             currentGameData.region = 'euw1'
             currentGameData.game_id = '5942324637'
             currentGameData.match_id = 'EUW1_5942324637'
             Switches.request = True
-            test_app.after(1500, lambda: MCFThread(func=test_app.obj_gamechecker.awaiting_game_end).start())
+            app_test_context.after(1500, lambda: MCFThread(func=app_test_context.obj_gamechecker.awaiting_game_end).start())
         case 'cnv':
-            test_app.info_view.display_info(
-                text=f'DBG: canvas: {test_app.canvas.find_all()}',
+            app_test_context.info_view._display_info(
+                text=f'DBG: canvas: {app_test_context.canvas.find_all()}',
                 delay=2.5,
                 ground='white'
             )
         case 'ts':
             subprocess.Popen(['notepad.exe', 'TASKS.txt'])
-        case 'spc':
-            runSpectator()
-        case 'replay_a':
+        case 'viewable':
+            print(app_test_context.obj_featured.button_aram_get.winfo_viewable())
+            app_test_context.obj_featured.button_aram_get.place_forget()
+            print(app_test_context.obj_featured.button_aram_get.winfo_viewable())
+        case 'len_entry':
+            entry = app_test_context.obj_aram.blue_entry.get().strip().split(' ')
+            print(len(entry))
+            print(entry)
             ...
             # subprocess.Popen(["start", "cmd", "/k", r"py .\replays_poro.py ARAM"], shell = True)
         case 'replay_r':
@@ -44,15 +49,24 @@ def debugMode(event):
             print(Switches())
         case 'current_game':
             print(currentGameData)
+        case 'attr':
+            value = 'obj_aram.blue_entry'
+            obj, entry = value.split('.')
+            # value =  
+            # attrs = [app_test_context.__getattribute__(attr)[k].config(state='disabled') for attr, k in zip(objects_, keys)]
+            print(app_test_context.__getattribute__(obj.entry).__getattribute__(entry))
         case 'frame':
             ...
             # canvas.diplay_info()
             # root.placeframe()
             # tk.Label().pack()
         case _:
-            test_app.info_view.display_info(text='DBG: unknown command', ground='white', delay=1.5)
+            app_test_context.info_view._display_info(text='DBG: unknown command', ground='white', delay=1.5)
             # showMainInfo(text='DEBUG CMD: my, last, cnv, ts, rft, asd', seconds=2.5, ground='white')
 
-test_app = MCFWindow()
+app_test_context = MCFWindow()
 
-test_app.obj_gamechecker.entry.bind('<Control-w>', debugMode)
+# app_test_context.rmc_menu.add_command('DBG: current game data', 
+#                             command=lambda: print(currentGameData))
+
+app_test_context.obj_gamechecker.entry.bind('<Control-w>', debugMode)

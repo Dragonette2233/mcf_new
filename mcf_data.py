@@ -48,11 +48,64 @@ ALL_CHAMPIONS_IDs = {
     711: "Vex", 777: "Yone", 887: "Gwen", 876: "Lillia",
     888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 2002: 'Kayn_b',
     2001: "MonkeyKing"
+}
+
+eight_roles_dict = {
+
+    '1': ('Aatrox', 'Belveth', 'Camille', 'Darius', 'Fiora', 'Gnar', 'Gwen', 'Illaoi', 'Irelia', 'Kayn', 
+                    'Leesin', 'Renekton', 'Viego', 'Sylas', 'Sett', 'Swain', 'Hecarim', 'Mordekaiser', 'Tryndamere', 
+                    'Riven', 'Nasus', 'Jax', 'Yasuo', 'Yone', 'Olaf','Violet', 'Wukong', 'Xinzhao', 'Trundle', 'Kled',
+                    'Monkeyking', 'Graves'),
+    '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Leblanc', 'Nocturne', 
+                 'Qiyana', 'Katarina', 'Pyke'),
+    '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
+                    'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri'),
+    '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
+                 'Seraphine', 'Sona', 'Soraka', 'Twistedfate', 'Yuumi', 'Zilean', 'Ivern',  'Yorick', 'Annie', 'Milio'),
+    '5': ('Akshan', 'Aphelios', 'Caitlyn', 'Ezreal', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'Kayle', 'Kindred', 
+                   'Kogmaw', 'Lucian', 'Missfortune', 'Samira', 'Sivir', 'Tristana', 'Twitch', 'Vayne', 'Xayah', 
+                   'Zeri', 'Draven', 'Quinn', 'Nilah'),
+    '6':('Syndra', 'Velkoz', 'Xerath', 'Ziggs', 'Zoe', 'Corki', 'Ashe', 'Karthus', 'Malzahar', 'Lux', 'Zyra',
+                    'Brand', 'Taliyah', 'Vex', 'Shaco', 'Teemo',),
+    '7': ('Fizz',  'Lissandra', 'Nidalee', 'Neeko', 'Nunu', 'Varus', 'Veigar', 'Pantheon', 'Rumble', 'Shyvana',  
+              'Reksai', 'Diana', 'Jayce', 'Elise', 'Malphite',),
+   '8': ('Alistar', 'Amumu', 'Braum', 'Chogath', 'Drmundo', 'Galio', 'Garen',  'Leona', 'Nautilus', 'Ornn',
+             'Poppy', 'Rammus', 'Rell', 'Sejuani', 'Shen', 'Sion', 'Skarner', 'Tahmkench', 'Taric', 'Thresh', 'Udyr', 
+             'Urgot', 'Volibear', 'Warwick', 'Zac', 'Blitzcrank', 'Singed', 'Jarvaniv', 'Ksante')
 
 }
+
+ten_roles_dict = {
+
+    '0': ('Aatrox', 'Belveth', 'Camille', 'Darius', 'Fiora', 'Gwen', 'Illaoi', 'Irelia', 'Kayn', 
+           'Leesin', 'Renekton', 'Viego', 'Sett', 'Hecarim', 'Mordekaiser', 'Riven', 'Violet', # Vi is Violet
+           'Kled', 'Warwick'),
+    '1': ('Swain', 'Sylas', 'Jax', 'Yone', 'Yasuo', 'Trundle', 'Xinzhao', 'Graves', 'Monkeyking',
+           'Tryndamere', 'Gnar', 'Wukong', 'Olaf', 'Nasus'),
+    '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Nocturne',
+           'Qiyana', 'Katarina', 'Pyke', 'Samira'),
+    '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
+           'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri'),
+    '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
+           'Seraphine', 'Sona', 'Soraka', 'Twistedfate', 'Yuumi', 'Zilean', 'Ivern',  'Yorick', 'Annie', 'Milio'),
+    '5': ('Akshan', 'Aphelios', 'Caitlyn', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'Kayle', 'Kindred', 
+           'Kogmaw', 'Lucian', 'Missfortune', 'Sivir', 'Tristana', 'Twitch', 'Vayne', 'Xayah', 
+           'Zeri', 'Draven', 'Quinn', 'Nilah'),
+    '6':('Syndra', 'Velkoz', 'Xerath', 'Ziggs', 'Zoe', 'Corki', 'Ashe', 'Karthus', 'Malzahar', 'Lux', 'Zyra',
+          'Brand', 'Taliyah', 'Vex', 'Shaco', 'Teemo',),
+    '7': ('Lissandra', 'Nidalee', 'Neeko', 'Nunu', 'Varus', 'Veigar', 'Pantheon', 'Rumble', 'Shyvana',  
+           'Reksai', 'Diana', 'Jayce', 'Elise', 'Malphite', 'Leblanc', 'Jarvaniv', 'Fizz', 'Ezreal',),
+    '8': ('Drmundo', 'Galio', 'Garen', 'Ornn', 'Poppy', 'Sion', 'Udyr', 'Ksante', 'Singed',
+           'Urgot', 'Volibear'),
+    '9': ('Alistar', 'Amumu', 'Braum', 'Leona', 'Nautilus', 'Shen', 'Tahmkench', 'Thresh', 'Skarner',
+           'Zac', 'Blitzcrank', 'Rammus', 'Sejuani', 'Chogath', 'Rell', 'Taric')
+
+}
+
 APP_TITLE = 'mcf_development'
 ELO_SYMBOLS = ('BR', 'CH', 'DI', 'GO', 'GR', 'IR', 'MA', 'PL', 'PP', 'SI', 'UN')
 SPECTATOR_MODE = 'spectator-consumer.{reg}.lol.pvp.net:80'
+FEATURED_GAMES_URL = "https://{region}.api.riotgames.com/lol/spectator/v4/featured-games"
 REGIONS_TUPLE = (
     ('br', 'br1', 'americas'), ('lan', 'la1', 'americas'),
     ('na', 'na1', 'americas'), ('las', 'la2', 'americas'),
@@ -121,8 +174,9 @@ class CurrentGameData:
     game_id = None
     match_id = None
     summoner_puuid = None
-    # lastgame_data = None
     teams_info = None
+    champions_ids = None
+    highlight_game = ''
 
     def __str__(self) -> str:
         return f"""
@@ -131,6 +185,7 @@ class CurrentGameData:
         region: {self.region}
         game_id: {self.game_id}
         match_id: {self.match_id}
+        highlight_game: {self.highlight_game}
         """
     
     def reset(self):
@@ -139,6 +194,9 @@ class CurrentGameData:
         self.region = None
         self.game_id = None
         self.match_id = None
+        self.summoner_puuid = None
+        self.teams_info = None
+        self.highlight_game = None
 
 currentGameData = CurrentGameData()
 
@@ -148,8 +206,9 @@ class Switches:
     checkgame = False
     elorank = False
     delayed = False
-    after_info = [None, None]
+    after_info = None
     after_delay = None
+    calibration_index = 0
 
     def __str__(self) -> str:
         return f"""

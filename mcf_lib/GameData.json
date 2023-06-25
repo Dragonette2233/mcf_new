@@ -1,9 +1,21 @@
 {
-    "0": "('spectator-consumer.euw1.lol.pvp.net:80', 'qbbmc9Ka4GTDtzstHSYVKnPnwSuGXpR1', '6448453497', 'EUW1')",
+    "0": "('spectator-consumer.tw2.lol.pvp.net:80', 'ws4uJdSePTkRAuNPRfiM17dPqAMHoclv', '82827998', 'TW2')",
     "Background": "Custom.png",
     "Stats": {
-        "T1": "Aatrox Akshan Lulu Rengar Lux",
-        "T2": "Viego Taric Cassiopeia Sion LeBlanc"
+        "T1": [
+            "Milio",
+            "Udyr",
+            "Neeko",
+            "Jinx",
+            "Gnar"
+        ],
+        "T2": [
+            "Rengar",
+            "Twitch",
+            "Karthus",
+            "Malphite",
+            "Bard"
+        ]
     },
     "TG": [
         "\u2605 Stats on 7 | 5 matches \u2605\n\n",
@@ -11,149 +23,149 @@
         "\ud83d\udc19\u041f2 Pyke - Senna - Nidalee - Swain - Sivir -- 71.4% \ud83d\udd34\n\n",
         "\ud83d\udd3460.0%  --  \u0411 90.5 \u041c  --  40.0%\ud83d\udd34"
     ],
-    "CheckerLast": "Inevitabl\u00ea:TR",
+    "CheckerLast": "Lucina:OCE",
     "MatchesARAM": {
         "BR1": [
-            "Nautilus | Caitlyn | Morgana | Kayle | MissFortune-|-The goddess Aqua:BR",
-            "Sylas | Shaco | Taliyah | Rammus | Riven-|-Ki Sono :BR",
-            "Xayah | Nautilus | Zoe | Talon | Maokai-|-Darknesdark:BR",
-            "Lissandra | Milio | Zeri | Kennen | MasterYi-|-Nagai Michinori:BR",
-            "Jax | Nilah | Sylas | Sona | Udyr-|-KDaher:BR"
+            "Ekko | Jayce | Draven | Rammus | Warwick-|-lmatador01l:BR",
+            "Viego | Yone | Talon | Renata | Karthus-|-RISE Namiru:BR",
+            "Aphelios | Kassadin | Milio | Jayce | KhaZix-|-HE Silos:BR",
+            "Gwen | Gragas | Jinx | Rakan | Viktor-|-L A n j o s:BR",
+            "Soraka | KaiSa | Vladimir | ChoGath | Ekko-|-Al0h4:BR"
         ],
         "EUN1": [
-            "TwistedFate | Ekko | Sivir | Shaco | Draven-|-\u00c1j h\u00e9t disz g\u00e9m:EUNE",
-            "Samira | Yone | Ivern | Gangplank | Rell-|-A1M:EUNE",
-            "Varus | Syndra | Samira | Ezreal | Sylas-|-Tsourtsou:EUNE",
-            "Zyra | Ezreal | Qiyana | Hecarim | RekSai-|-KatFromHell:EUNE",
-            "Zilean | JarvanIV | Rell | Taliyah | Ahri-|-MINI CHAD:EUNE"
+            "Annie | Vayne | Qiyana | Kassadin | Malphite-|-Gw\u00ffnbleidd:EUNE",
+            "Ziggs | Janna | Zeri | Olaf | Viego-|-A\u00eds:EUNE",
+            "Jax | Quinn | Jinx | Draven | Syndra-|-WiewiurkaPL:EUNE",
+            "Garen | Syndra | Jinx | Rakan | Evelynn-|-Emdelath:EUNE",
+            "Graves | Lux | Rammus | Rell | Caitlyn-|-thalidomide:EUNE"
         ],
         "EUW1": [
-            "MasterYi | Vayne | Zoe | Veigar | Leona-|-naoal:EUW",
-            "Malzahar | Quinn | LeBlanc | Karma | Viktor-|-CannotHaveSex:EUW",
-            "KaiSa | Aatrox | Sylas | Senna | Fiddlesticks-|-Kurald Thyrllan:EUW",
-            "Blitzcrank | Lux | Gwen | Darius | LeBlanc-|-17 year old car:EUW",
-            "Viego | Orianna | Nami | LeBlanc | Jinx-|-SpARRoWZZs:EUW"
+            "Xerath | Renekton | Vayne | Elise | Gangplank-|-kind heart:EUW",
+            "Yasuo | Jinx | Karthus | AurelionSol | LeBlanc-|-pprjhvoc:EUW",
+            "Heimerdinger | Jax | Rakan | JarvanIV | Neeko-|-Crowno:EUW",
+            "Renekton | Singed | Ezreal | Udyr | Bard-|-WindLoL:EUW",
+            "Lucian | Senna | Sylas | Neeko | Graves-|-Lowwiii:EUW"
         ],
         "JP1": [
-            "Mordekaiser | Hecarim | Ezreal | Aatrox | Swain-|-AiUiOi:JP",
-            "Ezreal | Jhin | TwistedFate | Shaco | Gnar-|-kona2:JP",
-            "Jinx | Tryndamere | Ashe | KhaZix | Gangplank-|-Ricyzu:JP",
-            "Thresh | KhaZix | Nilah | Maokai | Zoe-|-Air:JP",
-            "LeeSin | Illaoi | Renata | KaiSa | Yasuo-|-MonkeyTurn:JP"
+            "Morgana | Zed | KaiSa | Sona | Kassadin-|-GUIZI NIMENHAO:JP",
+            "Yuumi | Ornn | Amumu | Nocturne | Xayah-|-\u30df\u30b3\u30df\u30b3:JP",
+            "ChoGath | Ashe | Camille | KhaZix | Nocturne-|-solomon natsu:JP",
+            "Tristana | Lux | Orianna | Trundle | Darius-|-219:JP",
+            "Caitlyn | Zilean | Sylas | Yone | Irelia-|-\u30e0\u30f3\u30c1\u30e7\u30dd\u30dc\u30dd:JP"
         ],
         "KR": [
-            "LeeSin | Nasus | LeBlanc | Akshan | Yone-|-\uc544\uc624 \ud398\ub9ac\uc2dc\uce58 \ucacc:KR",
-            "Neeko | Aphelios | Lulu | KSante | Lissandra-|-\uad00 \ubaa8:KR",
-            "Fiora | Fizz | Lulu | BelVeth | Twitch-|-\ubabb\ud558\ub2c8\uc0b4\uc0b4:KR",
-            "Swain | Gragas | Kennen | Nilah | KhaZix-|-stgusdt:KR",
-            "KhaZix | AurelionSol | Hecarim | Yuumi | Aphelios-|-\uc8fd \ubcc0 \ud56d:KR"
+            "Ezreal | Rumble | Orianna | Rammus | KhaZix-|-\ub450\ubd80\uace0\uc591\uc774:KR",
+            "TwistedFate | Malzahar | Karthus | Samira | Gangplank-|-\ubaa8\ub098\ud640:KR",
+            "Malzahar | Yone | KogMaw | Sion | LeBlanc-|-\uace0\ud5a5\ucc3e\uc544\uace8\ub4dc\ubd80\ud130:KR",
+            "Rammus | Olaf | Fiddlesticks | LeBlanc | Jax-|-0I8:KR",
+            "Samira | JarvanIV | Teemo | Twitch | Nasus-|-K K H:KR"
         ],
         "LA1": [
-            "Seraphine | Wukong | Irelia | AurelionSol | Rell-|-Chomp:LAN",
-            "Rakan | Renekton | Katarina | Lillia | Akali-|-xSimon:LAN",
-            "Leona | Senna | Warwick | Aphelios | Ryze-|-mauri8499:LAN",
-            "KSante | Yuumi | Akshan | Zeri | Viego-|-D\u00e9nji:LAN",
-            "Evelynn | Rengar | Kayn | Kassadin | Aatrox-|-Lunella:LAN"
+            "Lillia | Xayah | Akali | Nautilus | Ornn-|-proyopro:LAN",
+            "Xerath | Lucian | Jayce | Yone | Ashe-|-VIRUS T145:LAN",
+            "Vayne | Lux | Nasus | Karthus | Lissandra-|-Kiss Sh\u00f8t:LAN",
+            "Caitlyn | Viktor | Blitzcrank | Warwick | Elise-|-GYMRAAAT:LAN",
+            "Gwen | Vex | Poppy | Pantheon | Pyke-|-Star Rail:LAN"
         ],
         "LA2": [
-            "Janna | Diana | Yorick | Mordekaiser | Bard-|-MarcoAureIion:LAS",
-            "Pyke | Varus | Ahri | Annie | Milio-|-MainDepresion:LAS",
-            "Darius | Lillia | TwistedFate | Zilean | Hecarim-|-TQY ElGatoRocoso:LAS",
-            "Fizz | Malzahar | Warwick | Samira | Wukong-|-ThenAmIDaMonster:LAS",
-            "Karma | Zoe | Blitzcrank | LeBlanc | Draven-|-\u00c2nzu:LAS"
+            "Veigar | KaiSa | Alistar | Graves | LeBlanc-|-Kevar:LAS",
+            "Morgana | Jhin | Gangplank | Taliyah | Nami-|-Ruby Hoshin\u00f3:LAS",
+            "Pantheon | Zoe | Ezreal | Senna | Hecarim-|-SHikarin MH:LAS",
+            "Senna | Aatrox | Fiddlesticks | Jhin | Ahri-|-LeFede:LAS",
+            "Brand | Qiyana | Viego | Quinn | Udyr-|-Focus Tank:LAS"
         ],
         "NA1": [
-            "Tristana | MissFortune | Neeko | Trundle | Janna-|-Birbatiel:NA",
-            "Milio | Riven | Azir | Lucian | LeeSin-|-hamz:NA",
-            "Akshan | Akali | Galio | ChoGath | Sett-|-Light777:NA",
-            "Mordekaiser | Blitzcrank | Senna | Riven | Zed-|-Captain Skippy1:NA",
-            "Aatrox | Renata | Gragas | Aphelios | Qiyana-|-FEAR KELTHUZAD:NA"
+            "Akali | Draven | Aatrox | Ashe | Neeko-|-Yoooooooooooo:NA",
+            "Heimerdinger | Janna | Milio | Jayce | Xayah-|-mitcherrman:NA",
+            "Veigar | Morgana | Samira | Seraphine | Yone-|-RumyRumyTumpkin:NA",
+            "Diana | LeBlanc | Jinx | Ornn | KhaZix-|-The Meat Monitor:NA",
+            "Draven | Pyke | Zyra | Kalista | ChoGath-|-ChrisWong0u0:NA"
         ],
         "OC1": [
-            "Thresh | Volibear | Brand | Evelynn | Riven-|-CaraHearst:OCE",
-            "Twitch | Graves | Irelia | Ahri | Yasuo-|-Flj\u00f3tav\u00edk:OCE",
-            "JarvanIV | Malphite | Zed | Samira | Zac-|-\u00dfread pitt:OCE",
-            "Vayne | Brand | Varus | Viktor | Sett-|-LuvibleMaster:OCE",
-            "Renekton | Lissandra | Malzahar | Darius | Tristana-|-d1p:OCE"
+            "KSante | Rumble | MasterYi | Karma | Karthus-|-MerlinFY:OCE",
+            "Vladimir | Malphite | Vex | Nocturne | Zed-|-Pe3kaboo:OCE",
+            "Amumu | KhaZix | Varus | Yuumi | TwistedFate-|-LeoWangD:OCE",
+            "Karthus | Lillia | Jhin | Rell | Riven-|-kfc beats maccas:OCE",
+            "Milio | Udyr | Neeko | Jinx | Gnar-|-Lucina:OCE"
         ],
         "RU": [
-            "Fizz | Malzahar | Braum | BelVeth | Kalista-|-ppppppppppjj:RU",
-            "Sion | Lillia | KaiSa | Pyke | Gragas-|-LoNDJeRon:RU",
-            "Nami | Viktor | Syndra | KhaZix | Nidalee-|-Alvoro:RU",
-            "Xayah | Anivia | Zoe | Yorick | Maokai-|-N\u0430meless:RU",
-            "Corki | Lulu | Swain | Warwick | Senna-|-\u0417\u043c\u0435\u0439:RU"
+            "Camille | Zoe | Brand | VelKoz | Karma-|-NegativWOLF1:RU",
+            "Yasuo | LeBlanc | Leona | Jinx | AurelionSol-|-whxt a waste:RU",
+            "Urgot | AurelionSol | Seraphine | Aatrox | Rell-|-i so noob:RU",
+            "Fiora | Kalista | Lillia | Anivia | Karma-|-OreNoWa:RU",
+            "Veigar | Zoe | Pyke | Kled | Nautilus-|-Steelzneel:RU"
         ],
         "TR1": [
-            "Lulu | Thresh | Kennen | Brand | Varus-|-chavelor:TR",
-            "Aatrox | Akshan | Lulu | Rengar | Lux-|-Inevitabl\u00ea:TR",
-            "Sett | Varus | Samira | Galio | Shaco-|-Ryuuj\u00een Jakka:TR",
-            "Kennen | Mordekaiser | Vayne | Irelia | Janna-|-Saviour:TR",
-            "Lux | TwistedFate | Anivia | Draven | Fiddlesticks-|-\u00eaugene:TR"
+            "Yone | Kindred | Talon | Lucian | Amumu-|-spectre:TR",
+            "Yuumi | KhaZix | KogMaw | Jinx | Nunu-|-\u00c7AKIR FOR WIN:TR",
+            "ChoGath | Camille | Blitzcrank | LeBlanc | KSante-|-SONER RUDEUNCLE:TR",
+            "TwistedFate | Darius | Fiddlesticks | Vladimir | Katarina-|-Ahrlynn:TR",
+            "LeeSin | Kennen | Neeko | Tristana | Shaco-|-\u00c7if\u00e7i Kemall:TR"
         ],
         "VN2": [
-            "Cassiopeia | Karma | Gwen | Twitch | Ivern-|-Im Donny:VN",
-            "Syndra | Swain | Varus | Ashe | Sylas-|-kl\u00efm:VN",
-            "LeBlanc | Kayle | Ahri | Swain | RekSai-|-26022023:VN",
-            "LeBlanc | Fiddlesticks | Graves | Neeko | Varus-|-V\u1ecbt Anh t\u1edbi:VN",
-            "Amumu | Diana | Tristana | Fiddlesticks | Nidalee-|-T1 Ngumaconsi:VN"
+            "KaiSa | Amumu | Veigar | Anivia | Senna-|-GFB Messon:VN",
+            "Lux | Wukong | Malphite | Jhin | Zed-|-\u0110\u1ea1i B\u00e0ng Nga:VN",
+            "Ezreal | Akali | Darius | Elise | Pyke-|-sweet watermelon:VN",
+            "Jinx | Akali | Rengar | Maokai | Milio-|-Talon:VN",
+            "Qiyana | Irelia | Aphelios | Ryze | Jhin-|-Ohma Zi\u00f6:VN"
         ],
         "SG2": [
-            "Karma | Nautilus | Lux | Zed | Tristana-|-pooboytroll:SG",
-            "Diana | Nasus | LeBlanc | Yone | Zed-|-Fami:SG",
-            "KSante | Viktor | Sivir | Senna | Azir-|-Pootato:SG",
-            "MasterYi | Draven | Aatrox | Corki | Viktor-|-100:SG",
-            "Wukong | TahmKench | Ekko | Lucian | Xerath-|-\u00e8dgy:SG"
+            "Violet | Rengar | Caitlyn | Akshan | Galio-|-Yayahoo:SG",
+            "Lillia | Illaoi | Rengar | Xerath | Vayne-|-Fonyplz:SG",
+            "Taliyah | Xayah | Elise | Rengar | Annie-|-ur stepbro :SG",
+            "Yuumi | Fiddlesticks | XinZhao | KogMaw | Pantheon-|-crithitfail:SG",
+            "KSante | LeBlanc | Thresh | Hecarim | Draven-|-ISend U to GHANA:SG"
         ],
         "PH2": [
-            "Twitch | Ahri | Nautilus | Zyra | Shyvana-|-Ford Raptor:PH",
-            "Ezreal | Riven | Ornn | Aphelios | KhaZix-|-Xynical:PH",
-            "Katarina | Ivern | Jax | Varus | Lulu-|-WVL8 Lilocuti:PH",
-            "Bard | Zed | Jinx | Veigar | TahmKench-|-Dirk:PH",
-            "Rammus | Morgana | Caitlyn | Viego | Fiddlesticks-|-Peek A Box:PH"
+            "Ahri | Zed | Thresh | Riven | Xayah-|-ValentCry:PH",
+            "Ashe | Karthus | KSante | Pyke | Fiora-|-TMT God:PH",
+            "Nasus | Zilean | Hecarim | Kennen | Ahri-|-washed up boomer:PH",
+            "LeBlanc | Alistar | KhaZix | Tristana | DrMundo-|-Flocci:PH",
+            "Samira | LeBlanc | Kalista | Ahri | Fiora-|-Nanjamo:PH"
         ],
         "TH2": [
-            "Ezreal | Thresh | Sion | Neeko | Kassadin-|-MASTER OF GODESS:TH",
-            "Garen | Zilean | Aphelios | Wukong | KaiSa-|-WindnZI:TH",
-            "Jayce | LeBlanc | Morgana | XinZhao | Lucian-|-\u0e0a\u0e32\u0e0d\u0e44\u0e0a\u0e22:TH",
-            "Xerath | Jhin | Amumu | Poppy | Vladimir-|-Brunnhilde:TH",
-            "Graves | Rakan | Fiora | Veigar | Ashe-|-Reluctant Player:TH"
+            "Jinx | Jayce | TahmKench | Teemo | Zed-|-Aglovale:TH",
+            "Alistar | Ahri | TwistedFate | Janna | Graves-|-Dadd:TH",
+            "Blitzcrank | LeBlanc | Samira | Violet | Malzahar-|-Moji Meow:TH",
+            "Aatrox | KaiSa | Nocturne | Braum | Katarina-|-R0GaRoTH:TH",
+            "MissFortune | Jax | Diana | Evelynn | Sett-|-Janna F Kennedy:TH"
         ],
         "TW2": [
-            "Ashe | Xerath | Taliyah | Akshan | Vladimir-|-\u860b\u679c\u725b\u59761:TW",
-            "Ezreal | Qiyana | Lux | Wukong | Vladimir-|-Ezz:TW",
-            "Galio | Sylas | Katarina | Vladimir | Draven-|-DeatGiggle:TW",
-            "Aphelios | Ornn | Shen | Alistar | Lissandra-|-\u7d14\u89dc\u7cb9:TW",
-            "Shaco | Ekko | Gnar | Milio | Tristana-|-\u6211\u63a8\u7684\u863f\u8389:TW"
+            "Ahri | Katarina | Gragas | Lissandra | Irelia-|-Loyzzz:TW",
+            "Udyr | Soraka | Gragas | LeeSin | Orianna-|-\u9ce5\u4eba\u5e6b\u5317\u79d1\u5927\u5206\u90e8:TW",
+            "Jinx | Pantheon | Jhin | Ivern | Darius-|-\u9b3c\u6b65\u6de8\u5316:TW",
+            "Gragas | Ryze | Kalista | Yuumi | Bard-|-Wenzhou\u00ba:TW",
+            "Twitch | LeBlanc | Akali | KogMaw | Vex-|-Azuriru:TW"
         ]
     },
     "MatchesRift": [
-        "Akali | LeBlanc | TwistedFate | Zilean | Jayce-|-ynzaapez:TW:UN",
-        "Tristana | Ahri | Zilean | Annie | Darius-|-Raloxifene:NA:UN",
-        "Sett | KaiSa | Cassiopeia | Zilean | Taric-|-DiWooooo:NA:UN",
-        "Amumu | Lulu | KogMaw | Zilean | Elise-|-SKT Cloner:NA:SI",
-        "Rengar | Thresh | Tristana | Jax | Yasuo-|-ThickSquidee:NA:SI",
-        "Vayne | Zilean | Gragas | Thresh | Talon-|-Mugetshu:TR:BR",
-        "Jax | Xayah | Zilean | Lillia | Yone-|-Eunseok:EUW:PL",
-        "Vayne | Malphite | MasterYi | Brand | Fizz-|-Elmaga15:LAN:SI",
-        "Ezreal | Skarner | Zilean | Neeko | Teemo-|-Jaded Life:NA:PL",
-        "ChoGath | Viego | Milio | Nilah | Yone-|-alexchu999:LAS:GO",
-        "Shaco | Akali | Malphite | Samira | Yuumi-|-Ugoman:NA:UN",
-        "Draven | Zoe | LeBlanc | Zilean | Gragas-|-BamDal:NA:UN",
-        "Viktor | Jhin | Jinx | MasterYi | Galio-|-Dekade:BR:GO",
-        "Samira | Milio | Veigar | Zilean | Thresh-|-RedMoon97:LAN:UN",
-        "Zilean | Teemo | Poppy | Aphelios | Veigar-|-6uo bbg iloveu:EUW:GO",
-        "Xayah | Sett | KaiSa | Nidalee | Nunu-|-SkyPanda:BR:GO",
-        "Bard | Ryze | Annie | Sion | Sejuani-|-Llyriad:NA:UN",
-        "Shyvana | KSante | Akali | Jinx | Senna-|-i poo on kids:NA:GO",
-        "Ekko | Malzahar | Blitzcrank | Nocturne | Sett-|-Sniper King XD:NA:SI",
-        "Sivir | ChoGath | TahmKench | Nidalee | Ziggs-|-PhilCollinsRadio:NA:PL",
-        "Ornn | Nasus | Seraphine | Evelynn | Ezreal-|-RiceKrispyTreat:NA:UN",
-        "Caitlyn | Zilean | Blitzcrank | Maokai | KaiSa-|-LamaPocosxx:OCE:UN",
-        "Zilean | Sivir | Ziggs | Lissandra | JarvanIV-|-Pugilicious:OCE:UN",
-        "Lux | Ashe | Caitlyn | Alistar | Tryndamere-|-zuuzu:NA:SI",
-        "Ashe | Mordekaiser | Cassiopeia | MissFortune | Senna-|-DieselSak:NA:BR",
-        "Yone | Rammus | Katarina | Sivir | Akali-|-ITIint:NA:UN",
-        "TwistedFate | Draven | Ahri | Pantheon | Malzahar-|-Ardure:NA:UN",
-        "Veigar | Tristana | Milio | Corki | Morgana-|-ThislsMyAccount:EUNE:SI"
+        "Kayn | Brand | Irelia | Jhin | Teemo-|-\ud558\ub298\ubc45\uc774:KR",
+        "Ezreal | Senna | Graves | Darius | Viktor-|-\ucc44\uc7ac\uc5c4:KR",
+        "Soraka | Darius | Lucian | Quinn | Shen-|-khoa910:VN",
+        "Milio | Darius | Kayn | Aphelios | Ahri-|-\uac15\ud615\uc6b1\uac1c\ubcf4\uc2e0\ud0d5\uc9d1:KR",
+        "Nautilus | DrMundo | Samira | Taliyah | Twitch-|-\uc7a1\ucd08\uc544\uc800\uc528:KR",
+        "Maokai | Shaco | Ashe | Veigar | Darius-|-jiawbgtheshy:TW",
+        "Zyra | Jhin | Trundle | Syndra | Darius-|-CrazyKiri:EUNE",
+        "Udyr | Kayn | Evelynn | Jhin | Lux-|-Shoonus:EUW",
+        "Syndra | Renekton | Swain | KaiSa | LeeSin-|-T\u0105ils\u02c6:OCE",
+        "Nilah | Darius | Yasuo | Ashe | Jayce-|-\uc724\uc6d0\uc12d\uac31\uc0dd:KR",
+        "Samira | Pantheon | MasterYi | LeeSin | Talon-|-\uad6c\ub9c8\uc724\ud0dc:KR",
+        "Shyvana | Darius | Fizz | MissFortune | Senna-|-\u53e4\u60d1\u718a\u554a:TW",
+        "Fiora | Nidalee | Lissandra | Amumu | Ezreal-|-Finny3:OCE",
+        "Rakan | LeBlanc | Amumu | Xayah | Darius-|-Digaplus:TW",
+        "Lillia | Thresh | Gnar | Irelia | Samira-|-Jojo La Bagarre:EUW",
+        "Jhin | Malzahar | Nunu | Darius | Lux-|-Pierce Ber\u015berk:LAS",
+        "Shaco | Aphelios | Tristana | Braum | Kled-|-Candide Touflex:EUW",
+        "Shaco | Darius | Jhin | Twitch | Yone-|-Te Shaco El Crab:LAS",
+        "Darius | Malzahar | Varus | Nunu | Senna-|-Glaring Shadow:NA",
+        "Syndra | Darius | Lulu | Talon | Lucian-|-Zabojca50:EUNE",
+        "Ahri | Jhin | Sion | Nautilus | Evelynn-|-\u9632\u75ab\u7834\u9ebb\u662f\u4f60:TW",
+        "LeeSin | Nilah | Darius | Azir | Pyke-|-\uc694\ub124\uac00 \ub108\ubb34 \uc88b\uc559:KR",
+        "Darius | Pantheon | Gragas | Ezreal | Pyke-|-PanPolicjant6928:EUNE",
+        "Caitlyn | Soraka | Milio | JarvanIV | Darius-|-Deftt:PH",
+        "Rakan | KhaZix | Vex | Darius | Xayah-|-\uc9c0\ub85c123:KR",
+        "JarvanIV | Orianna | MissFortune | Azir | Darius-|-Lord Cbaztian:LAS",
+        "Zed | Lucian | Milio | Darius | Sylas-|-\ubbfc\ucc2c\uc778\ub370:KR",
+        "Rengar | Ahri | Senna | Ezreal | Kayle-|-CR7OAT:EUNE"
     ]
 }
