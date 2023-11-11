@@ -13,7 +13,7 @@ def debugMode(event):
             app_test_context.obj_gamechecker.entry.insert(0, 'myloveisafteryou:EUW')
             MCFThread(func=app_test_context.obj_gamechecker.search_for_game).start()
         case 'last':
-            app_test_context.info_view.__display_info(text='DBG: Last game', ground='white', delay=1.5)
+            app_test_context.info_view._display_info(text='DBG: Last game', ground='white', delay=1.5)
             # global sw_switches, GAMEDATA
             currentGameData.area = 'europe'
             currentGameData.region = 'euw1'

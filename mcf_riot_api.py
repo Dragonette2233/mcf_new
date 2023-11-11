@@ -115,7 +115,7 @@ class PoroAPI:
 
         converted_champion = None
         for champion in ALL_CHAMPIONS_IDs.values():
-            if champion.lower().startswith(red_champion):
+            if champion.capitalize().startswith(red_champion):
                 converted_champion = champion.lower()
                 break
         else:

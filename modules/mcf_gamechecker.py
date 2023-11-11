@@ -77,7 +77,7 @@ class MCF_Gamechecker:
 
     @connection_handler
     @disable_button_while_running(object_='obj_gamechecker', 
-                                  buttons=('search_button', 'run_button', 'arrow_button', 'spectate_button'))
+                                  buttons=('search_button', 'run_button', 'arrow_button'))
     def search_for_game(self):
 
         currentGameData.region, currentGameData.area = None, None
@@ -160,7 +160,7 @@ class MCF_Gamechecker:
 
     @connection_handler
     @disable_button_while_running(object_='obj_gamechecker', 
-                                  buttons=('search_button', 'run_button', 'arrow_button', 'spectate_button'))
+                                  buttons=('search_button', 'run_button', 'arrow_button'))
     def awaiting_game_end(self):
     # global sw_switches
         Switches.request = True

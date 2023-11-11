@@ -174,3 +174,31 @@ Traceback (most recent call last):
   File "C:\_PyPr\New_MCF\mcf_riot_api.py", line 112, in get_poro_games
     raise MCFException('Short')
 mcf_build.MCFException: Short
+2023-11-06 10:25:56,714 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-06 10:25:56,716 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-06 10:25:56,718 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-06 10:25:56,719 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'

@@ -3,3 +3,5 @@ __pycache__/
 tests.py
 apikey.txt
 riot_api.txt
+updates.txt
+.mcfenv

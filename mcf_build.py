@@ -1,5 +1,6 @@
 import tkinter as tk
 import os
+from mcf_threads import MCFThread
 from itertools import cycle
 from modules import mcf_styles
 from mcf_data import (
@@ -94,6 +95,18 @@ class MCFWindow(tk.Tk, Singleton):
         }
         self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
     
+    def aram_porotimer(self):
+        from modules.scripts import aram_porotimer_script
+
+        if not Switches.timer:
+            self.info_view._display_info('Waiting for ARAM...', 'blue')
+            Switches.timer = True
+            MCFThread(func=aram_porotimer_script.start_timer).start()
+        else:
+            Switches.timer = False
+            self.info_view.notification('Wait...')
+            self.after(5200, lambda: self.info_view.exception('ARAM timer stopped'))
+
     def change_calibration_index(self):
     
         match Switches.calibration_index:

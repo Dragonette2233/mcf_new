@@ -37,7 +37,7 @@ ALL_CHAMPIONS_IDs = {
     145: "KaiSa", 147: "Seraphine", 150: 'Gnar', 154: 'Zac',
     157: 'Yasuo', 161: "VelKoz", 163: 'Taliyah', 166: "Akshan",
     164: 'Camille', 200: "BelVeth", 201: 'Braum', 202: 'Jhin',
-    203: 'Kindred', 221: 'Zeri', 222: 'Jinx', 223: "TahmKench",
+    203: 'Kindred', 221: 'Zeri', 222: 'Jinx', 223: "TahmKench", 233: "Briar",
     234: 'Viego', 235: 'Senna', 236: 'Lucian', 238: 'Zed',
     240: 'Kled', 245: 'Ekko', 246: 'Qiyana', 254: 'Violet',
     266: 'Aatrox', 267: 'Nami', 268: 'Azir', 350: 'Yuumi',
@@ -46,7 +46,7 @@ ALL_CHAMPIONS_IDs = {
     498: 'Xayah', 516: 'Ornn', 517: 'Sylas', 526: 'Rell',
     518: 'Neeko', 523: 'Aphelios', 555: 'Pyke', 875: "Sett",
     711: "Vex", 777: "Yone", 887: "Gwen", 876: "Lillia",
-    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 2002: 'Kayn_b',
+    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 950: "Naafiri", 2002: 'Kayn_b',
     2001: "MonkeyKing"
 }
 
@@ -55,9 +55,9 @@ eight_roles_dict = {
     '1': ('Aatrox', 'Belveth', 'Camille', 'Darius', 'Fiora', 'Gnar', 'Gwen', 'Illaoi', 'Irelia', 'Kayn', 
                     'Leesin', 'Renekton', 'Viego', 'Sylas', 'Sett', 'Swain', 'Hecarim', 'Mordekaiser', 'Tryndamere', 
                     'Riven', 'Nasus', 'Jax', 'Yasuo', 'Yone', 'Olaf','Violet', 'Wukong', 'Xinzhao', 'Trundle', 'Kled',
-                    'Monkeyking', 'Graves'),
+                    'Monkeyking', 'Graves', 'Naafiri'),
     '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Leblanc', 'Nocturne', 
-                 'Qiyana', 'Katarina', 'Pyke'),
+                 'Qiyana', 'Katarina', 'Pyke', 'Briar'),
     '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
                     'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri'),
     '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
@@ -79,11 +79,11 @@ ten_roles_dict = {
 
     '0': ('Aatrox', 'Belveth', 'Camille', 'Darius', 'Fiora', 'Gwen', 'Illaoi', 'Irelia', 'Kayn', 
            'Leesin', 'Renekton', 'Viego', 'Sett', 'Hecarim', 'Mordekaiser', 'Riven', 'Violet', # Vi is Violet
-           'Kled', 'Warwick'),
+           'Kled', 'Warwick', 'Naafiri'),
     '1': ('Swain', 'Sylas', 'Jax', 'Yone', 'Yasuo', 'Trundle', 'Xinzhao', 'Graves', 'Monkeyking',
            'Tryndamere', 'Gnar', 'Wukong', 'Olaf', 'Nasus'),
     '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Nocturne',
-           'Qiyana', 'Katarina', 'Pyke', 'Samira'),
+           'Qiyana', 'Katarina', 'Pyke', 'Samira', 'Briar'),
     '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
            'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri'),
     '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
@@ -209,6 +209,7 @@ class Switches:
     after_info = None
     after_delay = None
     calibration_index = 0
+    timer = None
 
     def __str__(self) -> str:
         return f"""
@@ -219,3 +220,40 @@ class Switches:
         after_info: {self.after_info}
         after_delay: {self.after_delay}
         """
+    
+cookies = {
+        'auid': 'LY0LGGVJT9xF3cMHBakaAg==',
+        'SESSION': '22fdb02ab99445348a011c35f47c6452',
+        'lng': 'ru',
+        '_cfvwab': '-1',
+        'cookies_agree_type': '3',
+        'tzo': '3',
+        'is12h': '0',
+        'che_g': '3c2afae5-894d-df7a-91d5-ba2642fb4db5',
+        'sh.session.id': '798cfbe4-33cb-434c-affa-b0862a224c4f',
+        '_ga': 'GA1.1.368426760.1699302170',
+        '_ym_uid': '1699731283765603681',
+        '_ym_d': '1699731283',
+        '_ym_isad': '1',
+        '_ga_7JGWL9SV66': 'GS1.1.1699729869.10.1.1699731302.34.0.0',
+        'ggru': '188',
+        'platform_type': 'mobile',
+        '_ga_0NQW4X2MPH': 'GS1.1.1699731283.1.1.1699737050.59.0.0',
+        'window_width': '802',
+    }
+
+headers = {
+    'authority': 'lite.1xbet-new.com',
+    'accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
+    'accept-language': 'ru-RU,ru;q=0.9,en-US;q=0.8,en;q=0.7',
+    'cache-control': 'max-age=0',
+    'sec-ch-ua': '"Google Chrome";v="119", "Chromium";v="119", "Not?A_Brand";v="24"',
+    'sec-ch-ua-mobile': '?0',
+    'sec-ch-ua-platform': '"Windows"',
+    'sec-fetch-dest': 'document',
+    'sec-fetch-mode': 'navigate',
+    'sec-fetch-site': 'same-origin',
+    'sec-fetch-user': '?1',
+    'upgrade-insecure-requests': '1',
+    'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
+}
