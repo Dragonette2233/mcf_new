@@ -8,6 +8,9 @@ def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'thr_active':
+            app_test_context.info_view._display_info(text=f"Active threads: {threading.activeCount()}", ground='white', delay=1.5)
+            # print(threading.activeCount())
         case 'my':
             app_test_context.obj_gamechecker.entry.delete(0, 'end')
             app_test_context.obj_gamechecker.entry.insert(0, 'myloveisafteryou:EUW')

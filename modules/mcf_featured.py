@@ -22,7 +22,7 @@ class MCF_Featured():
         self.entry_rift_for_storage.bind("<Return>", lambda e: self.show_parsed_games(aram=False))
 
         self.entry_rift_for_parse = mcf_styles.Entry(width=9)
-        self.entry_rift_for_parse.bind("<Return>", lambda e: self.parse_rift_games())
+        self.entry_rift_for_parse.bind("<Return>", lambda e: MCFThread(func=self.parse_rift_games).start())
 
         self.button_aram_get = mcf_styles.Button(display=master.button_images['Get'],
                                                  command=lambda: MCFThread(func=self.parse_aram_games).start())
@@ -84,7 +84,7 @@ class MCF_Featured():
 
         self.parent.info_view.notification('Wait...')
         try:
-            PoroAPI.get_poro_games(red_champion=self.entry_rift_for_parse.get(), gamemode='ranked-solo')
+            PoroAPI.get_poro_games(red_champion=self.entry_rift_for_parse.get(), gamemode='aram')
             self.parent.info_view.success('Done')
 
         except MCFException as ex:

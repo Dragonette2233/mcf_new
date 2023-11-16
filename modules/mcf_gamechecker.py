@@ -6,6 +6,7 @@ from mcf_data import currentGameData
 from mcf_threads import MCFThread
 from .mcf_decortators import disable_button_while_running
 from mcf_riot_api import (
+    TGApi,
     RiotAPI,  
     MCFException,
 )
@@ -187,8 +188,10 @@ class MCF_Gamechecker:
 
                 if response['info']['teams'][0]['win']: 
                     team = ('blue', '1')
+                    TGApi.winner_is(team='blue', kills=kills)
                 else: 
                     team = ('red', '2')
+                    TGApi.winner_is(team='red', kills=kills)
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]

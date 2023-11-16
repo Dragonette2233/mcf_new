@@ -1,8 +1,11 @@
 import tkinter as tk
 import os
+import time
+from playsound import playsound
 from mcf_threads import MCFThread
 from itertools import cycle
 from modules import mcf_styles
+from mcf_riot_api import TGApi
 from mcf_data import (
     ALL_CHAMPIONS_IDs,
     APP_ICON_PATH,
@@ -12,15 +15,15 @@ from mcf_data import (
     LOADING_STOP_PATH,
     LOADING_START_PATH,
     CHARARACTER_ICON_PATH,
+    TEEMO_SONG_PATH,
     currentGameData,
     Switches,
-    MCFStorage
+    MCFStorage,
+    MCFException,
+    MCFNoConnectionError,
+    MCFTimeoutError
 
 )
-
-class MCFException(Exception): ...
-class MCFTimeoutError(Exception): ...
-class MCFNoConnectionError(Exception): ...
 
 class Singleton(object):
     def __new__(cls, *args, **kwargs):
@@ -99,14 +102,24 @@ class MCFWindow(tk.Tk, Singleton):
         from modules.scripts import aram_porotimer_script
 
         if not Switches.timer:
-            self.info_view._display_info('Waiting for ARAM...', 'blue')
+
             Switches.timer = True
-            MCFThread(func=aram_porotimer_script.start_timer).start()
+            self.info_view._display_info('Waiting for ARAM...', 'blue')
+
+            while Switches.timer:
+                game = aram_porotimer_script.start_timer()
+                if game is not None:
+                    TGApi.display_gamestart(timer=game)
+                    self.info_view.notification(game)
+                    # playsound(TEEMO_SONG_PATH)
+                    Switches.timer = False
+                    
+                time.sleep(4)
         else:
             Switches.timer = False
             self.info_view.notification('Wait...')
             self.after(5200, lambda: self.info_view.exception('ARAM timer stopped'))
-
+       
     def change_calibration_index(self):
     
         match Switches.calibration_index:

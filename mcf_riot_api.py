@@ -1,8 +1,14 @@
 import sys
 import requests
 from bs4 import BeautifulSoup as bs
-from mcf_data import ALL_CHAMPIONS_IDs, MCFStorage
-from mcf_build import MCFException
+from mcf_data import (
+    ALL_CHAMPIONS_IDs, 
+    MCFStorage,
+    MCFTimeoutError,
+    MCFNoConnectionError,
+    MCFException
+)
+# from mcf_build import MCFException
 import logging
 from pprint import pprint
 
@@ -14,6 +20,35 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
+
+
+class TGApi:
+
+    token = '6587599071:AAF_Wb0gAO7Zw_pS5hANgUfOBnVAR_mH60A'
+    method_send = 'sendMessage'
+    method_updates = 'getUpdates'
+    tg_api_url = 'https://api.telegram.org/bot{token}/{method}'
+
+    @classmethod
+    def display_gamestart(cls, timer):
+
+        requests.post(
+            url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
+            data={'chat_id': -4077907895, 'text': f'⚪️ Игра началась -- {timer}' }
+        )
+
+    @classmethod
+    def winner_is(cls, team, kills):
+        
+        if team == 'blue':
+            message = f'🔵 П1 -- {kills}'
+        else:
+            message = f'🔴 П2 -- {kills}'
+
+        requests.post(
+            url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
+            data={'chat_id': -4077907895, 'text': message}
+        )
 
 
 class RiotAPI:
@@ -115,7 +150,7 @@ class PoroAPI:
 
         converted_champion = None
         for champion in ALL_CHAMPIONS_IDs.values():
-            if champion.capitalize().startswith(red_champion):
+            if champion.capitalize().startswith(red_champion.capitalize()):
                 converted_champion = champion.lower()
                 break
         else:
