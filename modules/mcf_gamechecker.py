@@ -207,7 +207,7 @@ class MCF_Gamechecker:
                 playsound(PAPICH_SONG_PATH)
                 finished_game.close()
             
-            time.sleep(2.2)
+            time.sleep(2.5)
 
     @connection_handler
     def show_lastgame_info(self):

@@ -78,7 +78,8 @@ class RiotAPI:
             try:
                 result = func(*args, **kwargs)
             except (requests.exceptions.ConnectTimeout, 
-                    requests.exceptions.ConnectionError):
+                    requests.exceptions.ConnectionError,
+                    requests.exceptions.ReadTimeout):
                 raise MCFException('No connection | Timeout')
             except MCFException as mcf_ex:
                 raise MCFException(str(mcf_ex))
