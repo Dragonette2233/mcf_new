@@ -15,13 +15,13 @@ class MCF_Featured():
                                           highlightthickness=1,
                                           highlightbackground='#339999') 
                             for _ in range(0, 5))
-        self.entry_aram_for_storage = mcf_styles.Entry(width=9)
+        self.entry_aram_for_storage = mcf_styles.Entry(width=12)
         self.entry_aram_for_storage.bind("<Return>", lambda e: self.show_parsed_games(aram=True))
 
         self.entry_rift_for_storage = mcf_styles.Entry(width=9)
         self.entry_rift_for_storage.bind("<Return>", lambda e: self.show_parsed_games(aram=False))
 
-        self.entry_rift_for_parse = mcf_styles.Entry(width=9)
+        self.entry_rift_for_parse = mcf_styles.Entry(width=12)
         self.entry_rift_for_parse.bind("<Return>", lambda e: MCFThread(func=self.parse_rift_games).start())
 
         self.button_aram_get = mcf_styles.Button(display=master.button_images['Get'],
@@ -32,11 +32,12 @@ class MCF_Featured():
         
         self.button_featured_games = tuple(mcf_styles.Button(i) for i in self.frames)
 
-        self.entry_aram_for_storage.place(x=16, y=253)
-        self.entry_rift_for_storage.place(x=111, y=253)
-        self.entry_rift_for_parse.place(x=111, y=183)
-        self.button_aram_get.place(x=24, y=208)
-        self.button_rift_get.place(x=119, y=210)
+        self.entry_aram_for_storage.place(x=5, y=253)
+        # self.entry_rift_for_storage.place(x=111, y=253)
+        # self.entry_rift_for_parse.place(x=111, y=183)
+        self.entry_rift_for_parse.place(x=99, y=253)
+        self.button_aram_get.place(x=24, y=198)
+        self.button_rift_get.place(x=117, y=200)
 
     def _refresh(self):
         for frame in self.frames:

@@ -691,3 +691,99 @@ Traceback (most recent call last):
   File "C:\python_field\MCF\.mcfenv\Lib\site-packages\requests\adapters.py", line 578, in send
     raise ReadTimeout(e, request=request)
 requests.exceptions.ReadTimeout: HTTPSConnectionPool(host='asia.api.riotgames.com', port=443): Read timed out. (read timeout=3)
+2023-11-19 19:23:52,071 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-19 19:23:54,381 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-19 19:24:00,028 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-20 18:34:08,781 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-20 20:59:16,642 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-20 20:59:19,339 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-20 20:59:22,495 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+2023-11-20 23:36:13,116 ERROR list index out of range
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in get_poro_games
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 206, in <listcomp>
+    ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+               ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range

@@ -6,7 +6,7 @@ from mcf_data import currentGameData
 from mcf_threads import MCFThread
 from .mcf_decortators import disable_button_while_running
 from mcf_riot_api import (
-    TGApi,
+    # TGApi,
     RiotAPI,  
     MCFException,
 )
@@ -101,8 +101,12 @@ class MCF_Gamechecker:
             return
         
         self.parent.info_view.notification('Searching...')
-    
+
+        nickname = self.entry.get()
+
         summoner_name = RiotAPI.get_summoner_by_name(region=currentGameData.region, name=summoner_name[0])
+
+        print(summoner_name)
         
         if summoner_name.get('status'):
             self.parent.info_view.exception('Summoner not found')
@@ -115,6 +119,7 @@ class MCF_Gamechecker:
             
         # Writing nick and region to json
         MCFStorage.write_data(route=('CheckerLast',), value=self.entry.get())
+        
         
         if response_activegame.status_code != 200:
             self.parent.info_view.notification('Loading last game')
@@ -138,6 +143,8 @@ class MCF_Gamechecker:
             self.spectate_button.place(x=427, y=342)
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
+
+        # TGApi.notification(nickname)
         # canvas.info_manager(forget=True)
     
     def spectate_active_game(self):
@@ -188,10 +195,10 @@ class MCF_Gamechecker:
 
                 if response['info']['teams'][0]['win']: 
                     team = ('blue', '1')
-                    TGApi.winner_is(team='blue', kills=kills)
+                    # TGApi.winner_is(team='blue', kills=kills)
                 else: 
                     team = ('red', '2')
-                    TGApi.winner_is(team='red', kills=kills)
+                    # TGApi.winner_is(team='red', kills=kills)
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]

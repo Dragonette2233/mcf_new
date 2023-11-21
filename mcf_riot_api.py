@@ -28,13 +28,21 @@ class TGApi:
     method_send = 'sendMessage'
     method_updates = 'getUpdates'
     tg_api_url = 'https://api.telegram.org/bot{token}/{method}'
+    CHAT_ID = -1002035939659
+
+    @classmethod
+    def notification(cls, nickname: str):
+        requests.post(
+            url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
+            data={'chat_id': cls.CHAT_ID, 'text': f'⚪️ Nickname -- {nickname}' }
+        )
 
     @classmethod
     def display_gamestart(cls, timer):
 
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
-            data={'chat_id': -4077907895, 'text': f'⚪️ Игра началась -- {timer}' }
+            data={'chat_id': cls.CHAT_ID, 'text': f'⚪️ Игра началась -- {timer}' }
         )
 
     @classmethod

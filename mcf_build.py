@@ -109,7 +109,7 @@ class MCFWindow(tk.Tk, Singleton):
             while Switches.timer:
                 game = aram_porotimer_script.start_timer()
                 if game is not None:
-                    TGApi.display_gamestart(timer=game)
+                    # TGApi.display_gamestart(timer=game)
                     self.info_view.notification(game)
                     # playsound(TEEMO_SONG_PATH)
                     Switches.timer = False
