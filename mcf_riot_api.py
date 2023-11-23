@@ -55,7 +55,7 @@ class TGApi:
 
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
-            data={'chat_id': -4077907895, 'text': message}
+            data={'chat_id': cls.CHAT_ID, 'text': message}
         )
 
 
@@ -202,8 +202,23 @@ class PoroAPI:
             for i, champ in enumerate(game):
                 if len(champ.get('class')) == 0:
                    del game[i]
-            
-            ids = [int(str(ids.get('class')).split('-')[1]) for ids in game[0:5]]
+
+            ids = []
+
+            for info_stroke in game:
+                # print(info_stroke)
+                champ_id_wieght = info_stroke.get('class')
+                # print(id_)
+                if len(champ_id_wieght) > 0:
+                    ids.append(int(champ_id_wieght[0].split('-')[1]))
+                    
+                #     ids.append(int(id_[1]))
+            # ids = [int(str(id.get('class')).split('-')[1]) for id in game]
+            # try:
+
+            #     ids = [int(str(id.get('class')).split('-')[1]) for id in game]
+            # except IndexError:
+            #     ...
             converted_ids = [ALL_CHAMPIONS_IDs.get(i) for i in ids]
             games['champions'].append(converted_ids)
 
@@ -212,7 +227,7 @@ class PoroAPI:
 
         for c, n, r in zip(games['champions'], games['nicknames'], games['regions']): # games['elorank']):
             featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
-
+        # print(featured_games)
         MCFStorage.write_data(route=('MatchesRift', ), value=featured_games)
       
         

@@ -6,7 +6,7 @@ from mcf_data import currentGameData
 from mcf_threads import MCFThread
 from .mcf_decortators import disable_button_while_running
 from mcf_riot_api import (
-    # TGApi,
+    TGApi,
     RiotAPI,  
     MCFException,
 )
@@ -144,7 +144,7 @@ class MCF_Gamechecker:
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
 
-        # TGApi.notification(nickname)
+        TGApi.notification(nickname)
         # canvas.info_manager(forget=True)
     
     def spectate_active_game(self):
@@ -195,10 +195,10 @@ class MCF_Gamechecker:
 
                 if response['info']['teams'][0]['win']: 
                     team = ('blue', '1')
-                    # TGApi.winner_is(team='blue', kills=kills)
+                    TGApi.winner_is(team='blue', kills=kills)
                 else: 
                     team = ('red', '2')
-                    # TGApi.winner_is(team='red', kills=kills)
+                    TGApi.winner_is(team='red', kills=kills)
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]
