@@ -216,6 +216,7 @@ class Switches:
     after_delay = None
     calibration_index = 0
     timer = None
+    autobot = False
 
     def __str__(self) -> str:
         return f"""

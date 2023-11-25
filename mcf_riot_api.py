@@ -197,6 +197,8 @@ class PoroAPI:
             'elorank': [team.find('div', class_='subname').text.strip() for i, team in enumerate(soup) if i % 2 == 0]
         }
 
+        pprint(games)
+
         for game in games['teams']:
             
             for i, champ in enumerate(game):

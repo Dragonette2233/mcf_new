@@ -106,7 +106,7 @@ class MCF_Gamechecker:
 
         summoner_name = RiotAPI.get_summoner_by_name(region=currentGameData.region, name=summoner_name[0])
 
-        print(summoner_name)
+        # print(summoner_name)
         
         if summoner_name.get('status'):
             self.parent.info_view.exception('Summoner not found')
@@ -125,7 +125,7 @@ class MCF_Gamechecker:
             self.parent.info_view.notification('Loading last game')
             self.show_lastgame_info()
         else:
-        
+            
             '''Запрос активной игры'''
 
             currentGameData.response = response_activegame.json()
@@ -136,15 +136,16 @@ class MCF_Gamechecker:
             
             champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
             
-            print(champions_names)
+            # print(champions_names)
 
             self.parent.place_character_icons(champions_names)
             
             self.spectate_button.place(x=427, y=342)
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
+            TGApi.notification(nickname)
 
-        TGApi.notification(nickname)
+        return 0
         # canvas.info_manager(forget=True)
     
     def spectate_active_game(self):
