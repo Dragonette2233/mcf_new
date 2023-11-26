@@ -1027,3 +1027,79 @@ Traceback (most recent call last):
     id_ = info_stroke.get('class')[0]
           ~~~~~~~~~~~~~~~~~~~~~~~~^^^
 IndexError: list index out of range
+2023-11-26 00:51:18,476 ERROR ResultSet object has no attribute 'text'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 195, in get_poro_games
+    'nicknames': [team.find_all('div', class_='name').text.strip() for i, team in enumerate(soup) if i % 2 == 0],
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 195, in <listcomp>
+    'nicknames': [team.find_all('div', class_='name').text.strip() for i, team in enumerate(soup) if i % 2 == 0],
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\bs4\element.py", line 2289, in __getattr__
+    raise AttributeError(
+AttributeError: ResultSet object has no attribute 'text'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+2023-11-26 00:52:18,467 ERROR ResultSet object has no attribute 'text'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 195, in get_poro_games
+    'nicknames': [team.find_all_next('div', class_='name').text.strip() for i, team in enumerate(soup) if i % 2 == 0],
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 195, in <listcomp>
+    'nicknames': [team.find_all_next('div', class_='name').text.strip() for i, team in enumerate(soup) if i % 2 == 0],
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\bs4\element.py", line 2289, in __getattr__
+    raise AttributeError(
+AttributeError: ResultSet object has no attribute 'text'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+2023-11-26 00:52:44,145 ERROR ResultSet object has no attribute 'find_all'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 200, in get_poro_games
+    print(soup.find_all('div', class_='name'))
+          ^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\bs4\element.py", line 2289, in __getattr__
+    raise AttributeError(
+AttributeError: ResultSet object has no attribute 'find_all'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+2023-11-26 00:54:30,529 ERROR ResultSet object has no attribute 'text'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 201, in get_poro_games
+    print(i.find_all('div', class_='name').text.strip())
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\bs4\element.py", line 2289, in __getattr__
+    raise AttributeError(
+AttributeError: ResultSet object has no attribute 'text'. You're probably treating a list of elements like a single element. Did you call find_all() when you meant to call find()?
+2023-11-26 00:55:13,157 ERROR 'NavigableString' object has no attribute 'find_all'
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 201, in get_poro_games
+    print([ch.find_all('div', class_='name').text.strip() for ch in i])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 201, in <listcomp>
+    print([ch.find_all('div', class_='name').text.strip() for ch in i])
+           ^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\bs4\element.py", line 965, in __getattr__
+    raise AttributeError(
+AttributeError: 'NavigableString' object has no attribute 'find_all'
+2023-11-26 01:04:14,148 ERROR cannot access free variable 'r' where it is not associated with a value in enclosing scope
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 203, in get_poro_games
+    nicknames_regions = [f"{n}:{r.split('/')[2].upper()}".join('_') for n in nicknames]
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_riot_api.py", line 203, in <listcomp>
+    nicknames_regions = [f"{n}:{r.split('/')[2].upper()}".join('_') for n in nicknames]
+                                ^
+NameError: cannot access free variable 'r' where it is not associated with a value in enclosing scope

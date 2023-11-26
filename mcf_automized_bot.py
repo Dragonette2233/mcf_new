@@ -27,7 +27,11 @@ def run_autobot():
         Switches.autobot = True
         while Switches.autobot:
             aram_porotimer()
+            app_blueprint.refresh()
             open_stream_source()
+    else:
+        Switches.autobot = False
+        Switches.loop_validator
 
 def aram_porotimer():
         from modules.scripts import aram_porotimer_script
@@ -73,15 +77,15 @@ def open_stream_source():
             app_blueprint.info_view.exception('No stream finded yet')
             continue
 
-    time.sleep(1.5)
+    # time.sleep(1.5)
     pyautogui.click(x=1897, y=97)
     time.sleep(4)
     pyautogui.click(x=1871, y=354)
     time.sleep(1.5)
 
-    loop_validation = True
+    Switches.loop_validation = True
     
-    while loop_validation:
+    while Switches.loop_validation:
         app_blueprint.obj_tophead.pillow_icons_recognition()
         team_blue = app_blueprint.obj_aram.blue_entry.get().split()
         team_red = app_blueprint.obj_aram.red_entry.get().split()
@@ -91,6 +95,7 @@ def open_stream_source():
             continue
         else:
             for char_b, char_r in zip(team_blue, team_red):
+
                 try:
                     PoroAPI.get_poro_games(red_champion=char_r, gamemode='aram')
                     app_blueprint.obj_featured.parent.info_view.success('Done')
@@ -106,7 +111,7 @@ def open_stream_source():
                      
                             set_1 = set(team_blue)
                             set_2 = set(charlist.split('-|-')[0].split(' | '))
-                            nickname = charlist.split('-|-')[1]
+                            nicknames = charlist.split('-|-')[1].split('_|_')
 
                             print(set_1)
                             print(set_2)
@@ -116,22 +121,28 @@ def open_stream_source():
                             # Проверка наличия хотя бы трех общих элементов
                             if len(common_elements) >= 3:
                                 print("Есть хотя бы три совпадающих элемента:", common_elements)
-                                app_blueprint.obj_gamechecker.entry.delete(0, 'end')
-                                app_blueprint.obj_gamechecker.entry.insert(0, nickname)
-                                app_blueprint.obj_gamechecker.search_for_game()
-                                # print(check_status)
-                                if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
-                                    app_blueprint.obj_gamechecker.awaiting_game_end()
-                                    loop_validation = False
-                                    break
+                                # app_blueprint.obj_gamechecker.entry.delete(0, 'end')
+                                print(nicknames)
+                                for nick in nicknames:
+                                    app_blueprint.obj_gamechecker.entry.delete(0, 'end')
+                                    app_blueprint.obj_gamechecker.entry.insert(0, nick)
+                                    app_blueprint.obj_gamechecker.search_for_game()
+    
+                                    if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
+                                        driver.quit()
+                                        Switches.loop_validation = False
+                                        app_blueprint.obj_gamechecker.awaiting_game_end()
+                                        
+                                        
+                                        break
                                 break
                             else:
                                 print("Недостаточно совпадающих элементов.")
+                    
                 except MCFException as ex:
                     app_blueprint.info_view.exception(str(ex))
                     break
+                # break
         
-        time.sleep(3.5)
+        # time.sleep(3.5)
         # app_blueprint.info_view.success('Bot test success')
-
-    driver.quit()

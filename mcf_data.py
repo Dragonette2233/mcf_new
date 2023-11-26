@@ -217,6 +217,7 @@ class Switches:
     calibration_index = 0
     timer = None
     autobot = False
+    loop_validator = False
 
     def __str__(self) -> str:
         return f"""

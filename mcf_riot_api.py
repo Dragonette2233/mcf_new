@@ -192,12 +192,17 @@ class PoroAPI:
         games = {
             'teams': [team.find_all('img') for i, team in enumerate(soup) if i % 2 == 0],
             'champions': [],
-            'nicknames': [team.find('div', class_='name').text.strip() for i, team in enumerate(soup) if i % 2 == 0],
+            # 'nicknames': [team.find('div', class_='name').text.strip() for i, team in enumerate(soup) if i % 2 == 0],
             'regions': [team.find('a', class_='liveGameLink').get('href') for i, team in enumerate(soup) if i % 2 == 0],
             'elorank': [team.find('div', class_='subname').text.strip() for i, team in enumerate(soup) if i % 2 == 0]
         }
 
-        pprint(games)
+
+        nicknames = [[ch.text.strip() for ch in team.find_all('div', class_='name')] for i, team in enumerate(soup) if i % 2 == 0]
+
+        # print(nicknames)
+        
+
 
         for game in games['teams']:
             
@@ -227,8 +232,15 @@ class PoroAPI:
         featured_games = []
        
 
-        for c, n, r in zip(games['champions'], games['nicknames'], games['regions']): # games['elorank']):
-            featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
+        for c, n, r in zip(games['champions'], nicknames, games['regions']): # games['elorank']):
+            
+            champs = ' | '.join(c)
+            names_region = '_|_'.join([f"{name}:{r.split('/')[2].upper()}" for name in n])
+            whole_string = f"{champs}-|-{names_region}"
+            print(whole_string)
+#
+            # featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
+            featured_games.append(whole_string)
         # print(featured_games)
         MCFStorage.write_data(route=('MatchesRift', ), value=featured_games)
       

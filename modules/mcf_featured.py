@@ -60,7 +60,7 @@ class MCF_Featured():
         characters, nickname = data.split('-|-')
 
         button.configure(
-            command= lambda: create_command_for_button(nickname),
+            command= lambda: create_command_for_button(nickname.split('_|_')[0]),
             text=characters
         )
 
