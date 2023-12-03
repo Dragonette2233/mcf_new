@@ -1103,3 +1103,573 @@ Traceback (most recent call last):
     nicknames_regions = [f"{n}:{r.split('/')[2].upper()}".join('_') for n in nicknames]
                                 ^
 NameError: cannot access free variable 'r' where it is not associated with a value in enclosing scope
+2023-11-28 12:48:18,140 ERROR Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-28 12:48:18,142 ERROR Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-28 12:48:18,143 ERROR Task exception was never retrieved
+future: <Task finished name='Task-17' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-29 18:45:19,165 ERROR Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-29 18:45:19,167 ERROR Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-29 18:45:19,168 ERROR Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-11-29 18:45:19,168 ERROR Task exception was never retrieved
+future: <Task finished name='Task-17' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2023-12-03 22:08:14,870 ERROR Task exception was never retrieved
+future: <Task finished name='Task-17' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,873 ERROR Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,874 ERROR Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,875 ERROR Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,876 ERROR Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,878 ERROR Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,879 ERROR Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,881 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,882 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,883 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,885 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,886 ERROR Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,888 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,890 ERROR Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:08:14,891 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=AttributeError("type object 'PoroAPI' has no attribute '__headers_timeout'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 31, in parsing
+    **PoroAPI.__headers_timeout) as response:
+      ^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'PoroAPI' has no attribute '__headers_timeout'
+2023-12-03 22:10:11,543 ERROR Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/vn/garenqueue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/vn/garenqueue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:02 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-6', 'cv': 'CV-PcTTAoJ3zeAh', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.json()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/vn/garenqueue-450')
+2023-12-03 22:10:11,545 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/euw/garenqueue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/euw/garenqueue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:02 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-18', 'cv': 'CV-fqlvlslPVIM1', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4563', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.json()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/euw/garenqueue-450')
+2023-12-03 22:10:11,547 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/eune/garenqueue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/eune/garenqueue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:02 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-5', 'cv': 'CV-7C8kSqBKaW95', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4565', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.json()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/eune/garenqueue-450')
+2023-12-03 22:10:11,549 ERROR Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/oce/garenqueue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/oce/garenqueue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:02 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-0', 'cv': 'CV-JldTTDyhRiHq', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4563', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.json()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/oce/garenqueue-450')
+2023-12-03 22:10:11,550 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/lan/garenqueue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/lan/garenqueue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:02 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-20', 'cv': 'CV-QURIgnz4aKOM', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4562', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.json()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/lan/garenqueue-450')
+2023-12-03 22:11:31,057 ERROR Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/th/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/th/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-19', 'cv': 'CV-toRq05VSKxKC', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/th/garen/queue-450')
+2023-12-03 22:11:31,059 ERROR Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/ph/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/ph/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-19', 'cv': 'CV-3iCs4Qg7UDcB', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4563', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/ph/garen/queue-450')
+2023-12-03 22:11:31,062 ERROR Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/sg/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/sg/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-9', 'cv': 'CV-pEbe8na0VwA3', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4562', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/sg/garen/queue-450')
+2023-12-03 22:11:31,064 ERROR Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/vn/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/vn/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-19', 'cv': 'CV-TL2CsKim4FFX', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/vn/garen/queue-450')
+2023-12-03 22:11:31,065 ERROR Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/jp/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/jp/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-13', 'cv': 'CV-IR3khw2B7eZI', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4563', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/jp/garen/queue-450')
+2023-12-03 22:11:31,067 ERROR Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/kr/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/kr/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-16', 'cv': 'CV-xtJHwh6i6jBG', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/kr/garen/queue-450')
+2023-12-03 22:11:31,069 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/ru/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/ru/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-2', 'cv': 'CV-pmQ3vmjXc93J', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/ru/garen/queue-450')
+2023-12-03 22:11:31,071 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/tr/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/tr/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-14', 'cv': 'CV-TPGasr5CIoBq', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4563', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/tr/garen/queue-450')
+2023-12-03 22:11:31,073 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/eune/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/eune/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-5', 'cv': 'CV-HzC9AY7InHYE', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4567', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/eune/garen/queue-450')
+2023-12-03 22:11:31,075 ERROR Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/oce/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/oce/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-15', 'cv': 'CV-0s9st8Rfl4BF', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/oce/garen/queue-450')
+2023-12-03 22:11:31,077 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/las/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/las/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-0', 'cv': 'CV-dr8G3Az3Njqj', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/las/garen/queue-450')
+2023-12-03 22:11:31,079 ERROR Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/na/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/na/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-5', 'cv': 'CV-L4NfeOxRUJRn', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4563', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/na/garen/queue-450')
+2023-12-03 22:11:31,081 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=ContentTypeError(RequestInfo(url=URL('https://porofessor.gg/current-games/lan/garen/queue-450'), method='GET', headers=<CIMultiDictProxy('Host': 'porofessor.gg', 'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate')>, real_url=URL('https://porofessor.gg/current-games/lan/garen/queue-450')), (), message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', headers=<CIMultiDictProxy('Date': 'Sun, 03 Dec 2023 19:10:38 GMT', 'x-frame-options': 'SAMEORIGIN', 'fid': 'www-10', 'cv': 'CV-BLVxWdeeGys8', 'Vary': 'Accept-Encoding', 'Content-Encoding': 'gzip', 'Content-Length': '4564', 'Content-Type': 'text/html; charset=UTF-8')>)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 35, in parsing
+    result = await response.text()
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html; charset=utf-8', url=URL('https://porofessor.gg/current-games/lan/garen/queue-450')
+2023-12-03 22:12:04,685 ERROR Task exception was never retrieved
+future: <Task finished name='Task-17' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,691 ERROR Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,693 ERROR Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,695 ERROR Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,697 ERROR Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,698 ERROR Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,700 ERROR Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,702 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,703 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,705 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,707 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,709 ERROR Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,710 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,712 ERROR Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:12:04,714 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 84, in parsing
+    MCFStorage.write_data(route=('MatchesRift', region), value=featured_games)
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-03 22:29:28,304 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=UnboundLocalError("cannot access local variable 'result' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 33, in parsing
+    open(f'{region}_porodata.html', 'w+', encoding='utf8').write(result)
+                                                                 ^^^^^^
+UnboundLocalError: cannot access local variable 'result' where it is not associated with a value
+2023-12-03 22:29:28,306 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:26> exception=UnboundLocalError("cannot access local variable 'result' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 33, in parsing
+    open(f'{region}_porodata.html', 'w+', encoding='utf8').write(result)
+                                                                 ^^^^^^
+UnboundLocalError: cannot access local variable 'result' where it is not associated with a value
+2023-12-03 22:32:45,859 ERROR Task exception was never retrieved
+future: <Task finished name='Task-17' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,861 ERROR Task exception was never retrieved
+future: <Task finished name='Task-16' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,862 ERROR Task exception was never retrieved
+future: <Task finished name='Task-15' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,863 ERROR Task exception was never retrieved
+future: <Task finished name='Task-14' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,864 ERROR Task exception was never retrieved
+future: <Task finished name='Task-13' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,865 ERROR Task exception was never retrieved
+future: <Task finished name='Task-12' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,866 ERROR Task exception was never retrieved
+future: <Task finished name='Task-11' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,867 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,868 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,869 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,870 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,871 ERROR Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,872 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,873 ERROR Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-03 22:32:45,874 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_poro_games.py:25> exception=TypeError("unsupported operand type(s) for ** or pow(): 'str' and 'dict'")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_poro_games.py", line 34, in parsing
+    async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'

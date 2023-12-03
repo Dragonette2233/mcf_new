@@ -196,10 +196,10 @@ class MCF_Gamechecker:
 
                 if response['info']['teams'][0]['win']: 
                     team = ('blue', '1')
-                    TGApi.winner_is(team='blue', kills=kills)
+                    TGApi.winner_is(team='blue', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
                 else: 
                     team = ('red', '2')
-                    TGApi.winner_is(team='red', kills=kills)
+                    TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]

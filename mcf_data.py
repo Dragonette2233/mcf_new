@@ -106,6 +106,7 @@ APP_TITLE = 'mcf_development'
 ELO_SYMBOLS = ('BR', 'CH', 'DI', 'GO', 'GR', 'IR', 'MA', 'PL', 'PP', 'SI', 'UN')
 SPECTATOR_MODE = 'spectator-consumer.{reg}.lol.pvp.net:80'
 FEATURED_GAMES_URL = "https://{region}.api.riotgames.com/lol/spectator/v4/featured-games"
+URL_PORO_BY_REGIONS = "https://porofessor.gg/current-games/{champion}/{region}/queue-450"
 REGIONS_TUPLE = (
     ('br', 'br1', 'americas'), ('lan', 'la1', 'americas'),
     ('na', 'na1', 'americas'), ('las', 'la2', 'americas'),

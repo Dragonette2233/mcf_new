@@ -49,7 +49,7 @@ def start_timer():
             actual_time = gametime.strip().split(' / ')[0]
             minutes = actual_time.split(':')[0]
 
-            if minutes in ('00', '01', '02', '03', '04', '05', '06', '07'):
+            if minutes in ('00', '01', '02', '03', '04', '05'):
                 return str(actual_time)
             
     

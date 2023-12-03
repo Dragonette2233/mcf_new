@@ -91,13 +91,17 @@ class MCFWindow(tk.Tk, Singleton):
         self.obj_aram = mcf_aram.MCF_Aram(self)
         self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
         self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
-        self.rmc_menu = RMCMenu(self, self.canvas)
+        # self.rmc_menu = RMCMenu(self)
+        self.context_menu = tk.Menu(tearoff=0)
         self.character_icons = {
             name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
             if name != ('Kayn_b')
         }
         self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
     
+    def rmc_callback(self, event):
+        self.context_menu.post(event.x_root, event.y_root)
+
     def aram_porotimer(self):
         from modules.scripts import aram_porotimer_script
 
@@ -114,6 +118,7 @@ class MCFWindow(tk.Tk, Singleton):
                     playsound(TEEMO_SONG_PATH)
                     Switches.timer = False
                     
+                    
                 time.sleep(4)
         else:
             Switches.timer = False
@@ -125,19 +130,22 @@ class MCFWindow(tk.Tk, Singleton):
         match Switches.calibration_index:
             case 0:
                 Switches.calibration_index = 1
-                text, ground = 'PIL Calibration [1]', '#7718C3'
+                self.info_view.success("Calibration 1")
+                # text, ground = 'PIL Calibration [1]', '#7718C3'
             case 1:
                 Switches.calibration_index = 2
-                text, ground = 'PIL Calibration [2]', '#7718C3'
+                self.info_view.success("Calibration 2")
+                # text, ground = 'PIL Calibration [2]', '#7718C3'
             case 2:
                 Switches.calibration_index = 0
-                text, ground = 'PIL Calibration', 'black'
+                self.info_view.exception("Calibration OFF")
+                # text, ground = 'PIL Calibration', 'black'
             case _:
                 Switches.calibration_index = 0
-                text, ground = 'PIL Calibration', 'black'
+                # text, ground = 'PIL Calibration', 'black'
                 self.info_view.exception('Unknown error')
         
-        self.rmc_menu.buttons['PIL Calibration'].configure(fg=ground, text=text)
+        # self.rmc_menu.buttons['PIL Calibration'].configure(fg=ground, text=text)
         
     def close_league_of_legends(self):
 
@@ -324,6 +332,13 @@ class MCFInfo(tk.Frame, Singleton):
     
     def __init__(self, master) -> None:
         ...
+
+class RMCMenu(tk.Menu):
+
+    def __init__(self, master: MCFWindow):
+        tk.Menu.__init__(self, master)
+        file_menu = tk.Menu(self, tearoff=0)
+        # master.config(menu=self)
 
 class RMCMenu(tk.Frame):
     def __init__(self, supermaster: MCFWindow, master: MCFCanvas):

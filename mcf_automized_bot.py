@@ -3,6 +3,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver.support import expected_conditions as EC
+from modules.scripts import async_poro_games
 from mcf_threads import MCFThread
 from playsound import playsound
 from mcf_data import (
@@ -51,8 +52,69 @@ def aram_porotimer():
                     
                     
                 time.sleep(4)
-            
 
+def run_autoscanner():
+
+    Switches.loop_validator = True
+    while Switches.loop_validator:
+        app_blueprint.obj_tophead.pillow_icons_recognition()
+        team_blue = app_blueprint.obj_aram.blue_entry.get().split()
+        team_red = app_blueprint.obj_aram.red_entry.get().split()
+
+        if len(team_blue) < 4 and len(team_red) < 3:
+            app_blueprint.info_view.exception('Recognizing Failed. Continue...')
+            continue
+        else:
+            for char_b, char_r in zip(team_blue, team_red):
+
+                try:
+                    # PoroAPI.get_poro_games(red_champion=char_r, gamemode='aram')
+                    async_poro_games.parse_games(champion_name=char_r)
+                    app_blueprint.obj_featured.parent.info_view.success('Done')
+
+                except MCFException as ex:
+                    app_blueprint.info_view.exception(str(ex))
+                    break
+                
+                try:
+                    games_by_character = storage_data.get_games_by_character(character=char_b, aram=True) # Characters-|-nickname:region
+                    # print(games_by_character)
+                    if games_by_character is not None:
+                        for charlist in games_by_character:
+                     
+                            set_1 = set(team_blue)
+                            set_2 = set(charlist.split('-|-')[0].split(' | '))
+                            nicknames = charlist.split('-|-')[1].split('_|_')
+
+                            # print(set_1)
+                            # print(set_2)
+                            # Нахождение пересечения множеств
+                            common_elements = set_1.intersection(set_2)
+
+                            # Проверка наличия хотя бы трех общих элементов
+                            if len(common_elements) >= 3:
+                                
+                                for nick in nicknames:
+                                    app_blueprint.obj_gamechecker.entry.delete(0, 'end')
+                                    app_blueprint.obj_gamechecker.entry.insert(0, nick)
+                                    app_blueprint.obj_gamechecker.search_for_game()
+    
+                                    if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
+                                        Switches.loop_validator = False
+                                        app_blueprint.obj_gamechecker.awaiting_game_end()
+                                        return
+                                break
+                            else:
+                                continue
+                        else:
+                            Switches.loop_validator = False
+                            app_blueprint.info_view.exception('Game not founded')
+                            break
+                    
+                except MCFException as ex:
+                    app_blueprint.info_view.exception(str(ex))
+                    break
+            
 def open_stream_source():
 
     btn_stream = '//*[@id="app"]/div[3]/div/div/div[2]/main/div[2]/div/div/div[2]/div/ul/li/ul/li/div[1]/span[2]/span[2]/span/button'

@@ -2,12 +2,15 @@ from mcf_build import MCFWindow
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
 from mcf_data import Switches
+from modules.scripts import async_poro_games
 import threading
 
 def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'tall_test':
+            async_poro_games.parse_games('lebl')
         case 'thr_active':
             app_test_context.info_view._display_info(text=f"Active threads: {threading.activeCount()}", ground='white', delay=1.5)
             # print(threading.activeCount())

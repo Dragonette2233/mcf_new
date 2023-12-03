@@ -46,12 +46,12 @@ class TGApi:
         )
 
     @classmethod
-    def winner_is(cls, team, kills):
+    def winner_is(cls, team, kills, timestamp):
         
         if team == 'blue':
-            message = f'🔵 П1 -- {kills}'
+            message = f'🔵 П1 -- {kills} -- {timestamp}'
         else:
-            message = f'🔴 П2 -- {kills}'
+            message = f'🔴 П2 -- {kills} -- {timestamp}'
 
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
@@ -142,13 +142,13 @@ class PoroAPI:
             "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" },
         'timeout': 3
     }
-    __link_rnk_solo = 'https://porofessor.gg/current-games/{champion}/queue-420'
-    __link_rnk_flex = 'https://porofessor.gg/current-games/{champion}/queue-440'
-    __link_aram = 'https://porofessor.gg/current-games/{champion}/queue-450'
+    # __link_rnk_solo = 'https://porofessor.gg/current-games/{champion}/queue-420'
+    # __link_rnk_flex = 'https://porofessor.gg/current-games/{champion}/queue-440'
+    __link_aram = 'https://porofessor.gg/current-games/{region}/{champion}/queue-450'
 
     @RiotAPI.connection_handler
     @staticmethod
-    def get_poro_games(red_champion: str = None, gamemode: str = None):
+    def get_poro_games(region: str, red_champion):
         """
             Avaliable gamemods: aram | ranked-flex | ranked-solo
 
@@ -173,15 +173,10 @@ class PoroAPI:
             case _:
                 pass
 
-        match gamemode:
-            case 'aram':
-                url = PoroAPI.__link_aram.format(champion=converted_champion)
-            case 'ranked-flex':
-                url = PoroAPI.__link_rnk_flex.format(champion=converted_champion)
-            case 'ranked-solo':
-                url = PoroAPI.__link_rnk_solo.format(champion=converted_champion)
-            case _:
-                raise MCFException('This gamemod is unaccesible')
+        try:
+            url = PoroAPI.__link_aram.format(champion=converted_champion)
+        except:
+            raise MCFException('This gamemod is unaccesible')
                 
         result = requests.get(url, **PoroAPI.__headers_timeout)
         soup: bs = bs(result.text, "html.parser").find_all('div', class_='cardTeam')
