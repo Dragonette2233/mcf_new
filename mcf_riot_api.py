@@ -31,10 +31,12 @@ class TGApi:
     CHAT_ID = -1002035939659
 
     @classmethod
-    def notification(cls, nickname: str):
+    def gamestart_notification(cls, nickname: str):
+
+        
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
-            data={'chat_id': cls.CHAT_ID, 'text': f'⚪️ Nickname -- {nickname}' }
+            data={'chat_id': cls.CHAT_ID, 'text': f'⚪️ ARAM | {nickname}' }
         )
 
     @classmethod
@@ -144,11 +146,11 @@ class PoroAPI:
     }
     # __link_rnk_solo = 'https://porofessor.gg/current-games/{champion}/queue-420'
     # __link_rnk_flex = 'https://porofessor.gg/current-games/{champion}/queue-440'
-    __link_aram = 'https://porofessor.gg/current-games/{region}/{champion}/queue-450'
+    __link_aram = 'https://porofessor.gg/current-games/{champion}/queue-450'
 
     @RiotAPI.connection_handler
     @staticmethod
-    def get_poro_games(region: str, red_champion):
+    def get_poro_games(red_champion):
         """
             Avaliable gamemods: aram | ranked-flex | ranked-solo
 
@@ -232,7 +234,7 @@ class PoroAPI:
             champs = ' | '.join(c)
             names_region = '_|_'.join([f"{name}:{r.split('/')[2].upper()}" for name in n])
             whole_string = f"{champs}-|-{names_region}"
-            print(whole_string)
+            # print(whole_string)
 #
             # featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
             featured_games.append(whole_string)

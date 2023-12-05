@@ -1673,3 +1673,105 @@ Traceback (most recent call last):
     async with session.get(url=URL_PORO_BY_REGIONS.format(region=region, champion=champion)
                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: unsupported operand type(s) for ** or pow(): 'str' and 'dict'
+2023-12-04 01:48:30,521 ERROR PoroAPI.get_poro_games() got an unexpected keyword argument 'gamemode'
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: PoroAPI.get_poro_games() got an unexpected keyword argument 'gamemode'
+2023-12-04 13:41:27,460 ERROR PoroAPI.get_poro_games() got an unexpected keyword argument 'gamemode'
+Traceback (most recent call last):
+  File "C:\python_field\MCF\mcf_riot_api.py", line 87, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: PoroAPI.get_poro_games() got an unexpected keyword argument 'gamemode'
+2023-12-04 13:44:19,417 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('MatchesAPI')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~^^^^^^^^^^
+KeyError: 'MatchesAPI'
+2023-12-04 13:44:19,419 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('MatchesAPI')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~^^^^^^^^^^
+KeyError: 'MatchesAPI'
+2023-12-04 13:44:19,421 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('MatchesAPI')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~^^^^^^^^^^
+KeyError: 'MatchesAPI'
+2023-12-04 13:44:19,422 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('MatchesAPI')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~^^^^^^^^^^
+KeyError: 'MatchesAPI'
+2023-12-04 13:44:19,423 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('MatchesAPI')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~^^^^^^^^^^
+KeyError: 'MatchesAPI'
+2023-12-04 13:45:02,460 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-04 13:45:02,462 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-04 13:45:02,464 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-04 13:45:02,466 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-04 13:45:02,469 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 170, in write_data
+    data[route[0]][route[1]] = value
+    ~~~~~~~~~~~~~~^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str

@@ -17,7 +17,7 @@ class MCF_Featured():
                                           highlightbackground='#339999') 
                             for _ in range(0, 5))
         self.entry_aram_for_storage = mcf_styles.Entry(width=12)
-        self.entry_aram_for_storage.bind("<Return>", lambda e: self.show_parsed_games(aram=True))
+        self.entry_aram_for_storage.bind("<Return>", lambda e: self.show_parsed_games(state='aram_api'))
 
         # self.entry_rift_for_storage = mcf_styles.Entry(width=9)
         # self.entry_rift_for_storage.bind("<Return>", lambda e: self.show_parsed_games(aram=False))
@@ -95,7 +95,7 @@ class MCF_Featured():
         self.parent.info_view.notification('Wait...')
         
         try:
-            PoroAPI.get_poro_games(red_champion=player_red, gamemode='aram')
+            PoroAPI.get_poro_games(red_champion=player_red)
             self.parent.info_view.success('Done')
 
         except MCFException as ex:
@@ -108,7 +108,7 @@ class MCF_Featured():
 
         # print(player_blue, player_red)
         try:
-            games_by_character = storage_data.get_games_by_character(character=player_blue, aram=False) # Characters-|-nickname:region
+            games_by_character = storage_data.get_games_by_character(character=player_blue, state='aram_poro') # Characters-|-nickname:region
         except MCFException as ex:
             self.parent.info_view.exception(str(ex))
             games_by_character = None
@@ -132,16 +132,16 @@ class MCF_Featured():
                         pass
             
     
-    def show_parsed_games(self, aram: bool):
+    def show_parsed_games(self, state: str = ''):
         from .scripts import storage_data
 
-        if aram:
+        if state == 'aram_api':
             character = self.entry_aram_for_storage.get()
         else:
             character = self.entry_rift_for_storage.get()
 
         try:
-            games_by_character = storage_data.get_games_by_character(character=character, aram=aram) # Characters-|-nickname:region
+            games_by_character = storage_data.get_games_by_character(character=character, state=state) # Characters-|-nickname:region
         except MCFException as ex:
             self.parent.info_view.exception(str(ex))
             games_by_character = None

@@ -10,16 +10,18 @@ from mcf_data import (
 
 """
 
-def get_games_by_character(character: str, aram=True):
+def get_games_by_character(character: str, state: str = ''):
 
     for symbol in punctuation + digits + whitespace:
         if symbol in character:
             raise MCFException('Exclude wrong symbol and try again')
-                
-    if aram:
+    
+    if state == 'aram_api':
+        matches_by_regions = MCFStorage.get_selective_data(route=('MatchesAPI', ))
+        all_matches = [item for sublist in matches_by_regions.values() for item in sublist]
+    elif state == 'aram_poro':
         matches_by_regions = MCFStorage.get_selective_data(route=('MatchesARAM', ))
         all_matches = [item for sublist in matches_by_regions.values() for item in sublist]
-
     else:
         all_matches = MCFStorage.get_selective_data(route=('MatchesRift', ))
         
@@ -37,8 +39,8 @@ def get_games_by_character(character: str, aram=True):
             finded_games.add(match)
             
 
-    if len(finded_games) > 5:
-        raise MCFException(f'{len(finded_games)} games with {character}')
+    # if len(finded_games) > 5:
+    #    raise MCFException(f'{len(finded_games)} games with {character}')
     
     if len(finded_games) == 0:
         raise MCFException(f'No matches for {character}')

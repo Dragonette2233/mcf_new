@@ -60,7 +60,7 @@ def parse_games():
                             
                     routelist.append(f"{champ_string}-|-{summoner}:{route}")
                 MCFStorage.write_data(
-                    route=('MatchesARAM', region.upper(), ), 
+                    route=('MatchesAPI', region.upper(), ), 
                     value=routelist
                     )
                     

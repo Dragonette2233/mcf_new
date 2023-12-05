@@ -102,7 +102,7 @@ class MCF_Gamechecker:
         
         self.parent.info_view.notification('Searching...')
 
-        nickname = self.entry.get()
+        # nickname = self.entry.get()
 
         summoner_name = RiotAPI.get_summoner_by_name(region=currentGameData.region, name=summoner_name[0])
 
@@ -143,7 +143,11 @@ class MCF_Gamechecker:
             self.spectate_button.place(x=427, y=342)
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
-            TGApi.notification(nickname)
+            TGApi.gamestart_notification(
+                nickname=self.entry.get(),
+                champions_names=champions_names,
+                
+            )
 
         return 0
         # canvas.info_manager(forget=True)

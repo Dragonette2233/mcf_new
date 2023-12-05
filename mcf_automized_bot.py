@@ -55,9 +55,13 @@ def aram_porotimer():
 
 def run_autoscanner():
 
+    SEARCH_STATE = 'PORO' # Default: PORO. Could be switchet to API
+
     Switches.loop_validator = True
     while Switches.loop_validator:
-        app_blueprint.obj_tophead.pillow_icons_recognition()
+        # print(len(app_blueprint.obj_aram.blue_entry.get()))
+        if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
+            app_blueprint.obj_tophead.pillow_icons_recognition()
         team_blue = app_blueprint.obj_aram.blue_entry.get().split()
         team_red = app_blueprint.obj_aram.red_entry.get().split()
 
@@ -68,8 +72,11 @@ def run_autoscanner():
             for char_b, char_r in zip(team_blue, team_red):
 
                 try:
-                    # PoroAPI.get_poro_games(red_champion=char_r, gamemode='aram')
-                    async_poro_games.parse_games(champion_name=char_r)
+                    if SEARCH_STATE == 'PORO':
+                        async_poro_games.parse_games(champion_name=char_r)
+                    else:
+                        app_blueprint.obj_featured.parse_aram_games()
+                    # print('this is try')
                     app_blueprint.obj_featured.parent.info_view.success('Done')
 
                 except MCFException as ex:
@@ -77,7 +84,11 @@ def run_autoscanner():
                     break
                 
                 try:
-                    games_by_character = storage_data.get_games_by_character(character=char_b, aram=True) # Characters-|-nickname:region
+                    if SEARCH_STATE == 'PORO':
+                        games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro') # Characters-|-nickname:region
+                    else:
+                        games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_api')
+
                     # print(games_by_character)
                     if games_by_character is not None:
                         for charlist in games_by_character:
@@ -92,7 +103,7 @@ def run_autoscanner():
                             common_elements = set_1.intersection(set_2)
 
                             # Проверка наличия хотя бы трех общих элементов
-                            if len(common_elements) >= 3:
+                            if len(common_elements) >= 4:
                                 
                                 for nick in nicknames:
                                     app_blueprint.obj_gamechecker.entry.delete(0, 'end')
@@ -100,19 +111,24 @@ def run_autoscanner():
                                     app_blueprint.obj_gamechecker.search_for_game()
     
                                     if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
+                                        print(f'Game finded from: {SEARCH_STATE}')
                                         Switches.loop_validator = False
                                         app_blueprint.obj_gamechecker.awaiting_game_end()
+                                        
                                         return
                                 break
                             else:
                                 continue
                         else:
-                            Switches.loop_validator = False
-                            app_blueprint.info_view.exception('Game not founded')
-                            break
+                            if SEARCH_STATE == 'PORO':
+                                SEARCH_STATE = 'API'
+                            else:
+                                SEARCH_STATE = 'PORO'
+                            # break
                     
                 except MCFException as ex:
                     app_blueprint.info_view.exception(str(ex))
+                    input('This is error')
                     break
             
 def open_stream_source():
@@ -159,7 +175,7 @@ def open_stream_source():
             for char_b, char_r in zip(team_blue, team_red):
 
                 try:
-                    PoroAPI.get_poro_games(red_champion=char_r, gamemode='aram')
+                    async_poro_games.parse_games(champion_name=char_r)
                     app_blueprint.obj_featured.parent.info_view.success('Done')
 
                 except MCFException as ex:
@@ -167,7 +183,8 @@ def open_stream_source():
                     break
                 
                 try:
-                    games_by_character = storage_data.get_games_by_character(character=char_b, aram=False) # Characters-|-nickname:region
+                    games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro') # Characters-|-nickname:region
+                    # print(games_by_character)
                     if games_by_character is not None:
                         for charlist in games_by_character:
                      
@@ -182,9 +199,9 @@ def open_stream_source():
 
                             # Проверка наличия хотя бы трех общих элементов
                             if len(common_elements) >= 3:
-                                print("Есть хотя бы три совпадающих элемента:", common_elements)
+                                # print("Есть хотя бы три совпадающих элемента:", common_elements)
                                 # app_blueprint.obj_gamechecker.entry.delete(0, 'end')
-                                print(nicknames)
+                                # print(nicknames)
                                 for nick in nicknames:
                                     app_blueprint.obj_gamechecker.entry.delete(0, 'end')
                                     app_blueprint.obj_gamechecker.entry.insert(0, nick)
