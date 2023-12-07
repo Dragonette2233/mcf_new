@@ -32,18 +32,18 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
 
         match out_value, divider:
             case 100.0, div:
-                return ['100%', '#25D500']
+                return ['100%', '🟩']
             case 0, div:
-                return ['0%', 'orange']
+                return ['0%', '🟥']
             case out, div if div in range(8, 12) and out >=80:
-                if out >= 80: return [f"{'%.1f' % out}%", '#25D500']
-                if out <= 80: return [f"{'%.1f' % out}%", 'orange']
+                if out >= 80: return [f"{'%.1f' % out}%", '🟩']
+                if out <= 80: return [f"{'%.1f' % out}%", '🟥']
             case out, div if div <=7:
-                return [f"{'%.1f' % out}%", 'orange']
+                return [f"{'%.1f' % out}%", '🟥']
             case out, div if out >= 66:
-                return [f"{'%.1f' % out}%", '#25D500']
+                return [f"{'%.1f' % out}%", '🟩']
             case out, div if out <= 66:
-                return [f"{'%.1f' % out}%", 'orange']
+                return [f"{'%.1f' % out}%", '🟥']
             case _:
                 return [f"{'%.1f' % out}%", 'white']
 
@@ -135,7 +135,16 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
     
     match eight_roles_rate, ten_roles_rate:
         case None, None:
-            raise MCFException('No games finded')
+            final_result = {
+                'w1': ['Нет данных', '❔'],
+                'w2': ['Нет данных', '❔'],
+                'tb': ['Нет данных', '❔'],
+                'tl': ['Нет данных', '❔'],
+                'all_m': '0',
+                'all_ttl': '0'
+            }
+            return final_result
+            # raise MCFException('No games finded')
         case None, rate:
             middle_rate = ten_roles_rate
         case rate, None:

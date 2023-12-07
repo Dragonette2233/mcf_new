@@ -25,6 +25,7 @@ class MCF_Aram():
         self.blue_entry.place(in_=master, x=38, y=52)
         self.red_entry.place(x=38, y=78)
         self.calculate.place(x=415, y=121)
+        self.global_stats_values = None
     
     def get_aram_statistic(self):
         try:
@@ -37,33 +38,33 @@ class MCF_Aram():
 
             self.parent.place_character_icons((*refactored_blue, *refactored_red), activegame=False, place=1)
         
-            rate_and_colors = stats_by_roles.get_aram_statistic(
+            self.global_stats_values = stats_by_roles.get_aram_statistic(
                 blue_entry=refactored_blue,
                 red_entry=refactored_red,
             )
             self.blue_win.configure(
-                text=rate_and_colors['w1'][0],
-                fg=rate_and_colors['w1'][1]
+                text=self.global_stats_values['w1'][0],
+                fg=self.global_stats_values['w1'][1]
             )
             self.red_win.configure(
-                text=rate_and_colors['w2'][0],
-                fg=rate_and_colors['w2'][1]
+                text=self.global_stats_values['w2'][0],
+                fg=self.global_stats_values['w2'][1]
             )
             self.total_bigger.configure(
-                text=rate_and_colors['tb'][0],
-                fg=rate_and_colors['tb'][1]
+                text=self.global_stats_values['tb'][0],
+                fg=self.global_stats_values['tb'][1]
             )
             self.total_lower.configure(
-                text=rate_and_colors['tl'][0],
-                fg=rate_and_colors['tl'][1]
+                text=self.global_stats_values['tl'][0],
+                fg=self.global_stats_values['tl'][1]
             )
             self.matches_all.configure(
-                text=rate_and_colors['all_m'][0],
-                fg=rate_and_colors['all_m'][1]
+                text=self.global_stats_values['all_m'][0],
+                fg=self.global_stats_values['all_m'][1]
             )
             self.matches_by_total.configure(
-                text=rate_and_colors['all_ttl'][0],
-                fg=rate_and_colors['all_ttl'][1]
+                text=self.global_stats_values['all_ttl'][0],
+                fg=self.global_stats_values['all_ttl'][1]
             )
             
             self.blue_win.place_configure(x=215, y=52)

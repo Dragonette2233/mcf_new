@@ -108,7 +108,7 @@ class MCF_Featured():
 
         # print(player_blue, player_red)
         try:
-            games_by_character = storage_data.get_games_by_character(character=player_blue, state='aram_poro') # Characters-|-nickname:region
+            games_by_character = storage_data.get_games_by_character(character=player_blue, state='aram_poro_2') # Characters-|-nickname:region
         except MCFException as ex:
             self.parent.info_view.exception(str(ex))
             games_by_character = None

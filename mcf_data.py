@@ -46,7 +46,8 @@ ALL_CHAMPIONS_IDs = {
     498: 'Xayah', 516: 'Ornn', 517: 'Sylas', 526: 'Rell',
     518: 'Neeko', 523: 'Aphelios', 555: 'Pyke', 875: "Sett",
     711: "Vex", 777: "Yone", 887: "Gwen", 876: "Lillia",
-    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 950: "Naafiri", 2002: 'Kayn_b',
+    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 950: "Naafiri", 
+    2002: 'Kayn_b', 910: "Hwei",
     2001: "MonkeyKing"
 }
 
@@ -59,7 +60,7 @@ eight_roles_dict = {
     '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Leblanc', 'Nocturne', 
                  'Qiyana', 'Katarina', 'Pyke', 'Briar'),
     '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
-                    'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri'),
+                    'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri', 'Hwei'),
     '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
                  'Seraphine', 'Sona', 'Soraka', 'Twistedfate', 'Yuumi', 'Zilean', 'Ivern',  'Yorick', 'Annie', 'Milio'),
     '5': ('Akshan', 'Aphelios', 'Caitlyn', 'Ezreal', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'Kayle', 'Kindred', 
@@ -85,7 +86,7 @@ ten_roles_dict = {
     '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Nocturne',
            'Qiyana', 'Katarina', 'Pyke', 'Samira', 'Briar'),
     '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
-           'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri'),
+           'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri', 'Hwei'),
     '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
            'Seraphine', 'Sona', 'Soraka', 'Twistedfate', 'Yuumi', 'Zilean', 'Ivern',  'Yorick', 'Annie', 'Milio'),
     '5': ('Akshan', 'Aphelios', 'Caitlyn', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'Kayle', 'Kindred', 
@@ -219,6 +220,8 @@ class Switches:
     timer = None
     autobot = False
     loop_validator = False
+    try_validator = 0
+    recognition_validator = 0
 
     def __str__(self) -> str:
         return f"""

@@ -97,6 +97,7 @@ class MCFWindow(tk.Tk, Singleton):
             name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
             if name != ('Kayn_b')
         }
+        print(self.character_icons['Hwei'])
         self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
     
     def rmc_callback(self, event):
@@ -193,6 +194,7 @@ class MCFWindow(tk.Tk, Singleton):
             red_y = 77
 
         """Declaring character icon for label"""
+        print(champions_list)
         for i, character in enumerate(champions_list):
             self.characters_labels[i]['image'] = self.character_icons[character]
 

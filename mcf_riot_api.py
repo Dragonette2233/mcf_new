@@ -31,12 +31,29 @@ class TGApi:
     CHAT_ID = -1002035939659
 
     @classmethod
-    def gamestart_notification(cls, nickname: str):
+    def gamestart_notification(cls, nickname: str, champions: list, statsrate: dict):
 
-        
+        sample_message: str = open('mcf_lib/telegram_message_sample.txt', 'r', encoding='utf-8').read()
+
+        formated_dict = {}
+        print(len(champions))
+        for i, name in enumerate(champions):
+            formated_dict[f'p_{i}'] = name
+
+        formated_dict['nickname'] = nickname
+        formated_dict['W1'], formated_dict['W1_e'] = statsrate['w1'][0], statsrate['w1'][1]
+        formated_dict['W2'], formated_dict['W2_e'] = statsrate['w2'][0], statsrate['w2'][1]
+        formated_dict['TB'], formated_dict['TB_e'] = statsrate['tb'][0], statsrate['tb'][1]
+        formated_dict['TL'], formated_dict['TL_e'] = statsrate['tl'][0], statsrate['tl'][1]
+        formated_dict['ALL'], formated_dict['TTL'] = statsrate['all_m'][0], statsrate['all_ttl'][0]
+
+        full_message = sample_message.format(
+            **formated_dict
+        )
+
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
-            data={'chat_id': cls.CHAT_ID, 'text': f'⚪️ ARAM | {nickname}' }
+            data={'chat_id': cls.CHAT_ID, 'text': full_message }
         )
 
     @classmethod

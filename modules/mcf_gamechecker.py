@@ -1,6 +1,7 @@
 import tkinter as tk
 from playsound import playsound
 import time
+from modules.scripts import stats_by_roles
 from modules import mcf_styles
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
@@ -137,16 +138,22 @@ class MCF_Gamechecker:
             champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
             
             # print(champions_names)
-
+            print(currentGameData.champions_ids)
             self.parent.place_character_icons(champions_names)
             
             self.spectate_button.place(x=427, y=342)
             self.run_button.place(x=427, y=296)
             self.parent.info_view.hide_info()
+
+            self.parent.obj_aram.global_stats_values = stats_by_roles.get_aram_statistic(
+                blue_entry=champions_names[0:5],
+                red_entry=champions_names[5:10]
+            )
+
             TGApi.gamestart_notification(
                 nickname=self.entry.get(),
-                champions_names=champions_names,
-                
+                champions=champions_names,
+                statsrate=self.parent.obj_aram.global_stats_values
             )
 
         return 0
@@ -246,6 +253,7 @@ class MCF_Gamechecker:
         
         
         champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
+        # print(currentGameData.champions_ids)
         # print(currentGameData.response['participants'])
         self.parent.place_character_icons(champions_names, place=3, activegame=False)
         kills = sum(lastgame['info']['participants'][k]['kills'] for k in range(10))

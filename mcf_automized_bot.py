@@ -30,9 +30,10 @@ def run_autobot():
             aram_porotimer()
             app_blueprint.refresh()
             open_stream_source()
+            
     else:
         Switches.autobot = False
-        Switches.loop_validator
+        Switches.loop_validator = False
 
 def aram_porotimer():
         from modules.scripts import aram_porotimer_script
@@ -60,13 +61,18 @@ def run_autoscanner():
     Switches.loop_validator = True
     while Switches.loop_validator:
         # print(len(app_blueprint.obj_aram.blue_entry.get()))
-        if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
-            app_blueprint.obj_tophead.pillow_icons_recognition()
+        # if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
+        app_blueprint.obj_tophead.pillow_icons_recognition()
         team_blue = app_blueprint.obj_aram.blue_entry.get().split()
         team_red = app_blueprint.obj_aram.red_entry.get().split()
 
         if len(team_blue) < 4 and len(team_red) < 3:
+            if Switches.recognition_validator == 20:
+                return 'FAIL'
+            
+            Switches.recognition_validator += 1
             app_blueprint.info_view.exception('Recognizing Failed. Continue...')
+            time.sleep(2)
             continue
         else:
             for char_b, char_r in zip(team_blue, team_red):
@@ -74,6 +80,7 @@ def run_autoscanner():
                 try:
                     if SEARCH_STATE == 'PORO':
                         async_poro_games.parse_games(champion_name=char_r)
+                        print(char_r)
                     else:
                         app_blueprint.obj_featured.parse_aram_games()
                     # print('this is try')
@@ -120,16 +127,29 @@ def run_autoscanner():
                             else:
                                 continue
                         else:
+                            
+                            
+
                             if SEARCH_STATE == 'PORO':
+                                Switches.try_validator += 1
+
+                                if Switches.try_validator == 7:
+                                    Switches.try_validator = 0
+                                    return 'FAIL'
+                                
+                                app_blueprint.info_view.notification('Changing to Riot API. Cooldown 5s')
                                 SEARCH_STATE = 'API'
+                                time.sleep(5)
+
                             else:
+                                app_blueprint.info_view.notification('Changing to Poro API. Cooldown 5s')
                                 SEARCH_STATE = 'PORO'
+                                time.sleep(5)
                             # break
                     
                 except MCFException as ex:
                     app_blueprint.info_view.exception(str(ex))
-                    input('This is error')
-                    break
+                    print(f'Autobot error: {ex}')
             
 def open_stream_source():
 
@@ -161,67 +181,10 @@ def open_stream_source():
     pyautogui.click(x=1871, y=354)
     time.sleep(1.5)
 
-    Switches.loop_validation = True
-    
-    while Switches.loop_validation:
-        app_blueprint.obj_tophead.pillow_icons_recognition()
-        team_blue = app_blueprint.obj_aram.blue_entry.get().split()
-        team_red = app_blueprint.obj_aram.red_entry.get().split()
+    find_success = run_autoscanner()
 
-        if len(team_blue) < 4 and len(team_red) < 3:
-            app_blueprint.info_view.exception('Recognizing Failed. Continue...')
-            continue
-        else:
-            for char_b, char_r in zip(team_blue, team_red):
+    if find_success == 'FAIL':
+        app_blueprint.info_view.notification('No game finded. Cooldown 5min')
+        time.sleep(5)
 
-                try:
-                    async_poro_games.parse_games(champion_name=char_r)
-                    app_blueprint.obj_featured.parent.info_view.success('Done')
-
-                except MCFException as ex:
-                    app_blueprint.info_view.exception(str(ex))
-                    break
-                
-                try:
-                    games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro') # Characters-|-nickname:region
-                    # print(games_by_character)
-                    if games_by_character is not None:
-                        for charlist in games_by_character:
-                     
-                            set_1 = set(team_blue)
-                            set_2 = set(charlist.split('-|-')[0].split(' | '))
-                            nicknames = charlist.split('-|-')[1].split('_|_')
-
-                            print(set_1)
-                            print(set_2)
-                            # Нахождение пересечения множеств
-                            common_elements = set_1.intersection(set_2)
-
-                            # Проверка наличия хотя бы трех общих элементов
-                            if len(common_elements) >= 3:
-                                # print("Есть хотя бы три совпадающих элемента:", common_elements)
-                                # app_blueprint.obj_gamechecker.entry.delete(0, 'end')
-                                # print(nicknames)
-                                for nick in nicknames:
-                                    app_blueprint.obj_gamechecker.entry.delete(0, 'end')
-                                    app_blueprint.obj_gamechecker.entry.insert(0, nick)
-                                    app_blueprint.obj_gamechecker.search_for_game()
-    
-                                    if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
-                                        driver.quit()
-                                        Switches.loop_validation = False
-                                        app_blueprint.obj_gamechecker.awaiting_game_end()
-                                        
-                                        
-                                        break
-                                break
-                            else:
-                                print("Недостаточно совпадающих элементов.")
-                    
-                except MCFException as ex:
-                    app_blueprint.info_view.exception(str(ex))
-                    break
-                # break
-        
-        # time.sleep(3.5)
-        # app_blueprint.info_view.success('Bot test success')
+    driver.quit()
