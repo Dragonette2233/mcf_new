@@ -134,7 +134,7 @@ JSON_GAMEDATA_PATH = os.path.join('.', 'mcf_lib', 'GameData.json')
 PAPICH_SONG_PATH = os.path.join('.', 'mcf_lib', 'song.mp3')
 TEEMO_SONG_PATH = os.path.join('.', 'mcf_lib', 'hihi.mp3')
 SPECTATOR_FILE_PATH = os.path.join('.', 'mcf_lib', 'spectate.bat')
-SCREENSHOT_FILE_PATH = os.path.join('.', 'images_lib', 'screenshot_PIL.png')
+SCREENSHOT_FILE_PATH = os.path.join('images_lib', 'screenshot_PIL.png')
 
 """
     Classes for finded game and switches for controling threads and activity 

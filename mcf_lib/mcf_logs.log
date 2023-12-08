@@ -2086,3 +2086,242 @@ Traceback (most recent call last):
     champs = ' | '.join(c)
              ^^^^^^^^^^^^^
 TypeError: sequence item 4: expected str instance, NoneType found
+2023-12-07 21:00:04,480 ERROR Task exception was never retrieved
+future: <Task finished name='Task-265' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=JSONDecodeError("Expecting ',' delimiter: line 407 column 155 (char 48042)")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 168, in write_data
+    data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 353, in raw_decode
+    obj, end = self.scan_once(s, idx)
+               ^^^^^^^^^^^^^^^^^^^^^^
+json.decoder.JSONDecodeError: Expecting ',' delimiter: line 407 column 155 (char 48042)
+2023-12-07 21:00:04,485 ERROR Task exception was never retrieved
+future: <Task finished name='Task-263' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=JSONDecodeError('Expecting value: line 1 column 1 (char 0)')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 168, in write_data
+    data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-12-07 21:00:04,488 ERROR Task exception was never retrieved
+future: <Task finished name='Task-260' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=JSONDecodeError('Expecting value: line 1 column 1 (char 0)')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 62, in parsing
+    MCFStorage.write_data(
+  File "C:\python_field\MCF\mcf_data.py", line 168, in write_data
+    data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 293, in load
+    return loads(fp.read(),
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\New\AppData\Local\Programs\Python\Python311\Lib\json\decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+2023-12-08 04:21:39,080 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError(0)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~~~~^^^
+KeyError: 0
+2023-12-08 04:21:39,085 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError(0)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~~~~^^^
+KeyError: 0
+2023-12-08 04:21:39,087 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError(0)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~~~~^^^
+KeyError: 0
+2023-12-08 04:21:39,088 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError(0)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~~~~^^^
+KeyError: 0
+2023-12-08 04:21:39,091 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError(0)>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [summon[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~~~~^^^
+KeyError: 0
+2023-12-08 04:23:14,103 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-08 04:23:14,106 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-08 04:23:14,108 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-08 04:23:14,110 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-08 04:23:14,113 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('list indices must be integers or slices, not str')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [[i]['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~~~^^^^^^^^^^^^^^^^
+TypeError: list indices must be integers or slices, not str
+2023-12-08 04:23:38,364 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError("'int' object is not subscriptable")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not subscriptable
+2023-12-08 04:23:38,368 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError("'int' object is not subscriptable")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not subscriptable
+2023-12-08 04:23:38,370 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError("'int' object is not subscriptable")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not subscriptable
+2023-12-08 04:23:38,372 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError("'int' object is not subscriptable")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not subscriptable
+2023-12-08 04:23:38,375 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError("'int' object is not subscriptable")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in <listcomp>
+    summoners = [i['summonerName'] for i, summon in enumerate(gameList[s]['participants'])]
+                 ~^^^^^^^^^^^^^^^^
+TypeError: 'int' object is not subscriptable
+2023-12-08 04:28:51,039 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('sequence item 0: expected str instance, list found')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{rg}" for i in gameList[s]['participants']] for rg in gameList[s]['platformId'])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, list found
+2023-12-08 04:28:51,041 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('sequence item 0: expected str instance, list found')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{rg}" for i in gameList[s]['participants']] for rg in gameList[s]['platformId'])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, list found
+2023-12-08 04:28:51,043 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('sequence item 0: expected str instance, list found')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{rg}" for i in gameList[s]['participants']] for rg in gameList[s]['platformId'])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, list found
+2023-12-08 04:28:51,046 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=TypeError('sequence item 0: expected str instance, list found')>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 54, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{rg}" for i in gameList[s]['participants']] for rg in gameList[s]['platformId'])
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: sequence item 0: expected str instance, list found

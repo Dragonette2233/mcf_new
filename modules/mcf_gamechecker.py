@@ -92,7 +92,7 @@ class MCF_Gamechecker:
             return
         
         for short, code, area in REGIONS_TUPLE:
-            if summoner_name[1].lower() == short:
+            if summoner_name[1].lower() == short or summoner_name[1].lower() == code:
                 currentGameData.region = code
                 currentGameData.area = area
                 break
@@ -183,8 +183,11 @@ class MCF_Gamechecker:
                                   buttons=('search_button', 'run_button', 'arrow_button'))
     def awaiting_game_end(self):
     # global sw_switches
+        # Switches.request = True
+        # if Switches.request == False:
         Switches.request = True
         self.parent.canvas.start_circle()
+        
         self.parent.info_view.success('Matcher checker started')
 
         while Switches.request:

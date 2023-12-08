@@ -13,6 +13,7 @@ from mcf_data import (
 from mcf_riot_api import TGApi
 import pyautogui
 import time
+import pprint
 from mcf_data import MCFException
 from mcf_riot_api import PoroAPI
 from mcf_build import MCFWindow
@@ -66,8 +67,9 @@ def run_autoscanner():
         team_blue = app_blueprint.obj_aram.blue_entry.get().split()
         team_red = app_blueprint.obj_aram.red_entry.get().split()
 
-        if len(team_blue) < 4 and len(team_red) < 3:
+        if len(team_blue) < 4 or len(team_red) < 3:
             if Switches.recognition_validator == 20:
+                Switches.recognition_validator = 0
                 return 'FAIL'
             
             Switches.recognition_validator += 1
@@ -75,37 +77,38 @@ def run_autoscanner():
             time.sleep(2)
             continue
         else:
+            print(len(team_blue), len(team_red))
             for char_b, char_r in zip(team_blue, team_red):
 
                 try:
-                    if SEARCH_STATE == 'PORO':
-                        async_poro_games.parse_games(champion_name=char_r)
-                        print(char_r)
-                    else:
-                        app_blueprint.obj_featured.parse_aram_games()
+                    async_poro_games.parse_games(champion_name=char_r)
+                    app_blueprint.obj_featured.parse_rift_games()
+                    # print(char_r)
                     # print('this is try')
-                    app_blueprint.obj_featured.parent.info_view.success('Done')
+                    # app_blueprint.obj_featured.parent.info_view.success('Done')
 
                 except MCFException as ex:
                     app_blueprint.info_view.exception(str(ex))
                     break
                 
                 try:
-                    if SEARCH_STATE == 'PORO':
-                        games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro') # Characters-|-nickname:region
-                    else:
-                        games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_api')
+                    games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro')
+                    games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_poro_2')
 
-                    # print(games_by_character)
+                    pprint(games_by_character)
+
                     if games_by_character is not None:
                         for charlist in games_by_character:
                      
-                            set_1 = set(team_blue)
+                            # set_1 = set(team_blue)
+                            set_1 = set([i.lower().capitalize() for i in team_blue])
                             set_2 = set(charlist.split('-|-')[0].split(' | '))
+                            set_2 = set([i.lower().capitalize() for i in set_2])
+                            if 'Pyke' in set_2:
+                                print(set_1)
+                                print(set_2)
                             nicknames = charlist.split('-|-')[1].split('_|_')
 
-                            # print(set_1)
-                            # print(set_2)
                             # Нахождение пересечения множеств
                             common_elements = set_1.intersection(set_2)
 
@@ -121,31 +124,17 @@ def run_autoscanner():
                                         print(f'Game finded from: {SEARCH_STATE}')
                                         Switches.loop_validator = False
                                         app_blueprint.obj_gamechecker.awaiting_game_end()
-                                        
                                         return
-                                break
                             else:
                                 continue
                         else:
-                            
-                            
+                            app_blueprint.info_view.notification(f'No games for {char_r} -- {char_b}. CD 3s')
+                            # Switches.try_validator += 1
 
-                            if SEARCH_STATE == 'PORO':
-                                Switches.try_validator += 1
-
-                                if Switches.try_validator == 7:
-                                    Switches.try_validator = 0
-                                    return 'FAIL'
-                                
-                                app_blueprint.info_view.notification('Changing to Riot API. Cooldown 5s')
-                                SEARCH_STATE = 'API'
-                                time.sleep(5)
-
-                            else:
-                                app_blueprint.info_view.notification('Changing to Poro API. Cooldown 5s')
-                                SEARCH_STATE = 'PORO'
-                                time.sleep(5)
-                            # break
+                            # if Switches.try_validator == 7:
+                            #     Switches.try_validator = 0
+                            #     return 'FAIL' 
+                            time.sleep(3)
                     
                 except MCFException as ex:
                     app_blueprint.info_view.exception(str(ex))
@@ -185,6 +174,6 @@ def open_stream_source():
 
     if find_success == 'FAIL':
         app_blueprint.info_view.notification('No game finded. Cooldown 5min')
-        time.sleep(5)
+        time.sleep(300)
 
     driver.quit()

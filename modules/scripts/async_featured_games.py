@@ -51,6 +51,10 @@ def parse_games():
                     
                     champ_string = ' | '.join([str(item) for item in champ_list])
                     summoner = gameList[s]['participants'][0]['summonerName']
+                    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+
+                    print(summoners)
+
                     route = gameList[s]['platformId']
 
                     for r, g, _ in REGIONS_TUPLE:
