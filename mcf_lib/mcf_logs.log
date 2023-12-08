@@ -2325,3 +2325,38 @@ Traceback (most recent call last):
     summoners = '_|_'.join([f"{i['summonerName']}:{rg}" for i in gameList[s]['participants']] for rg in gameList[s]['platformId'])
                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 TypeError: sequence item 0: expected str instance, list found
+2023-12-08 04:34:55,106 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=UnboundLocalError("cannot access local variable 'route' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 60, in parsing
+    for r, g, _ in REGIONS_TUPLE:
+              ^
+UnboundLocalError: cannot access local variable 'route' where it is not associated with a value
+2023-12-08 04:34:55,108 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=UnboundLocalError("cannot access local variable 'route' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 60, in parsing
+    for r, g, _ in REGIONS_TUPLE:
+              ^
+UnboundLocalError: cannot access local variable 'route' where it is not associated with a value
+2023-12-08 04:34:55,110 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=UnboundLocalError("cannot access local variable 'route' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 60, in parsing
+    for r, g, _ in REGIONS_TUPLE:
+              ^
+UnboundLocalError: cannot access local variable 'route' where it is not associated with a value
+2023-12-08 04:34:55,111 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=UnboundLocalError("cannot access local variable 'route' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 60, in parsing
+    for r, g, _ in REGIONS_TUPLE:
+              ^
+UnboundLocalError: cannot access local variable 'route' where it is not associated with a value
+2023-12-08 04:34:55,113 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\python_field\MCF\modules\scripts\async_featured_games.py:23> exception=UnboundLocalError("cannot access local variable 'route' where it is not associated with a value")>
+Traceback (most recent call last):
+  File "C:\python_field\MCF\modules\scripts\async_featured_games.py", line 60, in parsing
+    for r, g, _ in REGIONS_TUPLE:
+              ^
+UnboundLocalError: cannot access local variable 'route' where it is not associated with a value

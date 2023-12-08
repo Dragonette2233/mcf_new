@@ -22,7 +22,7 @@ def get_games_by_character(character: str, state: str = ''):
     elif state == 'aram_poro':
         matches_by_regions = MCFStorage.get_selective_data(route=('MatchesARAM', ))
         all_matches = [item for sublist in matches_by_regions.values() for item in sublist]
-        print(all_matches)
+        # print(all_matches)
     else:
         all_matches = MCFStorage.get_selective_data(route=('MatchesRift', ))
         

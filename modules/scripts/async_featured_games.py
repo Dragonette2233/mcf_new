@@ -50,19 +50,19 @@ def parse_games():
                     champ_list = [ALL_CHAMPIONS_IDs.get(id_name) for id_name in id_names]
                     
                     champ_string = ' | '.join([str(item) for item in champ_list])
-                    summoner = gameList[s]['participants'][0]['summonerName']
+                    # summoner = gameList[s]['participants'][0]['summonerName']
                     summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
 
-                    print(summoners)
+                    # print(summoners)
 
-                    route = gameList[s]['platformId']
+                    # route = gameList[s]['platformId']
 
-                    for r, g, _ in REGIONS_TUPLE:
-                        if route.lower() == g: 
-                            route = r.upper()
-                            break
+                    # for r, g, _ in REGIONS_TUPLE:
+                    #     if route.lower() == g: 
+                    #         route = r.upper()
+                    #         break
                             
-                    routelist.append(f"{champ_string}-|-{summoner}:{route}")
+                    routelist.append(f"{champ_string}-|-{summoners}")
                 MCFStorage.write_data(
                     route=('MatchesAPI', region.upper(), ), 
                     value=routelist

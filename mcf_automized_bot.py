@@ -13,7 +13,7 @@ from mcf_data import (
 from mcf_riot_api import TGApi
 import pyautogui
 import time
-import pprint
+from pprint import pprint
 from mcf_data import MCFException
 from mcf_riot_api import PoroAPI
 from mcf_build import MCFWindow
@@ -57,22 +57,23 @@ def aram_porotimer():
 
 def run_autoscanner():
 
-    SEARCH_STATE = 'PORO' # Default: PORO. Could be switchet to API
+    # SEARCH_STATE = 'PORO' # Default: PORO. Could be switchet to API
 
     Switches.loop_validator = True
     while Switches.loop_validator:
         # print(len(app_blueprint.obj_aram.blue_entry.get()))
-        # if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
-        app_blueprint.obj_tophead.pillow_icons_recognition()
+        if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
+            app_blueprint.obj_tophead.pillow_icons_recognition()
         team_blue = app_blueprint.obj_aram.blue_entry.get().split()
         team_red = app_blueprint.obj_aram.red_entry.get().split()
 
         if len(team_blue) < 4 or len(team_red) < 3:
-            if Switches.recognition_validator == 20:
+            if Switches.recognition_validator == 27:
                 Switches.recognition_validator = 0
                 return 'FAIL'
             
             Switches.recognition_validator += 1
+            app_blueprint.refresh()
             app_blueprint.info_view.exception('Recognizing Failed. Continue...')
             time.sleep(2)
             continue
@@ -81,12 +82,14 @@ def run_autoscanner():
             for char_b, char_r in zip(team_blue, team_red):
 
                 try:
-                    async_poro_games.parse_games(champion_name=char_r)
-                    app_blueprint.obj_featured.parse_rift_games()
-                    # print(char_r)
-                    # print('this is try')
-                    # app_blueprint.obj_featured.parent.info_view.success('Done')
+                    app_blueprint.info_view.notification('Parsing from RiotAPI and Poro...')
 
+                    
+                    async_poro_games.parse_games(champion_name=char_r) # Parse full PoroARAM by region
+                    PoroAPI.get_poro_games(red_champion=char_r) # Parse only main page PoroARAM
+                    app_blueprint.obj_featured.parse_aram_games() # Parse featured games from Riot API
+
+                    app_blueprint.info_view.hide_info()
                 except MCFException as ex:
                     app_blueprint.info_view.exception(str(ex))
                     break
@@ -94,8 +97,11 @@ def run_autoscanner():
                 try:
                     games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro')
                     games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_poro_2')
+                    games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_api')
 
-                    pprint(games_by_character)
+                    for g in games_by_character:
+                        print(g)
+                    # pprint(games_by_character)
 
                     if games_by_character is not None:
                         for charlist in games_by_character:
@@ -121,7 +127,7 @@ def run_autoscanner():
                                     app_blueprint.obj_gamechecker.search_for_game()
     
                                     if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
-                                        print(f'Game finded from: {SEARCH_STATE}')
+                                        # print(f'Game finded from: {SEARCH_STATE}')
                                         Switches.loop_validator = False
                                         app_blueprint.obj_gamechecker.awaiting_game_end()
                                         return
@@ -129,11 +135,11 @@ def run_autoscanner():
                                 continue
                         else:
                             app_blueprint.info_view.notification(f'No games for {char_r} -- {char_b}. CD 3s')
-                            # Switches.try_validator += 1
+                            Switches.try_validator += 1
 
-                            # if Switches.try_validator == 7:
-                            #     Switches.try_validator = 0
-                            #     return 'FAIL' 
+                            if Switches.try_validator == 15:
+                                Switches.try_validator = 0
+                                return 'FAIL' 
                             time.sleep(3)
                     
                 except MCFException as ex:
