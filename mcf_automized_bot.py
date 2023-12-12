@@ -129,7 +129,22 @@ def run_autoscanner():
                                     if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
                                         # print(f'Game finded from: {SEARCH_STATE}')
                                         Switches.loop_validator = False
-                                        app_blueprint.obj_gamechecker.awaiting_game_end()
+                                        MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end).start()
+                                        app_blueprint.obj_gamechecker.spectate_active_game()
+
+                                        time.sleep(10)
+                                        while Switches.request:
+                                            time.sleep(3)
+                                            pyautogui.moveTo(658, 1056)  # Перемещаем курсор в текущие координаты
+                                            pyautogui.mouseDown()   # Нажимаем кнопку мыши
+                                            time.sleep(0.1)         # Можно задать задержку, если нужно
+                                            pyautogui.mouseUp()   
+                                            app_blueprint.generate_score()
+                                            time.sleep(4)
+                                        
+                                        app_blueprint.delete_screenscore()
+                                        app_blueprint.close_league_of_legends()
+                                        # app_blueprint.obj_gamechecker.awaiting_game_end()
                                         return
                             else:
                                 continue
@@ -179,7 +194,7 @@ def open_stream_source():
     find_success = run_autoscanner()
 
     if find_success == 'FAIL':
-        app_blueprint.info_view.notification('No game finded. Cooldown 5min')
+        TGApi.send_simple_message('Игра не найдена. Кулдаун 5 минут')
         time.sleep(300)
 
     driver.quit()

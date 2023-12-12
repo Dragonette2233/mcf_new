@@ -9,6 +9,9 @@ def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'score':
+            score = app_test_context.get_gamescore()
+            print(type(score))
         case 'tall_test':
             async_poro_games.parse_games('lebl')
         case 'thr_active':

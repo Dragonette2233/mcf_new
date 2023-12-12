@@ -132,6 +132,7 @@ LOADING_STOP_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_end.png
 LOADING_START_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_{index}.png')
 JSON_GAMEDATA_PATH = os.path.join('.', 'mcf_lib', 'GameData.json')
 PAPICH_SONG_PATH = os.path.join('.', 'mcf_lib', 'song.mp3')
+SCREEN_GAMESCORE_PATH = os.path.join('images_lib', 'gamescore_PIL.png')
 TEEMO_SONG_PATH = os.path.join('.', 'mcf_lib', 'hihi.mp3')
 SPECTATOR_FILE_PATH = os.path.join('.', 'mcf_lib', 'spectate.bat')
 SCREENSHOT_FILE_PATH = os.path.join('images_lib', 'screenshot_PIL.png')

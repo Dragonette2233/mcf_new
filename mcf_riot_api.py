@@ -1,5 +1,6 @@
 import sys
 import requests
+import os
 from bs4 import BeautifulSoup as bs
 from mcf_data import (
     ALL_CHAMPIONS_IDs, 
@@ -24,11 +25,11 @@ logging.basicConfig(
 
 class TGApi:
 
-    token = '6587599071:AAF_Wb0gAO7Zw_pS5hANgUfOBnVAR_mH60A'
+    token = os.getenv('BOT_TOKEN')
     method_send = 'sendMessage'
     method_updates = 'getUpdates'
     tg_api_url = 'https://api.telegram.org/bot{token}/{method}'
-    CHAT_ID = -1002035939659
+    CHAT_ID = os.getenv('CHAT_ID')
 
     @classmethod
     def gamestart_notification(cls, nickname: str, champions: list, statsrate: dict):
@@ -43,9 +44,9 @@ class TGApi:
         formated_dict['nickname'] = nickname
         formated_dict['W1'], formated_dict['W1_e'] = statsrate['w1'][0], statsrate['w1'][1]
         formated_dict['W2'], formated_dict['W2_e'] = statsrate['w2'][0], statsrate['w2'][1]
-        formated_dict['TB'], formated_dict['TB_e'] = statsrate['tb'][0], statsrate['tb'][1]
-        formated_dict['TL'], formated_dict['TL_e'] = statsrate['tl'][0], statsrate['tl'][1]
-        formated_dict['ALL'], formated_dict['TTL'] = statsrate['all_m'][0], statsrate['all_ttl'][0]
+        # formated_dict['TB'], formated_dict['TB_e'] = statsrate['tb'][0], statsrate['tb'][1]
+        # formated_dict['TL'], formated_dict['TL_e'] = statsrate['tl'][0], statsrate['tl'][1]
+        formated_dict['ALL'] = statsrate['all_m'][0]# , formated_dict['TTL'] = statsrate['all_m'][0], statsrate['all_ttl'][0]
 
         full_message = sample_message.format(
             **formated_dict
@@ -55,6 +56,15 @@ class TGApi:
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
             data={'chat_id': cls.CHAT_ID, 'text': full_message }
         )
+
+    @classmethod
+    def send_simple_message(cls, message):
+
+        requests.post(
+            url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
+            data={'chat_id': cls.CHAT_ID, 'text': message }
+        )
+
 
     @classmethod
     def display_gamestart(cls, timer):

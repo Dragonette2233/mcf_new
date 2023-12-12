@@ -1,6 +1,7 @@
 import tkinter as tk
 import os
 import time
+from PIL import ImageGrab, ImageChops, Image
 from playsound import playsound
 from mcf_threads import MCFThread
 from itertools import cycle
@@ -16,12 +17,13 @@ from mcf_data import (
     LOADING_START_PATH,
     CHARARACTER_ICON_PATH,
     TEEMO_SONG_PATH,
+    SCREEN_GAMESCORE_PATH,
     currentGameData,
     Switches,
     MCFStorage,
     MCFException,
     MCFNoConnectionError,
-    MCFTimeoutError
+    MCFTimeoutError,
 
 )
 
@@ -80,7 +82,6 @@ class MCFWindow(tk.Tk, Singleton):
             'calculate': tk.PhotoImage(file=BUTTONS_PATH + '_calculate_btn.png'), 
         }
         self.test_label = tk.Label(self, text=222)
-        # print(self.character_icons)
         self.canvas = MCFCanvas(self)
         self.info_view = MCFInfo(self)
         from modules import (
@@ -91,13 +92,11 @@ class MCFWindow(tk.Tk, Singleton):
         self.obj_aram = mcf_aram.MCF_Aram(self)
         self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
         self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
-        # self.rmc_menu = RMCMenu(self)
         self.context_menu = tk.Menu(tearoff=0)
         self.character_icons = {
             name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
             if name != ('Kayn_b')
         }
-        print(self.character_icons['Hwei'])
         self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
     
     def rmc_callback(self, event):
@@ -132,22 +131,25 @@ class MCFWindow(tk.Tk, Singleton):
             case 0:
                 Switches.calibration_index = 1
                 self.info_view.success("Calibration 1")
-                # text, ground = 'PIL Calibration [1]', '#7718C3'
             case 1:
                 Switches.calibration_index = 2
                 self.info_view.success("Calibration 2")
-                # text, ground = 'PIL Calibration [2]', '#7718C3'
             case 2:
                 Switches.calibration_index = 0
                 self.info_view.exception("Calibration OFF")
-                # text, ground = 'PIL Calibration', 'black'
             case _:
                 Switches.calibration_index = 0
-                # text, ground = 'PIL Calibration', 'black'
                 self.info_view.exception('Unknown error')
-        
-        # self.rmc_menu.buttons['PIL Calibration'].configure(fg=ground, text=text)
-        
+    
+    def generate_score(self):
+
+        screen = ImageGrab.grab()
+        score = screen.crop((681, 7, 1261, 99))
+        score.save(os.path.join('images_lib', 'scorecrop.png'))
+
+    def delete_screenscore(self):
+        os.remove(os.path.join('images_lib', 'scorecrop.png'))
+
     def close_league_of_legends(self):
 
         list_task = os.popen('tasklist /FI "IMAGENAME eq League of Legends*"').readlines()
@@ -158,6 +160,7 @@ class MCFWindow(tk.Tk, Singleton):
         list_task[3] = list_task[3].replace(' ', '')
         process_pid = list_task[3].split('exe')[1].split('Console')[0]
         os.popen(f'taskkill /PID {process_pid} /F')
+        # app_blueprint.delete_screenscore()
         self.info_view.success('League of Legends closed')
 
     def find_characters_name(self, characters_list: list[str]):
@@ -181,7 +184,6 @@ class MCFWindow(tk.Tk, Singleton):
 
     def place_character_icons(self, champions_list: list, activegame=True, place=3):
 
-
         if place == 3:
             blue_x = (168, 210, 252, 294, 336)
             blue_y = 300
@@ -194,7 +196,7 @@ class MCFWindow(tk.Tk, Singleton):
             red_y = 77
 
         """Declaring character icon for label"""
-        print(champions_list)
+        # print(champions_list)
         for i, character in enumerate(champions_list):
             self.characters_labels[i]['image'] = self.character_icons[character]
 
@@ -335,50 +337,6 @@ class MCFInfo(tk.Frame, Singleton):
     def __init__(self, master) -> None:
         ...
 
-class RMCMenu(tk.Menu):
-
-    def __init__(self, master: MCFWindow):
-        tk.Menu.__init__(self, master)
-        file_menu = tk.Menu(self, tearoff=0)
-        # master.config(menu=self)
-
-class RMCMenu(tk.Frame):
-    def __init__(self, supermaster: MCFWindow, master: MCFCanvas):
-        tk.Frame.__init__(self, supermaster)
-        # self.parent = master
-        self.config(
-            highlightthickness=1,
-            highlightbackground='#1aaeb0'
-        )
-
-        supermaster.bind('<Button 3>', lambda e: self.show(master))
-        master.bind('<Button 1>', lambda e: self.place_forget())
-        self.buttons = {}
-    
-    def show(self: tk.Frame, master: MCFCanvas):
-        x = master.winfo_pointerx() - master.winfo_rootx()
-        y = master.winfo_pointery() - master.winfo_rooty()
-        self.place(x=x, y=y)
-        
-    def add_command(self, text, command, button_forget=True):
-        kwargs = {
-            'text': text,
-            'command': command,
-            'fg': 'black',
-            'font': ('Tahoma', 8, 'bold'),
-            'bd': 0,
-            'highlightthickness': 1,
-            'highlightcolor': 'blue',
-            'width': 15
-        }
-
-        if button_forget:
-            kwargs['command'] = lambda: [command(), self.place_forget()]
-        
-        self.buttons[text] = tk.Button(self, **kwargs)
-        self.buttons[text].bind('<Enter>', lambda e: self.buttons[text].config(bg='#1aaeb0'))
-        self.buttons[text].bind('<Leave>', lambda e: self.buttons[text].config(bg='white'))
-        self.buttons[text].pack()
     
         
         

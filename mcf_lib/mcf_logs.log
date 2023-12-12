@@ -2360,3 +2360,45 @@ Traceback (most recent call last):
     for r, g, _ in REGIONS_TUPLE:
               ^
 UnboundLocalError: cannot access local variable 'route' where it is not associated with a value
+2023-12-11 16:23:40,544 ERROR No error handlers are registered, logging exception.
+Traceback (most recent call last):
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\ext\_application.py", line 1234, in process_update
+    await coroutine
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\ext\_basehandler.py", line 157, in handle_update
+    return await self.callback(update, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\mcf_tgbot.py", line 14, in echo
+    await update.message.reply_text('Нет активной игры')
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\_message.py", line 1094, in reply_text
+    return await self.get_bot().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\ext\_extbot.py", line 2624, in send_message
+    return await super().send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\_bot.py", line 525, in decorator
+    result = await func(self, *args, **kwargs)  # skipcq: PYL-E1102
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\_bot.py", line 846, in send_message
+    return await self._send_message(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\ext\_extbot.py", line 522, in _send_message
+    result = await super()._send_message(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\_bot.py", line 703, in _send_message
+    result = await self._post(
+             ^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\_bot.py", line 613, in _post
+    return await self._do_post(
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\ext\_extbot.py", line 340, in _do_post
+    return await super()._do_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\_bot.py", line 641, in _do_post
+    return await request.post(
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\request\_baserequest.py", line 200, in post
+    result = await self._request_wrapper(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\python_field\MCF\.mcfenv\Lib\site-packages\telegram\request\_baserequest.py", line 379, in _request_wrapper
+    raise BadRequest(message)
+telegram.error.BadRequest: Message to reply not found
