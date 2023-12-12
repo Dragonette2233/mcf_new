@@ -209,12 +209,24 @@ class CurrentGameData:
 
 currentGameData = CurrentGameData()
 
+# class Switch
+
+class Switch:
+    def __init__(self) -> None:
+        self.state = False
+
+    def toggle(self):
+        if self.state:
+            self.state = False
+        else:
+            self.state = True
+
 class Switches:
-    decorator = False
+    # decorator = False
     request = False
-    checkgame = False
-    elorank = False
-    delayed = False
+    # checkgame = False
+    # elorank = False
+    # delayed = False
     after_info = None
     after_delay = None
     calibration_index = 0
@@ -224,6 +236,8 @@ class Switches:
     try_validator = 0
     recognition_validator = 0
     bot_activity = False
+
+    # def use()
 
     def __str__(self) -> str:
         return f"""

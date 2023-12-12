@@ -142,6 +142,15 @@ class MCFWindow(tk.Tk, Singleton):
                 Switches.calibration_index = 0
                 self.info_view.exception('Unknown error')
     
+    def toogle_telegram_bot(self):
+
+        if Switches.bot_activity:
+            Switches.bot_activity = False
+            self.info_view.exception('TG bot disabled')
+        else:
+            Switches.bot_activity = True
+            self.info_view.success('TG bot enabled')
+
     def mcf_doubleclick(self, x: int, y: int):
 
         pyautogui.moveTo(x, y) # Перемещаем курсор в текущие координаты

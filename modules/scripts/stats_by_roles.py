@@ -35,14 +35,14 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
                 return ['100%', '🟩']
             case 0, div:
                 return ['0%', '🟥']
-            case out, div if div in range(8, 12) and out >=80:
-                if out >= 80: return [f"{'%.1f' % out}%", '🟩']
-                if out <= 80: return [f"{'%.1f' % out}%", '🟥']
-            case out, div if div <=7:
+            case out, div if div in range(9, 13):
+                if out >= 66.6: return [f"{'%.1f' % out}%", '🟩']
+                if out <= 66.6: return [f"{'%.1f' % out}%", '🟥']
+            case out, div if div < 9:
                 return [f"{'%.1f' % out}%", '🟥']
-            case out, div if out >= 66:
+            case out, div if out >= 60:
                 return [f"{'%.1f' % out}%", '🟩']
-            case out, div if out <= 66:
+            case out, div if out <= 60:
                 return [f"{'%.1f' % out}%", '🟥']
             case _:
                 return [f"{'%.1f' % out}%", 'white']

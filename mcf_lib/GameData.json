@@ -1,20 +1,20 @@
 {
-    "0": "('spectator-consumer.tw2.lol.pvp.net:80', 'JQlNvub0r3moQWnlp1AkGqicsoTY+caO', '147138912', 'TW2')",
+    "0": "('spectator-consumer.th2.lol.pvp.net:80', 'V1jH6PfY1eODepKniHdmEJebP9CaL2+t', '16093030', 'TH2')",
     "Background": "Custom.png",
     "Stats": {
         "T1": [
-            "Hwei",
-            "Jhin",
-            "Shen",
-            "Xerath",
-            "Darius"
+            "Nami",
+            "Ryze",
+            "Xayah",
+            "Seraphine",
+            "Akshan"
         ],
         "T2": [
-            "Zed",
-            "Yasuo",
-            "Jax",
-            "ChoGath",
-            "Veigar"
+            "JarvanIV",
+            "Varus",
+            "Caitlyn",
+            "Fiddlesticks",
+            "Morgana"
         ]
     },
     "TG": [
@@ -23,7 +23,7 @@
         "\ud83d\udc19\u041f2 Pyke - Senna - Nidalee - Swain - Sivir -- 71.4% \ud83d\udd34\n\n",
         "\ud83d\udd3460.0%  --  \u0411 90.5 \u041c  --  40.0%\ud83d\udd34"
     ],
-    "CheckerLast": "\u6069\u8cdc\u89e3\u812b\u00e7:TW2",
+    "CheckerLast": "Ti\u00e1njin:TH2",
     "MatchesAPI": {
         "RU": [
             "Amumu | Sona | KhaZix | Yone | Zoe-|-TropTop:RU_|_AZI:RU_|_De\u0430dShot:RU_|_BirdsLaFlame:RU_|_Milana Star:RU_|_HAJSHWALOW:RU_|_Samsar\u0430:RU_|_\u041c\u0435m\u0435nt\u043e \u041c\u043eri:RU_|_Elesisk:RU_|_Princess Lover:RU",

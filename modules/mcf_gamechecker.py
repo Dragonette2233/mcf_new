@@ -52,11 +52,11 @@ class MCF_Gamechecker:
     def connection_handler(func):
         def wrapper(self: "MCF_Gamechecker", *args, **kwargs):
             
-            Switches.decorator = True
-            while Switches.decorator:
+            # Switches.decorator = True
+            while True:
                 try:
                     func(self, *args, **kwargs)
-                    Switches.decorator = False
+                    break
                 except MCFException as ex:
                     self.parent.info_view.exception(str(ex) + ' | Press refresh to stop')
                     time.sleep(2.5)
@@ -232,7 +232,7 @@ class MCF_Gamechecker:
                 playsound(PAPICH_SONG_PATH)
                 finished_game.close()
             
-            time.sleep(2.5)
+            time.sleep(1.25)
 
     @connection_handler
     def show_lastgame_info(self):

@@ -14,6 +14,7 @@ if __name__ == '__main__':
     app.context_menu.add_command(label='PIL Calibration', command=app.change_calibration_index)
     app.context_menu.add_command(label='Close League', command=app.close_league_of_legends)
     app.context_menu.add_command(label='ARAM Timer', command=lambda: MCFThread(func=app.aram_porotimer).start())
+    app.context_menu.add_command(label='TG_Notification', command=app.toogle_telegram_bot)
     app.context_menu.add_command(label='Refresh', command=lambda: app.refresh())
 
     
