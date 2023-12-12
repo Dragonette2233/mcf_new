@@ -47,7 +47,8 @@ def aram_porotimer():
             while Switches.timer:
                 game = aram_porotimer_script.start_timer()
                 if game is not None:
-                    TGApi.display_gamestart(timer=game)
+                    if Switches.bot_activity:
+                        TGApi.display_gamestart(timer=game)
                     app_blueprint.info_view.notification(game)
                     playsound(TEEMO_SONG_PATH)
                     Switches.timer = False
@@ -78,7 +79,7 @@ def run_autoscanner():
             time.sleep(2)
             continue
         else:
-            print(len(team_blue), len(team_red))
+            # print(len(team_blue), len(team_red))
             for char_b, char_r in zip(team_blue, team_red):
 
                 try:
@@ -99,20 +100,13 @@ def run_autoscanner():
                     games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_poro_2')
                     games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_api')
 
-                    for g in games_by_character:
-                        print(g)
-                    # pprint(games_by_character)
-
                     if games_by_character is not None:
                         for charlist in games_by_character:
                      
-                            # set_1 = set(team_blue)
                             set_1 = set([i.lower().capitalize() for i in team_blue])
                             set_2 = set(charlist.split('-|-')[0].split(' | '))
                             set_2 = set([i.lower().capitalize() for i in set_2])
-                            if 'Pyke' in set_2:
-                                print(set_1)
-                                print(set_2)
+
                             nicknames = charlist.split('-|-')[1].split('_|_')
 
                             # Нахождение пересечения множеств
@@ -134,16 +128,14 @@ def run_autoscanner():
 
                                         time.sleep(10)
                                         while Switches.request:
-                                            time.sleep(3)
-                                            pyautogui.moveTo(658, 1056)  # Перемещаем курсор в текущие координаты
-                                            pyautogui.mouseDown()   # Нажимаем кнопку мыши
-                                            time.sleep(0.1)         # Можно задать задержку, если нужно
-                                            pyautogui.mouseUp()   
-                                            app_blueprint.generate_score()
                                             time.sleep(4)
-                                        
+                                            app_blueprint.mcf_doubleclick(658, 1056)  
+                                            app_blueprint.generate_score()
+                                            
                                         app_blueprint.delete_screenscore()
                                         app_blueprint.close_league_of_legends()
+                                        app_blueprint.info_view.notification('Porotimer starts in 4 mins.')
+                                        time.sleep(240)
                                         # app_blueprint.obj_gamechecker.awaiting_game_end()
                                         return
                             else:
@@ -194,7 +186,8 @@ def open_stream_source():
     find_success = run_autoscanner()
 
     if find_success == 'FAIL':
-        TGApi.send_simple_message('Игра не найдена. Кулдаун 5 минут')
+        if Switches.bot_activity:
+            TGApi.send_simple_message('Игра не найдена. Кулдаун 5 минут')
         time.sleep(300)
 
     driver.quit()

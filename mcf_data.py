@@ -223,6 +223,7 @@ class Switches:
     loop_validator = False
     try_validator = 0
     recognition_validator = 0
+    bot_activity = False
 
     def __str__(self) -> str:
         return f"""

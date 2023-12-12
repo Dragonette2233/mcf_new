@@ -1,6 +1,7 @@
 import tkinter as tk
 import os
 import time
+import pyautogui
 from PIL import ImageGrab, ImageChops, Image
 from playsound import playsound
 from mcf_threads import MCFThread
@@ -141,6 +142,18 @@ class MCFWindow(tk.Tk, Singleton):
                 Switches.calibration_index = 0
                 self.info_view.exception('Unknown error')
     
+    def mcf_doubleclick(self, x: int, y: int):
+
+        pyautogui.moveTo(x, y) # Перемещаем курсор в текущие координаты
+                                 
+        pyautogui.mouseDown()   # Нажимаем кнопку мыши
+        time.sleep(0.07)         # Можно задать задержку, если нужно
+        pyautogui.mouseUp()
+
+        pyautogui.mouseDown()
+        time.sleep(0.07)
+        pyautogui.mouseUp()
+
     def generate_score(self):
 
         screen = ImageGrab.grab()
@@ -148,7 +161,10 @@ class MCFWindow(tk.Tk, Singleton):
         score.save(os.path.join('images_lib', 'scorecrop.png'))
 
     def delete_screenscore(self):
-        os.remove(os.path.join('images_lib', 'scorecrop.png'))
+        try:
+            os.remove(os.path.join('images_lib', 'scorecrop.png'))
+        except FileNotFoundError:
+            pass
 
     def close_league_of_legends(self):
 

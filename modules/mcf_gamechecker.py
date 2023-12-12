@@ -150,11 +150,12 @@ class MCF_Gamechecker:
                 red_entry=champions_names[5:10]
             )
 
-            TGApi.gamestart_notification(
-                nickname=self.entry.get(),
-                champions=champions_names,
-                statsrate=self.parent.obj_aram.global_stats_values
-            )
+            if Switches.bot_activity:
+                TGApi.gamestart_notification(
+                    nickname=self.entry.get(),
+                    champions=champions_names,
+                    statsrate=self.parent.obj_aram.global_stats_values
+                )
 
         return 0
         # canvas.info_manager(forget=True)
@@ -210,10 +211,12 @@ class MCF_Gamechecker:
 
                 if response['info']['teams'][0]['win']: 
                     team = ('blue', '1')
-                    TGApi.winner_is(team='blue', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
+                    if Switches.bot_activity:
+                        TGApi.winner_is(team='blue', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
                 else: 
                     team = ('red', '2')
-                    TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
+                    if Switches.bot_activity:
+                        TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]
