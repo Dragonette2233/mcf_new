@@ -72,24 +72,3 @@ class Entry(tk.Entry):
             highlightbackground='#4D54D8',
             font=('Calibri', 10, 'bold')
         )
-
-class DisplayRedLabel(tk.Label):
-    def __init__(self):
-        tk.Label.__init__(self)
-        self.config(
-            bd=0,
-            highlightbackground='red',
-            highlightthickness=2,
-        )
-    def define_image(self, image, character):
-        self.config(image=image, text=character)
-
-class DisplayBlueButton(DisplayRedLabel):
-    def __init__(self, command=None):
-        DisplayRedLabel.__init__(self)
-        self.bind('<Enter>', lambda e: self.config(highlightbackground='#25D500'))
-        self.bind('<Leave>', lambda e: self.config(highlightbackground='blue'))
-        self.bind('<Button 1>', lambda e: self.config(highlightbackground='white'))
-        
-    def define_command(self, args, func=None):
-        self.bind('<ButtonRelease-1>', lambda e: [DaemonThread(func, args=args).start(), self.config(highlightbackground='#25D500')])

@@ -52,10 +52,11 @@ class TGApi:
             **formated_dict
         )
 
-        requests.post(
+        result = requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
             data={'chat_id': cls.CHAT_ID, 'text': full_message }
         )
+        print(result.status_code)
 
     @classmethod
     def send_simple_message(cls, message):

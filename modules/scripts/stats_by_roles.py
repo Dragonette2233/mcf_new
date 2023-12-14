@@ -168,15 +168,6 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         'all_m': _change_total_matches_value(middle_rate['all_m']),
         'all_ttl': _change_total_matches_value(middle_rate['all_ttl'])
     }
-
-    # final_result = {
-    #     'w1': _rate_chance_and_color(3, 3),
-    #     'w2': _rate_chance_and_color(0, 3),
-    #     'tb': _rate_chance_and_color(2, 3),
-    #     'tl': _rate_chance_and_color(1, 3),
-    #     'all_m': _change_total_matches_value(3),
-    #     'all_ttl': _change_total_matches_value(3)
-    # }
     
     return final_result    
 

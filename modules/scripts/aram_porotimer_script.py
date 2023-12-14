@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup as bs
-import time
+# import time
 import requests
 from mcf_data import cookies, headers
-from mcf_data import Switches
+# from mcf_data import Switches
 
 
 def start_timer():

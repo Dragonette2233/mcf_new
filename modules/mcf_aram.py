@@ -17,8 +17,8 @@ class MCF_Aram():
         self.red_win = mcf_styles.StatsRateLabel()
         self.total_bigger = mcf_styles.StatsRateLabel()
         self.total_lower = mcf_styles.StatsRateLabel()
-        self.blue_diplay = mcf_styles.DisplayBlueButton()
-        self.red_display = mcf_styles.DisplayRedLabel()
+        # self.blue_diplay = mcf_styles.DisplayBlueButton()
+        # self.red_display = mcf_styles.DisplayRedLabel()
         self.matches_all = mcf_styles.Label(fsize=10, width=4, hlt=1, hlb='#9966cc')
         self.matches_by_total = mcf_styles.Label(fsize=10, width=4, hlt=1, hlb='#9966cc')
 

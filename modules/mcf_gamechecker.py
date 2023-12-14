@@ -151,6 +151,7 @@ class MCF_Gamechecker:
             )
 
             if Switches.bot_activity:
+                print('NOTIFY')
                 TGApi.gamestart_notification(
                     nickname=self.entry.get(),
                     champions=champions_names,
