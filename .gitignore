@@ -15,3 +15,4 @@ chrome-win64/
 MCF_dev.bat
 ARAM_BOT.bat
 bt_s.py
+.pybotenv/

@@ -1,6 +1,5 @@
 from telegram import Update
 from telegram.ext import Application, CommandHandler, CallbackContext
-from PIL import Image, ImageGrab
 import os
 import logging
 # Enable logging
@@ -11,10 +10,6 @@ logging.basicConfig(
 logging.getLogger("httpx").setLevel(logging.WARNING)
 
 logger = logging.getLogger(__name__)
-
-# from mcf_build import MCFWindow
-
-# app_tg_blueprint = MCFWindow()
 
 async def echo(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
