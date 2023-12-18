@@ -4,11 +4,16 @@ from mcf_threads import MCFThread
 from mcf_data import Switches
 from modules.scripts import async_poro_games
 import threading
+from mcf_riot_api import TGApi
 
 def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case selftest if selftest.startswith('tg:'):
+            message = selftest.split(':')[1]
+            TGApi.send_simple_message(message=message)
+
         case 'score':
             score = app_test_context.get_gamescore()
             print(type(score))
