@@ -121,7 +121,7 @@ def run_autoscanner(driver: webdriver):
                                     app_blueprint.obj_gamechecker.search_for_game()
     
                                     if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
-                                        pyautogui.click(x=1897, y=97)
+                                        pyautogui.click(x=1898, y=1058)
                                         time.sleep(1.5)
                                         Switches.loop_validator = False
                                         MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end, args=(driver, )).start()
