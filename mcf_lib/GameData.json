@@ -1,20 +1,20 @@
 {
-    "0": "('spectator-consumer.sg2.lol.pvp.net:80', 'HNNLOV3xteRVcqW1TRbsgV5VxprkR4r+', '20086817', 'SG2')",
+    "0": "('spectator-consumer.th2.lol.pvp.net:80', 'r5a0pm/uCo0ECaWuBDGTuHldPwXe2sG5', '16825890', 'TH2')",
     "Background": "Custom.png",
     "Stats": {
         "T1": [
-            "Maokai",
-            "Kalista",
-            "Pyke",
-            "Malzahar",
-            "JarvanIV"
+            "Ryze",
+            "Varus",
+            "Syndra",
+            "Lissandra",
+            "Jinx"
         ],
         "T2": [
-            "Janna",
-            "Riven",
-            "Wukong",
-            "Hwei",
-            "BelVeth"
+            "Maokai",
+            "Warwick",
+            "Graves",
+            "Orianna",
+            "Jhin"
         ]
     },
     "TG": [
@@ -23,7 +23,7 @@
         "\ud83d\udc19\u041f2 Pyke - Senna - Nidalee - Swain - Sivir -- 71.4% \ud83d\udd34\n\n",
         "\ud83d\udd3460.0%  --  \u0411 90.5 \u041c  --  40.0%\ud83d\udd34"
     ],
-    "CheckerLast": "Quiety:KR",
+    "CheckerLast": "Castle  Black:TH2",
     "MatchesAPI": {
         "RU": [
             "Sejuani | Milio | Karthus | Annie | Twitch-|-ScorpionsBa\u0142lads:RU_|_Faterro:RU_|_BigChungus14:RU_|_Oliden:RU_|_\u0412\u043e\u0432\u0447\u0438\u043a \u0414\u043e\u0442\u0435\u0440:RU_|_SOLO BOL\u041e:RU_|_pavlentiy1998:RU_|_bg you know why:RU_|_gg you know why:RU_|_z\u0415RA:RU",

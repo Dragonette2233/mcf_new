@@ -225,20 +225,18 @@ class MCF_Gamechecker:
                     try:
                         games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
                     except Exception as ex_:
+                        games = []
                         print(ex_)
                         
                 
                     # is_disabled = button.get_attribute('disabled')
                     try:
                         button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
+                        if not button.get_attribute('disabled'):
+                            is_disabled = False
                     except NoSuchElementException:
                         pass
-                    
-                    try:
-                        button.find_element(By.CSS_SELECTOR, 'span.ico.ui-market__lock.ico--lock')
-                    except NoSuchElementException:
-                        is_disabled = False
-                    except Exception:
+                    except IndexError:
                         pass
 
                 if response['info']['teams'][0]['win']: 
