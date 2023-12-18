@@ -2,6 +2,9 @@ import tkinter as tk
 from playsound import playsound
 import time
 from modules.scripts import stats_by_roles
+from selenium.webdriver.common.by import By
+from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium import webdriver
 from modules import mcf_styles
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
@@ -180,24 +183,28 @@ class MCF_Gamechecker:
 
         subprocess.call([SPECTATOR_FILE_PATH, *args])
 
-    @connection_handler
+    # @connection_handler
     @disable_button_while_running(object_='obj_gamechecker', 
                                   buttons=('search_button', 'run_button', 'arrow_button'))
-    def awaiting_game_end(self):
-    # global sw_switches
-        # Switches.request = True
-        # if Switches.request == False:
+    def awaiting_game_end(self, driver: webdriver.Chrome = None):
+    
         Switches.request = True
         self.parent.canvas.start_circle()
         
         self.parent.info_view.success('Matcher checker started')
 
         while Switches.request:
-
             
-            finished_game = RiotAPI.get_match_by_gameid(area=currentGameData.area, 
+            while True and Switches.request:
+                try:
+                    finished_game = RiotAPI.get_match_by_gameid(area=currentGameData.area, 
                                                         gameid=currentGameData.match_id, 
                                                         status=True)
+                    break
+                except MCFException as ex:
+                    self.parent.info_view.exception(str(ex) + ' | Press refresh to stop')
+                    time.sleep(2.5)
+                    # func(self, *args, **kwargs)
             
                 
             if finished_game.status_code == 200:
@@ -210,14 +217,38 @@ class MCF_Gamechecker:
                 if time_stamp[1] < 10: 
                     time_stamp[1] = f"0{time_stamp[1]}"
 
+
+                # Coeff closed check
+                is_disabled = True
+
+                if driver is not None:
+                    try:
+                        games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
+                    except Exception as ex_:
+                        print(ex_)
+                        
+                
+                    # is_disabled = button.get_attribute('disabled')
+                    try:
+                        button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
+                    except NoSuchElementException:
+                        pass
+                    
+                    try:
+                        button.find_element(By.CSS_SELECTOR, 'span.ico.ui-market__lock.ico--lock')
+                    except NoSuchElementException:
+                        is_disabled = False
+                    except Exception:
+                        pass
+
                 if response['info']['teams'][0]['win']: 
                     team = ('blue', '1')
                     if Switches.bot_activity:
-                        TGApi.winner_is(team='blue', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
+                        TGApi.winner_is(team='blue', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]", disabled=is_disabled)
                 else: 
                     team = ('red', '2')
                     if Switches.bot_activity:
-                        TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]")
+                        TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]", disabled=is_disabled)
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]

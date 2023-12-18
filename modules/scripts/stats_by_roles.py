@@ -130,12 +130,15 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         Converting list of roles into string for comparing with items in .txt
     """
     
-    eight_roles_rate = _find_games_from_stats(teams_by_eight_roles)
+    # eight_roles_rate = _find_games_from_stats(teams_by_eight_roles)
+    # ten_roles_rate = _find_games_from_stats(teams_by_ten_roles, eight_roles=False)
+    
     ten_roles_rate = _find_games_from_stats(teams_by_ten_roles, eight_roles=False)
     
-    match eight_roles_rate, ten_roles_rate:
-        case None, None:
-            final_result = {
+    # print(ten_roles_rate)
+
+    if ten_roles_rate is None:
+        final_result = {
                 'w1': ['Нет данных', '❔'],
                 'w2': ['Нет данных', '❔'],
                 'tb': ['Нет данных', '❔'],
@@ -143,32 +146,18 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
                 'all_m': '0',
                 'all_ttl': '0'
             }
-            return final_result
-            # raise MCFException('No games finded')
-        case None, rate:
-            middle_rate = ten_roles_rate
-        case rate, None:
-            # print('this case')
-            middle_rate = eight_roles_rate
-        case _:
-            middle_rate = {
-                'w1': (eight_roles_rate['w1'] + ten_roles_rate['w1']),
-                'w2': (eight_roles_rate['w2'] + ten_roles_rate['w2']),
-                'tb': (eight_roles_rate['tb'] + ten_roles_rate['tb']),
-                'tl': (eight_roles_rate['tl'] + ten_roles_rate['tl']),
-                'all_m': eight_roles_rate['all_m'] + ten_roles_rate['all_m'],
-                'all_ttl': eight_roles_rate['all_ttl'] + ten_roles_rate['all_ttl'],
-            }
+        return final_result
 
-    final_result = {
-        'w1': _rate_chance_and_color(int(middle_rate['w1']), int(middle_rate['all_m'])),
-        'w2': _rate_chance_and_color(int(middle_rate['w2']), int(middle_rate['all_m'])),
-        'tb': _rate_chance_and_color(int(middle_rate['tb']), int(middle_rate['all_ttl'])),
-        'tl': _rate_chance_and_color(int(middle_rate['tl']), int(middle_rate['all_ttl'])),
-        'all_m': _change_total_matches_value(middle_rate['all_m']),
-        'all_ttl': _change_total_matches_value(middle_rate['all_ttl'])
+    else:
+        final_result = {
+        'w1': _rate_chance_and_color(int(ten_roles_rate['w1']), int(ten_roles_rate['all_m'])),
+        'w2': _rate_chance_and_color(int(ten_roles_rate['w2']), int(ten_roles_rate['all_m'])),
+        'tb': _rate_chance_and_color(int(ten_roles_rate['tb']), int(ten_roles_rate['all_ttl'])),
+        'tl': _rate_chance_and_color(int(ten_roles_rate['tl']), int(ten_roles_rate['all_ttl'])),
+        'all_m': _change_total_matches_value(ten_roles_rate['all_m']),
+        'all_ttl': _change_total_matches_value(ten_roles_rate['all_ttl'])
     }
-    
-    return final_result    
+        
+    return final_result
 
     

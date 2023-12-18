@@ -1,20 +1,20 @@
 {
-    "0": "('spectator-consumer.vn2.lol.pvp.net:80', 'Etitb5+7g3rd8wkhpWs0LhH8Aw7oCTyu', '273009771', 'VN2')",
+    "0": "('spectator-consumer.th2.lol.pvp.net:80', 'rvw/U0aEzxU/zC2DyzeY+nMLfRax5Eh6', '16788089', 'TH2')",
     "Background": "Custom.png",
     "Stats": {
         "T1": [
-            "Darius",
-            "TahmKench",
-            "Ahri",
-            "Lucian",
+            "Tristana",
+            "RekSai",
+            "Yone",
+            "Jhin",
             "Malphite"
         ],
         "T2": [
-            "LeBlanc",
-            "Fiddlesticks",
-            "Aatrox",
-            "Renekton",
-            "Azir"
+            "Kalista",
+            "Kayn",
+            "ChoGath",
+            "Fizz",
+            "TahmKench"
         ]
     },
     "TG": [
@@ -23,119 +23,119 @@
         "\ud83d\udc19\u041f2 Pyke - Senna - Nidalee - Swain - Sivir -- 71.4% \ud83d\udd34\n\n",
         "\ud83d\udd3460.0%  --  \u0411 90.5 \u041c  --  40.0%\ud83d\udd34"
     ],
-    "CheckerLast": "\u0110\u00edp Th\u1ed1t:VN2",
+    "CheckerLast": "Hasmed:TH2",
     "MatchesAPI": {
         "RU": [
-            "Lux | KaiSa | Teemo | Anivia | Mordekaiser-|-Count de la Fere:RU_|_SinigamiHime:RU_|_Lavruxa:RU_|_iceinmyveins:RU_|_\u0426\u0410\u0420b:RU_|_Isa Bjorn:RU_|_\u0421\u043d\u043e\u0440\u043a:RU_|_UNIVIRSAL:RU_|_\u041f\u0435\u0447\u0430\u043b\u044c\u043d\u044b\u0439 \u0411\u043e\u0433:RU_|_\u0413\u043e\u043b\u044b\u0439 \u041f\u0438\u043d\u0433\u0432\u0438\u043d\u0447\u0438\u043a:RU",
-            "Talon | DrMundo | Darius | Yasuo | Fiddlesticks-|-JTatrik:RU_|_MRair555:RU_|_\u0421\u0430\u0448\u0430\u041f\u0435\u0440\u0445\u043e\u0442\u044c:RU_|_ElektroBabka:RU_|_pristupastmi:RU_|_LeagueNotTheSame:RU_|_ b\u043b\u044f \u0446\u0435\u043f\u0438 \u0432 \u043a\u0434:RU_|_Blik:RU_|_Fantoz:RU_|_Frikses:RU",
-            "VelKoz | Aatrox | KogMaw | Shen | Lucian-|-aubo:RU_|_\u0421\u043e\u0431\u0430\u043a\u0435\u043d \u0441y\u0442\u0443\u043b\u044b\u0439 :RU_|_FelicitaTv:RU_|_BlastRNGqq:RU_|_Chapalax:RU_|_\u0420\u0430\u0439\u043e\u043d\u041a\u0432\u0430\u0440\u0442\u0430\u043b\u043e\u0432:RU_|_\u0411\u0424 \u0422\u0440\u0435\u043d\u0435\u0440:RU_|_porivo:RU_|_Euphori\u0430:RU_|_LoL u Died:RU",
-            "Brand | TwistedFate | KogMaw | Volibear | Taliyah-|-Bala emes:RU_|_kliterr3351:RU_|_Rinkam:RU_|_Luceat Umbra:RU_|_Alkard:RU_|_HollowSouls:RU_|_VnaTwoRe:RU_|_Phoenix38:RU_|_IIpuBeT JIoJI:RU_|_7\u044f \u0434\u043e\u043c:RU",
-            "LeeSin | Jax | Anivia | Vayne | Yuumi-|-\u041c\u044f\u043a\u0438\u0448\u043a\u0430:RU_|_Bruce CampbelL:RU_|_Freezy2002:RU_|_BloodsLee:RU_|_\u041ce\u043ba\u043d\u0445o\u043b\u0438\u044f :RU_|_Wayfinve:RU_|_\u041a\u043e\u043c\u041f\u0440\u043e\u041c\u0438\u0441:RU_|_pizzaDimanUbuca:RU_|_Taigon:RU_|_Kim En Su:RU"
+            "Shaco | Lucian | TwistedFate | KogMaw | Warwick-|-:RU_|_fleks1g:RU_|_Djamba:RU_|_Hi Im NEWBY:RU_|_Light Hunter:RU_|_\u041a\u0430i\u043d:RU_|_ARIstaRA:RU_|_hellomybesstie:RU_|_Conuli:RU_|_\u0411\u043e\u0435\u0432\u043e\u0439 \u0432\u0430\u0440\u0434:RU",
+            "Jayce | Hwei | Viktor | Varus | Zyra-|-\u041ayubi:RU_|_SemplerN7:RU_|_Gr0ssMe1ster:RU_|_Fiction Monger:RU_|_Weather Re\u0440ort:RU_|_Risen Centurion:RU_|_COWBOYJOJO:RU_|_AHAHAHAHAHAHXD:RU_|_Filshooter:RU_|_\u0428\u0415\u0420 \u0411\u041e\u0420\u0422\u041e\u041b\u041e\u041c:RU",
+            "Ziggs | Aatrox | Rell | Naafiri | Brand-|-Pooqa:RU_|_1woros24:RU_|_\u0413o\u0440\u0433\u043e\u043d\u0430:RU_|_TeeBoy:RU_|_\u041e\u0421\u041b\u0415\u041f\u041b\u0415\u041d\u0418\u0415:RU_|_NiktoX:RU_|_Dragomess:RU_|_\u0410\u0440\u0430\u0445\u043d\u043e\u0444\u043e\u0431\u0438\u044f:RU_|_l s1ngle l:RU_|_Tomamonomae:RU",
+            "Irelia | Galio | Volibear | Nami | Lucian-|-re\u0430ch the stars:RU_|_LBM WANT U:RU_|_\u041e\u043b\u0435\u043d\u0435\u0432\u043e\u0414:RU_|_I am Fostam:RU_|_MGT Kakaruh:RU_|_Sl\u0430yyyter:RU_|_hazeEris:RU_|_disstrike1:RU_|_PsyhopathXD:RU_|_Anaid Moon:RU",
+            "Samira | Karma | Malphite | Katarina | Quinn-|-Delaries:RU_|_Miete:RU_|_\u041e\u0440\u0444\u0435\u0439 \u0418\u0434\u0443\u0449\u0438\u0439 \u0432\u0410\u0434:RU_|_Mabllung:RU_|_lUnjust:RU_|_\u041f\u0440\u0438\u0433\u043e\u0436\u0438\u043d:RU_|_Top1fiderkekw:RU_|_Steryxxx:RU_|_Jserax:RU_|_L\u00f5nely Cowboy :RU"
         ],
         "EUN1": [
-            "Rell | Rengar | Milio | Swain | Rammus-|-Stationmaster:EUN1_|_Petite Blondie:EUN1_|_going numb :EUN1_|_fading feelings:EUN1_|_OG Pyllynalle:EUN1_|_D korli 2604:EUN1_|_The Aram Boi:EUN1_|_GrauzdetsPelmen:EUN1_|_Prince Charm:EUN1_|_NeTeDD:EUN1",
-            "Leona | Lux | KaiSa | Tryndamere | Nunu-|-sl4sherr:EUN1_|_Bugs Fear :EUN1_|_CriticalGhost:EUN1_|_twarda \u0107ipka:EUN1_|_XzotiC:EUN1_|_Dangarda:EUN1_|_Permaa:EUN1_|_KestrelHUN93:EUN1_|_Lanami Del Rey:EUN1_|_\u0394\u03b7\u03bc\u03b7\u03c4\u03c1\u03b7\u03c3:EUN1",
-            "Rakan | Pantheon | Lillia | Xayah | Zed-|-Mart\u00efnCZ:EUN1_|_JASDKLASJDKSALDJ:EUN1_|_Tejki Nokaut\u00ed:EUN1_|_Light Novel:EUN1_|_dog region13:EUN1_|_Dondequiera:EUN1_|_GoshoMachka:EUN1_|_emilelosh:EUN1_|_BardAtTheGame:EUN1_|_Hogotheratalh:EUN1",
-            "Malzahar | Aphelios | Trundle | VelKoz | Kayle-|-Jhin Solo Carry:EUN1_|_master MJ:EUN1_|_Frozen Helll:EUN1_|_ShiroTensei:EUN1_|_Kasselakis Supp :EUN1_|_Manamun3:EUN1_|_Yolo Que Warrior:EUN1_|_PanCapone7:EUN1_|_Muve:EUN1_|_Z\u00fci:EUN1",
-            "KhaZix | Zilean | Brand | Jhin | Illaoi-|-I Can Flash:EUN1_|_ObeseAnimeFan:EUN1_|_MinusThirtyGG:EUN1_|_aokiji:EUN1_|_losing will:EUN1_|_SELFIMPROVE ONLY:EUN1_|_Zoobry Mangaa:EUN1_|_Jooa:EUN1_|_nabadam kurcem:EUN1_|_Tarek Toplane:EUN1"
+            "Taliyah | Thresh | Sivir | Warwick | Graves-|-Erethusing:EUN1_|_Damica:EUN1_|_ErnieDeath:EUN1_|_Its Novy:EUN1_|_DM FOR MY OF:EUN1_|_lena89:EUN1_|_charmia chanel:EUN1_|_Nopenguin:EUN1_|_sIuttie:EUN1_|_Pinguistics:EUN1",
+            "Swain | Twitch | Viktor | Veigar | Nautilus-|-lubie zelki:EUN1_|_Levtolsbada:EUN1_|_Creativecookie:EUN1_|_\u0104ndruxan:EUN1_|_NMR Malygen:EUN1_|_M4triux:EUN1_|_parasonic9:EUN1_|_L9 eric cartman:EUN1_|_bignoob321:EUN1_|_Fablecaster:EUN1",
+            "Leona | MasterYi | Yasuo | Kalista | Gwen-|-Error 418:EUN1_|_I3lack Dragonn:EUN1_|_\u00c4OE HIV:EUN1_|_cizma101:EUN1_|_Rdwacysc:EUN1_|_BardAtTheGame:EUN1_|_MockingLord:EUN1_|_efxomaikarkino:EUN1_|_z3 Emppuking:EUN1_|_:EUN1",
+            "Vladimir | Graves | Soraka | Caitlyn | Talon-|-SoHereIAmAgain:EUN1_|_Decimusprimus:EUN1_|_Iskras:EUN1_|_Dobra Duszyczka:EUN1_|_julo57:EUN1_|_De\u00f9s:EUN1_|_better grindset:EUN1_|_Slon Vlezl\u00fd:EUN1_|_Aport:EUN1_|_Hot as Duck:EUN1",
+            "Zyra | Caitlyn | JarvanIV | Viktor | Akali-|-Nikuu:EUN1_|_Zuqiwrun:EUN1_|_4MIR:EUN1_|_Neeko the lizard:EUN1_|_MarkDunge:EUN1_|_shizeR31:EUN1_|_Adidas shoes:EUN1_|_hodi65:EUN1_|_Dragon8889:EUN1_|_BijBongoANieBabe:EUN1"
         ],
         "TR1": [
-            "Urgot | Mordekaiser | Kassadin | AurelionSol | Caitlyn-|-Faivesel:TR1_|_Kenzhin:TR1_|_RARA:TR1_|_TheFatherOfTurks:TR1_|_Double Helix:TR1_|_Dismantle:TR1_|_nuckfau:TR1_|_s\u00f8lv:TR1_|_BeyazBoi:TR1_|_D\u0131vis\u0131oN:TR1",
-            "Leona | Singed | Irelia | Sivir | Olaf-|-\u0192ade away:TR1_|_JudasEffect:TR1_|_mentally tired:TR1_|_SkaarlScream:TR1_|_bro baba is here:TR1_|_sanaI sevgili:TR1_|_BenQuaker:TR1_|_K\u00e2Ts\u00fb:TR1_|_HeavyBoxer:TR1_|_Dominus Sanctus:TR1",
-            "Sion | Gangplank | Rell | Wukong | LeBlanc-|-EGTURK:TR1_|_Mad Daddy:TR1_|_Kroshin:TR1_|_1MM0RT4L:TR1_|_AZERB\u00dc\u00dcLB\u00dcL:TR1_|_Dimebag Darrell:TR1_|_sanoVELLL:TR1_|_TheGodFatherl\u0131l:TR1_|_DOGE:TR1_|_kraltanntan:TR1",
-            "Orianna | Hwei | Xerath | Jhin | Teemo-|-ICoDeXGiGaSI:TR1_|_DELD\u0130M BEN BUNU:TR1_|_i3renb:TR1_|_Noakss:TR1_|_P S Y C H O \u00ba:TR1_|_WTG Hypeurus:TR1_|_ \u0131 Z E U S \u0131:TR1_|_ZapaTa Viv\u00e2La:TR1_|_AyasofyaA\u00e7\u0131ld\u0131:TR1_|_NICKbulun:TR1",
-            "Ashe | Soraka | Mordekaiser | Riven | Orianna-|-KeldiK\u00f6rd\u00fcYendi:TR1_|_hat trick:TR1_|_gutenmorgana:TR1_|_GetsugaT\u00e9nshou:TR1_|_MortalScream:TR1_|_Sleepingforest:TR1_|_retset:TR1_|_\u00d6l\u00fcmc\u00fcl B\u0131\u00e7ak:TR1_|_Shapeshifter:TR1_|_Berquinhos:TR1"
+            "Neeko | Kalista | Orianna | Yasuo | Ezreal-|-Ves:TR1_|_XearaPhysCho:TR1_|_baby boy:TR1_|_Gazanfer Abi:TR1_|_LAMP Stack:TR1_|_acc1:TR1_|_Uzi:TR1_|_Larcad\u00e9:TR1_|_Ashmore:TR1_|_\u00c7al\u0131dan Atlayan:TR1",
+            "Syndra | Sylas | Camille | Nautilus | AurelionSol-|-M\u00fcptezeLeblanc:TR1_|_FiyuWW:TR1_|_Hyamine:TR1_|_AnanLaHelaLLe\u015f:TR1_|_Wyrm:TR1_|_taylor enjoyer:TR1_|_Kenzhin:TR1_|_The Medick:TR1_|_Lunatic:TR1_|_Av\u00e9 Maria:TR1",
+            "Sejuani | Gragas | Pyke | Ezreal | KogMaw-|-B\u00east V\u00e3yne:TR1_|_\u015faduGANG:TR1_|_vay maI:TR1_|_GOR\u0130V\u0130K:TR1_|_1v9 Zenitsu:TR1_|_MagnaNaga:TR1_|_CARR\u0130ER SUPPORT:TR1_|_H\u00e4rold Finch:TR1_|_Blitzcrank G\u00f4d:TR1_|_ARAM DOMUZU:TR1",
+            "Neeko | Nidalee | Soraka | Graves | Varus-|-Lapillus:TR1_|_tayyipciyim ben:TR1_|_BBC enjoyer:TR1_|_RBS Y\u00e1suo:TR1_|_sanoVELLL:TR1_|_Golotom:TR1_|_AixLover:TR1_|_dorororo:TR1_|_zuNgyr:TR1_|_THE LOSERR:TR1",
+            "Skarner | Briar | Xayah | Nocturne | Senna-|-Dominus Sanctus:TR1_|_V for Vanille:TR1_|_PEB Deimos:TR1_|_phoenice:TR1_|_F E E L X:TR1_|_Bur9kk:TR1_|_The Inevitable:TR1_|_ARCHANGEL TYRAEL:TR1_|_akucum:TR1_|_Elenel:TR1"
         ],
         "EUW1": [
-            "Swain | Ahri | Qiyana | Zeri | Renata-|-Victor2901:EUW1_|_KC DzBakyou :EUW1_|_Jack FR\u00d8STY:EUW1_|_steef59:EUW1_|_Roaming Sentinel:EUW1_|_Todeswucht:EUW1_|_LifePointTrader:EUW1_|_Callpex:EUW1_|_7th Of October:EUW1_|_Elden John:EUW1",
-            "BelVeth | ChoGath | Yasuo | Taric | XinZhao-|-HKcalvinKan:EUW1_|_Hedgi:EUW1_|_o0Blank0o:EUW1_|_Netsui:EUW1_|_Toripoliisi:EUW1_|_Gyzmo3:EUW1_|_ALG Shadow:EUW1_|_Terzelman:EUW1_|_ToxicHill:EUW1_|_teemoalex8:EUW1",
-            "LeeSin | Anivia | Twitch | Sona | Tristana-|-Essence99:EUW1_|_Barisko 6:EUW1_|_Pamplow:EUW1_|_Jae:EUW1_|_play like Dwill:EUW1_|_TM Anonymouss:EUW1_|_Black Sabbath:EUW1_|_Pandaa Is Legend:EUW1_|_the heart wants:EUW1_|_STB:EUW1",
-            "Kayle | Xerath | KhaZix | Cassiopeia | Zoe-|-BlueRedGamer:EUW1_|_Viper\u03b1:EUW1_|_Un Panda masqu\u00e9:EUW1_|_Heal Sim:EUW1_|_Mentejas:EUW1_|_One Man Army:EUW1_|_Gascon Brossard:EUW1_|_GiDeMo:EUW1_|_CosRysdan:EUW1_|_Beal:EUW1",
-            "Thresh | Rumble | Graves | Yone | Kalista-|-Hasta Ihtiyar:EUW1_|_ds1 skeleton:EUW1_|_J3kko1:EUW1_|_SYN Marcelzgeg:EUW1_|_ott\u0131e:EUW1_|_COCAINE CAMILLE:EUW1_|_its so so cold:EUW1_|_InMemoryOf Dogys:EUW1_|_zZZZ Name change:EUW1_|_Teemojo:EUW1"
+            "Talon | Xerath | Varus | Renata | Ornn-|-Rias:EUW1_|_Magnarame:EUW1_|_Santen:EUW1_|_namelezzzz:EUW1_|_Nicolas Jackson:EUW1_|_Arctic Crow:EUW1_|_NJJJN:EUW1_|_Sundling:EUW1_|_Andr\u00e9 p\u00e5 m\u00e5nen:EUW1_|_Liheku:EUW1",
+            "Azir | Maokai | Singed | Ashe | Pyke-|-DiogoGomes31:EUW1_|_Plussive:EUW1_|_Denoveo:EUW1_|_Tizoks:EUW1_|_Razlav :EUW1_|_I am Samy:EUW1_|_A Ruined King:EUW1_|_vZuWArcher:EUW1_|_JYSavage:EUW1_|_ISFJ:EUW1",
+            "Zed | Lux | Thresh | Jayce | Gragas-|-Septia:EUW1_|_nvi0us:EUW1_|_Propano:EUW1_|_Billy Kaplan:EUW1_|_Xibutox:EUW1_|_Jhintro:EUW1_|_Normanguy:EUW1_|_RF savitar:EUW1_|_bluwiran:EUW1_|_Ganondus:EUW1",
+            "Hwei | Nasus | ChoGath | Varus | KaiSa-|-Zold:EUW1_|_Ravu:EUW1_|_KingMombert:EUW1_|_Fruticek:EUW1_|_Vongola Primo:EUW1_|_Babydorie:EUW1_|_Kogaaa:EUW1_|_Hey I am Shy:EUW1_|_Katsa:EUW1_|_FIow Zhero:EUW1",
+            "Poppy | Ornn | Pyke | Draven | Orianna-|-gothic 3 enjoyer:EUW1_|_BS Undaq:EUW1_|_Zraethinaff:EUW1_|_hqShadow02:EUW1_|_homielander:EUW1_|_Fweshy:EUW1_|_Purple Place:EUW1_|_BJK Kuti:EUW1_|_LEVENT XDD:EUW1_|_BL LeFufu:EUW1"
         ],
         "LA1": [
-            "Qiyana | Caitlyn | Sett | Karma | Aphelios-|-Non Lo So:LA1_|_JOSELU MI GOAT:LA1_|_MochomoBunny:LA1_|_SimplePoem:LA1_|_Musouka:LA1_|_Sky\u0142ight:LA1_|_ItzMinionP:LA1_|_Skt Trolll:LA1_|_Pablopro:LA1_|_Sand\u00eda Verde:LA1",
-            "AurelionSol | Lulu | TwistedFate | Janna | Caitlyn-|-D\u00f6n Flores:LA1_|_LEV TrickShoot:LA1_|_AlexBogard:LA1_|_Naganeka:LA1_|_BigMike21:LA1_|_Sora Jim:LA1_|_El L0BO:LA1_|_GaleonXZ:LA1_|_The Fail Hooks:LA1_|_SKTelmex Faker:LA1",
-            "Akali | Nautilus | Ryze | Nunu | Seraphine-|-Diavolo Passione:LA1_|_ThePsyCongro:LA1_|_ENEMY STAND:LA1_|_TB Veigarali   :LA1_|_Ghostly Moon:LA1_|_Ludw\u0131g:LA1_|_Dallas:LA1_|_Ratadelcielo:LA1_|_Masiossare:LA1_|_Fannatico206:LA1",
-            "Xerath | Twitch | Yorick | Qiyana | Irelia-|-Simp de Kayla:LA1_|_Guerok:LA1_|_Crespo2:LA1_|_toyoku:LA1_|_W \u00f8 \u0141 \u0192 \u00b5 \u017d:LA1_|_LoIi Consumer:LA1_|_LoIi Hunter:LA1_|_BlueSz:LA1_|_Mythical Loki:LA1_|_Sunng:LA1",
-            "Lulu | Darius | DrMundo | Malphite | Kalista-|-Ver\u00f3nica:LA1_|_Thexayahjhin:LA1_|_KeiFreak:LA1_|_Leche de Kevin:LA1_|_Maffer sg:LA1_|_Apocalipsis 21 6:LA1_|_Morthem:LA1_|_1gSyo:LA1_|_un perro sepsi:LA1_|_Reaper Creeper:LA1"
+            "Nilah | Twitch | Lillia | Milio | Yasuo-|-Ganyu SlMP:LA1_|_Nelzoe:LA1_|_PIPOX666:LA1_|_Yeac:LA1_|_Matreix:LA1_|_TypsiPapers:LA1_|_rustly :LA1_|_Hunter Lans:LA1_|_Trenico:LA1_|_Kaiser2728:LA1",
+            "Samira | Quinn | Lux | Veigar | Soraka-|-AngelZ69:LA1_|_MaxZeer0:LA1_|_Lord Lag :LA1_|_Fade Safe:LA1_|_EwuwArd Bv:LA1_|_Skairez:LA1_|_Makkus:LA1_|_Kuru:LA1_|_Entity Hastorr:LA1_|_ UnderNightGloom:LA1",
+            "Gragas | Jhin | Briar | Ahri | KSante-|-\u00f1e\u00f1uz:LA1_|_txatxvnrz:LA1_|_Angel Shelby:LA1_|_2D90PL:LA1_|_DGR Zeckro:LA1_|_\u00c4cke:LA1_|_RoKur0:LA1_|_Hanma Sett:LA1_|_meibid03:LA1_|_BAN Kazuo:LA1",
+            "Viktor | Pantheon | Twitch | Veigar | Shyvana-|-Absolus:LA1_|_Arrseval:LA1_|_Etherna\u0142:LA1_|_KorzanJad:LA1_|_SoulWhisperer:LA1_|_AID\u00c9Z:LA1_|_AlexaS1:LA1_|_CaMPiOnEDraIG:LA1_|_Le\u00aaj:LA1_|_rebj\u00f6rnn TV:LA1",
+            "Tristana | Xayah | Viktor | Caitlyn | Nautilus-|-Kevincho36:LA1_|_Natillaz:LA1_|_Schilder:LA1_|_luna12re:LA1_|_Blogs:LA1_|_Chipawasu:LA1_|_Tofra:LA1_|_Rei wants Pizza:LA1_|_El Pandoso:LA1_|_Lancha Delfino:LA1"
         ],
         "BR1": [
-            "Ivern | Neeko | Shaco | Renata | Syndra-|-Rustyze:BR1_|_Yugos:BR1_|_pke:BR1_|_Almond:BR1_|_O ILUVATAR :BR1_|_ducke:BR1_|_lawy:BR1_|_Danuki:BR1_|_De Bruyne:BR1_|_lnvenc\u00edvel:BR1",
-            "Ezreal | Sona | Zoe | Taliyah | Shen-|-M3RDA DE B0STA:BR1_|_Triat:BR1_|_pint0cub0stamij0:BR1_|_Nero The Fik:BR1_|_treevor:BR1_|_scuro:BR1_|_eTnne:BR1_|_mctulio:BR1_|_Helvegen:BR1_|_QUATR\u00c3O DELAS:BR1",
-            "AurelionSol | Ziggs | Seraphine | TahmKench | Gangplank-|-naiv\u00eb:BR1_|_AMIGA SOCOORRRRO:BR1_|_Sweetest Prince:BR1_|_Laerth:BR1_|_T\u00e1 na brisa mano:BR1_|_Ex Main Sona:BR1_|_SamiraBeyblade:BR1_|_roedor de bic:BR1_|_x D a n z:BR1_|_Dtrn:BR1",
-            "Yasuo | Karthus | Graves | Rell | Lux-|-tapom:BR1_|_Yup memama:BR1_|_President Milei:BR1_|_Vogue:BR1_|_Amumu Pereba:BR1_|_anajuliaVenvanse:BR1_|_EkkoSistemaa:BR1_|_migmilo:BR1_|_Zyra 1964:BR1_|_sunflowers:BR1",
-            "Rell | Ezreal | Jax | Viktor | Lillia-|-Stoneses7:BR1_|_carry95:BR1_|_God Of Fight:BR1_|_Pride:BR1_|_tatas:BR1_|_crush3:BR1_|_JaeYoung:BR1_|_Mayne Vain:BR1_|_Stixxay1:BR1_|_I ve God Complex:BR1"
+            "Xayah | Vex | Kayle | Fizz | Morgana-|-O Ivan:BR1_|_Aureon:BR1_|_Allemand Neri:BR1_|_Havookz:BR1_|_Vassago:BR1_|_Qyburn:BR1_|_teodeiomsm:BR1_|_Shaiapouf:BR1_|_akira14:BR1_|_Erickqh:BR1",
+            "Renekton | Ashe | Hwei | Gwen | KogMaw-|-Rick Altzi:BR1_|_AKSHAN9999999:BR1_|_Flapjackk:BR1_|_Inamoto:BR1_|_Pikassauro :BR1_|_victorjogos:BR1_|_Zarnok:BR1_|_Dashow:BR1_|_Don Dr\u00e4per:BR1_|_94B7131:BR1",
+            "Caitlyn | Morgana | Jax | KhaZix | Karma-|-TK RAPS:BR1_|_Muzan:BR1_|_odeio yasuo mano:BR1_|_separar:BR1_|_Pe\u00f6ple:BR1_|_king duelas:BR1_|_Duduhh:BR1_|_ViceS\u00f3cioDiretor:BR1_|_Iwant2die:BR1_|_pedrin mago:BR1",
+            "Pyke | Vladimir | Rakan | Graves | KogMaw-|-yo soy jojo:BR1_|_D\u00e4rkS\u00ebid:BR1_|_prato de comida:BR1_|_Maginus Darklord:BR1_|_dry no 35:BR1_|_FleckZord:BR1_|_Dionysos:BR1_|_Caastiel:BR1_|_lIlIlIllIlI:BR1_|_national anthemm:BR1",
+            "Graves | Blitzcrank | Syndra | Akshan | Teemo-|-WIC Batatacent:BR1_|_Andros:BR1_|_G\u00f6oseb\u00fcmps:BR1_|_Guardi\u00e3o Supremo:BR1_|_Lauana Babal\u00fa:BR1_|_Nanike:BR1_|_Ich liebe Peanut:BR1_|_Iruno:BR1_|_Se Leu Digita xd:BR1_|_scurvy scallywag:BR1"
         ],
         "LA2": [
-            "Ezreal | Qiyana | Shyvana | Akshan | Jinx-|-Zhongch\u00e9ng:LA2_|_lucholelz:LA2_|_godcomplex96:LA2_|_pingo chan:LA2_|_Lelouch Britania:LA2_|_XILU:LA2_|_XXFenrirXX:LA2_|_Supreme Bojji:LA2_|_Jotapeh04:LA2_|_Agarramestaloro:LA2",
-            "Ekko | Neeko | Nocturne | Ashe | Malphite-|-Albardon:LA2_|_Clintz:LA2_|_marilyn nebi:LA2_|_Zaev:LA2_|_malpelaoelxncho7:LA2_|_Dekhar:LA2_|_I Marcianeeke :LA2_|_NKG VB:LA2_|_XKhadorX:LA2_|_sanguinarioo:LA2",
-            "Brand | Zyra | Ashe | Kayle | Sylas-|-xSpeedKing:LA2_|_Shinermac:LA2_|_Luchiflin:LA2_|_Rochet Lz:LA2_|_Bai Suzhen:LA2_|_La Dramas:LA2_|_ElArch:LA2_|_Skyda:LA2_|_TopoSan:LA2_|_LegendFlashxone:LA2",
-            "Aatrox | Ahri | Senna | Xayah | MasterYi-|-TheKidMaster:LA2_|_SIIIIIIIIIUUUUUU:LA2_|_Sciurialis:LA2_|_marino caleuche:LA2_|_Sashonli:LA2_|_NightKrippy:LA2_|_Cylecian:LA2_|_ASUNA TE AMO:LA2_|_Si porfa bro:LA2_|_freebirds:LA2",
-            "Gangplank | TahmKench | Rakan | Hwei | Ivern-|-\u00ba\u02c9 \u02c9\u00ba:LA2_|_Zuker:LA2_|_Diowasky:LA2_|_heisenNoEstaAqui:LA2_|_Qui\u00e9n es cari\u00f1o:LA2_|_RGE FRANKDC:LA2_|_Jeshv14:LA2_|_Into Dust:LA2_|_RazorMax:LA2_|_WretchesAndKings:LA2"
+            "Fizz | Karthus | KogMaw | Warwick | Mordekaiser-|-Zo\u00f6:LA2_|_Kuro Sagol:LA2_|_Agarramestaloro:LA2_|_xGloryxz:LA2_|_T1 Morgan00:LA2_|_AdlerZ:LA2_|_cachi912:LA2_|_I Phase I:LA2_|_Hitzuro:LA2_|_Zeinn:LA2",
+            "Aatrox | Akali | Draven | Jhin | Veigar-|-MANNIEATIC:LA2_|_\u0192rikitona:LA2_|_Devushka:LA2_|_Nobruk:LA2_|_Sr Sol:LA2_|_Angelonic:LA2_|_LBL SingulariS:LA2_|_SE\u00d10R MAPACHE:LA2_|_Ag\u00f3rus:LA2_|_an idiot chemist:LA2",
+            "Blitzcrank | Taliyah | Sivir | Gwen | Yone-|-Scaril17:LA2_|_CUENTA MALITA:LA2_|_Novimi:LA2_|_Gamiz:LA2_|_L\u00e9balance:LA2_|_osyk3s:LA2_|_n kero enredarme:LA2_|_shiu:LA2_|_rcy:LA2_|_Zhenk:LA2",
+            "Thresh | TwistedFate | Fiddlesticks | Quinn | Gragas-|-ERES CHILENO XD:LA2_|_Lauchamannnn:LA2_|_Shinji Depressed:LA2_|_Snufkin:LA2_|_Erik Hakon:LA2_|_shh jugas al lol:LA2_|_Pkenioponi:LA2_|_WingstonXD:LA2_|_aver el poto:LA2_|_EDG Light:LA2",
+            "Senna | Irelia | Veigar | Sejuani | Cassiopeia-|-Barbacoa :LA2_|_OG Workout:LA2_|_Wukok:LA2_|_Pattofrag:LA2_|_mid fekar:LA2_|_ToplaneQueCarrea:LA2_|_NoviodeMoonie:LA2_|_LAS acc 1:LA2_|_gonza mainyi:LA2_|_Jhony:LA2"
         ],
         "NA1": [
-            "Janna | Nocturne | Xayah | Brand | Varus-|-Yezi JoJo :NA1_|_GeeWilleh:NA1_|_Tabris:NA1_|_88key:NA1_|_D\u00e1ni\u00e9l:NA1_|_rnged:NA1_|_Memo:NA1_|_Move Forward:NA1_|_Tsukino Usagi:NA1_|_T\u00e0ii:NA1",
-            "Rell | Senna | Karma | Rumble | Brand-|-The Spanking:NA1_|_shizuka:NA1_|_Kinokuniya:NA1_|_Lukii:NA1_|_Baozi:NA1_|_Knobhead:NA1_|_Joopa:NA1_|_cccccsk:NA1_|_Sliggoodle:NA1_|_Beyond Br0ken:NA1",
-            "Annie | Katarina | Draven | Thresh | Nocturne-|-Neyx:NA1_|_tempxcmqorkyyoem:NA1_|_beatvevery:NA1_|_Nakanoo Nino:NA1_|_ParkHyoMin:NA1_|_Goodwom\u0119n:NA1_|_JustKidding185:NA1_|_Marshan:NA1_|_Auzty:NA1_|_Blueguin:NA1",
-            "Ahri | DrMundo | Zac | Lissandra | Aphelios-|-LPL WaterMellon:NA1_|_allen4real:NA1_|_OAFY LOAFY ARAM:NA1_|_DDXPERT:NA1_|_Blulululululu:NA1_|_PANDaaaaaaaaa:NA1_|_9Ox:NA1_|_Fauna Coomer:NA1_|_1DeathPowerSpyke:NA1_|_Pika Maniac:NA1",
-            "Shen | Neeko | Pantheon | Lulu | Brand-|-BeastGodMode:NA1_|_TsubakiKun42:NA1_|_addy334:NA1_|_Orphan Crusher:NA1_|_ZeDante:NA1_|_AnemoArchonn:NA1_|_Saisei:NA1_|_IntoTheFrozenSky:NA1_|_KlRK COUSINS:NA1_|_Haulballer:NA1"
+            "Sona | Zeri | Briar | Syndra | Sion-|-LeTickleMonster:NA1_|_DDYTXWD:NA1_|_to the days:NA1_|_XxAramG0D420xX:NA1_|_SkyHigh2005:NA1_|_Seczie:NA1_|_Caedrel0Playoffs:NA1_|_SALALALALA:NA1_|_childsbrad:NA1_|_jolol:NA1",
+            "LeeSin | Seraphine | Zed | KaiSa | Zoe-|-Xela Fate:NA1_|_Xpectre:NA1_|_DDH5:NA1_|_Dlvus:NA1_|_Ir0ck2Hard:NA1_|_MADD TILT :NA1_|_yoSzn:NA1_|_cookiebear17:NA1_|_HENNYPAPI:NA1_|_P\u0131no:NA1",
+            "Yone | Gnar | Ahri | Irelia | Caitlyn-|-Dabbby:NA1_|_Chicken Fry:NA1_|_bassyy:NA1_|_Frozen Harmony:NA1_|_Sukana:NA1_|_Metahead:NA1_|_JETSTRE4M:NA1_|_brobeans0:NA1_|_QuirkyTurtle22:NA1_|_TwoHotTamales:NA1",
+            "Renekton | Ashe | Ekko | Jhin | Jayce-|-Thiardicca:NA1_|_vanila bean:NA1_|_WTERMLON THIEF:NA1_|_SageWabe:NA1_|_plex123:NA1_|_smon93:NA1_|_EDEN wrong:NA1_|_Camell1a7:NA1_|_Mathias with Jun:NA1_|_erii waifu:NA1",
+            "Nilah | Xayah | Gwen | Thresh | Pyke-|-Oracle of Earth:NA1_|_I Love Rabbits:NA1_|_Camaraderie:NA1_|_Gringar:NA1_|_silentkilllz:NA1_|_matarukaja:NA1_|_eKzIwVTyrone:NA1_|_Plz No Ganks:NA1_|_PhantomLightning:NA1_|_Hyperdomic:NA1"
         ],
         "KR": [
-            "Senna | Urgot | Jhin | Aatrox | Milio-|-\ube5b \uc6b0 \ube48:KR_|_\ud589\uc6b4\uc758\ub4dc\ub9ac\ube14:KR_|_\uc560\ub2c8\uba40\uc2f8\uc6b4\ub4dc:KR_|_\uae40\ubbfc\uc7ac04 fan:KR_|_\uace0\uc778\ubb3c\uc758\ud611\uace1:KR_|_Peace up:KR_|_\ud22c\uba85\ud55c \uc120\uc744 \ub118\uc5b4:KR_|_\ud669\uae08\ub3c4\uae68\ube44:KR_|_\uad6d \ub0b4 \uc0b0 \uc6b0 \uc5c9:KR_|_lemonnnnn:KR",
-            "Jayce | Sylas | Zed | Ezreal | Malphite-|-\uc6b8\ub9ac\uc6b8\ub9ac:KR_|_\ub108\ubb34\ub098\ub3c4\uc2ac\ud504\ub2e4:KR_|_pch3074:KR_|_\uc655\ud0dc\uc6b1:KR_|_\uc2dc\uc18d 160km \ud22c\uc218:KR_|_\ub77c \ucd94:KR_|_T1 \uad6c\ub9c8\uc6b0\uc2dc:KR_|_\uba54\ub85c\ub098\ub974\ub3c4\ub2e4\ube48\uce58:KR_|_\ub098\ubc1f\uafc8:KR_|_lilliz:KR",
-            "Singed | Aphelios | Diana | Seraphine | Zoe-|-Dasxx:KR_|_\uae40\ucc9c\uc88b\uc544:KR_|_\ub9c1\ub124\uc784:KR_|_\uc26c\ubca8\ub85c\ubbf8:KR_|_\ub864\ud1a0\uccb4\uc2a4 ID\uc784:KR_|_\uc9c4\uc131\uc774\uc9f1\uc9f1:KR_|_\uc751\uc6d0\uafbc:KR_|_\ubca0 \ubc30:KR_|_Set it Off:KR_|_SEXYKlNG:KR",
-            "Malphite | Leona | Brand | Kennen | Varus-|-\uc544\uc2a4\ub77c\ud788:KR_|_\ubc30\uace0\ud508 \ube44\ud0c0\ubbfc:KR_|_\ud53c \uce58:KR_|_Je\u0439a:KR_|_\ub728\uc544\uc55c:KR_|_\ub1cc\uac00\ub098\ub974:KR_|_\ubb49\uc218\uc774:KR_|_\ub5a0 \ub0a8:KR_|_\uc544\ub2c8\uc65c\uc548\ub4e4\uc5b4\uac10:KR_|_\uc655\ud551\ud06c:KR",
-            "Samira | VelKoz | JarvanIV | Trundle | Thresh-|-\ubcf5\uc2e4\ubcf5\uc2e4 \uc124\ud45c:KR_|_\uc608\ub9ac\ud55c\uaf2c\ubd80\uae30\uc608\ub9ac:KR_|_\uc5c5\uadc0\ucc2e:KR_|_\uc124\ub9c8\ube0c\ub860\uc988\ub0d0:KR_|_\uae08\uc5f0 \uc131\uacf5\ud55c \uc0ac\ub78c:KR_|_\ud30c\ud2b8\ub77c\uc288 \uae40\ub355\uc120:KR_|_sinoba:KR_|_\ud0dc\ud615\ud79b:KR_|_2\ubd84 50\ucd08 \ud0d1\uac31:KR_|_\ube7c\uc5b4\ub0a0 \uc639:KR"
+            "Sylas | KaiSa | Lucian | Pantheon | Nautilus-|-\uba54\ub85c\ub098\ub974\ub3c4\ub2e4\ube48\uce58:KR_|_\ud0b9\uc2a4\uc624:KR_|_\ub9e4 \uc639:KR_|_\ub9db\uc788\uc744\uae4c\ub9db\uc5c6\uc744\uae4c:KR_|_\ub2d8\ub4e4\uc800\ub864\ucc98\uc74c\ud568\ub028:KR_|_Mindyou:KR_|_\ud55c\ub2ec\ub9cc\uc774\ub2e4:KR_|_asmi:KR_|_\uc778\uc808\ubbf8\ubb3c\ubc94:KR_|_2020 01 04 15 36:KR",
+            "ChoGath | Ahri | LeBlanc | Jinx | Briar-|-\uba3c \uc2b4:KR_|_0rOi\uc720:KR_|_\ud034 \uc73c:KR_|_\ucc9c\ubc15\ud568:KR_|_R2eyoung:KR_|_\ud504\ub77c\uc2dc\uc548:KR_|_\uc2dc\ube44\ucda9\uac1c\ub178\ub2f5:KR_|_\ub9c9\ud0c0\uce58\ub294\uc0ac\ub78c:KR_|_\uc6b8\ub9ac\uc6b8\ub9ac:KR_|_VictoLeaf:KR",
+            "Annie | Thresh | Lucian | XinZhao | BelVeth-|-\ud06c\ube75\uc18c:KR_|_\ud68c\ub365\ube71:KR_|_\uc124\uac70\uc9c0\uc7a5\uc778\ub178\ubc31\uad6c:KR_|_\ub9e4\ub048\ud55c\ub9c8\ube61:KR_|_\ub9b4\ub9ac\uc988:KR_|_\ub300\uba38\ub9ac\ub9cc \ud568:KR_|_\uc2a4\uadfc\ud558\ub124\uc694:KR_|_can i live:KR_|_GGER:KR_|_\ud0b4 \ub514:KR",
+            "Twitch | Hwei | Swain | Lissandra | MasterYi-|-GDB\uc758\ub7fc\uc790\uc624\uc790\ub808:KR_|_\ud640\ub9ac \uc5d4\uc824\ubaac:KR_|_IWIFII:KR_|_\ub9c8\uc9c0\ub9c9\ubd88\uaf43\ud64d\uc9c4\uc6b0:KR_|_\ubabb\ud558\uba74\uc0dd\uc874\ud551\ucc0d\uc74c:KR_|_\uc624\ub518\ubc1c\ud560\ub77c\ub77c\uc774\uc9d5:KR_|_Aguilar Nubiola:KR_|_\uc800\uc774\uac9c\ucca8\ud558\ub294\ub370\uc694:KR_|_\ub2f9\ucca8\uc774\uac04\uc808\ud55c\uc0ac\ub78c:KR_|_\ud669\uae08\uc2f8\ub9ac\uc640 \uacb8\uc190:KR",
+            "Shaco | LeeSin | Xerath | Maokai | Kayle-|-\uc624\uc124\uacc4:KR_|_\uad00\uc74c\uc774:KR_|_\ud3ad\uadc4\ub5a1\ubcf6\uc774:KR_|_\ubd80\ub974\uace0\uc788\uc5b4:KR_|_\uad11 \uc03c:KR_|_\uc544\uc774\uace0\uc138\uc5d0\uc0c1\uc5d0:KR_|_\ub808\ud558\ub2c8\uc2a4:KR_|_noahgray:KR_|_ENFP\uac00 \uc870\uc544\uc694:KR_|_\uc560\ub2c8\ube44\uc544\uc778:KR"
         ],
         "JP1": [
-            "Kayn | Ezreal | Singed | Alistar | KogMaw-|-\u304d\u3057\u3050\u307e:JP1_|_ydhss:JP1_|_gygys:JP1_|_STraysfs:JP1_|_\u307b\u308d\u308d\u3093:JP1_|_NhatMay:JP1_|_\u4e94\u7b49\u5206\u306e\u30cf\u30fc\u30ec\u30e0:JP1_|_HideOnGoJeonPa:JP1_|_canucanu:JP1_|_ddq:JP1",
-            "KaiSa | Renata | Jinx | XinZhao | Heimerdinger-|-N\uff4fN\uff41\uff4d\uff45:JP1_|_hinata1126:JP1_|_\u3042\u3093\u3053\u3082\u3061:JP1_|_\u30b4\u30ad\u30d6\u30ea\u30cf\u30a6\u30b9:JP1_|_Timberman:JP1_|_\u6d77\u91ce\u571f\u5de6\u885b\u9580:JP1_|_oka21:JP1_|_GAGAGAGAGA GODS:JP1_|_Alune:JP1_|_Sofland:JP1",
-            "Seraphine | Bard | DrMundo | Mordekaiser | Twitch-|-hatena3d:JP1_|_NICEaoa:JP1_|_karumea:JP1_|_UESUGl:JP1_|_\u67af\u6de1\u306e\u5883\u5730:JP1_|_Bellamore:JP1_|_\u3086\u308b\u30ad\u30e3\u30f3\u03943\u671f:JP1_|_macks43:JP1_|_\u534d\u6801\u539f\u534d:JP1_|_JeffjHs:JP1",
-            "Azir | Tryndamere | Shaco | JarvanIV | DrMundo-|-\u80ce\u5150\u306e\u5922:JP1_|_Aberwayddy:JP1_|_\u30de\u30b9\u30af:JP1_|_Arnev:JP1_|_Konjac:JP1_|_akumarei:JP1_|_LAFI9S:JP1_|_\u6025\u6025\u5982\u5f8b\u4ee4:JP1_|_akazaki:JP1_|_stushiki:JP1",
-            "Illaoi | AurelionSol | Hwei | Rammus | Gnar-|-RebelBeat:JP1_|_\u304a\u3044\u3057\u30fc\u306a\u30bf\u30a6\u30f3:JP1_|_screamo184:JP1_|_0 100:JP1_|_Jerard:JP1_|_kachou01:JP1_|_Duskgloom Sea:JP1_|_ImoDer:JP1_|_IBN\u306eAzuma:JP1_|_aka dry moon:JP1"
+            "Singed | Gangplank | Aatrox | Ziggs | MissFortune-|-Sick boy:JP1_|_Franmel:JP1_|_Ronakin:JP1_|_kokomin18:JP1_|_\u843d\u65e5\u6b8b\u7fd4:JP1_|_\u7a4f\u5065\u533b\u7642300888:JP1_|_PumRan:JP1_|_\u6700\u5f37\u306e\u7537:JP1_|_\u30b5\u30e9\u30d0OC:JP1_|_Yikcxxx:JP1",
+            "Xerath | JarvanIV | Lissandra | Samira | Urgot-|-ASXXA88:JP1_|_Lastation XD:JP1_|_Hnskwsp:JP1_|_Comfrey:JP1_|_\u304d\u3057\u3050\u307e:JP1_|_yukiyama3:JP1_|_sidereal:JP1_|_\u79cb\u5c71\u6faai:JP1_|_Thronstrap:JP1_|_BK201:JP1",
+            "Fizz | Hwei | Ezreal | AurelionSol | Shen-|-pvm\u0430n:JP1_|_fluid man:JP1_|_kyon1:JP1_|_\u72e0\u6bd2\u306eboy:JP1_|_IMTHEBAO:JP1_|_Fia:JP1_|_\u308a\u304d\u307e\u308b:JP1_|_\u306d\u3080\u3044\uff5aZ:JP1_|_Evejinro:JP1_|_tureee:JP1",
+            "Gangplank | Twitch | Ryze | VelKoz | Pyke-|-\u3080\u3080\u3080\u3080\u3080:JP1_|_slashersaw:JP1_|_\u4e94\u7b49\u5206\u306e\u30cf\u30fc\u30ec\u30e0:JP1_|_snip:JP1_|_TTTTTTTTTT1:JP1_|_Columba:JP1_|_\u30a2\u30b5\u30a4\u30fc\u30e6\u30e1:JP1_|_\u3082\u3084\u3074:JP1_|_\u73fe\u5b9f\u3068\u5922\u306e\u9593:JP1_|_ST\u89e3\u9664\u30c1\u30a7\u30ea\u30fc:JP1",
+            "Tristana | Ezreal | Shyvana | Lux | Lissandra-|-\u306b\u3083QwQ:JP1_|_Wilmonawk:JP1_|_\u7fbd\u51a5\u7a7a:JP1_|_Devil top:JP1_|_\u4e28TheShy\u4e28:JP1_|_on1yARAM:JP1_|_\u5929\u3092\u5451\u3080\u9b3c:JP1_|_Hiromi Bot:JP1_|_DJ Mine:JP1_|_\u4e03\u6d77\u3058\u3083\u306d\u4e03\u5473\u3060:JP1"
         ],
         "OC1": [
-            "Yuumi | Taliyah | Ahri | Syndra | Shaco-|-East wind:OC1_|_A3bertron:OC1_|_ZunDuJi\u00e2Du:OC1_|_Prismal:OC1_|_HD Maker:OC1_|_This Fire Burns:OC1_|_Breezeinsummer:OC1_|_catlog:OC1_|_tornadostrike:OC1_|_kzpirbr:OC1",
-            "MasterYi | Varus | Udyr | Lucian | Ahri-|-Aurora Polaris:OC1_|_ezpcew:OC1_|_Spicy Wombat:OC1_|_Jims:OC1_|_PokemonTrainer:OC1_|_Tosstown:OC1_|_Tatan:OC1_|_QQ AI:OC1_|_CreepySniper9:OC1_|_AYOOHO:OC1",
-            "Draven | Veigar | Varus | Vladimir | Urgot-|-Dark Schneider:OC1_|_Goodwardo:OC1_|_ oo LiTTseaL Mia:OC1_|_Kivit Toomey:OC1_|_YellowLP:OC1_|_Hypnosis:OC1_|_Homegrown:OC1_|_minchorice:OC1_|_genius villain:OC1_|_Tr\u00fcmp:OC1",
-            "TahmKench | Zoe | Vayne | Jinx | Malzahar-|-Kir\u00e3:OC1_|_lIlIlIlIlI:OC1_|_One Page Book:OC1_|_KIRILENKO:OC1_|_MycarbonfiberAss:OC1_|_GUZE:OC1_|_Fershizzle:OC1_|_BradIey:OC1_|_Eschaton is Fun:OC1_|_Luuluu:OC1",
-            "ChoGath | Ashe | Soraka | Renekton | Syndra-|-Boxess4Life:OC1_|_DinoX:OC1_|_louistheone:OC1_|_whIteGive223:OC1_|_SingRapBasketbal:OC1_|_Bigmemehunter:OC1_|_TheLordZac:OC1_|_thehydraking:OC1_|_JungleBlee:OC1_|_InsanaDude:OC1"
+            "Jayce | Ashe | Janna | Gangplank | Poppy-|-Jiiapee:OC1_|_Raln\u00f0r:OC1_|_NicoNicoNi:OC1_|_IssacJJ:OC1_|_on9l:OC1_|_Kenshi:OC1_|_CatfishBro:OC1_|_Aeki:OC1_|_LucioFrog:OC1_|_nalyad7:OC1",
+            "Thresh | Zeri | Lissandra | Akali | Nidalee-|-turyu:OC1_|_Tichelrahk:OC1_|_morning good:OC1_|_morning gooder:OC1_|_morning gooderer:OC1_|_Call Me Father:OC1_|_BabySharkDooDoo:OC1_|_Yudachi:OC1_|_CaIcifer:OC1_|_Sa kennY3:OC1",
+            "Draven | Illaoi | Ekko | Orianna | Taliyah-|-JiraTiz:OC1_|_jjasonface:OC1_|_NelladoG:OC1_|_KIOZ:OC1_|_Godlike  Goose:OC1_|_AYOOHO:OC1_|_Qrow:OC1_|_TyChild:OC1_|_ShoukenSamurai:OC1_|_xd Kapp:OC1",
+            "Rengar | Veigar | KaiSa | Maokai | Thresh-|-Shirakami:OC1_|_Dilss:OC1_|_DRI1:OC1_|_Kuhooo:OC1_|_hwang13:OC1_|_TWITCH HEXFLASH1:OC1_|_Chun Lu Ren:OC1_|_L\u0131mzy:OC1_|_Zinger Box 4 LP:OC1_|_Liubhdalos:OC1",
+            "Draven | Rakan | Vex | Renekton | Leona-|-Ryanatoz:OC1_|_YUIIion99:OC1_|_Jersica:OC1_|_AUSxJAY:OC1_|_JLunLun:OC1_|_JupiterFall:OC1_|_Senescence:OC1_|_Crawley:OC1_|_NicoleJones:OC1_|_nauvjncs:OC1"
         ],
         "TW2": [
-            "Aphelios | KogMaw | Jhin | Kayn | Akali-|-Titania:TW2_|_\u9b48\u5bf6\u963f\u00fc:TW2_|_Rexzhe:TW2_|_\u8f38\u4e86\u4e5f\u8981\u5403\u7ae0\u9b5a\u71d2:TW2_|_FRG Sunny:TW2_|_Twitch\u7ae0\u9b5a\u71d2\u55ae\u4e2d:TW2_|_Kai66:TW2_|_\u7e8c\u5beb\u7684\u82b1:TW2_|_Twitch\u5c0f\u5c0f\u96e8:TW2_|_\u60f3\u800d\u5ee2\u5230\u4e16\u754c\u672b\u65e5:TW2",
-            "Garen | MissFortune | Graves | Karma | Maokai-|-\u6e21\u6c5f\u6230\u5f79:TW2_|_\u4e0d\u8981\u6436\u6211\u7684\u624b\u6252\u96de:TW2_|_harrow:TW2_|_\u9165\u9165\u53c8\u8106\u8106\u7684:TW2_|_feifei0327:TW2_|_\u52aa\u52aa\u8207\u7279\u6717\u666e\u4e0a\u8def:TW2_|_\u96e8\u591c\u964c\u5bb8:TW2_|_\u50b3\u8aaa\u5e0c\u671b\u4e42\u57f9\u6839:TW2_|_O\u62b9\u8336O:TW2_|_Awe F Leo :TW2",
-            "Twitch | Braum | Qiyana | Samira | Yuumi-|-\u5c0f\u718a\u5152OwO:TW2_|_\u6709\u5473\u9053:TW2_|_SukIdakara\u00f6:TW2_|_ArcherEdith:TW2_|_MiruKu\u00fc:TW2_|_\u79cb\u8449\u5b50:TW2_|_\u5976\u4e43\u7206\u70b8\u54a9\u5657\u8336:TW2_|_\u90a3\u676f\u8336:TW2_|_Nilou:TW2_|_\u9072\u5230\u7684\u5c0f\u70cf\u9f9c:TW2",
-            "Syndra | Corki | Rammus | Briar | LeBlanc-|-Yoimiyaa:TW2_|_E\u00fcphyllia X Anis:TW2_|_\u65e5\u5149\u71c8\u6ce1:TW2_|_\u9280\u7ffc\u6953:TW2_|_\u9032\u806f\u5408\u570b\u518d\u8ac7\u6587\u660e:TW2_|_\u767d\u91d1\u8907\u5370\u6a5f:TW2_|_l1l:TW2_|_T1 Actor:TW2_|_\u5fc3\u4e4b\u5927\u65b9\u53ef\u5f7c:TW2_|_\u9b5a\u4e38\u54e5\u54e5:TW2",
-            "Katarina | Annie | Renekton | Yorick | Briar-|-\u85ff\u9999\u6b63\u6c23\u53e3\u670d\u6db2:TW2_|_\u5c0f\u73cd\u73e0\u618b\u56de\u53bb\u4e86:TW2_|_\u672a\u547d\u540d\u7684\u5fc3\u4e8b:TW2_|_Koshin:TW2_|_\u9ad8\u665e\u6708:TW2_|_\u900f\u7c89\u8272\u7d30\u80a9\u5e36:TW2_|_\u8277\u7d05\u8272\u7d30\u80a9\u5e36:TW2_|_\u6885\u9ec3\u8272\u7d30\u80a9\u5e36:TW2_|_\u7fe9\u82e5\u9a5a\u9d3b\u5a49\u82e5\u904a\u9f8d:TW2_|_\u777eo\u4e38o\u537f:TW2"
+            "Camille | Maokai | Gragas | RekSai | Gwen-|-\u5ba5\u5609\u4ed4\u4ed4:TW2_|_\u5c0f\u8568\u9905:TW2_|_Fevvy:TW2_|_350305:TW2_|_\u5c0f\u5e7e\u7c73:TW2_|_\u82b1\u8b5c\u82b1\u8b5c\u82b1:TW2_|_\u58a8\u9f8d\u592a\u5b50 \u516b\u4fe1\u5f92:TW2_|_Miller\u00dc:TW2_|_\u60c5\u6df1\u4e5f\u53ea\u662f\u904e\u5ba2:TW2_|_DeathClaw:TW2",
+            "Brand | Blitzcrank | Jinx | Sion | Sett-|-\u6b61\u6a02\u5317\u6975\u718a:TW2_|_\u795e\u7684\u64cd\u5f04\u8005:TW2_|_Erelia:TW2_|_\u90ed\u585e\u5df4:TW2_|_Howasi:TW2_|_MadShu:TW2_|_\u9ec3\u8056\u6df5:TW2_|_\u8377\u5305\u86cb\u5305\u98ef:TW2_|_\u6211\u7ad9\u8457\u4f60\u90fd\u6253\u4e0d\u6b7b:TW2_|_\u611b\u8389\u5e0c\u96c5\u5f8c\u63f4\u6703:TW2",
+            "Renekton | Taliyah | Sion | Hwei | Pyke-|-\u96de\u59b3\u53f0\u59b9\u83dc\u83dc\u5b50:TW2_|_\u4eac\u6771\u5df4\u5fb7\u50b3\u9001\u9580:TW2_|_SuperiorCookie:TW2_|_\u628a\u4e2d\u570b\u4eba\u7576\u8c6c\u652f\u6559:TW2_|_\u5b87\u5b99\u6700\u5f37\u7537\u4ebaC\u7f85:TW2_|_ThadL:TW2_|_\u8a87\u8a87\u5176\u8ac7:TW2_|_\u5c0f\u5c0f\u871c\u8702:TW2_|_\u5c0f\u5c0f\u82b1\u8ca9:TW2_|_AR\u4e94\u6392\u6bcd\u89aa\u53bb\u4e16:TW2",
+            "Veigar | Shaco | TwistedFate | Rumble | Leona-|-\u5c0f\u5c0f\u5440:TW2_|_\u53ef\u9054\u9d28\u554ai:TW2_|_\u9280\u767d\u66fc\u8d64\u80af\u8c93\u00fc:TW2_|_AsidoDobby:TW2_|_\u5c0f\u9f3b\u5676:TW2_|_\u5f73\u4e5f\u5973\u99ac\u767d\u52fa:TW2_|_Jintairensei:TW2_|_\u8d64\u5fc3\u5de1\u5929:TW2_|_Fraging:TW2_|_\u5e36\u9b3c\u6b65\u7684\u90fd\u662f\u755c\u751f:TW2",
+            "JarvanIV | Sylas | Malphite | Xayah | Sona-|-\u62ff\u4f86\u5427\u59b3:TW2_|_\u6211\u4e0d\u662fEzio:TW2_|_Ach1:TW2_|_\u4fdd\u7f85\u6c83\u6069:TW2_|_\u611b\u9e97\u7d72:TW2_|_HeiHei25:TW2_|_\u5c0f\u97f6\u58de\u58de:TW2_|_\u5c0f\u96ea\u5154\u5154:TW2_|_Dokkaebi:TW2_|_Che\u683c\u74e6\u62c9:TW2"
         ],
         "PH2": [
-            "Lucian | Fiddlesticks | KhaZix | Ezreal | Naafiri-|-TOTOO BATO CHAT:PH2_|_ChitoMinari:PH2_|_Ahr\u00edstocracy:PH2_|_Arc en Ciel:PH2_|_Chick and Duck:PH2_|_okradaw23:PH2_|_MeowMyaw:PH2_|_Arc XVII Star:PH2_|_werd:PH2_|_Gay Agenda:PH2",
-            "Xayah | Brand | Trundle | Vayne | Gragas-|-Fear Of Dog:PH2_|_TsukishiroL:PH2_|_Bunu:PH2_|_Spellsmitoto:PH2_|_Sidyey:PH2_|_Axiyo:PH2_|_Q w y:PH2_|_ZacEffron:PH2_|_Max Rockatansky:PH2_|_WOTINDAFOK:PH2",
-            "Vladimir | Zac | Ahri | KaiSa | Thresh-|-Rourentsu:PH2_|_miggyxd:PH2_|_Sir Navi:PH2_|_Void Apostle:PH2_|_BrokePid:PH2_|_\u696f\u5c71 \u6587\u4e43:PH2_|_Ceoz:PH2_|_Pants in Bush :PH2_|_7thCode:PH2_|_2NDCAPSPOOL:PH2",
-            "Sion | Kalista | Taric | KhaZix | Maokai-|-iC\u00e0ntFindMyS\u00e8lf:PH2_|_Flash Kill:PH2_|_Maeven Nicole:PH2_|_V\u00ecndicated:PH2_|_W3LL W3LL W3LL:PH2_|_Zoe:PH2_|_A\u00edse:PH2_|_CTG Turqueza:PH2_|_Jamesa:PH2_|_Haatoru:PH2",
-            "Lulu | Brand | Jinx | Yorick | Orianna-|-Gentle Breeze:PH2_|_Regret:PH2_|_Kouyou:PH2_|_JasPay:PH2_|_Injeolmi:PH2_|_NNJ UnPocoLoco:PH2_|_Backflip Paharap:PH2_|_Odi:PH2_|_FrostyRylai:PH2_|_Riverking1:PH2"
+            "MissFortune | Sylas | Zyra | Nasus | Tristana-|-TheOneAbyss:PH2_|_eZreaL1324:PH2_|_:PH2_|_Flatterer:PH2_|_BIack Magic:PH2_|_Mari Bot:PH2_|_CleeKersh:PH2_|_Gainz:PH2_|_az\u0131:PH2_|_Lupical:PH2",
+            "Ahri | Aphelios | Vladimir | Viktor | Zoe-|-Mynos:PH2_|_omsimmnida:PH2_|_Ramouz Ramouz:PH2_|_tax evader:PH2_|_rayuuu:PH2_|_MMeizter:PH2_|_Fritzophrenia:PH2_|_DJ Pengu:PH2_|_ECG Subzero2001:PH2_|_NotTheCavalry:PH2",
+            "Lux | Sona | Akshan | Taliyah | Blitzcrank-|-D\u00c2\u00c9MON \u0160P\u00c4DE:PH2_|_Kurementin:PH2_|_Cary55666:PH2_|_BoJack Horseman:PH2_|_Keyarel:PH2_|_Penitence:PH2_|_Ravex:PH2_|_boomer stage:PH2_|_Deadlane23:PH2_|_LeiXandrA:PH2",
+            "Pyke | KogMaw | Ryze | Graves | Pantheon-|-Yunj\u0131n:PH2_|_aljoy16:PH2_|_\u6797\u5fd7\u73b2:PH2_|_she incomparable:PH2_|_i\u0192usion:PH2_|_My Ult is Flash:PH2_|_Metuant:PH2_|_QSL Aika:PH2_|_Ab solv:PH2_|_GH Cruise:PH2",
+            "Fizz | Aphelios | Jhin | Twitch | Violet-|-Roru:PH2_|_Ravenilux:PH2_|_Noir Primordial:PH2_|_mic test 123:PH2_|_Panty ni Ahri:PH2_|_RCG Crucible :PH2_|_MalcolmBradley:PH2_|_kiss mo muna aq:PH2_|_Gionsyus:PH2_|_\u7231\u7ea2\u6e29\u7684\u5c0f\u72d7\u72d7:PH2"
         ],
         "VN2": [
-            "Violet | Corki | Seraphine | Ziggs | Lux-|-Lovemoschino:VN2_|_H\u00f2a L\u1ea7yyy:VN2_|_Th3end:VN2_|_A Tienes :VN2_|_Ch\u00faG\u1ea5uD\u00e2m\u0110\u00e3ng:VN2_|_Thua Nguy\u00ean Nh\u00e0:VN2_|_champagnepapi1:VN2_|_   B\u1ee9ng   N\u1ee5  :VN2_|_Hoon\u00ef:VN2_|_quanbro7:VN2",
-            "Akshan | Sivir | Illaoi | Akali | Azir-|-sao sao \u1ea5y:VN2_|_24 04 2017x:VN2_|_OZENREPORT:VN2_|_E Th\u00e0nh \u0110\u1ed1ng \u0110a:VN2_|_Chu C\u00e0 Mo:VN2_|_DWG Kisara:VN2_|_Tr\u00e0 \u0110\u00e1 S\u00e0i G\u00f2n:VN2_|_Mittenzz:VN2_|_Chianti:VN2_|_LuckyLightt:VN2",
-            "Ezreal | Ashe | Malphite | Thresh | Bard-|-Koo3m\u0111en:VN2_|_zZx\u1ea4utrAiZX:VN2_|_Mai Anh T\u1edbii:VN2_|_r\u00f4m kh\u00f4ng ngu:VN2_|_wake up at 10am:VN2_|_Teemo N\u01b0\u1edbng:VN2_|_TvnPhuc:VN2_|_Virgo 16:VN2_|_SuperJunioh:VN2_|_Sr Sword Dancer:VN2",
-            "Neeko | Lucian | Talon | Mordekaiser | Corki-|-QC Pororuri:VN2_|_C\u00fan Ho\u00e0ng \u0110\u1ebf:VN2_|_DRAGON FACEMOUSE:VN2_|_H Lucius H:VN2_|_MingKwoa:VN2_|_M\u00f9a n\u00e0y \u0111\u00e3 c\u00f3 v\u1ee3:VN2_|_shusui:VN2_|_Th\u01b0\u01a1ng N\u00e0ng:VN2_|_HuqPeSouthSide:VN2_|_47 Th\u1ea1nh R\u00f2m:VN2",
-            "Senna | KogMaw | Aatrox | Sylas | Lucian-|-In Nh\u1ed7i M\u00e0 1709:VN2_|_th\u00edch \u0103n ph\u00e1 n\u1ea5u:VN2_|_DRAK:VN2_|_cuvotuvalaclac:VN2_|_HAC M\u00e0y Cay Ch\u01b0a:VN2_|_B\u1ea5t Tri Ho\u1ea3:VN2_|_Not me 312:VN2_|_toi thich co lam:VN2_|_1 0 0 7:VN2_|_Miya Ng\u1ecdc Y\u1ebfn :VN2"
+            "Samira | Quinn | VelKoz | Singed | Jax-|-Eddie DIaz:VN2_|_BF4:VN2_|_linh2515:VN2_|_N\u00f3i \u00d3c L\u1ea1i T\u1ef1 \u00e1i:VN2_|_nghin tien nghin:VN2_|_Yukal Mota:VN2_|_MonGoose:VN2_|_S\u0110 Ryan:VN2_|_Harbinger:VN2_|_Signer1Dragon:VN2",
+            "Maokai | Anivia | Caitlyn | Senna | Brand-|-menac1ng:VN2_|_Bao C\u00e1t Boxing:VN2_|_Jacquelynn:VN2_|_Than152:VN2_|_Crawyn fa:VN2_|_Raging Cat:VN2_|_tempmtwzzjuggrsm:VN2_|_xiu:VN2_|_wat da doge doin:VN2_|_just VyVy1:VN2",
+            "Yasuo | Trundle | Lucian | Camille | Viktor-|-Karej:VN2_|_M\u1ed9t Ly Cacao \u0110\u00e1:VN2_|_ko thuong ai nua:VN2_|_RDG Venn:VN2_|_Seno Coffee:VN2_|_th\u1ee3 s\u0103n \u0111\u1eb7c k\u1ea7u:VN2_|_ZzMoredzZ:VN2_|_R E I K O 1:VN2_|_MONkY D BUGGY:VN2_|_C\u00e1 M\u1ef1c Nh\u1ecf1:VN2",
+            "Viego | Fizz | Karma | Blitzcrank | Ivern-|-2iTh\u00e0nh Huy     :VN2_|_Clockwork:VN2_|_Dnquijote:VN2_|_TvnPhuc:VN2_|_Lil B\u1ecb:VN2_|_Java C:VN2_|_RAI \u0110\u01a0 QQ:VN2_|_UFB:VN2_|_T1 Ch\u00e2u04:VN2_|_G2 CSGO Monesy:VN2",
+            "Singed | Gnar | Tristana | Pantheon | Veigar-|-Hi3u Situ:VN2_|_CWJewelry:VN2_|_Weeb slaying god:VN2_|_HuqPeSouthSide:VN2_|_JiRennn:VN2_|_tempeidvltrgcjaz:VN2_|_muathuthang6:VN2_|_tempfcyjslqkgvln:VN2_|_M\u1ef9N\u1eefZ\u00faB\u1ef1:VN2_|_h\u1ea3o h\u00e1n t\u00e1o b\u00f3n:VN2"
         ],
         "SG2": [
-            "Camille | Maokai | Janna | Hecarim | Draven-|-NOPEHDRAGOH:SG2_|_CCP Aether:SG2_|_JBoyDude:SG2_|_Bananapielord:SG2_|_Kanauyy:SG2_|_Baebe:SG2_|_Godbless Raiden:SG2_|_tyrone williams:SG2_|_hush:SG2_|_Dr Rayleigh:SG2",
-            "Amumu | Katarina | Orianna | Zyra | MissFortune-|-umeyhmeyh:SG2_|_Big GG:SG2_|_\u7231\u6b7b\u7231\u629a\u6c42\u6559\u80b2:SG2_|_118OKR:SG2_|_Spooks:SG2_|_Anarchy Cat:SG2_|_TasteDespair:SG2_|_FairPrice:SG2_|_XynaR:SG2_|_SINCALL:SG2",
-            "Blitzcrank | Azir | Jayce | Malzahar | Ashe-|-mcoscon:SG2_|_Zaprozer:SG2_|_abymonsta:SG2_|_nevereverzz:SG2_|_Leviboydontkill:SG2_|_00000:SG2_|_Zenothist:SG2_|_screwnoob:SG2_|_white lotus:SG2_|_\u5438\u5976\u5c31\u662f\u723dQQ:SG2",
-            "Gwen | Janna | Graves | Fizz | Twitch-|-ChewyBreath:SG2_|_sexninja727:SG2_|_cooped up:SG2_|_AquukinnMaster:SG2_|_gay jim:SG2_|_zyronl the DONKI:SG2_|_lceberg:SG2_|_miroh:SG2_|_Dweloo:SG2_|_abc1234:SG2",
-            "Ezreal | Mordekaiser | Kayn | Illaoi | Fizz-|-JDG LuLer:SG2_|_Stellaris:SG2_|_Desolated:SG2_|_bilibili\u9648\u7956\u8c26:SG2_|_mrt:SG2_|_alwayszed:SG2_|_Kinda Cringe:SG2_|_ir\u00ees:SG2_|_Zahire:SG2_|_Mercutio:SG2"
+            "Yone | Talon | Zyra | Tristana | Bard-|-tempdovhwgzncoop:SG2_|_Ulquiorrad:SG2_|_Adinth:SG2_|_Lzhhh:SG2_|_Versuvius:SG2_|_uuuuuuu:SG2_|_A 7 Year Old:SG2_|_Solo Inting:SG2_|_Sang Nilah Utama:SG2_|_\u8fbe\u4ee4Ohayo:SG2",
+            "Yuumi | Shyvana | Ekko | Jhin | Zed-|-ipehrsj:SG2_|_Circuuuuumcised :SG2_|_kill8776:SG2_|_ComiCBlaD QiQiuu:SG2_|_SweetchildM:SG2_|_IUSHI IS A DOG G:SG2_|_Desolated:SG2_|_Scalan:SG2_|_BlCkPNk LisA:SG2_|_Rickado Milos:SG2",
+            "Sona | Jayce | Twitch | Nidalee | LeeSin-|- Their Product:SG2_|_:SG2_|_Zeixn:SG2_|_Ysildea:SG2_|_I am Pool:SG2_|_Teudoongii:SG2_|_\u516b\u51cf\u4e00   \u64cd:SG2_|_Dempsey:SG2_|_P5NoSup:SG2_|_Gale:SG2",
+            "Zed | Ezreal | Nautilus | Ryze | Nami-|-WeakBeach:SG2_|_Smol pp Dumpster:SG2_|_dumBELLdore:SG2_|_Enolcyzp:SG2_|_Yaoi:SG2_|_Charmed Bear:SG2_|_D\u00ebm\u00f5nKi\u00f1g:SG2_|_houjicha:SG2_|_lolzqwerty:SG2_|_MercyPl0x:SG2",
+            "Amumu | Tristana | Zed | Shaco | Swain-|-Siti Fatimah Kun:SG2_|_Jayking:SG2_|_Elfie my cat:SG2_|_YE0508:SG2_|_\u6e38 \u9f99:SG2_|_shera:SG2_|_D Y S A Y R E :SG2_|_jeo ye tak:SG2_|_TWICE Tzuyuu:SG2_|_yatoro:SG2"
         ],
         "TH2": [
-            "Karma | Sylas | Azir | Yone | Aphelios-|-gagaew:TH2_|_Tachi:TH2_|_October 19 :TH2_|_PT BlackZa4346:TH2_|_:TH2_|_l3aiLu:TH2_|_Akshan:TH2_|_I PLASTIC I:TH2_|_Jojopojo:TH2_|_Night OwI:TH2",
-            "KaiSa | Lillia | Ahri | Katarina | Pyke-|-missilecuriser:TH2_|_\u0e1b\u0e25\u0e32\u0e04\u0e23\u0e32\u0e1f:TH2_|_Atheria:TH2_|_OblyFans:TH2_|_OrangArms:TH2_|_Kanrethad:TH2_|_\u0e08\u0e2d\u0e07\u0e27\u0e2d\u0e19:TH2_|_Ankaros:TH2_|_xX\u0e2b\u0e21\u0e32\u0e1b\u0e32\u0e07Xx:TH2_|_Marinaze:TH2",
-            "Yone | Ezreal | Renata | Nocturne | Syndra-|-Morgan Blade:TH2_|_ Kiteking :TH2_|_nakkid:TH2_|_AQ Hopefully:TH2_|_Xoe:TH2_|_zzMaCzz:TH2_|_V\u00edncent:TH2_|_nishimiya:TH2_|_Novistador:TH2_|_\u0e01\u0e23\u0e30\u0e42\u0e1b\u0e01\u0e2e\u0e30:TH2",
-            "Xerath | Aatrox | Teemo | Graves | Karthus-|-Li0nel Messi:TH2_|_Un\u00d0\u00e4ed:TH2_|_ZEEDNoVaPEE:TH2_|_Lastfrok:TH2_|_oOTIPOo:TH2_|_Heze:TH2_|_enchanter open:TH2_|_NoWInNoSleep:TH2_|_\u0e0a\u0e32\u0e0d\u0e44\u0e0a\u0e22:TH2_|_FukUATM:TH2",
-            "Kayle | TahmKench | AurelionSol | XinZhao | BelVeth-|-JohnZaaaaaaaaaaa:TH2_|_JiScPer:TH2_|_DoZoCheese:TH2_|_\u0e02\u0e32\u0e27\u0e44\u0e2b\u0e21:TH2_|_LuckyBadger:TH2_|_BROQUE:TH2_|_SIIX:TH2_|_T\u00f8xic Pl\u00e2yer:TH2_|_Bhiffonz:TH2_|_DenDen Mushi:TH2"
+            "Viktor | Vayne | Kled | Ezreal | Ahri-|-063y:TH2_|_\u00baA2:TH2_|_LIMPSY:TH2_|_Spigeroog64:TH2_|_RAJOT:TH2_|_\u0141 U \u0106 \u00c0:TH2_|_Nym Pha Do Ra:TH2_|_FLUFFY TEEM\u00d8:TH2_|_nookio:TH2_|_9029:TH2",
+            "Lux | Jayce | KhaZix | Lillia | Veigar-|-agsto:TH2_|_MagunaH:TH2_|_Unital Ring:TH2_|_o0CanDy0o:TH2_|_Hi 1mFine:TH2_|_RYMOD:TH2_|_Mommy Shotaro:TH2_|_Purchased ID:TH2_|_Lyndel:TH2_|_NumberOneStriker:TH2",
+            "Taric | Viktor | Renekton | Zoe | Vayne-|-Ixchella:TH2_|_Cafun\u00e9:TH2_|_Joy Sooyoung:TH2_|_OatCA:TH2_|_\u00d8shi no Ko:TH2_|_TomSaepKradukMu:TH2_|_MrLxz:TH2_|_WET:TH2_|_LOL Enjoyer:TH2_|_atsuchi:TH2",
+            "Fizz | Jax | Morgana | Vladimir | Katarina-|-Ignite2017:TH2_|_T N I O P:TH2_|_BABIBOO:TH2_|_Zeroth Sky:TH2_|_D9 Smurfing:TH2_|_OneHighMountain:TH2_|_SPERGALAXY:TH2_|_Plachalamkuenbok:TH2_|_7ED:TH2_|_Dokapom:TH2",
+            "Syndra | Graves | Jhin | Riven | Bard-|-I PLASTIC I:TH2_|_Freadyy:TH2_|_BengieBeaver:TH2_|_How Howls:TH2_|_SaRaNaMeeMai:TH2_|_\u0e0a\u0e19\u0e23:TH2_|_Bravxs:TH2_|_PlotterTH:TH2_|_feeding artist:TH2_|_Nackbkk:TH2"
         ]
     },
     "MatchesARAM": {
@@ -390,33 +390,33 @@
         ]
     },
     "MatchesRift": [
-        "Caitlyn | Fiddlesticks | Zilean | Azir | Yasuo-|-LordPlsHelpMe#NA1:NA_|_Champloo28#NA1:NA_|_Bombshell Babe#NA1:NA_|_pikmin8#NA1:NA_|_Xanyy#NA1:NA",
-        "Katarina | Lulu | Briar | Caitlyn | Swain-|-yeeelon musk#NA1:NA_|_Ryo#NA1:NA_|_Mizzling#Miz:NA_|_XDM E7plusU#NA1:NA_|_LittleChang#NA1:NA",
-        "Ezreal | Soraka | Pyke | Alistar | TahmKench-|-Bonqwesha#NA1:NA_|_LookingFaith#NA1:NA_|_Vulkaris#NA1:NA_|_loljohnnyboy#NA1:NA_|_S4Sai#NA1:NA",
-        "Caitlyn | Zed | Lux | Vladimir | Jayce-|-\u96f6\u80fd\u4f70\u5206\u4f70#TW2:TW_|_Hibiki\u306e\u82b1\u5fc3\u5f1f\u5f1f#926:TW_|_Lux\u00f8\u50bb\u50bb\u00f2u\u00f3#0811:TW_|_\u5b64\u57ce\u6b98\u5922\u60b2\u6b61\u7368\u81ea\u98f2#9999:TW_|_Ruthless Top#0811:TW",
-        "MissFortune | Ahri | Vex | Zed | Akshan-|-dmuoio#NA1:NA_|_TrashChild#NA1:NA_|_Talatsu#NA1:NA_|_Sonny#SJC:NA_|_SevenDeadlySin#NA1:NA",
-        "Katarina | Caitlyn | Zed | Malphite | Syndra-|-Sunlize#VIV:RU_|_Torikitt#tea:RU_|_Dark Mage#RU1:RU_|_lllMaXiMuSlll#RU1:RU_|_CodeRebel#RU1:RU",
-        "Orianna | Alistar | Varus | Rakan | Kindred-|-ijboled#trlgn:NA_|_SoonDoong#NA1:NA_|_Heimer D Hokage#ANIME:NA_|_KingCatfish#6969:NA_|_MinaTorra#NA1:NA",
-        "Malphite | Leona | Brand | Kennen | Varus-|-\uc544\uc2a4\ub77c\ud788#KR1:KR_|_\ubc30\uace0\ud508 \ube44\ud0c0\ubbfc#KR1:KR_|_\ud53c \uce58#KR1:KR_|_Je\u0439a#KR1:KR_|_\ub728\uc544\uc55c#KR1:KR",
-        "Wukong | Hwei | Zed | Kassadin | Urgot-|-HUUGE#EUW:EUW_|_Charles Bronzeon#EUW:EUW_|_Gucc\u00ec Zgueg#EUW:EUW_|_TrueHard#EUW:EUW_|_xZelphy#EUW:EUW",
-        "Jayce | Zed | Galio | Xayah | Malphite-|-\ubed4\ubed4\ud55c \uafb8\ub801\uc774#KR1:KR_|_\uc751\uc560\uc751\uc560\uc560\uae30\uc131\ud638#KR1:KR_|_RuneJay#KR1:KR_|_GODYEIN#KR1:KR_|_Elvin#KR1:KR",
-        "Trundle | Corki | Camille | Galio | Quinn-|-\ub9c8\uc9c0\ub9c9\uad50\ub3c4\uc18c#KR1:KR_|_\uc653\ub530\ubfc5#KR1:KR_|_1999 09 04#KR1:KR_|_\uc815\uc815\ub2e4\ub2e4\ud6c8\ud6c8#KR1:KR_|_\uc6a9\ud638\ub300\ub300\ud0b9\uc655\uc9f1#KR1:KR",
-        "Malphite | Seraphine | Lillia | Twitch | Pyke-|-\ub3d9\uc544\ucc38\uce58#KR1:KR_|_\uc720\uce58\uc6d0\ub808\uace0\ud30c\uad34\ubc94:KR_|_\ubc29\ubc14\ub77c\ubc29\ubc29#6264:KR_|_\ub2f9\uadfc\ub9c8\ucf13\uc0ac\uae30\ud69f\uc2181739846\ud68c#1208:KR_|_Emily#3530:KR",
-        "Rengar | Zac | Katarina | Sivir | Zed-|-LBP gabriel 76#LAS:LAS_|_LBP F3RNET#LAS:LAS_|_LBP Nastik#LAS:LAS_|_LBP Burnedllama#llama:LAS_|_LBP Shozu#LAS:LAS",
-        "VelKoz | Ashe | Milio | Karma | Illaoi-|-hehyun#ehy:NA_|_Fukuro#Hoot:NA_|_QuinniQwQ#NA1:NA_|_DaddyRick#9890:NA_|_41 INCHES SOFT#NA1:NA",
-        "Lulu | Zed | KaiSa | Zilean | DrMundo-|-HoldinMiddic#NA1:NA_|_whos your daiddy#NA1:NA_|_Christinal Norya#NA1:NA_|_okokbye#NA1:NA_|_CNM#PITT:NA",
-        "Irelia | Akali | Milio | Zed | Gragas-|-GazzutoMiCaca#LAS:LAS_|_PaulcitoPaul#LAS:LAS_|_Fabian Airton#LAS:LAS_|_Gwynbleidd#NVM:LAS_|_Day6#DLL:LAS",
-        "Garen | Morgana | Zac | Briar | Zed-|-SSCOOP#KR1:KR_|_\uc774\uaca8\ub0b4\uc57c\ud569\ub2c8\ub2e4#KR1:KR_|_Sasori#KR1:KR_|_\uc774\uac83\uc880\ubcf4\uc138\uc694#4885:KR_|_fiwd#KR1:KR",
-        "Azir | KogMaw | Veigar | Mordekaiser | Zed-|-iLoveLaysa#BR1:BR_|_lIllIIllllI#BR1:BR_|_moni aramzeira#2306:BR_|_Macguffz#BR1:BR_|_MRE MarkDooDa#Carry:BR",
-        "Braum | Zeri | Gangplank | Jhin | KaiSa-|-AlbertKIT#NA1:NA_|_darksuga#NA1:NA_|_bocasauce#NA1:NA_|_xTensa16x#NA1:NA_|_SkylineReign#NA1:NA",
-        "Zed | Twitch | Nidalee | Ekko | Katarina-|-\u6211\u60f3\u63c9\u507d\u5a18\u7684\u7403#JP1:JP_|_allfen#JP1:JP_|_\u30c1\u30ef\u30ef\u5927\u4f50#JP1:JP_|_yamoto4130#JP1:JP_|_IONIA#JP1:JP",
-        "Twitch | Jax | VelKoz | Veigar | Mordekaiser-|-FARJAY#NA1:NA_|_Artonic#NA1:NA_|_walba24#9209:NA_|_DannyJohn3#NA1:NA_|_myfushy#NA1:NA",
-        "Graves | Teemo | Rell | Shyvana | Blitzcrank-|-IsummonYoMom#NA1:NA_|_Weirdo Cr#NA1:NA_|_Glujacques#NA1:NA_|_Mcnnuggets#Hanze:NA_|_Matinal Breeze#NA1:NA",
-        "Viego | Naafiri | Ezreal | Zed | Riven-|-Oguz Ba\u015fkan#TR1:TR_|_FATEMAJJ#TR1:TR_|_Cenk#TR31:TR_|_Evelynn#0eve:TR_|_Mime#mime:TR",
-        "Shen | Graves | Zyra | Karthus | Zed-|-IcarusFlameWings#NA1:NA_|_Pancake Prodigy#1776:NA_|_MewBunn#0526:NA_|_TaipanEZ#NA1:NA_|_Myst#5662:NA",
-        "Maokai | Zed | Veigar | Yuumi | Caitlyn-|-Dilly#5128:NA_|_wompitt#NA1:NA_|_SkullDripper88#NA1:NA_|_CatTerrier#0001:NA_|_beanscontainer#1133:NA",
-        "Jayce | Morgana | Orianna | Viego | Fiora-|-\uc870\uc84c\ub0e5#KR1:KR_|_\ubbf8\ub9ac\ub0b4\ub0e5#KR1:KR_|_Code name Yu#KR1:KR_|_\ubc29\ubc94\ub300\uc7a5#KR1:KR_|_The ZDD#KR1:KR",
-        "Rell | Caitlyn | Diana | Fiora | Udyr-|-ZOMBIEKUM#LAN:LAN_|_el since#LAN:LAN_|_Lysandre#LAN:LAN_|_Jasso117H#0117:LAN_|_TheHammer117#LAN:LAN",
-        "KogMaw | Katarina | Nidalee | Poppy | Zac-|-Killer Clown43#LAN:LAN_|_Malleeboo#LAN:LAN_|_R2380#LAN:LAN_|_AlexGW#LAN:LAN_|_KerinSuave#LAN:LAN"
+        "Karma | Teemo | LeBlanc | Nami | Morgana-|-Ki10 EGOIST#1948:EUNE_|_Ki10 Papi#EUNE:EUNE_|_Ki10 TSUBYKE#EUNE:EUNE_|_Purple#Magic:EUNE_|_HomiesYVN#EUNE:EUNE",
+        "Quinn | LeBlanc | Nunu | Gragas | Malphite-|-\u5495\u5695\u53bb\u54ea\u5152\u4e86#TW2:TW_|_\u7aed\u7f85\u8fe6\u4f86#TW2:TW_|_Gemini\u525b\u525b#TW2:TW_|_\u6158\u53eb\u6a5f#3754:TW_|_\u53ef\u611b\u7684\u5c0f\u63d0\u6469#TW2:TW",
+        "Irelia | Varus | Zyra | LeBlanc | Ahri-|-\uc798 \ucc38\ub294 \uc774\uc789\uc120#KR1:KR_|_\uc8fc\uc548 \uc220\uafbc#KR 1:KR_|_\uc774\uc138\uacc4 \uc544\uc774\uc720#\uacf5\uc96c1:KR_|_\uc138\uc885\ub808\uc804\ub4dc#KR1:KR_|_\ud669\ub3c4\uad00 \uc720\ub3c4 \uc624\uc758#KR1:KR",
+        "Shaco | Shen | Tryndamere | LeBlanc | MissFortune-|-Prototype#4038:NA_|_DarthMacJr#HELP:NA_|_Monkey#4454:NA_|_DYHHyue#NA1:NA_|_taochong#NA1:NA",
+        "Renata | Milio | KaiSa | Janna | Twitch-|-Starfall#1111:NA_|_Scoooby#5912:NA_|_Shaladon#NA1:NA_|_POWER BOTTOM#LOVE:NA_|_Weircl top#NA1:NA",
+        "Illaoi | Viktor | Sivir | Lillia | LeBlanc-|-\ub204\uad6c\ub4e0\ub530\ub77c\ud558\uae30#KR1:KR_|_\ubb34\ud328\uc6b0\uc2b9\uc544\uc2a4\ub110#KR1:KR_|_fell in jungle#KR1:KR_|_\ud559\uc0dd \ub3cc\ub824\uc918#KR1:KR_|_\ubb38 \ud325#KR1:KR",
+        "LeBlanc | Senna | Jhin | Elise | DrMundo-|-\u703e\u5ddd\u82e5\u5be7#TW2:TW_|_\u96ea\u7cd5\u7cef\u7c73\u7ccd#TW2:TW_|_\u7a7f\u5a5a\u7d17\u898b\u738b\u6e90#TW2:TW_|_\u60a0\u5bf6\u4e09\u6b72#TW2:TW_|_\u723a\u55ae\u8eab\u537b\u701f\u70511#TW2:TW",
+        "LeBlanc | Lulu | Ryze | Braum | Garen-|-\uacb0\uc2dd \uba54\ud0c0#KR1:KR_|_\ub9b4\ub9ac\ub0e5\uc774#7777:KR_|_\uac74\uace4\uc77c\ucc99#0302:KR_|_\uc720\ub2c8\uc724\ud76c\uc57c#999:KR_|_\ub77c \uc18c#0303:KR",
+        "Jhin | Garen | Zilean | Bard | Sett-|-Hot Wings#EUNE:EUNE_|_Feelsgreatman#EUNE:EUNE_|_Bin Ladin X#EUNE:EUNE_|_Cancicle#EUNE:EUNE_|_FrozenFruitx#EUNE:EUNE",
+        "Twitch | Skarner | Yasuo | Malphite | Jhin-|-FF15#ROPE:NA_|_wo wo tou#NA1:NA_|_Hornraven#NA1:NA_|_Dedijedi#NA1:NA_|_T1 JustLike RALO#NA1:NA",
+        "Viktor | Xayah | Karma | Katarina | Neeko-|-Death By lnches#EUW:EUW_|_2Sxmple#EUW:EUW_|_Shinku no okami#EUW:EUW_|_fav lb skin#EUW:EUW_|_Raig0u#EUW:EUW",
+        "Draven | Xayah | Kayle | Poppy | LeBlanc-|-scooby002#EUW:EUW_|_letty85#EUW:EUW_|_TheRook#AVL:EUW_|_AlmeidaX#EUW:EUW_|_RayMidland#EUW:EUW",
+        "Blitzcrank | Ahri | Ornn | Sylas | KogMaw-|-Daet#OCE:OCE_|_BittyBurrito#13006:OCE_|_LaughWithMe#OCE:OCE_|_Yoom Tah#OCE:OCE_|_uleeh#OCE:OCE",
+        "Karthus | Neeko | LeBlanc | Sivir | Lillia-|-GrimD#EUNE:EUNE_|_Elizabella#BELLA:EUNE_|_BlondeBaby#berry:EUNE_|_Mpiskotinos#00069:EUNE_|_N3ekoN3eko#EUNE:EUNE",
+        "Malphite | Nami | Rumble | DrMundo | LeBlanc-|-\uafe9\uc774\uc57c\uae30#\uafe9\uc774\uc57c\uae30:KR_|_\ud074\ub85c\uc774\ub791#KR1:KR_|_Infinite Sun#KR1:KR_|_\ub290\uadf8\uc911\ub300\uc7a5#KR1:KR_|_hyk#KR1:KR",
+        "Veigar | Draven | LeBlanc | Ornn | Sivir-|-TeedeeVee#WET:OCE_|_MasX#1947:OCE_|_ChefMcflurry#OCE:OCE_|_Wreckerr#OCE:OCE_|_GrandpaJoeBucket#OCE:OCE",
+        "Twitch | Taliyah | Nidalee | LeBlanc | Maokai-|-\ubabd\uc2e4\ubabd\uc2e4 \uc639\ub369\uc774#KR1:KR_|_\uc815\uc2e0\ubcd1\uc788\uc74c#KR2:KR_|_\ud551 \uad6c#0918:KR_|_\uae40\uace0\ubb3c#KR1:KR_|_no chat do best#KR1:KR",
+        "Volibear | Thresh | Orianna | Taliyah | Ziggs-|-HupinHula#69696:OCE_|_PRODIGY#METR:OCE_|_NiftyHobbit#OCE:OCE_|_pepperoniiii#7327:OCE_|_Sterling Archer#OCE:OCE",
+        "Warwick | LeBlanc | Karthus | VelKoz | Kindred-|-T\u00f8ucherRektAll#EUW:EUW_|_4kkadian#EUW:EUW_|_Kingman2#EUW:EUW_|_hornussy#EUW:EUW_|_TeKn0RaVe#DIGHE:EUW",
+        "LeBlanc | Rengar | Senna | Taliyah | Pyke-|-Kinnestemert#TR1:TR_|_Psyduck#7438:TR_|_K\u0131v\u0131rc\u0131k Rakun#555:TR_|_foluvmah#AMG1:TR_|_Ssleyers#TR1:TR",
+        "Syndra | Viego | Kindred | Shyvana | Rammus-|-TrungBoBeTrung#VN2:VN_|_peppino#2VN:VN_|_mnhat1e#1234:VN_|_HCMUT Huy Ho\u00e0ng#2003:VN_|_\u00d4ngCh\u00faSaleGet2#VN2:VN",
+        "VelKoz | Lulu | Nautilus | Yuumi | Jhin-|-no distraction#EUW:EUW_|_Rc2727#EUW:EUW_|_Relon#5858:EUW_|_K4ktusPvP#EUW:EUW_|_Garenteed R#EUW:EUW",
+        "Taliyah | Viktor | LeBlanc | AurelionSol | Anivia-|-Crow#2961:EUW_|_Lubyana#EUW:EUW_|_Yopi#0410:EUW_|_Peyne#EUW:EUW_|_KingNoonex#EUW:EUW",
+        "Ashe | Nidalee | Zed | Shyvana | LeBlanc-|-FakeRaven#EUW:EUW_|_Kim Jong Un WPK#EUW:EUW_|_scrutch euw#EUW:EUW_|_ICC10#EUW:EUW_|_LeoMiguel36#EUW:EUW",
+        "Pantheon | Teemo | LeBlanc | Zyra | Riven-|-Rahpor#EUW:EUW_|_JYK ElJud\u00edo#EUW:EUW_|_xSTARMANx#EUW:EUW_|_Hal3xe#EUW:EUW_|_Flying Bear#EUW:EUW",
+        "Thresh | Jinx | LeBlanc | Amumu | Lucian-|-\u00c9os#0666:EUW_|_Bash#EUX:EUW_|_D0D0#EUW:EUW_|_thaterminator88#EUW:EUW_|_Sijie0414#EUW:EUW",
+        "Thresh | Kayn | Lux | DrMundo | KogMaw-|-0derkon#EUW:EUW_|_rysku#EUW:EUW_|_lllIIllIllIllIll#Dance:EUW_|_IsoLierung#EUW:EUW_|_Pastavicious#EUW:EUW",
+        "Draven | Pyke | VelKoz | Senna | Twitch-|-N 3 V A D 4#EUW:EUW_|_Conramay#EUW:EUW_|_Khatra#KHAN:EUW_|_CYANO#6636:EUW_|_Dryv#234:EUW"
     ]
 }

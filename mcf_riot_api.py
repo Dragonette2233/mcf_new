@@ -76,12 +76,22 @@ class TGApi:
         )
 
     @classmethod
-    def winner_is(cls, team, kills, timestamp):
+    def winner_is(cls, team, kills, timestamp, disabled):
         
-        if team == 'blue':
-            message = f'🔵 П1 -- {kills} -- {timestamp}'
-        else:
-            message = f'🔴 П2 -- {kills} -- {timestamp}'
+        match team, disabled:
+            case 'blue', False:
+                message = f'🟢🔵 П1 -- {kills} -- {timestamp}'
+            case 'blue', True:
+                message = f'🔵 П1 -- {kills} -- {timestamp}'
+            case 'red', True:
+                message = f'🔴 П2 -- {kills} -- {timestamp}'
+            case 'red', False:
+                message = f'🟢🔴 П2 -- {kills} -- {timestamp}'
+
+        # if team == 'blue':
+        #     message = f'🔵 П1 -- {kills} -- {timestamp}'
+        # else:
+        #     message = f'🔴 П2 -- {kills} -- {timestamp}'
 
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),

@@ -56,7 +56,7 @@ def aram_porotimer():
                     
                 time.sleep(4)
 
-def run_autoscanner():
+def run_autoscanner(driver: webdriver):
 
     # SEARCH_STATE = 'PORO' # Default: PORO. Could be switchet to API
 
@@ -121,9 +121,10 @@ def run_autoscanner():
                                     app_blueprint.obj_gamechecker.search_for_game()
     
                                     if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
-                                        # print(f'Game finded from: {SEARCH_STATE}')
+                                        pyautogui.click(x=1897, y=97)
+                                        time.sleep(1.5)
                                         Switches.loop_validator = False
-                                        MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end).start()
+                                        MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end, args=(driver, )).start()
                                         app_blueprint.obj_gamechecker.spectate_active_game()
 
                                         time.sleep(10)
@@ -183,7 +184,7 @@ def open_stream_source():
     pyautogui.click(x=1871, y=354)
     time.sleep(1.5)
 
-    find_success = run_autoscanner()
+    find_success = run_autoscanner(driver=driver)
 
     if find_success == 'FAIL':
         if Switches.bot_activity:
