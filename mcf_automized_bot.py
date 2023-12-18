@@ -180,7 +180,7 @@ def open_stream_source():
 
     # time.sleep(1.5)
     pyautogui.click(x=1897, y=97)
-    time.sleep(7)
+    time.sleep(9)
     pyautogui.click(x=1871, y=354)
     time.sleep(1.5)
 
