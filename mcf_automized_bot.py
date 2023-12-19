@@ -155,7 +155,7 @@ def run_autoscanner(driver: webdriver):
             
 def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stream: str):
 
-    remove_cancel(button_reject=button_reject)
+    remove_cancel(driver=driver, button_reject=button_reject)
     
     while True:
         try:
@@ -174,8 +174,8 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
                     break
             
         except NoSuchElementException:
-            remove_cancel(button_reject=button_reject)
-            time.sleep(0.75)
+            remove_cancel(driver=driver, button_reject=button_reject)
+            time.sleep(1)
 
     stream_active = 0
     while True:
