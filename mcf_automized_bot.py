@@ -22,6 +22,14 @@ from modules.scripts import storage_data
 
 app_blueprint = MCFWindow()
 
+def remove_cancel(driver: webdriver.Chrome, button_reject: str):
+
+    try:
+        element = driver.find_element(By.CSS_SELECTOR, button_reject)
+        element.click()
+    except NoSuchElementException:
+        pass
+
 
 def run_autobot():
 
@@ -147,11 +155,7 @@ def run_autoscanner(driver: webdriver):
             
 def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stream: str):
 
-    try:
-        element = driver.find_element(By.CSS_SELECTOR, button_reject)
-        element.click()
-    except NoSuchElementException:
-        pass
+    remove_cancel(button_reject=button_reject)
     
     while True:
         try:
@@ -166,11 +170,11 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
 
                 if minutes in ('00', '01', '02', '03', '04', '05'):
                     app_blueprint.info_view.notification(f'Game started: {gametime}')
-                    # TGApi.display_gamestart(timer=gametime)
+                    TGApi.display_gamestart(timer=gametime)
                     break
             
         except NoSuchElementException:
-            # print('Still waiting...')
+            remove_cancel(button_reject=button_reject)
             time.sleep(0.75)
 
     stream_active = 0
