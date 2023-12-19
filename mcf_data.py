@@ -222,7 +222,7 @@ class Switch:
             self.state = True
 
 class Switches:
-    # decorator = False
+    coeff_opened = False
     request = False
     # checkgame = False
     # elorank = False

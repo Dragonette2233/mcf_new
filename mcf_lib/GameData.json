@@ -1,20 +1,20 @@
 {
-    "0": "('spectator-consumer.tw2.lol.pvp.net:80', 'IlMtph8ftFUg84VudgX1NQrV1CztiDCN', '149678625', 'TW2')",
+    "0": "('spectator-consumer.tw2.lol.pvp.net:80', 'AXD4i0qO3ocgnI9KS8MN/SqfZYWYPg6V', '149751786', 'TW2')",
     "Background": "Custom.png",
     "Stats": {
         "T1": [
-            "LeBlanc",
-            "Nami",
-            "Yone",
-            "MasterYi",
-            "Taliyah"
+            "MissFortune",
+            "Malphite",
+            "Kayn",
+            "Thresh",
+            "Rell"
         ],
         "T2": [
-            "Ziggs",
-            "Zeri",
-            "Riven",
-            "Neeko",
-            "Udyr"
+            "Orianna",
+            "Nidalee",
+            "JarvanIV",
+            "Renekton",
+            "Talon"
         ]
     },
     "TG": [
@@ -23,7 +23,7 @@
         "\ud83d\udc19\u041f2 Pyke - Senna - Nidalee - Swain - Sivir -- 71.4% \ud83d\udd34\n\n",
         "\ud83d\udd3460.0%  --  \u0411 90.5 \u041c  --  40.0%\ud83d\udd34"
     ],
-    "CheckerLast": "\u70ba\u4e86\u5b30\u9748\u6bbf\u958b\u58ae:TW2",
+    "CheckerLast": "\u542b\u5177\u5927\u5617\u7cbe#TW2:TW",
     "MatchesAPI": {
         "RU": [
             "Nami | Vex | Fizz | Ashe | Varus-|-\u0411\u0435\u0437 \u0422\u0440y\u0441\u0438\u043ao\u0432:RU_|_R\u0430veInTheGrave:RU_|_FarFarAway:RU_|_Lamqf:RU_|_\u0410Rlekin:RU_|_CrazyMaksi:RU_|_Destwood:RU_|_unswer:RU_|_\u043c\u044f\u0433\u043a\u0430\u044f \u043b\u0430\u043f\u043a\u0430:RU_|_LostChaos:RU",

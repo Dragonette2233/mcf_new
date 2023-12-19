@@ -22,6 +22,28 @@ from modules.scripts import storage_data
 
 app_blueprint = MCFWindow()
 
+def check_if_opened(driver: webdriver.Chrome):
+
+    for _ in range(120):
+        try:
+            games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
+        except Exception as ex_:
+            time.sleep(1)
+            games = []
+            print(ex_)
+            
+        try:
+            button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
+            if not button.get_attribute('disabled'):
+                TGApi.send_simple_message('🟢Открыты')
+                break
+        except NoSuchElementException:
+            time.sleep(1)
+            pass
+        except IndexError:
+            time.sleep(1)
+            pass
+
 def remove_cancel(driver: webdriver.Chrome, button_reject: str):
 
     try:
@@ -39,6 +61,9 @@ def run_autobot():
 
     driver = webdriver.Chrome()
     driver.maximize_window()
+    time.sleep(3)
+    pyautogui.click(x=1896, y=99)
+    # driver.refresh()
     # driver.get(url)
 
     # time.sleep(6)
@@ -135,6 +160,10 @@ def run_autoscanner(driver: webdriver):
                                         app_blueprint.close_league_of_legends()
                                         app_blueprint.refresh()
                                         app_blueprint.info_view.notification('Porotimer starts in 4 mins.')
+                                        if Switches.coeff_opened is False:
+                                            MCFThread(func=check_if_opened, args=(driver, )).start()
+                                        
+                                        Switches.coeff_opened = False
                                         time.sleep(240)
                                         # app_blueprint.obj_gamechecker.awaiting_game_end()
                                         return
@@ -163,7 +192,10 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
             aram = games[0].get_attribute('innerText')
 
             if aram == 'All Random All Mid':
-                gametime_element = driver.find_element(By.CSS_SELECTOR, 'span.dashboard-game-info__item.dashboard-game-info__time')
+                gamearea = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
+                # gametime_element = driver.find_element(By.CSS_SELECTOR, 'span.dashboard-game-info__item.dashboard-game-info__time')
+                # print(gamearea)
+                gametime_element = gamearea[0].find_element(By.CSS_SELECTOR, 'span.dashboard-game-info__item.dashboard-game-info__time')
                 gametime = str(gametime_element.get_attribute('innerText'))
 
                 minutes = gametime.split(':')[0]
@@ -196,9 +228,10 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
 
     # time.sleep(1.5)
     if stream_active != 20:
-        pyautogui.click(x=1897, y=97)
-        time.sleep(9)
-        pyautogui.click(x=1871, y=354)
+        pyautogui.click(x=1896, y=99)
+        driver.refresh()
+        time.sleep(6)
+        pyautogui.click(x=1871, y=325)
         time.sleep(1.5)
 
         find_success = run_autoscanner(driver=driver)

@@ -231,6 +231,7 @@ class MCF_Gamechecker:
                         button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
                         if not button.get_attribute('disabled'):
                             is_disabled = False
+                            Switches.coeff_opened = True
                     except NoSuchElementException:
                         pass
                     except IndexError:
