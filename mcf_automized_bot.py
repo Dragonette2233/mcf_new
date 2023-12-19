@@ -1,7 +1,7 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import TimeoutException, NoSuchElementException
+from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.support import expected_conditions as EC
 from modules.scripts import async_poro_games
 from mcf_threads import MCFThread
@@ -175,7 +175,7 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
         except IndexError:
             remove_cancel(driver=driver, button_reject=button_reject)
             time.sleep(1)
-        except NoSuchElementException:
+        except (NoSuchElementException, StaleElementReferenceException):
             remove_cancel(driver=driver, button_reject=button_reject)
             time.sleep(1)
 
