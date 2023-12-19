@@ -18,10 +18,6 @@ class MCF_Featured():
                             for _ in range(0, 5))
         self.entry_aram_for_storage = mcf_styles.Entry(width=12)
         self.entry_aram_for_storage.bind("<Return>", lambda e: self.show_parsed_games(state='aram_api'))
-
-        # self.entry_rift_for_storage = mcf_styles.Entry(width=9)
-        # self.entry_rift_for_storage.bind("<Return>", lambda e: self.show_parsed_games(aram=False))
-
         self.entry_poro_for_parse = mcf_styles.Entry(width=12)
         self.entry_poro_for_parse.bind("<Return>", lambda e: MCFThread(func=self.parse_rift_games).start())
 
@@ -34,8 +30,6 @@ class MCF_Featured():
         self.button_featured_games = tuple(mcf_styles.Button(i) for i in self.frames)
 
         self.entry_aram_for_storage.place(x=5, y=253)
-        # self.entry_rift_for_storage.place(x=111, y=253)
-        # self.entry_poro_for_parse.place(x=111, y=183)
         self.entry_poro_for_parse.place(x=99, y=253)
         self.button_aram_get.place(x=24, y=198)
         self.button_rift_get.place(x=117, y=200)
@@ -45,7 +39,6 @@ class MCF_Featured():
             frame.place_forget()
 
         self.entry_aram_for_storage.delete(0, 'end')
-        # self.entry_rift_for_storage.delete(0, 'end')
         self.entry_poro_for_parse.delete(0, 'end')
 
     def _frames_config(self, button: mcf_styles.Button, data: str):

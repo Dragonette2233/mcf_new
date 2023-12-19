@@ -83,15 +83,13 @@ class TGApi:
                 message = f'🟢🔵 П1 -- {kills} -- {timestamp}'
             case 'blue', True:
                 message = f'🔵 П1 -- {kills} -- {timestamp}'
-            case 'red', True:
-                message = f'🔴 П2 -- {kills} -- {timestamp}'
             case 'red', False:
                 message = f'🟢🔴 П2 -- {kills} -- {timestamp}'
+            case 'red', True:
+                message = f'🔴 П2 -- {kills} -- {timestamp}'
+            case _:
+                pass
 
-        # if team == 'blue':
-        #     message = f'🔵 П1 -- {kills} -- {timestamp}'
-        # else:
-        #     message = f'🔴 П2 -- {kills} -- {timestamp}'
 
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
@@ -139,14 +137,19 @@ class RiotAPI:
 
     @connection_handler
     @staticmethod
-    def get_summoner_by_name(region: str, name: str, puuid=False) -> dict:
+    def get_summoner_puuid(region: str, name: str, puuid=False) -> dict:
         result = requests.get(RiotAPI.__link_summoner_by_name.format(region=region, name=name), 
                               **RiotAPI.__headers_timeout)
         
-        if puuid:
-            return result.json()['puuid']
+        status = result.status_code
+
+        if status == 404:
+            return status
         
-        return result.json()
+        return {
+            'puuid': result.json()['puuid'],
+            'id': result.json()['id']
+        }
     
     @connection_handler
     @staticmethod

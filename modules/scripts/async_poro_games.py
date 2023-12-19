@@ -50,23 +50,10 @@ def parse_games(champion_name):
             timeout = ClientTimeout(total=3)
             async with session.get(url=url, timeout=timeout, headers=headers) as response:
                 
-                
                 result = await response.text(encoding='utf8')
-                # if region == 'ru':
-                #     print(url)
-                #     print('https://porofessor.gg/current-games/leblanc/ru/queue-450')
-                #     # hh = await response.read()
-                #     # print(hh)
-                #     open(f'{region}_porodata.html', 'w+', encoding='utf8').write(result)
-                # print(result)
-                # result = requests.get(url, **PoroAPI.__headers_timeout)
                 soup: bs = bs(result, "html.parser").find_all('div', class_='cardTeam')
 
-                # print(soup)
-
-                # if result.status_code != 200:
-                #    raise MCFException(f'Error. Status: {result.status_code}')
-                
+            
                 games = {
                     'teams': [team.find_all('img') for i, team in enumerate(soup) if i % 2 == 0],
                     'champions': [],
@@ -104,13 +91,8 @@ def parse_games(champion_name):
                     champs = ' | '.join(c)
                     names_region = '_|_'.join([f"{name}:{r.split('/')[2].upper()}" for name in n])
                     whole_string = f"{champs}-|-{names_region}"
-                    # print(whole_string)
-        #
-                    # featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
                     featured_games.append(whole_string)
                 
-                # print(featured_games)
-                # print(featured_games)
                 MCFStorage.write_data(route=('MatchesARAM', region), value=featured_games)
                     
     async def main_aram(champion_name):

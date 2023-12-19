@@ -16,7 +16,6 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         elif value < 7:
             execute_value[1] = 'red'       
         else:
-            # execute_value[1] = '#65EC3B'
             execute_value[1] = '#8EF13C'
         
         return execute_value
@@ -130,13 +129,10 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         Converting list of roles into string for comparing with items in .txt
     """
     
-    # eight_roles_rate = _find_games_from_stats(teams_by_eight_roles)
-    # ten_roles_rate = _find_games_from_stats(teams_by_ten_roles, eight_roles=False)
+    
     
     ten_roles_rate = _find_games_from_stats(teams_by_ten_roles, eight_roles=False)
     
-    # print(ten_roles_rate)
-
     if ten_roles_rate is None:
         final_result = {
                 'w1': ['Нет данных', '❔'],

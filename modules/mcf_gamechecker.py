@@ -108,23 +108,22 @@ class MCF_Gamechecker:
 
         # nickname = self.entry.get()
 
-        summoner_name = RiotAPI.get_summoner_by_name(region=currentGameData.region, name=summoner_name[0])
+        summoner_data = RiotAPI.get_summoner_puuid(region=currentGameData.region, name=summoner_name[0])
 
-        # print(summoner_name)
-        
-        if summoner_name.get('status'):
+       
+        if summoner_data == 404:
             self.parent.info_view.exception('Summoner not found')
             return
         
-        currentGameData.summoner_puuid = summoner_name['puuid']
+        currentGameData.summoner_puuid = summoner_data['puuid']
         response_activegame = RiotAPI.get_active_by_summonerid(region=currentGameData.region, 
-                                                               summid=summoner_name['id'],
+                                                               summid=summoner_data['id'],
                                                                status=True)
             
         # Writing nick and region to json
         MCFStorage.write_data(route=('CheckerLast',), value=self.entry.get())
         
-        
+        print(response_activegame)
         if response_activegame.status_code != 200:
             self.parent.info_view.notification('Loading last game')
             self.show_lastgame_info()
@@ -228,8 +227,6 @@ class MCF_Gamechecker:
                         games = []
                         print(ex_)
                         
-                
-                    # is_disabled = button.get_attribute('disabled')
                     try:
                         button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
                         if not button.get_attribute('disabled'):
