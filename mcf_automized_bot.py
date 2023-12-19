@@ -172,7 +172,9 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
                     app_blueprint.info_view.notification(f'Game started: {gametime}')
                     TGApi.display_gamestart(timer=gametime)
                     break
-            
+        except IndexError:
+            remove_cancel(driver=driver, button_reject=button_reject)
+            time.sleep(1)
         except NoSuchElementException:
             remove_cancel(driver=driver, button_reject=button_reject)
             time.sleep(1)
