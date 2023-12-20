@@ -7,7 +7,8 @@ from mcf_data import (
     MCFStorage,
     MCFTimeoutError,
     MCFNoConnectionError,
-    MCFException
+    MCFException,
+    Switches
 )
 # from mcf_build import MCFException
 import logging
@@ -31,7 +32,17 @@ class TGApi:
     tg_api_url = 'https://api.telegram.org/bot{token}/{method}'
     CHAT_ID = os.getenv('CHAT_ID')
 
+    def switch_active(func):
+        def wrapper(*args, **kwargs):
+            # Проверка активности переключателя
+            if Switches.bot_activity:
+                return func(*args, **kwargs)
+    
+        return wrapper
+
+    
     @classmethod
+    @switch_active
     def gamestart_notification(cls, nickname: str, champions: list, statsrate: dict):
 
         sample_message: str = open('mcf_lib/telegram_message_sample.txt', 'r', encoding='utf-8').read()
@@ -58,7 +69,9 @@ class TGApi:
         )
         print(result.status_code)
 
+    
     @classmethod
+    @switch_active
     def send_simple_message(cls, message):
 
         requests.post(
@@ -66,8 +79,9 @@ class TGApi:
             data={'chat_id': cls.CHAT_ID, 'text': message }
         )
 
-
+    
     @classmethod
+    @switch_active
     def display_gamestart(cls, timer):
 
         requests.post(
@@ -75,7 +89,9 @@ class TGApi:
             data={'chat_id': cls.CHAT_ID, 'text': f'⚪️ Игра началась -- {timer}' }
         )
 
+    
     @classmethod
+    @switch_active
     def winner_is(cls, team, kills, timestamp, disabled):
         
         match team, disabled:
