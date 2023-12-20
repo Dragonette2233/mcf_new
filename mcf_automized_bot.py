@@ -63,14 +63,10 @@ def run_autobot():
     driver.maximize_window()
     time.sleep(3)
     pyautogui.click(x=1896, y=99)
-    # driver.refresh()
-    # driver.get(url)
-
-    # time.sleep(6)
+    
 
     while True:
         app_blueprint.info_view.notification('Waiting for game')
-        # driver.maximize_window()
         driver.get(url)
         time.sleep(6)
         open_stream_source(driver, btn_reject_live, btn_stream)
@@ -90,7 +86,7 @@ def run_autoscanner(driver: webdriver):
         team_red = app_blueprint.obj_aram.red_entry.get().split()
 
         if len(team_blue) < 4 or len(team_red) < 3:
-            if Switches.recognition_validator == 27:
+            if Switches.recognition_validator == 40:
                 Switches.recognition_validator = 0
                 return 'FAIL'
             
