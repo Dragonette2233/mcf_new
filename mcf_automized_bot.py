@@ -198,7 +198,8 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
 
                 if minutes in ('00', '01', '02', '03', '04', '05'):
                     app_blueprint.info_view.notification(f'Game started: {gametime}')
-                    # TGApi.display_gamestart(timer=gametime)
+                    if Switches.bot_activity:
+                        TGApi.display_gamestart(timer=gametime)
                     break
         except IndexError:
             remove_cancel(driver=driver, button_reject=button_reject)
