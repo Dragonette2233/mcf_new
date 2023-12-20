@@ -70,7 +70,7 @@ def run_autobot():
 
     while True:
         app_blueprint.info_view.notification('Waiting for game')
-        driver.maximize_window()
+        # driver.maximize_window()
         driver.get(url)
         time.sleep(6)
         open_stream_source(driver, btn_reject_live, btn_stream)
@@ -202,7 +202,7 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
 
                 if minutes in ('00', '01', '02', '03', '04', '05'):
                     app_blueprint.info_view.notification(f'Game started: {gametime}')
-                    TGApi.display_gamestart(timer=gametime)
+                    # TGApi.display_gamestart(timer=gametime)
                     break
         except IndexError:
             remove_cancel(driver=driver, button_reject=button_reject)
@@ -229,10 +229,10 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
     # time.sleep(1.5)
     if stream_active != 20:
         pyautogui.click(x=1896, y=99)
-        driver.refresh()
+        # driver.refresh()
         time.sleep(6)
         pyautogui.click(x=1871, y=325)
-        time.sleep(1.5)
+        time.sleep(3.5)
 
         find_success = run_autoscanner(driver=driver)
 
