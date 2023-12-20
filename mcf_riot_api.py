@@ -34,9 +34,8 @@ class TGApi:
 
     def switch_active(func):
         def wrapper(*args, **kwargs):
-            # Проверка активности переключателя
             if Switches.bot_activity:
-                return func(*args, **kwargs)
+                func(*args, **kwargs)
     
         return wrapper
 

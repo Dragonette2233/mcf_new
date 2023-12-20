@@ -221,20 +221,18 @@ class Switch:
         else:
             self.state = True
 
+class Validator:
+    findgame = 0
+    loop = False
+    recognition = 0
+
 class Switches:
     coeff_opened = False
     request = False
-    # checkgame = False
-    # elorank = False
-    # delayed = False
     after_info = None
     after_delay = None
     calibration_index = 0
     timer = None
-    autobot = False
-    loop_validator = False
-    try_validator = 0
-    recognition_validator = 0
     bot_activity = False
 
     # def use()

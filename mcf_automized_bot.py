@@ -1,84 +1,163 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.support import expected_conditions as EC
 from modules.scripts import async_poro_games
 from mcf_threads import MCFThread
-from playsound import playsound
 from mcf_data import (
     Switches,
-    TEEMO_SONG_PATH
+    Validator,
 )
 from mcf_riot_api import TGApi
 import pyautogui
 import time
-from pprint import pprint
 from mcf_data import MCFException
 from mcf_riot_api import PoroAPI
 from mcf_build import MCFWindow
 from modules.scripts import storage_data
 
+class BetSite:
+    xpath_btn_steam = '//*[@id="app"]/div[3]/div/div/div[2]/main/div[2]/div/div/div[2]/div/ul/li/ul/li/div[1]/span[2]/span[2]/span/button'
+    css_btn_reject_live = 'button.ui-button.dashboard-redirect-message-timer__btn.ui-button--size-m.ui-button--theme-gray.ui-button--rounded'
+    css_button_for_bet = 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray'
+    css_table_games = 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray'
+    main_url = 'https://lite.1xbet-new.com/ru/live/cyber-zone/league-of-legends'
+    
+    @classmethod
+    def chrome_driver(cls):
+
+        options = Options()
+        options.add_argument("--disable-blink-features=AutomationControlled")
+        options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36")
+        driver = webdriver.Chrome(options=options)
+        driver.maximize_window()
+        time.sleep(3)
+        pyautogui.click(x=1896, y=99) #disable infobar
+        return driver
+
+
+    @classmethod
+    def notify_when_starts(cls, driver: webdriver.Chrome):
+
+        while True:
+            # print('inloop')
+            try:
+                games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
+                aram_title_outer = games[0].find_element(By.CSS_SELECTOR, 'span.caption.ui-dashboard-champ-name__caption.caption--size-m')
+                aram_title_inner: str = aram_title_outer.find_element(By.CSS_SELECTOR, 'span.caption__label').get_attribute('innerText')
+              
+                if aram_title_inner == 'All Random All Mid':
+                    gametime_element = games[0].find_element(By.CSS_SELECTOR, 'span.dashboard-game-info__item.dashboard-game-info__time')
+                    gametime = str(gametime_element.get_attribute('innerText'))
+
+                    minutes = gametime.split(':')[0]
+
+                    if minutes in ('00', '01', '02', '03', '04', '05', '09', '10'):
+                        app_blueprint.info_view.notification(f'Game started: {gametime}')
+                        TGApi.display_gamestart(timer=gametime)
+                        return
+                    else:
+                        print(minutes)
+                        time.sleep(1)
+            except IndexError:
+                # print(in_er)
+                cls.remove_cancel(driver=driver)
+                time.sleep(1)
+            except (NoSuchElementException, StaleElementReferenceException):
+                # print(bs_err)
+                cls.remove_cancel(driver=driver)
+                time.sleep(1)
+
+    @classmethod
+    def stream_activate(cls, driver: webdriver.Chrome):
+        stream_active = 0
+        while True:
+            try:
+                element = WebDriverWait(driver, 4).until(
+                    EC.element_to_be_clickable((By.XPATH, cls.xpath_btn_steam))
+                )
+                element.click()
+                return
+            except (TimeoutException, NoSuchElementException):
+                if stream_active == 20:
+                    return 'FAIL'
+                app_blueprint.info_view.exception('No stream finded yet')
+                stream_active += 1
+                continue
+
+    @classmethod
+    def stream_fullscreen(cls):
+        time.sleep(6)
+        pyautogui.click(x=1871, y=325)
+        time.sleep(3.5)
+
+    @classmethod
+    def remove_cancel(cls, driver: webdriver.Chrome):
+
+        try:
+            element = driver.find_element(By.CSS_SELECTOR, cls.css_btn_reject_live)
+            element.click()
+        except NoSuchElementException:
+            pass
+
+    @classmethod
+    def check_if_opened(cls, driver: webdriver.Chrome):
+        for _ in range(120):
+            try:
+                games = driver.find_elements(By.CSS_SELECTOR, cls.css_table_games)
+            except Exception as ex_:
+                time.sleep(1)
+                games = []
+                print(ex_)
+                
+            try:
+                button = games[0].find_element(By.CSS_SELECTOR, cls.css_button_for_bet)
+                if not button.get_attribute('disabled'):
+                    TGApi.send_simple_message('🟢Открыты')
+                    break
+            except NoSuchElementException:
+                time.sleep(1)
+                pass
+            except IndexError:
+                time.sleep(1)
+                pass
+
 
 app_blueprint = MCFWindow()
-
-def check_if_opened(driver: webdriver.Chrome):
-
-    for _ in range(120):
-        try:
-            games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
-        except Exception as ex_:
-            time.sleep(1)
-            games = []
-            print(ex_)
-            
-        try:
-            button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
-            if not button.get_attribute('disabled'):
-                TGApi.send_simple_message('🟢Открыты')
-                break
-        except NoSuchElementException:
-            time.sleep(1)
-            pass
-        except IndexError:
-            time.sleep(1)
-            pass
-
-def remove_cancel(driver: webdriver.Chrome, button_reject: str):
-
-    try:
-        element = driver.find_element(By.CSS_SELECTOR, button_reject)
-        element.click()
-    except NoSuchElementException:
-        pass
 
 
 def run_autobot():
 
-    btn_reject_live = 'button.ui-button.dashboard-redirect-message-timer__btn.ui-button--size-m.ui-button--theme-gray.ui-button--rounded'
-    btn_stream = '//*[@id="app"]/div[3]/div/div/div[2]/main/div[2]/div/div/div[2]/div/ul/li/ul/li/div[1]/span[2]/span[2]/span/button'
-    url = 'https://lite.1xbet-new.com/ru/live/cyber-zone/league-of-legends'
-
-    driver = webdriver.Chrome()
-    driver.maximize_window()
-    time.sleep(3)
-    pyautogui.click(x=1896, y=99)
+    driver = BetSite.chrome_driver()
     
-
     while True:
         app_blueprint.info_view.notification('Waiting for game')
-        driver.get(url)
+        driver.get(BetSite.main_url)
         time.sleep(6)
-        open_stream_source(driver, btn_reject_live, btn_stream)
+        BetSite.remove_cancel(driver=driver)
+        BetSite.notify_when_starts(driver=driver)
+        stream_avaliable = BetSite.stream_activate(driver=driver)
+        if stream_avaliable != 'FAIL':
+            BetSite.stream_fullscreen()
+            find_success = run_autoscanner(driver=driver)
+            if find_success == 'FAIL':
+                TGApi.send_simple_message('Игра не найдена. Кулдаун 5 минут')
+                time.sleep(300)
+        else:
+            TGApi.send_simple_message('Кнопка стрима не активна. Кулдаун 5 минут')
+            time.sleep(300)
+        # open_stream_source(driver, BetSite.css_btn_reject_live, BetSite.xpath_btn_steam)
         
 
 
-def run_autoscanner(driver: webdriver):
+def run_autoscanner(driver: webdriver.Chrome):
 
     # SEARCH_STATE = 'PORO' # Default: PORO. Could be switchet to API
 
-    Switches.loop_validator = True
-    while Switches.loop_validator:
+    Validator.loop = True
+    while Validator.loop:
         # print(len(app_blueprint.obj_aram.blue_entry.get()))
         if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
             app_blueprint.obj_tophead.pillow_icons_recognition()
@@ -86,23 +165,23 @@ def run_autoscanner(driver: webdriver):
         team_red = app_blueprint.obj_aram.red_entry.get().split()
 
         if len(team_blue) < 4 or len(team_red) < 3:
-            if Switches.recognition_validator == 40:
-                Switches.recognition_validator = 0
+            if Validator.recognition == 40:
+                Validator.recognition = 0
                 return 'FAIL'
             
-            Switches.recognition_validator += 1
+            Validator.recognition += 1
             app_blueprint.refresh()
             app_blueprint.info_view.exception('Recognizing Failed. Continue...')
             time.sleep(2)
             continue
+        
+
         else:
             # print(len(team_blue), len(team_red))
             for char_b, char_r in zip(team_blue, team_red):
 
                 try:
                     app_blueprint.info_view.notification('Parsing from RiotAPI and Poro...')
-
-                    
                     async_poro_games.parse_games(champion_name=char_r) # Parse full PoroARAM by region
                     PoroAPI.get_poro_games(red_champion=char_r) # Parse only main page PoroARAM
                     app_blueprint.obj_featured.parse_aram_games() # Parse featured games from Riot API
@@ -142,7 +221,7 @@ def run_autoscanner(driver: webdriver):
                                         time.sleep(0.5)
                                         pyautogui.click(x=1898, y=1058)
                                         time.sleep(1.5)
-                                        Switches.loop_validator = False
+                                        Validator.loop = False
                                         MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end, args=(driver, )).start()
                                         app_blueprint.obj_gamechecker.spectate_active_game()
 
@@ -157,7 +236,7 @@ def run_autoscanner(driver: webdriver):
                                         app_blueprint.refresh()
                                         app_blueprint.info_view.notification('Porotimer starts in 4 mins.')
                                         if Switches.coeff_opened is False:
-                                            MCFThread(func=check_if_opened, args=(driver, )).start()
+                                            MCFThread(func=BetSite.check_if_opened, args=(driver, )).start()
                                         
                                         Switches.coeff_opened = False
                                         time.sleep(240)
@@ -167,10 +246,10 @@ def run_autoscanner(driver: webdriver):
                                 continue
                         else:
                             app_blueprint.info_view.notification(f'No games for {char_r} -- {char_b}. CD 3s')
-                            Switches.try_validator += 1
+                            Validator.findgame += 1
 
-                            if Switches.try_validator == 15:
-                                Switches.try_validator = 0
+                            if Validator.findgame == 15:
+                                Validator.findgame = 0
                                 return 'FAIL' 
                             time.sleep(3)
                     
@@ -178,9 +257,9 @@ def run_autoscanner(driver: webdriver):
                     app_blueprint.info_view.exception(str(ex))
                     print(f'Autobot error: {ex}')
             
-def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stream: str):
+def open_stream_source(driver: webdriver.Chrome):
 
-    remove_cancel(driver=driver, button_reject=button_reject)
+    BetSite.remove_cancel(driver=driver)
     
     while True:
         try:
@@ -189,8 +268,6 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
 
             if aram == 'All Random All Mid':
                 gamearea = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
-                # gametime_element = driver.find_element(By.CSS_SELECTOR, 'span.dashboard-game-info__item.dashboard-game-info__time')
-                # print(gamearea)
                 gametime_element = gamearea[0].find_element(By.CSS_SELECTOR, 'span.dashboard-game-info__item.dashboard-game-info__time')
                 gametime = str(gametime_element.get_attribute('innerText'))
 
@@ -201,17 +278,17 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
                     TGApi.display_gamestart(timer=gametime)
                     break
         except IndexError:
-            remove_cancel(driver=driver, button_reject=button_reject)
+            BetSite.remove_cancel(driver=driver)
             time.sleep(1)
         except (NoSuchElementException, StaleElementReferenceException):
-            remove_cancel(driver=driver, button_reject=button_reject)
+            BetSite.remove_cancel(driver=driver)
             time.sleep(1)
 
     stream_active = 0
     while True:
         try:
             element = WebDriverWait(driver, 4).until(
-                EC.element_to_be_clickable((By.XPATH, button_stream))
+                EC.element_to_be_clickable((By.XPATH, BetSite.xpath_btn_steam))
             )
             element.click()
             break
@@ -224,10 +301,9 @@ def open_stream_source(driver: webdriver.Chrome, button_reject: str, button_stre
 
     # time.sleep(1.5)
     if stream_active != 20:
-        pyautogui.click(x=1896, y=99)
-        # driver.refresh()
+
         time.sleep(6)
-        pyautogui.click(x=1871, y=325)
+        pyautogui.click(x=1871, y=369)
         time.sleep(3.5)
 
         find_success = run_autoscanner(driver=driver)
