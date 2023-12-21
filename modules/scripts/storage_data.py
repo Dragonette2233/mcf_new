@@ -40,7 +40,7 @@ def get_games_by_character(character: str, state: str = ''):
             
 
     
-    if len(finded_games) == 0:
-        raise MCFException(f'No matches for {character}')
+    # if len(finded_games) == 0:
+    #     raise MCFException(f'No matches for {character}')
     
     return list(finded_games)
