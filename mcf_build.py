@@ -102,30 +102,7 @@ class MCFWindow(tk.Tk, Singleton):
     
     def rmc_callback(self, event):
         self.context_menu.post(event.x_root, event.y_root)
-
-    def aram_porotimer(self):
-        from modules.scripts import aram_porotimer_script
-
-        if not Switches.timer:
-
-            Switches.timer = True
-            self.info_view._display_info('Waiting for ARAM...', 'blue')
-
-            while Switches.timer:
-                game = aram_porotimer_script.start_timer()
-                if game is not None:
-                    TGApi.display_gamestart(timer=game)
-                    self.info_view.notification(game)
-                    playsound(TEEMO_SONG_PATH)
-                    Switches.timer = False
-                    
-                    
-                time.sleep(4)
-        else:
-            Switches.timer = False
-            self.info_view.notification('Wait...')
-            self.after(5200, lambda: self.info_view.exception('ARAM timer stopped'))
-       
+   
     def change_calibration_index(self):
     
         match Switches.calibration_index:
@@ -151,23 +128,36 @@ class MCFWindow(tk.Tk, Singleton):
             Switches.bot_activity = True
             self.info_view.success('TG bot enabled')
 
-    def mcf_doubleclick(self, x: int, y: int):
+    def mcf_click(self, x: int, y: int, double=False):
 
         pyautogui.moveTo(x, y) # Перемещаем курсор в текущие координаты
                                  
         pyautogui.mouseDown()   # Нажимаем кнопку мыши
-        time.sleep(0.07)         # Можно задать задержку, если нужно
+        time.sleep(0.1)         # Можно задать задержку, если нужно
         pyautogui.mouseUp()
 
-        pyautogui.mouseDown()
-        time.sleep(0.07)
-        pyautogui.mouseUp()
+        if double:
+            pyautogui.mouseDown()   # Нажимаем кнопку мыши
+            time.sleep(0.1)         # Можно задать задержку, если нужно
+            pyautogui.mouseUp()
+
+    def get_diff_for_stream(self):
+
+        stream_image = ImageGrab.grab()
+        compare_slice_main = Image.open(os.path.join('.', 'images_lib', 'build_compare.png'))
+        compare_slice_active = stream_image.crop((1675, 839, 1764, 887))
+        compare_slice_active = compare_slice_active.convert(compare_slice_main.mode)
+        diff_between_pixels = ImageChops.difference(compare_slice_main, compare_slice_active).getdata()
+        diff_int = sum((sum(i) for i in diff_between_pixels))
+        return diff_int
 
     def generate_score(self):
 
         screen = ImageGrab.grab()
         score = screen.crop((681, 7, 1261, 99))
+        items_build = screen.crop((602, 850, 1334, 1078))
         score.save(os.path.join('images_lib', 'scorecrop.png'))
+        items_build.save(os.path.join('images_lib', 'buildcrop.png'))
 
     def delete_screenscore(self):
         try:

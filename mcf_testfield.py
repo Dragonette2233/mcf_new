@@ -5,11 +5,36 @@ from mcf_data import Switches
 from modules.scripts import async_poro_games
 import threading
 from mcf_riot_api import TGApi
+# import time
+
+def get_val():
+    # import pyautogui
+    import time
+    while True:
+        diff_check = app_test_context.get_diff_for_stream()
+        if diff_check == 0:
+            break
+        app_test_context.info_view.exception('No stream_yet')
+        time.sleep(2)
+    time.sleep(1)
+    app_test_context.mcf_click(x=271, y=1054, double=True)
+    time.sleep(0.25)
+    app_test_context.mcf_click(x=328, y=972)
+    while True:
+        app_test_context.mcf_click(x=658, y=828, double=True)  
+        app_test_context.generate_score()
+        time.sleep(3)
 
 def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'click':
+            app_test_context.mcf_click(x=271, y=1054)
+        case 'scgen':
+            app_test_context.generate_score()
+        case 'difo':
+            MCFThread(func=get_val).start()
         case selftest if selftest.startswith('tg:'):
             message = selftest.split(':')[1]
             TGApi.send_simple_message(message=message)

@@ -185,11 +185,21 @@ class BetSite:
                     MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end, args=(driver, )).start()
                     app_blueprint.obj_gamechecker.spectate_active_game()
 
-                    time.sleep(10)
+                    time.sleep(2)
+                    while True:
+                        diff_check = app_blueprint.get_diff_for_stream()
+                        if diff_check == 0:
+                            break
+                        app_blueprint.info_view.exception('No stream_yet')
+                        time.sleep(2)
+                    time.sleep(1)
+                    app_blueprint.mcf_click(x=271, y=1054, double=True)
+                    time.sleep(0.25)
+                    app_blueprint.mcf_click(x=328, y=972)
                     while Switches.request:
-                        time.sleep(4)
-                        app_blueprint.mcf_doubleclick(658, 1056)  
+                        app_blueprint.mcf_click(x=658, y=828, double=True)  
                         app_blueprint.generate_score()
+                        time.sleep(3)
                         
                     app_blueprint.delete_screenscore()
                     app_blueprint.close_league_of_legends()

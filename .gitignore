@@ -1,7 +1,10 @@
 .env/
 __pycache__/
-images_lib/chars/red/
 images_lib/chars/blue/
+images_lib/chars/red/
+images_lib/buildcrop.png
+images_lib/scorecrop.png
+images_lib/screenshot_PIL.png
 tests.py
 apikey.txt
 riot_api.txt
