@@ -221,7 +221,7 @@ class BetSite:
 
                 if len(common_elements) >= 4:
                     BetSite.run_checker(nicknames, driver)
-                    break
+                    return
 
             else:
                 app_blueprint.info_view.notification(f'No games for {char_r} -- {char_b}. CD 3s')
