@@ -271,6 +271,10 @@ def run_autobot():
         BetSite.notify_when_starts(driver=driver)
         stream_avaliable = BetSite.stream_activate(driver=driver)
         if stream_avaliable != 'FAIL':
+            BetSite.stream_activate(driver=driver)
+            time.sleep(3)
+            BetSite.stream_activate(driver=driver)
+            time.sleep(3)
             BetSite.stream_fullscreen()
             teams = BetSite.get_characters()
             # find_success = run_autoscanner(driver=driver)

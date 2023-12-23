@@ -1,20 +1,20 @@
 {
-    "0": "('spectator-consumer.euw1.lol.pvp.net:80', 'mKET2Iy8kOOdbeHLvwqBpTGJg4+PaWkg', '6730696575', 'EUW1')",
+    "0": "('spectator-consumer.euw1.lol.pvp.net:80', 'wri3mBz42h6QpFJG6OTyf4tbnb7jGp82', '6732794536', 'EUW1')",
     "Background": "Custom.png",
     "Stats": {
         "T1": [
-            "Vayne",
-            "Morgana",
-            "VelKoz",
-            "Thresh",
-            "Corki"
+            "Jayce",
+            "Nidalee",
+            "Fiora",
+            "XinZhao",
+            "Morgana"
         ],
         "T2": [
-            "Jax",
-            "TwistedFate",
-            "Irelia",
-            "Lillia",
-            "JarvanIV"
+            "Corki",
+            "Akali",
+            "Riven",
+            "Pyke",
+            "Kassadin"
         ]
     },
     "TG": [
@@ -23,7 +23,7 @@
         "\ud83d\udc19\u041f2 Pyke - Senna - Nidalee - Swain - Sivir -- 71.4% \ud83d\udd34\n\n",
         "\ud83d\udd3460.0%  --  \u0411 90.5 \u041c  --  40.0%\ud83d\udd34"
     ],
-    "CheckerLast": "BurntSanctuary#BDS:EUW",
+    "CheckerLast": "S9 Relyx#EUW:EUW",
     "MatchesAPI": {
         "RU": [
             "Ezreal | Samira | Ryze | Sett | Veigar-|-BUBL:RU_|_Craftt007:RU_|_nadejda kieva:RU_|_Monoliza:RU_|_\u041f\u0440\u044b\u0433\u0430\u0439 K\u0438\u0441\u043a\u0430:RU_|_supersuisui:RU_|_Yamise:RU_|_peepoClown:RU_|_Irili\u0430no:RU_|_EZY:RU",
