@@ -284,8 +284,9 @@ def run_autobot():
 
                     TGApi.send_simple_message('Игра не найдена. Ждем следующую')
                     time.sleep(300)
+            app_blueprint.info_view.notification('Porofessors starts in 3min')
+            time.sleep(200)
 
         else:
             TGApi.send_simple_message('Кнопка стрима не активна. Ждем следующую')
             time.sleep(300)
-        # open_stream_source(driver, BetSite.css_btn_reject_live, BetSite.xpath_btn_steam)
