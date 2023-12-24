@@ -162,6 +162,7 @@ class MCFWindow(tk.Tk, Singleton):
     def delete_screenscore(self):
         try:
             os.remove(os.path.join('images_lib', 'scorecrop.png'))
+            os.remove(os.path.join('images_lib', 'buildcrop.png'))
         except FileNotFoundError:
             pass
 
