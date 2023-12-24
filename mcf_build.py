@@ -46,7 +46,7 @@ class MCFWindow(tk.Tk, Singleton):
         self.wm_attributes('-topmost', True)
         self.title(APP_TITLE)
         self.resizable(False, False)
-        self.geometry(f'500x420+1000+400')
+        self.geometry(f'500x420+700+230')
         self.icon = tk.PhotoImage(file=APP_ICON_PATH)
         self.iconphoto(False, self.icon)
         self.aram_image = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, 'skeleton_aram.png'))
