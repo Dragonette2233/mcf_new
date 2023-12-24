@@ -29,6 +29,13 @@ def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'fix_this':
+            from PIL import ImageGrab
+
+            screen = ImageGrab.grab()
+            crops = screen.crop((1675, 839, 1764, 887))
+            crops.save('build_compare.png')
+            
         case 'click':
             app_test_context.mcf_click(x=271, y=1054)
         case 'scgen':
