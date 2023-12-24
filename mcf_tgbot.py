@@ -16,7 +16,7 @@ async def start(update: Update, context: CallbackContext):
     keyboard = [ [KeyboardButton('/game'), KeyboardButton('/build')] ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
-    await update.message.reply_text('Выберите вариант:', reply_markup=reply_markup)
+    await update.message.reply_text('Здарова, тварына', reply_markup=reply_markup)
 
 
 async def echo(update: Update, context: CallbackContext) -> None:
