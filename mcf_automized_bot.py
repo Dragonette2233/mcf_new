@@ -55,7 +55,7 @@ class BetSite:
 
                     minutes = gametime.split(':')[0]
 
-                    if minutes in ('00', '01', '02', '03', '04', '05'):
+                    if minutes in ('00', '01', '02', '03', '04', '05', '06'):
                         app_blueprint.info_view.notification(f'Game started: {gametime}')
                         TGApi.display_gamestart(timer=gametime)
                         return
@@ -289,18 +289,24 @@ def run_autobot():
             teams = BetSite.get_characters()
             # find_success = run_autoscanner(driver=driver)
             if teams == 'FAIL':
-                TGApi.send_simple_message('Распрознавание неудачно. Ждем следующую')
-                time.sleep(300)
+                TGApi.send_simple_message('Распрознавание неудачно. Вторая попытка')
+                driver.quit()
+                break
+                # time.sleep(300)
             else:
                 find_status = BetSite.find_and_run_game(teams=teams, driver=driver)
 
                 if find_status == 'FAIL':
 
-                    TGApi.send_simple_message('Игра не найдена. Ждем следующую')
-                    time.sleep(300)
+                    TGApi.send_simple_message('Игра не найдена. Вторая попытка')
+                    driver.quit()
+                    break
+                    # time.sleep(300)
             app_blueprint.info_view.notification('Porofessors starts in 3min')
             time.sleep(200)
 
         else:
             TGApi.send_simple_message('Кнопка стрима не активна. Ждем следующую')
             time.sleep(300)
+    
+    run_autobot()
