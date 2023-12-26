@@ -7,28 +7,27 @@ import threading
 from mcf_riot_api import TGApi
 # import time
 
-def get_val():
-    # import pyautogui
-    import time
-    while True:
-        diff_check = app_test_context.get_diff_for_stream()
-        if diff_check == 0:
-            break
-        app_test_context.info_view.exception('No stream_yet')
-        time.sleep(2)
-    time.sleep(1)
-    app_test_context.mcf_click(x=271, y=1054, double=True)
-    time.sleep(0.25)
-    app_test_context.mcf_click(x=328, y=972)
-    while True:
-        app_test_context.mcf_click(x=658, y=828, double=True)  
-        app_test_context.generate_score()
-        time.sleep(3)
+def simm_test():
+    app_test_context.info_view.notification('Processing images...')
+    from test_recog_ssim import RecognizedCharacters
+    team_blue = RecognizedCharacters(team_color='blue')
+    team_red = RecognizedCharacters(team_color='red')
+    app_test_context.info_view.success('Processing done.')
+
+    charlist_blue = team_blue.run()
+    charlist_red = team_red.run()
+
+    app_test_context.refresh()
+    app_test_context.obj_aram.blue_entry.insert(0, ' '.join(charlist_blue))
+    app_test_context.obj_aram.red_entry.insert(0, ' '.join(charlist_red))
+    app_test_context.info_view.success(f'Blue: {len(charlist_blue)} | Red {len(charlist_red)}')
 
 def debugMode(event):
 
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'ssim':
+            MCFThread(func=simm_test).start()
         case 'gen_compare':
             from PIL import ImageGrab
             import os

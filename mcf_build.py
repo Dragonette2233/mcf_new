@@ -3,11 +3,8 @@ import os
 import time
 import pyautogui
 from PIL import ImageGrab, ImageChops, Image
-from playsound import playsound
-from mcf_threads import MCFThread
 from itertools import cycle
 from modules import mcf_styles
-from mcf_riot_api import TGApi
 from mcf_data import (
     ALL_CHAMPIONS_IDs,
     APP_ICON_PATH,
@@ -17,15 +14,9 @@ from mcf_data import (
     LOADING_STOP_PATH,
     LOADING_START_PATH,
     CHARARACTER_ICON_PATH,
-    TEEMO_SONG_PATH,
-    SCREEN_GAMESCORE_PATH,
-    currentGameData,
     Switches,
     MCFStorage,
     MCFException,
-    MCFNoConnectionError,
-    MCFTimeoutError,
-
 )
 
 class Singleton(object):
