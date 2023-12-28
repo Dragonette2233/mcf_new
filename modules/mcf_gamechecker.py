@@ -23,7 +23,8 @@ from mcf_data import (
     SPECTATOR_FILE_PATH,
     SPECTATOR_MODE,
     MCFStorage,
-    Switches
+    Switches,
+    Validator
 )
 
 
@@ -284,8 +285,8 @@ class MCF_Gamechecker:
         
         
         champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
-        # print(currentGameData.champions_ids)
-        # print(currentGameData.response['participants'])
+        Validator.ended_game_characters = champions_names[0:5].copy()
+
         self.parent.place_character_icons(champions_names, place=3, activegame=False)
         kills = sum(lastgame['info']['participants'][k]['kills'] for k in range(10))
         

@@ -65,6 +65,7 @@ class MCF_Featured():
         self.parent.info_view.notification('Wait...')
 
         missing_regions = async_featured_games.parse_games()
+        print('parse')
         match missing_regions:
             case 0:
                 self.parent.info_view.success('Done')

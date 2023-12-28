@@ -2,9 +2,11 @@ import tkinter as tk
 import os
 import time
 import pyautogui
+import numpy as np
 from PIL import ImageGrab, ImageChops, Image
 from itertools import cycle
 from modules import mcf_styles
+from mcf_riot_api import TGApi
 from mcf_data import (
     ALL_CHAMPIONS_IDs,
     APP_ICON_PATH,
@@ -14,9 +16,15 @@ from mcf_data import (
     LOADING_STOP_PATH,
     LOADING_START_PATH,
     CHARARACTER_ICON_PATH,
+    TEEMO_SONG_PATH,
+    SCREEN_GAMESCORE_PATH,
+    currentGameData,
     Switches,
     MCFStorage,
     MCFException,
+    MCFNoConnectionError,
+    MCFTimeoutError,
+
 )
 
 class Singleton(object):
@@ -76,21 +84,24 @@ class MCFWindow(tk.Tk, Singleton):
         self.test_label = tk.Label(self, text=222)
         self.canvas = MCFCanvas(self)
         self.info_view = MCFInfo(self)
-        from modules import (
-            mcf_tophead, mcf_aram,
-            mcf_featured, mcf_gamechecker
-        )
-        self.obj_featured = mcf_featured.MCF_Featured(self)
-        self.obj_aram = mcf_aram.MCF_Aram(self)
-        self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
+        from modules import mcf_gamechecker
+        self.obj_featured = None
+        self.obj_aram = None
+        self.obj_tophead = None
         self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
         self.context_menu = tk.Menu(tearoff=0)
-        self.character_icons = {
-            name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
-            if name != ('Kayn_b')
-        }
-        self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
-    
+        self.character_icons = None
+        self.characters_labels = None
+        self.blue_path = None
+        self.red_path = None
+
+        self.bluepath_images_to_compare = None
+        self.redpath_images_to_compare = None
+        self.bluegrey_shade_compare = None
+        self.red_greyshade_compare = None
+        self.bluearr_images_compare = None
+        self.redarr_images_compare = None
+
     def rmc_callback(self, event):
         self.context_menu.post(event.x_root, event.y_root)
    
@@ -241,6 +252,69 @@ class MCFWindow(tk.Tk, Singleton):
             label.place_forget()
         ...
 
+    def init_processing(self):
+
+        self.info_view.notification('Image processing...')
+        self.character_icons = {
+            name: tk.PhotoImage(file=os.path.join(CHARARACTER_ICON_PATH, f'{name}.png')) for name in ALL_CHAMPIONS_IDs.values()
+            if name != ('Kayn_b')
+        }
+        self.characters_labels = [tk.Label(self, borderwidth=0) for _ in range(0, 10)]
+        from modules import (
+            mcf_tophead, mcf_aram,
+            mcf_featured, mcf_gamechecker
+        )
+        # self.canvas = MCFCanvas(self)
+        self.obj_featured = mcf_featured.MCF_Featured(self)
+        self.obj_aram = mcf_aram.MCF_Aram(self)
+        self.obj_tophead = mcf_tophead.MCF_Tophead(self, self.canvas)
+        self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
+
+        self.blue_path = os.path.join('.', 
+                                'images_lib', 
+                                'chars',  
+                                'blue', 'char_{indx}.png')
+        self.red_path = os.path.join('.', 
+                                'images_lib', 
+                                'chars', 
+                                'red', 'char_{indx}.png')
+
+        self.bluepath_images_to_compare = {
+            char: os.path.join('.', 
+                                    'images_lib', 
+                                    'chars', 
+                                    'origin', 
+                                    'blue', f'{char.lower().capitalize()}.png') 
+                                    for char in ALL_CHAMPIONS_IDs.values()
+            }
+        self.redpath_images_to_compare = {
+            char: os.path.join('.', 
+                                    'images_lib', 
+                                    'chars', 
+                                    'origin', 
+                                    'red', f'{char.lower().capitalize()}.png') 
+                                    for char in ALL_CHAMPIONS_IDs.values()
+            }
+        self.bluegrey_shade_compare = {
+                    char: Image.open(img).convert('L') for char, img in self.bluepath_images_to_compare.items()
+        }
+        self.red_greyshade_compare = {
+                    char: Image.open(img).convert('L') for char, img in self.redpath_images_to_compare.items()
+        }
+        self.bluearr_images_compare = {
+            char: np.array(img) for char, img in self.bluegrey_shade_compare.items()
+        }
+        self.redarr_images_compare = {
+            char: np.array(img) for char, img in self.red_greyshade_compare.items()
+        }
+
+        
+        
+        # Switches.init_processing = False
+        import mcf_testfield
+        self.obj_gamechecker.entry.bind('<Control-w>', mcf_testfield.debugMode)
+        self.info_view.success('MCF Ready')
+
     def __init__(self):
         ...
 
@@ -252,8 +326,8 @@ class MCFCanvas(tk.Canvas, Singleton):
             "background": self.create_image(0, 0, image=master.background_image, anchor=tk.NW),
             "skeleton": self.create_image(0, 0, image=master.skeleton_image, anchor=tk.NW),
             "loading": self.create_image(465, 388, image=master.loading_images[0], anchor=tk.NW),
-            "aram": self.create_image(4, 156, image=self.master.aram_image, anchor=tk.NW, tag='34'),
-            "rift": self.create_image(100, 156, image=self.master.rift_image, anchor=tk.NW)
+            "aram": self.create_image(4, 156, image=master.aram_image, anchor=tk.NW, tag='34'),
+            "rift": self.create_image(100, 156, image=master.rift_image, anchor=tk.NW)
         }
         self.temp_photoimage = None
         self.config(
@@ -285,6 +359,7 @@ class MCFCanvas(tk.Canvas, Singleton):
             self.delete(img)
 
         self.temp_photoimage = tk.PhotoImage(file=os.path.join(BACKGROUND_IMAGES_PATH, f'{character}.png'))
+       
         
         self.background_objects = {
             "background": self.create_image(0, 0, image=self.temp_photoimage, anchor=tk.NW),
@@ -294,6 +369,8 @@ class MCFCanvas(tk.Canvas, Singleton):
             "rift": self.create_image(100, 156, image=self.master.rift_image, anchor=tk.NW)
            
         }
+
+        
     
     def get_icon_photoimage(character):
     
@@ -341,6 +418,11 @@ class MCFInfo(tk.Frame, Singleton):
         if delay:
             Switches.after_info = self.master.after(int(delay * 1000), self.hide_info)
     
+    
+        # self.obj_gamechecker = mcf_gamechecker.MCF_Gamechecker(self)
+        
+        
+
     def __init__(self, master) -> None:
         ...
 

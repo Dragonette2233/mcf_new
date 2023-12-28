@@ -4,6 +4,7 @@ from mcf_threads import MCFThread
 from mcf_data import Switches
 from modules.scripts import async_poro_games
 import threading
+from mcf_riot_api import PoroAPI
 from mcf_riot_api import TGApi
 # import time
 
@@ -23,9 +24,14 @@ def simm_test():
     app_test_context.info_view.success(f'Blue: {len(charlist_blue)} | Red {len(charlist_red)}')
 
 def debugMode(event):
-
+    # print('work')
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'flparse':
+            app_test_context.info_view.notification('Parsing from RiotAPI and Poro...')
+            async_poro_games.parse_games(champion_name='Vayne') # Parse full PoroARAM by region
+            PoroAPI.get_poro_games(red_champion='Vayne') # Parse only main page PoroARAM
+            app_test_context.info_view.success('Done')
         case 'ssim':
             MCFThread(func=simm_test).start()
         case 'gen_compare':

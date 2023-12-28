@@ -25,7 +25,7 @@ def parse_games(champion_name):
 
     async def parsing(champion, region):
         nonlocal missing_regions
-
+        # print('inhere')
         url = URL_PORO_BY_REGIONS.format(region=region, champion=champion)
         headers = {
                 'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7',
@@ -93,6 +93,7 @@ def parse_games(champion_name):
                     whole_string = f"{champs}-|-{names_region}"
                     featured_games.append(whole_string)
                 
+                print('writed')
                 MCFStorage.write_data(route=('MatchesARAM', region), value=featured_games)
                     
     async def main_aram(champion_name):

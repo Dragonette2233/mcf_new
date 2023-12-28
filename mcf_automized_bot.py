@@ -60,7 +60,6 @@ class BetSite:
                         TGApi.display_gamestart(timer=gametime)
                         return
                     else:
-                        print(minutes)
                         time.sleep(1)
             except IndexError:
                 # print(in_er)
@@ -147,7 +146,7 @@ class BetSite:
         while True:
             # print(len(app_blueprint.obj_aram.blue_entry.get()))
             if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
-                app_blueprint.obj_tophead.pillow_icons_recognition()
+                app_blueprint.obj_tophead.pillow_icons_recognition(ssim=True)
             team_blue = app_blueprint.obj_aram.blue_entry.get().split()
             team_red = app_blueprint.obj_aram.red_entry.get().split()
 
@@ -175,6 +174,21 @@ class BetSite:
                 app_blueprint.obj_gamechecker.entry.delete(0, 'end')
                 app_blueprint.obj_gamechecker.entry.insert(0, nick)
                 app_blueprint.obj_gamechecker.search_for_game()
+
+                if Validator.ended_game_characters is not None:
+
+                    set_1 = set([i.lower().capitalize() for i in Validator.ended_game_characters])
+                    set_2 = set([i.lower().capitalize() for i in Validator.finded_game_characerts])
+                    
+                    # Нахождение пересечения множеств
+                    common_elements = set_1.intersection(set_2)
+
+                    if len(common_elements) == 5:
+                        app_blueprint.info_view.notification('Game ended! Restarting bot in 120s')
+                        Validator.ended_game_characters = None
+                        Validator.finded_game_characerts = None
+                        time.sleep(120)
+                        return
 
                 if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
                     pyautogui.click(x=1898, y=900)
@@ -220,6 +234,8 @@ class BetSite:
     def find_and_run_game(cls, teams: dict, driver: webdriver.Chrome):
 
         team_cycle = itertools.cycle(zip(teams['blue'], teams['red']))
+
+        Validator.finded_game_characerts = teams['blue'].copy()
 
         for char_b, char_r in team_cycle:
 

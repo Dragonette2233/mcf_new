@@ -33,10 +33,20 @@ def get_games_by_character(character: str, state: str = ''):
             break
     else:
         raise MCFException(f'Who is {character}')
-        
+    
+
+    #if character 
+
     for match in all_matches:
+        # print(match)
         if character in match:
+            print(match)
+            print(character)
             finded_games.add(match)
+
+    # for match in all_matches:
+    #     if character.casefold() in [m.casefold() for m in match]:
+    #         finded_games.add(match)
             
 
     

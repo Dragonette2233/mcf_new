@@ -225,6 +225,8 @@ class Validator:
     findgame = 0
     loop = False
     recognition = 0
+    ended_game_characters = None
+    finded_game_characerts = None
 
 class Switches:
     coeff_opened = False
@@ -234,6 +236,7 @@ class Switches:
     calibration_index = 0
     timer = None
     bot_activity = False
+    # init_processing = True
 
     # def use()
 

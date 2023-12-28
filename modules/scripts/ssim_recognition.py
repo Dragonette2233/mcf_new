@@ -1,15 +1,18 @@
-from PIL import Image, ImageChops, ImageGrab
+from PIL import Image, ImageGrab
 import numpy as np
 from skimage.metrics import structural_similarity as ssim
-import mcf_data
+from mcf_build import MCFWindow
+from mcf_data import SCREENSHOT_FILE_PATH
 import os
 
-SCREENSHOT_FILE_PATH = os.path.join('.',
-                                    'images_lib',
-                                    'chars',
-                                    'testfield',
-                                    'screenshotPIL.png')
 
+# SCREENSHOT_FILE_PATH = os.path.join('.',
+#                                     'images_lib',
+#                                     'chars',
+#                                     'testfield',
+#                                     'screenshotPIL.png')
+
+app_blueprint = MCFWindow()
 class RecognizedCharacters:
     def __init__(self, team_color: str) -> None:
         """
@@ -19,32 +22,6 @@ class RecognizedCharacters:
         """
         self.characters = []
         self.team_color = team_color
-        self.blue_path = os.path.join('.', 
-                                'images_lib', 
-                                'chars', 
-                                'testfield', 
-                                'blue', 'char_{indx}')
-        self.red_path = os.path.join('.', 
-                                'images_lib', 
-                                'chars', 
-                                'testfield', 
-                                'red', 'char_{indx}')
-
-        self.path_images_to_compare = {
-            char: os.path.join('.', 
-                                    'images_lib', 
-                                    'chars', 
-                                    'origin', 
-                                    self.team_color, f'{char.lower().capitalize()}.png') 
-                                    for char in mcf_data.ALL_CHAMPIONS_IDs.values()
-            }
-        self.grey_shade_compare = {
-                    char: Image.open(img).convert('L') for char, img in self.path_images_to_compare.items()
-        }
-        self.arr_images_compare = {
-            char: np.array(img) for char, img in self.grey_shade_compare.items()
-        }
-
                                 
     def screenshot(self):
         screen = ImageGrab.grab()
@@ -55,7 +32,7 @@ class RecognizedCharacters:
         y = [160, 263, 366, 469, 572, 194, 297, 400, 503, 606]
         x = [45, 58, 1858, 1873]
         
-        im = ImageGrab.grab()
+        im = Image.open(SCREENSHOT_FILE_PATH)
         
         if im.size != (1920, 1080):
             im = im.resize((1920, 1080))
@@ -75,15 +52,14 @@ class RecognizedCharacters:
         )
 
         for a, b in tuple(zip(range(0,5), range(5, 10))):
-            crops[a].save(self.blue_path.format(indx=a))
-            crops[b].save(self.red_path.format(indx=a))
+            crops[a].save(app_blueprint.blue_path.format(indx=a))
+            crops[b].save(app_blueprint.red_path.format(indx=a))
     
     def compare_shorts(self):
 
         main_images = [os.path.join('.', 
                                 'images_lib', 
                                 'chars', 
-                                'testfield', 
                                 self.team_color, 
                                 f'char_{i}.png') for i in range(5)] # Путь к основному изображению (35x35)
         main_images_converted = [Image.open(img).convert('L') for img in main_images]
@@ -94,11 +70,16 @@ class RecognizedCharacters:
         best_similarity = 0  # Переменная для хранения наилучшего сходства
         best_character = None
 
-        simul_team = []
-        # print(self.arr_images_compare)
+        # simul_team = []
+
+        if self.team_color == 'blue':
+            arr_images_compare = app_blueprint.bluearr_images_compare
+        else:
+            arr_images_compare = app_blueprint.redarr_images_compare
+
         for main_img_arr in main_images_arr:
 
-            for char, arr in self.arr_images_compare.items():
+            for char, arr in arr_images_compare.items():
                 similarity_index = ssim(main_img_arr, arr)
 
                 # Если найдено более высокое сходство, сохраняем его и путь к изображению
@@ -107,30 +88,17 @@ class RecognizedCharacters:
                     best_character = char
 
             if best_similarity > 0.5:
-                simul_team.append(best_character)
+                self.characters.append(best_character)
             
             best_similarity = 0  # Переменная для хранения наилучшего сходства
             best_character = None
         
-        return simul_team
+        # self.characters = simul_team
         
     def run(self):
-        # self.screenshot()
+        self.screenshot()
         self.cut_from_screenshot()
-        recognized_list = self.compare_shorts()
-        return recognized_list
-    
-   
-print('Processing images...')
-team_blue = RecognizedCharacters(team_color='blue')
-team_red = RecognizedCharacters(team_color='red')
-print('Processing done')
-
-while True:
-    input('Press any key to get lists')
-    charlist_blue = team_blue.run()
-    charlist_red = team_red.run()
-    print(charlist_blue)
-    print(charlist_red)
+        self.compare_shorts()
+        # return recognized_list
 
         

@@ -135,10 +135,10 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
     
     if ten_roles_rate is None:
         final_result = {
-                'w1': ['Нет данных', '❔'],
-                'w2': ['Нет данных', '❔'],
-                'tb': ['Нет данных', '❔'],
-                'tl': ['Нет данных', '❔'],
+                'w1': ['0%', '❔'],
+                'w2': ['0%', '❔'],
+                'tb': ['0%', '❔'],
+                'tl': ['0%', '❔'],
                 'all_m': '0',
                 'all_ttl': '0'
             }

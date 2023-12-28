@@ -6,7 +6,7 @@ from mcf_data import (
 )
 
 class RecognizedCharacters:
-    def __init__(self, team_color: str, calibration_index: int) -> None:
+    def __init__(self, team_color: str, calibration_index: int = 0) -> None:
         """
             Team color should be 'blue' or 'red'
             Calibration index shoult be 0, 1 or 2
