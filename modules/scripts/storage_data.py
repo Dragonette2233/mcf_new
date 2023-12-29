@@ -40,8 +40,8 @@ def get_games_by_character(character: str, state: str = ''):
     for match in all_matches:
         # print(match)
         if character in match:
-            print(match)
-            print(character)
+            # print(match)
+            # print(character)
             finded_games.add(match)
 
     # for match in all_matches:

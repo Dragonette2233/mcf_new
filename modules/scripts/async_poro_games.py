@@ -93,7 +93,7 @@ def parse_games(champion_name):
                     whole_string = f"{champs}-|-{names_region}"
                     featured_games.append(whole_string)
                 
-                print('writed')
+                # print('writed')
                 MCFStorage.write_data(route=('MatchesARAM', region), value=featured_games)
                     
     async def main_aram(champion_name):

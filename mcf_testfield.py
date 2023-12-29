@@ -1,12 +1,19 @@
 from mcf_build import MCFWindow
 from mcf_data import currentGameData
 from mcf_threads import MCFThread
-from mcf_data import Switches
+from mcf_data import Switches, Validator
 from modules.scripts import async_poro_games
 import threading
 from mcf_riot_api import PoroAPI
 from mcf_riot_api import TGApi
 # import time
+
+
+def stats_register_test(values_list):
+
+    for val, key in enumerate(Validator.stats_register):
+
+        Validator.stats_register[key] = values_list[val]
 
 def simm_test():
     app_test_context.info_view.notification('Processing images...')
@@ -27,6 +34,12 @@ def debugMode(event):
     # print('work')
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 's_show':
+            print(Validator.stats_register)
+        case val if val.startswith('s_reg'):
+            reg_switches = val.split(':')[1]
+            stats_register_test([int(i) for i in reg_switches])
+            print(Validator.stats_register)
         case 'flparse':
             app_test_context.info_view.notification('Parsing from RiotAPI and Poro...')
             async_poro_games.parse_games(champion_name='Vayne') # Parse full PoroARAM by region

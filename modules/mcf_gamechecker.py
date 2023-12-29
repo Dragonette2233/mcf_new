@@ -124,7 +124,7 @@ class MCF_Gamechecker:
         # Writing nick and region to json
         MCFStorage.write_data(route=('CheckerLast',), value=self.entry.get())
         
-        print(response_activegame)
+        # print(response_activegame)
         if response_activegame.status_code != 200:
             self.parent.info_view.notification('Loading last game')
             self.show_lastgame_info()
@@ -141,7 +141,7 @@ class MCF_Gamechecker:
             champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
             
             # print(champions_names)
-            print(currentGameData.champions_ids)
+            # print(currentGameData.champions_ids)
             self.parent.place_character_icons(champions_names)
             
             self.spectate_button.place(x=427, y=342)
@@ -225,7 +225,7 @@ class MCF_Gamechecker:
                         games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
                     except Exception as ex_:
                         games = []
-                        print(ex_)
+                        # print(ex_)
                         
                     try:
                         button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
@@ -243,6 +243,14 @@ class MCF_Gamechecker:
                 else: 
                     team = ('red', '2')
                     TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]", disabled=is_disabled)
+
+                Validator.stats_register['W1_res'] = 1 if team[0] == 'blue' else 0
+                Validator.stats_register['W2_res'] = 1 if team[0] == 'red' else 0
+
+                MCFStorage.stats_monitor()
+
+                for key in Validator.stats_register: 
+                    Validator.stats_register[key] = 0       
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]

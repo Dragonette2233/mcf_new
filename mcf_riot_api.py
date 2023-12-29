@@ -5,15 +5,12 @@ from bs4 import BeautifulSoup as bs
 from mcf_data import (
     ALL_CHAMPIONS_IDs, 
     MCFStorage,
-    MCFTimeoutError,
-    MCFNoConnectionError,
     MCFException,
-    Switches
+    Switches,
+    Validator
 )
-# from mcf_build import MCFException
-import logging
-from pprint import pprint
 
+import logging
 logging.basicConfig(
     format='%(asctime)s %(levelname)s %(message)s\n',
     level=logging.ERROR,
@@ -22,7 +19,6 @@ logging.basicConfig(
         logging.StreamHandler()
     ]
 )
-
 
 class TGApi:
 
@@ -47,7 +43,7 @@ class TGApi:
         sample_message: str = open('mcf_lib/telegram_message_sample.txt', 'r', encoding='utf-8').read()
 
         formated_dict = {}
-        print(len(champions))
+        # print(len(champions))
         for i, name in enumerate(champions):
             formated_dict[f'p_{i}'] = name
 
@@ -62,11 +58,13 @@ class TGApi:
             **formated_dict
         )
 
-        result = requests.post(
+        requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
             data={'chat_id': cls.CHAT_ID, 'text': full_message }
         )
-        print(result.status_code)
+
+        Validator.stats_register['W1_pr'] = 0 if formated_dict['W1_e'] == '🟥' else 1
+        Validator.stats_register['W2_pr'] = 0 if formated_dict['W2_e'] == '🟥' else 1
 
     
     @classmethod

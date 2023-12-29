@@ -79,7 +79,7 @@ class RecognizedCharacters:
         while len(selection) > 5:
             key_del = max(selection, key=lambda k: selection[k])
             del selection[key_del]
-        print(f'{self.__team_color.capitalize()}: {selection}')
+        # print(f'{self.__team_color.capitalize()}: {selection}')
         self.characters = list(selection)
         
     def run(self):

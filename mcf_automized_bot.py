@@ -305,7 +305,7 @@ def run_autobot():
             teams = BetSite.get_characters()
             # find_success = run_autoscanner(driver=driver)
             if teams == 'FAIL':
-                TGApi.send_simple_message('Распрознавание неудачно. Вторая попытка')
+                TGApi.send_simple_message('Распрознавание неудачно. Повторная попытка')
                 driver.quit()
                 break
                 # time.sleep(300)
@@ -314,7 +314,7 @@ def run_autobot():
 
                 if find_status == 'FAIL':
 
-                    TGApi.send_simple_message('Игра не найдена. Вторая попытка')
+                    TGApi.send_simple_message('Игра не найдена. Повторная попытка')
                     driver.quit()
                     break
                     # time.sleep(300)

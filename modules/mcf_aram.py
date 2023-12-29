@@ -3,9 +3,6 @@ from .scripts import stats_by_roles
 from mcf_build import MCFWindow, MCFException
 from mcf_data import ALL_CHAMPIONS_IDs, MCFStorage
 
-def unready_command():
-    print('Buttons is working fine!')
-
 class MCF_Aram():
     def __init__(self, master: MCFWindow) -> None:
         self.parent = master

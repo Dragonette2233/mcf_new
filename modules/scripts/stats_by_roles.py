@@ -34,31 +34,28 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
                 return ['100%', '🟩']
             case 0, div:
                 return ['0%', '🟥']
-            case out, div if div in range(9, 13):
-                if out >= 66.6: return [f"{'%.1f' % out}%", '🟩']
-                if out <= 66.6: return [f"{'%.1f' % out}%", '🟥']
+            case out, div if div in range(9, 15):
+                if out >= 80: return [f"{'%.1f' % out}%", '🟩']
+                if out < 80: return [f"{'%.1f' % out}%", '🟥']
             case out, div if div < 9:
                 return [f"{'%.1f' % out}%", '🟥']
-            case out, div if out >= 60:
+            case out, div if out >= 65:
                 return [f"{'%.1f' % out}%", '🟩']
-            case out, div if out <= 60:
+            case out, div if out < 65:
                 return [f"{'%.1f' % out}%", '🟥']
             case _:
                 return [f"{'%.1f' % out}%", 'white']
 
-    def _find_games_from_stats(teams: dict[list], eight_roles=True):
+    def _find_games_from_stats(teams: dict[list]):
 
         roles_strings = {
             'T1': ''.join(teams['T1']),
             'T2': ''.join(teams['T2'])
         }
 
-        if eight_roles:
-            with open('mcf_lib\Stats_Eight.txt', 'r') as stats:
-                list_stats = stats.readlines()
-        else:
-            with open('.\mcf_lib\Stats_Ten.txt', 'r') as stats:
-                list_stats = stats.readlines()
+        
+        with open('.\mcf_lib\stats_migrated.txt', 'r') as stats:
+            list_stats = stats.readlines()
 
         target = None
         
@@ -116,10 +113,6 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
     """
         Getting list of roles by converting character name into role index
     """
-    teams_by_eight_roles = {
-        'T1': sorted([_get_converted_roles(char, eight_roles=True) for char in teams['T1']]),
-        'T2': sorted([_get_converted_roles(char, eight_roles=True) for char in teams['T2']]),
-    }
     teams_by_ten_roles = {
         'T1': sorted([_get_converted_roles(char, eight_roles=False) for char in teams['T1']]),
         'T2': sorted([_get_converted_roles(char, eight_roles=False) for char in teams['T2']])
@@ -129,16 +122,14 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         Converting list of roles into string for comparing with items in .txt
     """
     
-    
-    
-    ten_roles_rate = _find_games_from_stats(teams_by_ten_roles, eight_roles=False)
+    ten_roles_rate = _find_games_from_stats(teams_by_ten_roles)
     
     if ten_roles_rate is None:
         final_result = {
-                'w1': ['0%', '❔'],
-                'w2': ['0%', '❔'],
-                'tb': ['0%', '❔'],
-                'tl': ['0%', '❔'],
+                'w1': ['0%', '🟥'],
+                'w2': ['0%', '🟥'],
+                'tb': ['0%', '🟥'],
+                'tl': ['0%', '🟥'],
                 'all_m': '0',
                 'all_ttl': '0'
             }

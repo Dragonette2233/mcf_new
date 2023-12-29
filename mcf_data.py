@@ -175,6 +175,43 @@ class MCFStorage:
             json.dump(data, open(JSON_GAMEDATA_PATH, 'w+'), indent=4)
         else:
             raise TypeError('Provide touple for executing MCFData')
+    
+    @classmethod
+    def stats_monitor(cls):
+
+        is_plus = True
+
+        match list(Validator.stats_register.values()):
+            case [_, __, 0, 0]:
+                return
+            case [1, 0, 1, 0]:
+                is_plus = True
+            case [0, 1, 0, 1]:
+                is_plus = True
+            case [0, 1, 1, 0]:
+                is_plus = False
+            case [1, 0, 0, 1]:
+                is_plus = False
+            case _:
+                # print(list(Validator.stats_register.values()))
+                print('UNDEFINED IN STATS MONITOR. CHECK CODE')
+                return
+
+        import json
+
+        with open('debug_stats.json', 'r', encoding='utf-8') as js_stats:
+
+            stats_register = json.load(js_stats)
+
+        if is_plus:
+            stats_register['PLUS'] += 1
+        else:
+            stats_register['minus'] += 1
+
+        with open('debug_stats.json', 'w+', encoding='utf-8') as js_stats:
+
+            json.dump(stats_register, js_stats, indent=4)
+
 
 class CurrentGameData:
     response = None
@@ -227,6 +264,12 @@ class Validator:
     recognition = 0
     ended_game_characters = None
     finded_game_characerts = None
+    stats_register = {
+        'W1_res': 0,
+        'W2_res': 0,
+        'W1_pr': 0,
+        'W2_pr': 0,
+    }
 
 class Switches:
     coeff_opened = False
