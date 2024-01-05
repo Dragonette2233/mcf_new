@@ -149,6 +149,8 @@ RED_SCORE_PATH =  os.path.join('.', 'ssim_score_data', 'team_red', 'score_{pos}'
 BLUE_TOWER_PATH = os.path.join('.', 'ssim_score_data', 'team_blue', 'towers')
 RED_TOWER_PATH = os.path.join('.', 'ssim_score_data', 'team_red', 'towers')
 
+DEBUG_STATS_PATH = os.path.join('.', 'arambot_lib', 'debug_stats.json')
+
 """
     Classes for finded game and switches for controling threads and activity 
 
@@ -226,7 +228,7 @@ class MCFStorage:
 
         import json
 
-        with open(os.path.join('.', 'arambot_lib', 'debug_stats.json'), 'r', encoding='utf-8') as js_stats:
+        with open(DEBUG_STATS_PATH, 'r', encoding='utf-8') as js_stats:
 
             stats_register = json.load(js_stats)
 
@@ -235,7 +237,7 @@ class MCFStorage:
         else:
             stats_register['minus'] += 1
 
-        with open('debug_stats.json', 'w+', encoding='utf-8') as js_stats:
+        with open(DEBUG_STATS_PATH, 'w+', encoding='utf-8') as js_stats:
 
             json.dump(stats_register, js_stats, indent=4)
 
