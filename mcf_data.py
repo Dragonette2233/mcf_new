@@ -226,7 +226,7 @@ class MCFStorage:
 
         import json
 
-        with open('debug_stats.json', 'r', encoding='utf-8') as js_stats:
+        with open(os.path.join('.', 'arambot_lib', 'debug_stats.json'), 'r', encoding='utf-8') as js_stats:
 
             stats_register = json.load(js_stats)
 
