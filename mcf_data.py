@@ -137,6 +137,18 @@ TEEMO_SONG_PATH = os.path.join('.', 'mcf_lib', 'hihi.mp3')
 SPECTATOR_FILE_PATH = os.path.join('.', 'mcf_lib', 'spectate.bat')
 SCREENSHOT_FILE_PATH = os.path.join('images_lib', 'screenshot_PIL.png')
 
+
+"""
+    Data for screen score recognizing (Time, kills, towers)
+
+"""
+
+GTIME_DATA_PATH = os.path.join('.', 'ssim_score_data', 'gametime')
+BLUE_SCORE_PATH = os.path.join('.', 'ssim_score_data', 'team_blue', 'score_{pos}')
+RED_SCORE_PATH =  os.path.join('.', 'ssim_score_data', 'team_red', 'score_{pos}')
+BLUE_TOWER_PATH = os.path.join('.', 'ssim_score_data', 'team_blue', 'towers')
+RED_TOWER_PATH = os.path.join('.', 'ssim_score_data', 'team_red', 'towers')
+
 """
     Classes for finded game and switches for controling threads and activity 
 
@@ -147,6 +159,21 @@ class MCFTimeoutError(Exception): ...
 class MCFNoConnectionError(Exception): ...
 
 class MCFStorage:
+
+    @classmethod
+    def save_score(cls, score: dict = None, stop_tracking=False):
+
+        with open(os.path.join('.', 'arambot_lib', 'activegame_score.json'), 'r') as file:
+            data = json.load(file)
+
+        if stop_tracking:
+            data['is_active'] = False
+        else:
+            data = score
+        
+        with open(os.path.join('.', 'arambot_lib', 'activegame_score.json'), 'w+') as file:
+            json.dump(data, file, indent=4)
+
     @classmethod
     def get_selective_data(cls, route: tuple):
         data = json.load(open(JSON_GAMEDATA_PATH, 'r'))
@@ -279,6 +306,7 @@ class Switches:
     calibration_index = 0
     timer = None
     bot_activity = False
+    predicted = False
     # init_processing = True
 
     # def use()

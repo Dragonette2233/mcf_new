@@ -19,8 +19,32 @@ async def start(update: Update, context: CallbackContext):
 
     await update.message.reply_text('Здарова, тварына', reply_markup=reply_markup)
 
+async def echo_score(update: Update, context: CallbackContext) -> None:
+    
+    with open(os.path.join('.', 'arambot_lib', 'activegame_score.json'), 'r') as file:
+        score_data = json.load(file)
 
-async def echo(update: Update, context: CallbackContext) -> None:
+    if score_data['is_active']:
+        with open(os.path.join('.', 'arambot_lib', 'score_answer_sample.txt'), 'r', encoding='utf-8') as sample:
+            message_sample = sample.read()
+
+        # 🐳 Киллы: {blue_kills} | Башни: {blue_towers}
+        # 🐙 Киллы: {red_kills} | Башни: {red_towers}
+        timestamp = divmod(score_data['time'], 60)
+        minutes = timestamp[0] if timestamp[0] > 9 else f"0{timestamp[0]}"
+        seconds = timestamp[1] if timestamp[1] > 9 else f"0{timestamp[1]}"
+        message_for_reply = message_sample.format(
+            blue_kills = score_data['blue_kills'],
+            blue_towers = score_data['blue_towers'],
+            red_kills = score_data['red_kills'],
+            red_towers = score_data['red_towers'],
+            time = ':'.join([str(minutes), str(seconds)]),
+        )
+        await update.message.reply_text(message_for_reply)
+    else:
+        await update.message.reply_text('Нет активной игры')
+
+async def echo_build(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
     if update.message.text == '/game':
         sendable_file = 'scorecrop.png'
@@ -35,7 +59,7 @@ async def echo(update: Update, context: CallbackContext) -> None:
 
 async def stats_check(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
-    with open('debug_stats.json', 'r', encoding='utf-8') as js_stats:
+    with open(os.path.join('.', 'arambot_lib', 'debug_stats.json'), 'r', encoding='utf-8') as js_stats:
         stats_register = json.load(js_stats)
         message = f"Результат по стате | + ({stats_register['PLUS']}) - ({stats_register['minus']})"
         await update.message.reply_text(message)
@@ -47,8 +71,8 @@ def main() -> None:
     # g_handler = CommandHandler('game', echo)
     # b_handler = CommandHandler('build', echo)
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler('game', echo))
-    application.add_handler(CommandHandler('build', echo))
+    application.add_handler(CommandHandler('game', echo_score))
+    application.add_handler(CommandHandler('build', echo_build))
     application.add_handler(CommandHandler('stats_check', stats_check))
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 

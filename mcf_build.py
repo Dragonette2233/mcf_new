@@ -6,7 +6,6 @@ import numpy as np
 from PIL import ImageGrab, ImageChops, Image
 from itertools import cycle
 from modules import mcf_styles
-from mcf_riot_api import TGApi
 from mcf_data import (
     ALL_CHAMPIONS_IDs,
     APP_ICON_PATH,
@@ -16,15 +15,9 @@ from mcf_data import (
     LOADING_STOP_PATH,
     LOADING_START_PATH,
     CHARARACTER_ICON_PATH,
-    TEEMO_SONG_PATH,
-    SCREEN_GAMESCORE_PATH,
-    currentGameData,
     Switches,
     MCFStorage,
     MCFException,
-    MCFNoConnectionError,
-    MCFTimeoutError,
-
 )
 
 class Singleton(object):
@@ -105,22 +98,7 @@ class MCFWindow(tk.Tk, Singleton):
     def rmc_callback(self, event):
         self.context_menu.post(event.x_root, event.y_root)
    
-    def change_calibration_index(self):
-    
-        match Switches.calibration_index:
-            case 0:
-                Switches.calibration_index = 1
-                self.info_view.success("Calibration 1")
-            case 1:
-                Switches.calibration_index = 2
-                self.info_view.success("Calibration 2")
-            case 2:
-                Switches.calibration_index = 0
-                self.info_view.exception("Calibration OFF")
-            case _:
-                Switches.calibration_index = 0
-                self.info_view.exception('Unknown error')
-    
+
     def toogle_telegram_bot(self):
 
         if Switches.bot_activity:
@@ -154,16 +132,23 @@ class MCFWindow(tk.Tk, Singleton):
         return diff_int
 
     def generate_score(self):
-
+        from modules.scripts.ssim_recognition import ScoreRecognition
         screen = ImageGrab.grab()
         score = screen.crop((681, 7, 1261, 99))
+        scoredata = ScoreRecognition.screen_score_recognition(image=score)
+        MCFStorage.save_score(score=scoredata)
+        
         items_build = screen.crop((602, 850, 1334, 1078))
-        score.save(os.path.join('images_lib', 'scorecrop.png'))
+        # score.save(os.path.join('images_lib', 'scorecrop.png'))
         items_build.save(os.path.join('images_lib', 'buildcrop.png'))
+        return scoredata
 
     def delete_screenscore(self):
+
+        MCFStorage.save_score(stop_tracking=True)
+
         try:
-            os.remove(os.path.join('images_lib', 'scorecrop.png'))
+            # os.remove(os.path.join('images_lib', 'scorecrop.png'))
             os.remove(os.path.join('images_lib', 'buildcrop.png'))
         except FileNotFoundError:
             pass

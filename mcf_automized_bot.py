@@ -38,6 +38,31 @@ class BetSite:
         pyautogui.click(x=1896, y=99) #disable infobar
         return driver
 
+    @classmethod
+    def generate_predict(cls, score, driver: webdriver.Chrome):
+
+        # score = {
+        #         "time": 1034,
+        #         "blue_kiils": 49,
+        #         "red_kills": 43,
+        #         "blue_towers": 3,
+        #         "red_towers": 1,
+        #         "is_active": false
+        #     }
+
+        if cls.check_if_opened(driver=driver):
+            blue_kills = score["blue_kills"]
+            red_kills = score["red_kills"]
+            blue_towers = score["blue_towers"]
+            red_towers = score["red_towers"]
+
+            if blue_kills + red_kills >= 55 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 0 and red_towers == 0):
+                Switches.predicted = True
+                TGApi.send_simple_message('Predict 110Б')
+
+            elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) > 5 and (blue_towers > 0 or red_towers > 0):
+                Switches.predicted = True
+                TGApi.send_simple_message('Predict 110M')
 
     @classmethod
     def notify_when_starts(cls, driver: webdriver.Chrome):
@@ -210,17 +235,26 @@ class BetSite:
                     app_blueprint.mcf_click(x=271, y=1054, double=True)
                     time.sleep(0.25)
                     app_blueprint.mcf_click(x=328, y=972)
+                    # pyautogui.press('o')
                     while Switches.request:
-                        app_blueprint.mcf_click(x=658, y=828, double=True)  
-                        app_blueprint.generate_score()
-                        time.sleep(3)
+                        # pyautogui.press
+                        app_blueprint.mcf_click(x=658, y=828, double=True)
+                        score = app_blueprint.generate_score()
+                        if not Switches.predicted:
+                            cls.generate_predict(score, driver=driver)
+                        time.sleep(2)
                         
                     app_blueprint.delete_screenscore()
                     app_blueprint.close_league_of_legends()
                     app_blueprint.refresh()
                     app_blueprint.info_view.notification('Porotimer starts in 4 mins.')
                     if Switches.coeff_opened is False:
-                        MCFThread(func=BetSite.check_if_opened, args=(driver, )).start()
+                        for _ in range(120):
+                            is_opened = cls.check_if_opened(driver=driver)
+                            if is_opened:
+                                TGApi.send_simple_message('🟢Открыты')
+                                break
+                            time.sleep(1)
                     
                     Switches.coeff_opened = False
                     time.sleep(240)
@@ -260,25 +294,24 @@ class BetSite:
 
     @classmethod
     def check_if_opened(cls, driver: webdriver.Chrome):
-        for _ in range(120):
-            try:
-                games = driver.find_elements(By.CSS_SELECTOR, cls.css_table_games)
-            except Exception as ex_:
-                time.sleep(1)
-                games = []
-                print(ex_)
-                
-            try:
-                button = games[0].find_element(By.CSS_SELECTOR, cls.css_button_for_bet)
-                if not button.get_attribute('disabled'):
-                    TGApi.send_simple_message('🟢Открыты')
-                    break
-            except NoSuchElementException:
-                time.sleep(1)
-                pass
-            except IndexError:
-                time.sleep(1)
-                pass
+        # for _ in range(120):
+        try:
+            games = driver.find_elements(By.CSS_SELECTOR, cls.css_table_games)
+        except Exception as ex_:
+            time.sleep(1)
+            games = []
+            print(ex_)
+            
+        try:
+            button = games[0].find_element(By.CSS_SELECTOR, cls.css_button_for_bet)
+            if not button.get_attribute('disabled'):
+                return True
+        except NoSuchElementException:
+            time.sleep(1)
+            pass
+        except IndexError:
+            time.sleep(1)
+            pass
 
 
 app_blueprint = MCFWindow()
@@ -289,6 +322,7 @@ def run_autobot():
     driver = BetSite.chrome_driver()
     
     while True:
+        Switches.predicted = False
         app_blueprint.refresh()
         app_blueprint.info_view.notification('Waiting for game')
         driver.get(BetSite.main_url)
