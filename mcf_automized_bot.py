@@ -243,7 +243,8 @@ class BetSite:
                         if not Switches.predicted:
                             cls.generate_predict(score, driver=driver)
                         time.sleep(2)
-                        
+                    
+
                     app_blueprint.delete_screenscore()
                     app_blueprint.close_league_of_legends()
                     app_blueprint.refresh()
@@ -257,7 +258,7 @@ class BetSite:
                             time.sleep(1)
                     
                     Switches.coeff_opened = False
-                    time.sleep(240)
+                    time.sleep(130)
                     # app_blueprint.obj_gamechecker.awaiting_game_end()
                     return
             except MCFException as ex:
