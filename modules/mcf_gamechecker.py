@@ -233,8 +233,8 @@ class MCF_Gamechecker:
 
                 Validator.stats_register['W1_res'] = 1 if team[0] == 'blue' else 0
                 Validator.stats_register['W2_res'] = 1 if team[0] == 'red' else 0
-                Validator.total_register['W1_res'] = 1 if kills < 110 else 0
-                Validator.total_register['W2_res'] = 1 if kills > 110 else 0
+                Validator.total_register['W1_res'] = 1 if kills > 110 else 0
+                Validator.total_register['W2_res'] = 1 if kills < 110 else 0
 
                 MCFStorage.stats_monitor(validor=Validator.stats_register)
                 MCFStorage.stats_monitor(validor=Validator.total_register)
