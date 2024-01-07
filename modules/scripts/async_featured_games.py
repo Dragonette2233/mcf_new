@@ -50,17 +50,7 @@ def parse_games():
                     champ_list = [ALL_CHAMPIONS_IDs.get(id_name) for id_name in id_names]
                     
                     champ_string = ' | '.join([str(item) for item in champ_list])
-                    # summoner = gameList[s]['participants'][0]['summonerName']
                     summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
-
-                    # print(summoners)
-
-                    # route = gameList[s]['platformId']
-
-                    # for r, g, _ in REGIONS_TUPLE:
-                    #     if route.lower() == g: 
-                    #         route = r.upper()
-                    #         break
                             
                     routelist.append(f"{champ_string}-|-{summoners}")
                 MCFStorage.write_data(
@@ -81,7 +71,7 @@ def parse_games():
                 await asyncio.gather(task)
             except asyncio.exceptions.TimeoutError:
                 missing_regions += 1
-            except (ClientConnectionError, ClientProxyConnectionError):
+            except (ClientConnectionError, ClientProxyConnectionError) as ex_:
                 missing_regions = 20
                 
     missing_regions = 0

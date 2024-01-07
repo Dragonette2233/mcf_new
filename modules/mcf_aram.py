@@ -1,7 +1,6 @@
 from modules import mcf_styles
 from .scripts import stats_by_roles
 from mcf_build import MCFWindow, MCFException
-from mcf_data import ALL_CHAMPIONS_IDs, MCFStorage
 
 class MCF_Aram():
     def __init__(self, master: MCFWindow) -> None:

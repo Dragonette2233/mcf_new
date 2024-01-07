@@ -50,9 +50,10 @@ class TGApi:
         formated_dict['nickname'] = nickname
         formated_dict['W1'], formated_dict['W1_e'] = statsrate['w1'][0], statsrate['w1'][1]
         formated_dict['W2'], formated_dict['W2_e'] = statsrate['w2'][0], statsrate['w2'][1]
-        # formated_dict['TB'], formated_dict['TB_e'] = statsrate['tb'][0], statsrate['tb'][1]
-        # formated_dict['TL'], formated_dict['TL_e'] = statsrate['tl'][0], statsrate['tl'][1]
-        formated_dict['ALL'] = statsrate['all_m'][0]# , formated_dict['TTL'] = statsrate['all_m'][0], statsrate['all_ttl'][0]
+        formated_dict['TB'], formated_dict['TB_e'] = statsrate['tb'][0], statsrate['tb'][1]
+        formated_dict['TL'], formated_dict['TL_e'] = statsrate['tl'][0], statsrate['tl'][1]
+        formated_dict['ALL'] = statsrate['all_m'][0]
+        formated_dict['TTL'] = statsrate['all_ttl'][0]
 
         full_message = sample_message.format(
             **formated_dict
@@ -65,6 +66,8 @@ class TGApi:
 
         Validator.stats_register['W1_pr'] = 0 if formated_dict['W1_e'] == '🟥' else 1
         Validator.stats_register['W2_pr'] = 0 if formated_dict['W2_e'] == '🟥' else 1
+        Validator.total_register['W1_pr'] = 0 if formated_dict['TB_e'] == '🟥' else 1
+        Validator.total_register['W2_pr'] = 0 if formated_dict['TL_e'] == '🟥' else 1
 
     
     @classmethod
@@ -264,19 +267,11 @@ class PoroAPI:
             ids = []
 
             for info_stroke in game:
-                # print(info_stroke)
                 champ_id_wieght = info_stroke.get('class')
-                # print(id_)
+                
                 if len(champ_id_wieght) > 0:
                     ids.append(int(champ_id_wieght[0].split('-')[1]))
                     
-                #     ids.append(int(id_[1]))
-            # ids = [int(str(id.get('class')).split('-')[1]) for id in game]
-            # try:
-
-            #     ids = [int(str(id.get('class')).split('-')[1]) for id in game]
-            # except IndexError:
-            #     ...
             converted_ids = [ALL_CHAMPIONS_IDs.get(i) for i in ids]
             games['champions'].append(converted_ids)
 
@@ -288,15 +283,7 @@ class PoroAPI:
             champs = ' | '.join(c)
             names_region = '_|_'.join([f"{name}:{r.split('/')[2].upper()}" for name in n])
             whole_string = f"{champs}-|-{names_region}"
-            # print(whole_string)
-#
-            # featured_games.append(f"{' | '.join(c)}-|-{n}:{r.split('/')[2].upper()}")
             featured_games.append(whole_string)
-        # print(featured_games)
+        
         MCFStorage.write_data(route=('MatchesRift', ), value=featured_games)
-      
-        
-        
-if __name__ == '__main__':
-    PoroAPI.get_poro_games(red_champion=sys.argv[2], gamemode=sys.argv[3])
     

@@ -206,11 +206,11 @@ class MCFStorage:
             raise TypeError('Provide touple for executing MCFData')
     
     @classmethod
-    def stats_monitor(cls):
+    def stats_monitor(cls, validor):
 
         is_plus = True
 
-        match list(Validator.stats_register.values()):
+        match list(validor.values()):
             case [_, __, 0, 0]:
                 return
             case [1, 0, 1, 0]:
@@ -277,15 +277,6 @@ currentGameData = CurrentGameData()
 
 # class Switch
 
-class Switch:
-    def __init__(self) -> None:
-        self.state = False
-
-    def toggle(self):
-        if self.state:
-            self.state = False
-        else:
-            self.state = True
 
 class Validator:
     findgame = 0
@@ -294,6 +285,12 @@ class Validator:
     ended_game_characters = None
     finded_game_characerts = None
     stats_register = {
+        'W1_res': 0,
+        'W2_res': 0,
+        'W1_pr': 0,
+        'W2_pr': 0,
+    }
+    total_register = {
         'W1_res': 0,
         'W2_res': 0,
         'W1_pr': 0,
@@ -309,20 +306,7 @@ class Switches:
     timer = None
     bot_activity = False
     predicted = False
-    # init_processing = True
 
-    # def use()
-
-    def __str__(self) -> str:
-        return f"""
-        request: {self.request}
-        checkgame: {self.checkgame}
-        elorank: {self.elorank}
-        delayed: {self.delayed}
-        after_info: {self.after_info}
-        after_delay: {self.after_delay}
-        """
-    
 cookies = {
         'auid': 'LY0LGGVJT9xF3cMHBakaAg==',
         'SESSION': '22fdb02ab99445348a011c35f47c6452',

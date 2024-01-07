@@ -1,5 +1,4 @@
-import tkinter as tk
-from playsound import playsound
+
 import time
 from modules.scripts import stats_by_roles
 from selenium.webdriver.common.by import By
@@ -19,7 +18,6 @@ from mcf_data import (
     REGIONS_TUPLE,
     currentGameData,
     ALL_CHAMPIONS_IDs,
-    PAPICH_SONG_PATH,
     SPECTATOR_FILE_PATH,
     SPECTATOR_MODE,
     MCFStorage,
@@ -56,7 +54,6 @@ class MCF_Gamechecker:
     def connection_handler(func):
         def wrapper(self: "MCF_Gamechecker", *args, **kwargs):
             
-            # Switches.decorator = True
             while True:
                 try:
                     func(self, *args, **kwargs)
@@ -64,7 +61,6 @@ class MCF_Gamechecker:
                 except MCFException as ex:
                     self.parent.info_view.exception(str(ex) + ' | Press refresh to stop')
                     time.sleep(2.5)
-                    # func(self, *args, **kwargs)
             
         return wrapper
                 
@@ -107,8 +103,6 @@ class MCF_Gamechecker:
         
         self.parent.info_view.notification('Searching...')
 
-        # nickname = self.entry.get()
-
         summoner_data = RiotAPI.get_summoner_puuid(region=currentGameData.region, name=summoner_name[0])
 
        
@@ -139,9 +133,7 @@ class MCF_Gamechecker:
                                              range(10)]
             
             champions_names = [ALL_CHAMPIONS_IDs.get(currentGameData.champions_ids[i]) for i in range(10)]
-            
-            # print(champions_names)
-            # print(currentGameData.champions_ids)
+
             self.parent.place_character_icons(champions_names)
             
             self.spectate_button.place(x=427, y=342)
@@ -182,14 +174,12 @@ class MCF_Gamechecker:
 
         subprocess.call([SPECTATOR_FILE_PATH, *args])
 
-    # @connection_handler
     @disable_button_while_running(object_='obj_gamechecker', 
                                   buttons=('search_button', 'run_button', 'arrow_button'))
     def awaiting_game_end(self, driver: webdriver.Chrome = None):
     
         Switches.request = True
         self.parent.canvas.start_circle()
-        
         self.parent.info_view.success('Matcher checker started')
 
         while Switches.request:
@@ -203,16 +193,13 @@ class MCF_Gamechecker:
                 except MCFException as ex:
                     self.parent.info_view.exception(str(ex) + ' | Press refresh to stop')
                     time.sleep(2.5)
-                    # func(self, *args, **kwargs)
-            
                 
             if finished_game.status_code == 200:
 
                 response = finished_game.json()
                 kills = sum(response['info']['participants'][k]['kills'] for k in range(10))
                 time_stamp = list(divmod(response['info']['gameDuration'], 60))
-
-                # for k in range(0, 10): kills += int(response['info']['participants'][k]['kills'])
+                
                 if time_stamp[1] < 10: 
                     time_stamp[1] = f"0{time_stamp[1]}"
 
@@ -246,25 +233,28 @@ class MCF_Gamechecker:
 
                 Validator.stats_register['W1_res'] = 1 if team[0] == 'blue' else 0
                 Validator.stats_register['W2_res'] = 1 if team[0] == 'red' else 0
+                Validator.total_register['W1_res'] = 1 if kills < 110 else 0
+                Validator.total_register['W2_res'] = 1 if kills > 110 else 0
 
-                MCFStorage.stats_monitor()
+                MCFStorage.stats_monitor(validor=Validator.stats_register)
+                MCFStorage.stats_monitor(validor=Validator.total_register)
 
-                for key in Validator.stats_register: 
-                    Validator.stats_register[key] = 0       
+                for key in Validator.stats_register:
+                    Validator.stats_register[key] = 0
+                    Validator.total_register[key] = 0
 
                 self.win['text'] = f"{team[0].upper()} SIDE (П{team[1]})\n|  {kills}  |"
                 self.win['bg'] = team[0]
                 self.endtime['text'] = f" {time_stamp[0]}:{time_stamp[1]} "
                 self.endtime['highlightbackground'] = team[0]
-
-                # switchAppAndGhostView(minimize=False)
                 self.endtime.place(x=223, y=275)
                 self.win.place(x=92, y=143)
                 self.spectate_button.place_forget()
                 self.run_button.place_forget()
                 Switches.request = False
-                playsound(PAPICH_SONG_PATH)
+                # playsound(PAPICH_SONG_PATH)
                 finished_game.close()
+                break
             
             time.sleep(1.25)
 

@@ -1,7 +1,6 @@
 from mcf_data import (
     MCFStorage, 
     ten_roles_dict,
-    eight_roles_dict
 )
 from mcf_build import MCFException
 
@@ -54,7 +53,7 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         }
 
         
-        with open('.\mcf_lib\stats_migrated.txt', 'r') as stats:
+        with open('.\mcf_lib\stats_157.txt', 'r') as stats:
             list_stats = stats.readlines()
 
         target = None
@@ -84,13 +83,9 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
                 'all_m': int(results[5]),
                 'all_ttl': int(results[6][:-1])
             }
-    def _get_converted_roles(champ, eight_roles=True):
-        if eight_roles:
-            iter_dict = eight_roles_dict
-        else:
-            iter_dict = ten_roles_dict
-
-        for i in iter_dict.items():
+    def _get_converted_roles(champ):
+        
+        for i in ten_roles_dict.items():
             if champ.lower().capitalize() in i[1]: 
                 return i[0]
         
@@ -114,8 +109,8 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         Getting list of roles by converting character name into role index
     """
     teams_by_ten_roles = {
-        'T1': sorted([_get_converted_roles(char, eight_roles=False) for char in teams['T1']]),
-        'T2': sorted([_get_converted_roles(char, eight_roles=False) for char in teams['T2']])
+        'T1': sorted([_get_converted_roles(char) for char in teams['T1']]),
+        'T2': sorted([_get_converted_roles(char) for char in teams['T2']])
     }
 
     """

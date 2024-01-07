@@ -45,14 +45,9 @@ async def echo_score(update: Update, context: CallbackContext) -> None:
         await update.message.reply_text('Нет активной игры')
 
 async def echo_build(update: Update, context: CallbackContext) -> None:
-    """Echo the user message."""
-    if update.message.text == '/game':
-        sendable_file = 'scorecrop.png'
-    elif update.message.text == '/build':
-        sendable_file = 'buildcrop.png'
-   
+    
     try:
-        with open(os.path.join('images_lib', sendable_file), 'rb') as photo_file:
+        with open(os.path.join('images_lib', 'buildcrop.png'), 'rb') as photo_file:
             await update.message.reply_photo(photo=photo_file)
     except:
         await update.message.reply_text('Нет активной игры')
@@ -67,9 +62,6 @@ async def stats_check(update: Update, context: CallbackContext) -> None:
 def main() -> None:
     """Start the bot."""
     application = Application.builder().token(os.getenv('BOT_TOKEN')).build()
-    # stats_handler = MessageHandler('s_check', stats_check)
-    # g_handler = CommandHandler('game', echo)
-    # b_handler = CommandHandler('build', echo)
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CommandHandler('game', echo_score))
     application.add_handler(CommandHandler('build', echo_build))

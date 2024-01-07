@@ -5,9 +5,6 @@ from mcf_build import MCFWindow, MCFException
 from mcf_threads import MCFThread
 from mcf_riot_api import PoroAPI
 from .mcf_decortators import disable_button_while_running
-from mcf_data import (
-    ALL_CHAMPIONS_IDs,
-)
 
 class MCF_Featured():
     def __init__(self, master: MCFWindow) -> None:
