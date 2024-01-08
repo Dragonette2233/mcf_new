@@ -55,14 +55,22 @@ class BetSite:
             red_kills = score["red_kills"]
             blue_towers = score["blue_towers"]
             red_towers = score["red_towers"]
+            gametime = score["time"]
 
             if blue_kills + red_kills >= 55 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 0 and red_towers == 0):
                 Switches.predicted = True
-                TGApi.send_simple_message('Predict 110Б')
+                open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110Б\n')
+                TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
             elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) > 5 and (blue_towers > 0 or red_towers > 0):
                 Switches.predicted = True
-                TGApi.send_simple_message('Predict 110M')
+                open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
+                TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
+            
+            elif gametime > 240 and blue_kills + red_kills < 13:
+                Switches.predicted = True
+                open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
+                TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
 
     @classmethod
     def notify_when_starts(cls, driver: webdriver.Chrome):
@@ -242,6 +250,7 @@ class BetSite:
                         score = app_blueprint.generate_score()
                         if not Switches.predicted:
                             cls.generate_predict(score, driver=driver)
+                        cls.remove_cancel(driver=driver)
                         time.sleep(2)
                     
 

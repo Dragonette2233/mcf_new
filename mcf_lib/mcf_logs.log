@@ -2670,3 +2670,38 @@ Traceback (most recent call last):
     'puuid': result.json()['puuid'],
              ~~~~~~~~~~~~~^^^^^^^^^
 KeyError: 'puuid'
+2024-01-08 14:46:01,897 ERROR Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<parse_games.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2024-01-08 14:46:01,898 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<parse_games.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2024-01-08 14:46:01,900 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<parse_games.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2024-01-08 14:46:01,901 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<parse_games.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'
+2024-01-08 14:46:01,902 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<parse_games.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\async_featured_games.py:23> exception=KeyError('gameList')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\async_featured_games.py", line 31, in parsing
+    gameList = data['gameList']
+               ~~~~^^^^^^^^^^^^
+KeyError: 'gameList'

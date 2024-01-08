@@ -33,11 +33,14 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
                 return ['100%', '🟩']
             case 0, div:
                 return ['0%', '🟥']
-            case out, div if div in range(9, 15):
-                if out >= 80: return [f"{'%.1f' % out}%", '🟩']
-                if out < 80: return [f"{'%.1f' % out}%", '🟥']
             case out, div if div < 9:
                 return [f"{'%.1f' % out}%", '🟥']
+            case out, div if div in range(9, 12):
+                if out >= 80: return [f"{'%.1f' % out}%", '🟩']
+                if out < 80: return [f"{'%.1f' % out}%", '🟥']
+            case out, div if div in range(12, 15):
+                if out >= 74: return [f"{'%.1f' % out}%", '🟩']
+                if out < 74: return [f"{'%.1f' % out}%", '🟥']
             case out, div if out >= 65:
                 return [f"{'%.1f' % out}%", '🟩']
             case out, div if out < 65:
@@ -45,7 +48,7 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
             case _:
                 return [f"{'%.1f' % out}%", 'white']
 
-    def _find_games_from_stats(teams: dict[list]):
+    def _find_games_from_stats(teams: dict[str, int]):
 
         roles_strings = {
             'T1': ''.join(teams['T1']),
