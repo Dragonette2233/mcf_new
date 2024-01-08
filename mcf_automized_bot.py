@@ -49,28 +49,32 @@ class BetSite:
         #         "red_towers": 1,
         #         "is_active": false
         #     }
-
-        if cls.check_if_opened(driver=driver):
+        is_opened = cls.check_if_opened(driver=driver)
+        if is_opened:
             blue_kills = score["blue_kills"]
             red_kills = score["red_kills"]
             blue_towers = score["blue_towers"]
             red_towers = score["red_towers"]
-            gametime = score["time"]
+            gametime = int(score["time"])
+
+            # app_blueprint.info_view
 
             if blue_kills + red_kills >= 55 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 0 and red_towers == 0):
                 Switches.predicted = True
-                open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110Б\n')
+                # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110Б\n')
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
             elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) > 5 and (blue_towers > 0 or red_towers > 0):
                 Switches.predicted = True
-                open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
+                # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
             
-            elif gametime > 240 and blue_kills + red_kills < 13:
+            elif gametime > 300 and blue_kills + red_kills < 20 and abs(blue_kills - red_kills) <= 5:
                 Switches.predicted = True
-                open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
+                # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
+            # else:
+            #     app_blueprint.info_view.exception(f'PR: b{blue_kills} r{red_kills} twb {blue_towers} twr{red_towers}')
 
     @classmethod
     def notify_when_starts(cls, driver: webdriver.Chrome):
@@ -306,23 +310,19 @@ class BetSite:
     def check_if_opened(cls, driver: webdriver.Chrome):
         # for _ in range(120):
         try:
-            games = driver.find_elements(By.CSS_SELECTOR, cls.css_table_games)
+            games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
         except Exception as ex_:
-            time.sleep(1)
             games = []
-            print(ex_)
+            # print(ex_)
             
         try:
-            button = games[0].find_element(By.CSS_SELECTOR, cls.css_button_for_bet)
+            button = games[0].find_element(By.CSS_SELECTOR, 'button.ui-market.ui-market--nameless')
             if not button.get_attribute('disabled'):
                 return True
         except NoSuchElementException:
-            time.sleep(1)
             pass
         except IndexError:
-            time.sleep(1)
             pass
-
 
 app_blueprint = MCFWindow()
 
