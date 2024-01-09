@@ -1,13 +1,14 @@
 def close_mcf_and_chrome():
     import pygetwindow as gw
-
+    import os
     # Указать заголовок окна, которое вы хотите закрыть
     wins_to_close = [
         'MCF_dev',
         'mcf_development',
         'Ставки на спорт',
-        'Матчи онлайн'
-        'C:\\Windows\\System32\\cmd.exe'
+        'Матчи онлайн',
+        'C:\Windows'
+        # 'C:\\Windows\\System32\\cmd.exe'
     ]
 
     # Получение списка всех активных окон
