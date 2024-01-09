@@ -20,6 +20,15 @@ def close_mcf_and_chrome():
             if str(window_title).startswith(w):
                 gw.getWindowsWithTitle(window_title)[0].close()
 
+def status_mcf():
+    from PIL import ImageGrab
+    import os
+
+    status_path = os.path.join('.', 'arambot_lib', 'mcf_status.png')
+    screen = ImageGrab.grab()
+    screen.save(status_path)
+    return status_path
+
 def start_mcf():
     import os
     import ctypes

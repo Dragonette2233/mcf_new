@@ -3,7 +3,8 @@ from telegram import ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackContext, MessageHandler
 from arambot_lib.bot_reload import (
     close_mcf_and_chrome,
-    start_mcf
+    start_mcf,
+    status_mcf
 )
 import json
 import os
@@ -62,8 +63,15 @@ async def mcf_reload(update: Update, context: CallbackContext) -> None:
     start_mcf()
 
     await update.message.reply_text('Бот перезагружен')
-    
 
+async def mcf_status(update: Update, context: CallbackContext) -> None:
+    
+    status_path = status_mcf()
+
+    with open(status_path, 'rb') as photo_file:
+        await update.message.reply_photo(photo=photo_file)
+
+    # await update.message.reply_text('Бот перезагружен')
 async def stats_check(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
     with open(os.path.join('.', 'arambot_lib', 'debug_stats.json'), 'r', encoding='utf-8') as js_stats:
