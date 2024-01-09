@@ -64,7 +64,7 @@ class BetSite:
                 # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110Б\n')
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
-            elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) >= 3 and (blue_towers > 0 or red_towers > 0):
+            elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) >= 4 and (blue_towers > 0 or red_towers > 0):
                 Switches.predicted = True
                 # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
