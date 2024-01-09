@@ -5,8 +5,9 @@ def close_mcf_and_chrome():
     wins_to_close = [
         'MCF_dev',
         'mcf_development',
-        # 'Ставки на спорт',
-        # 'Матчи онлайн'
+        'Ставки на спорт',
+        'Матчи онлайн'
+        'C:\\Windows\\System32\\cmd.exe'
     ]
 
     # Получение списка всех активных окон
@@ -20,25 +21,20 @@ def close_mcf_and_chrome():
 
 def start_mcf():
     import os
-    import subprocess
+    import ctypes
 
-    # Получение значения переменной окружения MCF_ROOT
     mcf_root_path = os.environ.get('MCF_ROOT')
+    bat_file_path = os.path.join(mcf_root_path, 'MCF_dev.bat')
 
-    if mcf_root_path:
-        # Формирование пути к вашему .bat файлу, используя переменную окружения
-        bat_file_path = os.path.join(mcf_root_path, 'MCF_dev.bat')
-
-        # Запуск .bat файла с отдельной консолью
-        try:
-            subprocess.run(bat_file_path, shell=True, creationflags=subprocess.CREATE_NEW_CONSOLE)
-            print(f"Файл {bat_file_path} успешно запущен в отдельной консоли.")
-        except FileNotFoundError:
-            print(f"Файл {bat_file_path} не найден.")
-        except Exception as e:
-            print(f"Произошла ошибка при запуске {bat_file_path} в отдельной консоли: {e}")
-    else:
-        print("Переменная окружения MCF_ROOT не установлена.")
+    # Функция для запуска файла в свернутом режиме
+    SW_SHOWMINIMIZED = 2
+    try:
+        ctypes.windll.shell32.ShellExecuteW(None, "runas", bat_file_path, None, None, SW_SHOWMINIMIZED)
+        print(f"Файл {mcf_root_path} успешно запущен в свернутом режиме.")
+    except Exception as e:
+        print(f"Произошла ошибка при запуске {bat_file_path} в свернутом режиме: {e}")
+    # Запуск файла в свернутом режиме
+    # start_minimized(bat_file_path)
 
 
 
