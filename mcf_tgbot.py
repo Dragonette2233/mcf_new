@@ -87,6 +87,7 @@ def main() -> None:
     application.add_handler(CommandHandler('build', echo_build))
     application.add_handler(CommandHandler('stats_check', stats_check))
     application.add_handler(CommandHandler('mcf_reload', mcf_reload))
+    application.add_handler(CommandHandler('mcf_status', mcf_status))
     # application.add_handler(CommandHandler('stats_check', stats_check))
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
