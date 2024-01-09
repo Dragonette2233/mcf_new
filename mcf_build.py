@@ -297,7 +297,17 @@ class MCFWindow(tk.Tk, Singleton):
         
         # Switches.init_processing = False
         import mcf_testfield
+        import getpass
+        from mcf_threads import MCFThread
+        import mcf_automized_bot
         self.obj_gamechecker.entry.bind('<Control-w>', mcf_testfield.debugMode)
+
+        if getpass.getuser() == 'ARA-M':
+            self.info_view.notification('ARAM bot starts in 4s')
+            time.sleep(4)
+            Switches.bot_activity = True
+            MCFThread(func=mcf_automized_bot.run_autobot).start()
+
         self.info_view.success('MCF Ready')
 
     def __init__(self):

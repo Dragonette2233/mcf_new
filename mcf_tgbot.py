@@ -1,6 +1,10 @@
 from telegram import Update
 from telegram import ReplyKeyboardMarkup, KeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackContext, MessageHandler
+from arambot_lib.bot_reload import (
+    close_mcf_and_chrome,
+    start_mcf
+)
 import json
 import os
 import logging
@@ -52,6 +56,14 @@ async def echo_build(update: Update, context: CallbackContext) -> None:
     except:
         await update.message.reply_text('Нет активной игры')
 
+async def mcf_reload(update: Update, context: CallbackContext) -> None:
+    
+    close_mcf_and_chrome()
+    start_mcf()
+
+    await update.message.reply_text('Бот перезагружен')
+    
+
 async def stats_check(update: Update, context: CallbackContext) -> None:
     """Echo the user message."""
     with open(os.path.join('.', 'arambot_lib', 'debug_stats.json'), 'r', encoding='utf-8') as js_stats:
@@ -66,6 +78,8 @@ def main() -> None:
     application.add_handler(CommandHandler('game', echo_score))
     application.add_handler(CommandHandler('build', echo_build))
     application.add_handler(CommandHandler('stats_check', stats_check))
+    application.add_handler(CommandHandler('mcf_reload', mcf_reload))
+    # application.add_handler(CommandHandler('stats_check', stats_check))
     application.run_polling(allowed_updates=Update.ALL_TYPES)
 
 if __name__ == '__main__':
