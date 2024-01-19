@@ -105,7 +105,7 @@ ten_roles_dict = {
 
 APP_TITLE = 'mcf_development'
 ELO_SYMBOLS = ('BR', 'CH', 'DI', 'GO', 'GR', 'IR', 'MA', 'PL', 'PP', 'SI', 'UN')
-SPECTATOR_MODE = 'spectator-consumer.{reg}.lol.pvp.net:80'
+SPECTATOR_MODE = 'spectator.{reg}.lol.pvp.net:8080'
 FEATURED_GAMES_URL = "https://{region}.api.riotgames.com/lol/spectator/v4/featured-games"
 URL_PORO_BY_REGIONS = "https://porofessor.gg/current-games/{champion}/{region}/queue-450"
 REGIONS_TUPLE = (
