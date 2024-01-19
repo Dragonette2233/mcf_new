@@ -124,18 +124,19 @@ REGIONS_TUPLE = (
     
 """
 
-BUTTONS_PATH = os.path.join('.', 'images_lib', 'buttons/')
-APP_ICON_PATH = os.path.join('.', 'images_lib', 'backgrounds', 'icon_f.png')
-BACKGROUND_IMAGES_PATH = os.path.join('.', 'images_lib', 'backgrounds')
-CHARARACTER_ICON_PATH = os.path.join('.', 'images_lib', 'chars', 'display_icons')
-LOADING_STOP_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_end.png')
-LOADING_START_PATH = os.path.join('.', 'images_lib', 'loading_gif', 'load_{index}.png')
-JSON_GAMEDATA_PATH = os.path.join('.', 'mcf_lib', 'GameData.json')
-PAPICH_SONG_PATH = os.path.join('.', 'mcf_lib', 'song.mp3')
-SCREEN_GAMESCORE_PATH = os.path.join('images_lib', 'gamescore_PIL.png')
-TEEMO_SONG_PATH = os.path.join('.', 'mcf_lib', 'hihi.mp3')
-SPECTATOR_FILE_PATH = os.path.join('.', 'mcf_lib', 'spectate.bat')
-SCREENSHOT_FILE_PATH = os.path.join('images_lib', 'screenshot_PIL.png')
+MCF_ROOT_PATH = os.environ.get('MCF_ROOT')
+BUTTONS_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'buttons/')
+APP_ICON_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'backgrounds', 'icon_f.png')
+BACKGROUND_IMAGES_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'backgrounds')
+CHARARACTER_ICON_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'chars', 'display_icons')
+LOADING_STOP_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'loading_gif', 'load_end.png')
+LOADING_START_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'loading_gif', 'load_{index}.png')
+JSON_GAMEDATA_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'GameData.json')
+PAPICH_SONG_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'song.mp3')
+SCREEN_GAMESCORE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'gamescore_PIL.png')
+TEEMO_SONG_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'hihi.mp3')
+SPECTATOR_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'spectate.bat')
+SCREENSHOT_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'screenshot_PIL.png')
 
 
 """
@@ -143,13 +144,13 @@ SCREENSHOT_FILE_PATH = os.path.join('images_lib', 'screenshot_PIL.png')
 
 """
 
-GTIME_DATA_PATH = os.path.join('.', 'ssim_score_data', 'gametime')
-BLUE_SCORE_PATH = os.path.join('.', 'ssim_score_data', 'team_blue', 'score_{pos}')
-RED_SCORE_PATH =  os.path.join('.', 'ssim_score_data', 'team_red', 'score_{pos}')
-BLUE_TOWER_PATH = os.path.join('.', 'ssim_score_data', 'team_blue', 'towers')
-RED_TOWER_PATH = os.path.join('.', 'ssim_score_data', 'team_red', 'towers')
+GTIME_DATA_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'gametime')
+BLUE_SCORE_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_blue', 'score_{pos}')
+RED_SCORE_PATH =  os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_red', 'score_{pos}')
+BLUE_TOWER_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_blue', 'towers')
+RED_TOWER_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_red', 'towers')
 
-DEBUG_STATS_PATH = os.path.join('.', 'arambot_lib', 'debug_stats.json')
+DEBUG_STATS_PATH = os.path.join(MCF_ROOT_PATH, 'arambot_lib', 'debug_stats.json')
 
 """
     Classes for finded game and switches for controling threads and activity 
@@ -165,7 +166,7 @@ class MCFStorage:
     @classmethod
     def save_score(cls, score: dict = None, stop_tracking=False):
 
-        with open(os.path.join('.', 'arambot_lib', 'activegame_score.json'), 'r') as file:
+        with open(os.path.join(MCF_ROOT_PATH, 'arambot_lib', 'activegame_score.json'), 'r') as file:
             data = json.load(file)
 
         if stop_tracking:
@@ -173,7 +174,7 @@ class MCFStorage:
         else:
             data = score
         
-        with open(os.path.join('.', 'arambot_lib', 'activegame_score.json'), 'w+') as file:
+        with open(os.path.join(MCF_ROOT_PATH, 'arambot_lib', 'activegame_score.json'), 'w+') as file:
             json.dump(data, file, indent=4)
 
     @classmethod
@@ -343,3 +344,5 @@ headers = {
     'upgrade-insecure-requests': '1',
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36',
 }
+
+poro_headers = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36" }

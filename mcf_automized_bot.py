@@ -4,20 +4,21 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.common.exceptions import TimeoutException, NoSuchElementException, StaleElementReferenceException
 from selenium.webdriver.support import expected_conditions as EC
-from modules.scripts import async_poro_games
 from mcf_threads import MCFThread
 from mcf_data import (
     Switches,
     Validator,
+    MCFException
 )
 from mcf_riot_api import TGApi
-import pyautogui
 import itertools
 import time
-from mcf_data import MCFException
-from mcf_riot_api import PoroAPI
+from modules.scripts import (
+    mcf_autogui,
+    mcf_pillow,
+    mcf_utils
+)
 from mcf_build import MCFWindow
-from modules.scripts import storage_data
 
 class BetSite:
     xpath_btn_steam = '//*[@id="app"]/div[3]/div/div/div[2]/main/div[2]/div/div/div[2]/div/ul/li/ul/li/div[1]/span[2]/span[2]/span/button'
@@ -35,7 +36,7 @@ class BetSite:
         driver = webdriver.Chrome(options=options)
         driver.maximize_window()
         time.sleep(3)
-        pyautogui.click(x=1896, y=99) #disable infobar
+        mcf_autogui.click(x=1896, y=99) #disable infobar
         return driver
 
     @classmethod
@@ -80,7 +81,6 @@ class BetSite:
     def notify_when_starts(cls, driver: webdriver.Chrome):
 
         while True:
-            # print('inloop')
             try:
                 games = driver.find_elements(By.CSS_SELECTOR, 'li.ui-dashboard-champ.dashboard-champ.dashboard__champ.ui-dashboard-champ--theme-gray')
                 aram_title_outer = games[0].find_element(By.CSS_SELECTOR, 'span.caption.ui-dashboard-champ-name__caption.caption--size-m')
@@ -99,11 +99,9 @@ class BetSite:
                     else:
                         time.sleep(1)
             except IndexError:
-                # print(in_er)
                 cls.remove_cancel(driver=driver)
                 time.sleep(1)
             except (NoSuchElementException, StaleElementReferenceException):
-                # print(bs_err)
                 cls.remove_cancel(driver=driver)
                 time.sleep(1)
 
@@ -127,7 +125,7 @@ class BetSite:
     @classmethod
     def stream_fullscreen(cls):
         time.sleep(6)
-        pyautogui.click(x=1871, y=325)
+        mcf_autogui.click(x=1871, y=325)
         time.sleep(3.5)
 
     @classmethod
@@ -145,9 +143,9 @@ class BetSite:
         while True:
             try:
                 app_blueprint.info_view.notification('Parsing from RiotAPI and Poro...')
-                async_poro_games.parse_games(champion_name=char_r) # Parse full PoroARAM by region
-                PoroAPI.get_poro_games(red_champion=char_r) # Parse only main page PoroARAM
-                app_blueprint.obj_featured.parse_aram_games() # Parse featured games from Riot API
+                mcf_utils.async_poro_parsing(champion_name=char_r) # Parse full PoroARAM by region
+                mcf_utils.direct_poro_parsing(red_champion=char_r) # Parse only main page PoroARAM
+                mcf_utils.async_riot_parsing() # Parse featured games from Riot API
                 app_blueprint.info_view.hide_info()
                 break
             except MCFException as ex:
@@ -158,9 +156,9 @@ class BetSite:
     @classmethod
     def get_games_from_storage(cls, char_b):
 
-        games_by_character = storage_data.get_games_by_character(character=char_b, state='aram_poro')
-        games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_poro_2')
-        games_by_character += storage_data.get_games_by_character(character=char_b, state='aram_api')
+        games_by_character = mcf_utils.get_games_by_character(character=char_b, state='aram_poro')
+        games_by_character += mcf_utils.get_games_by_character(character=char_b, state='aram_poro_2')
+        games_by_character += mcf_utils.get_games_by_character(character=char_b, state='aram_api')
         return games_by_character
 
     @classmethod
@@ -172,7 +170,6 @@ class BetSite:
 
         nicknames = charlist.split('-|-')[1].split('_|_')
 
-        # Нахождение пересечения множеств
         common_elements = set_1.intersection(set_2)
 
         return nicknames, common_elements
@@ -181,7 +178,6 @@ class BetSite:
     def get_characters(cls):
 
         while True:
-            # print(len(app_blueprint.obj_aram.blue_entry.get()))
             if len(app_blueprint.obj_aram.blue_entry.get()) == 0:
                 app_blueprint.obj_tophead.pillow_icons_recognition(ssim=True)
             team_blue = app_blueprint.obj_aram.blue_entry.get().split()
@@ -228,37 +224,26 @@ class BetSite:
                         return
 
                 if len(app_blueprint.obj_gamechecker.run_button.place_info()) != 0:
-                    pyautogui.click(x=1898, y=900)
-                    time.sleep(0.5)
-                    pyautogui.click(x=1898, y=1058)
-                    time.sleep(1.5)
-                    # Validator.loop = False
+                    mcf_autogui.close_league_stream()
                     MCFThread(func=app_blueprint.obj_gamechecker.awaiting_game_end, args=(driver, )).start()
                     app_blueprint.obj_gamechecker.spectate_active_game()
 
-                    time.sleep(2)
                     while True:
-                        diff_check = app_blueprint.get_diff_for_stream()
-                        if diff_check == 0:
+                        if mcf_pillow.is_league_stream_active():
                             break
-                        app_blueprint.info_view.exception('No stream_yet')
                         time.sleep(2)
-                    time.sleep(1)
-                    app_blueprint.mcf_click(x=271, y=1054, double=True)
-                    time.sleep(0.25)
-                    app_blueprint.mcf_click(x=328, y=972)
+                    mcf_autogui.open_score_tab()
                     # pyautogui.press('o')
                     while Switches.request:
-                        # pyautogui.press
-                        app_blueprint.mcf_click(x=658, y=828, double=True)
-                        score = app_blueprint.generate_score()
+                        mcf_autogui.doubleClick(x=658, y=828)
+                        score = mcf_pillow.generate_scoreboard()
                         if not Switches.predicted:
                             cls.generate_predict(score, driver=driver)
                         cls.remove_cancel(driver=driver)
                         time.sleep(2)
                     
 
-                    app_blueprint.delete_screenscore()
+                    app_blueprint.delete_scoreboard()
                     app_blueprint.close_league_of_legends()
                     app_blueprint.refresh()
                     app_blueprint.info_view.notification('Porotimer starts in 4 mins.')

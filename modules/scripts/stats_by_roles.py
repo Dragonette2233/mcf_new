@@ -56,7 +56,7 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         }
 
         
-        with open('.\mcf_lib\stats_17.txt', 'r') as stats:
+        with open('.\mcf_lib\stats_18.txt', 'r') as stats:
             list_stats = stats.readlines()
 
         target = None

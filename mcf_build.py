@@ -1,9 +1,8 @@
 import tkinter as tk
 import os
 import time
-import pyautogui
 import numpy as np
-from PIL import ImageGrab, ImageChops, Image
+from modules.scripts import mcf_pillow
 from itertools import cycle
 from modules import mcf_styles
 from mcf_data import (
@@ -108,45 +107,9 @@ class MCFWindow(tk.Tk, Singleton):
             Switches.bot_activity = True
             self.info_view.success('TG bot enabled')
 
-    def mcf_click(self, x: int, y: int, double=False):
-
-        pyautogui.moveTo(x, y) # Перемещаем курсор в текущие координаты
-                                 
-        pyautogui.mouseDown()   # Нажимаем кнопку мыши
-        time.sleep(0.1)         # Можно задать задержку, если нужно
-        pyautogui.mouseUp()
-
-        if double:
-            pyautogui.mouseDown()   # Нажимаем кнопку мыши
-            time.sleep(0.1)         # Можно задать задержку, если нужно
-            pyautogui.mouseUp()
-
-    def get_diff_for_stream(self):
-
-        stream_image = ImageGrab.grab()
-        compare_slice_main = Image.open(os.path.join('.', 'images_lib', 'build_compare.png'))
-        compare_slice_active = stream_image.crop((1675, 839, 1764, 887))
-        compare_slice_active = compare_slice_active.convert(compare_slice_main.mode)
-        diff_between_pixels = ImageChops.difference(compare_slice_main, compare_slice_active).getdata()
-        diff_int = sum((sum(i) for i in diff_between_pixels))
-        return diff_int
-
-    def generate_score(self):
-        from modules.scripts.ssim_recognition import ScoreRecognition
-        screen = ImageGrab.grab()
-        score = screen.crop((681, 7, 1261, 99))
-        scoredata = ScoreRecognition.screen_score_recognition(image=score)
-        MCFStorage.save_score(score=scoredata)
-        
-        items_build = screen.crop((602, 850, 1334, 1078))
-        # score.save(os.path.join('images_lib', 'scorecrop.png'))
-        items_build.save(os.path.join('images_lib', 'buildcrop.png'))
-        return scoredata
-
-    def delete_screenscore(self):
+    def delete_scoreboard(self):
 
         MCFStorage.save_score(stop_tracking=True)
-
         try:
             # os.remove(os.path.join('images_lib', 'scorecrop.png'))
             os.remove(os.path.join('images_lib', 'buildcrop.png'))
@@ -281,10 +244,10 @@ class MCFWindow(tk.Tk, Singleton):
                                     for char in ALL_CHAMPIONS_IDs.values()
             }
         self.bluegrey_shade_compare = {
-                    char: Image.open(img).convert('L') for char, img in self.bluepath_images_to_compare.items()
+                    char: mcf_pillow.convert_to_greyshade(img) for char, img in self.bluepath_images_to_compare.items()
         }
         self.red_greyshade_compare = {
-                    char: Image.open(img).convert('L') for char, img in self.redpath_images_to_compare.items()
+                    char: mcf_pillow.convert_to_greyshade(img) for char, img in self.redpath_images_to_compare.items()
         }
         self.bluearr_images_compare = {
             char: np.array(img) for char, img in self.bluegrey_shade_compare.items()

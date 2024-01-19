@@ -17,7 +17,6 @@ class RecognizedCharacters:
     def __init__(self, team_color: str) -> None:
         """
             Team color should be 'blue' or 'red'
-            Calibration index shoult be 0, 1 or 2
 
         """
         self.characters = []
@@ -67,10 +66,8 @@ class RecognizedCharacters:
         # Подготовка массива основного изображения для последующего сравнения
         main_images_arr = [np.array(img) for img in main_images_converted]
 
-        best_similarity = 0  # Переменная для хранения наилучшего сходства
+        best_similarity = 0
         best_character = None
-
-        # simul_team = []
 
         if self.team_color == 'blue':
             arr_images_compare = app_blueprint.bluearr_images_compare
@@ -82,15 +79,14 @@ class RecognizedCharacters:
             for char, arr in arr_images_compare.items():
                 similarity_index = ssim(main_img_arr, arr)
 
-                # Если найдено более высокое сходство, сохраняем его и путь к изображению
                 if similarity_index > best_similarity:
                     best_similarity = similarity_index
                     best_character = char
 
-            if best_similarity > 0.5:
+            if best_similarity > 0.65:
                 self.characters.append(best_character)
             
-            best_similarity = 0  # Переменная для хранения наилучшего сходства
+            best_similarity = 0 
             best_character = None
         
         # self.characters = simul_team

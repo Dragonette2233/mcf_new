@@ -69,18 +69,18 @@ class MCF_Tophead:
     # def ssim_icons_recognition()
 
     def pillow_icons_recognition(self, ssim=False):
-        from .scripts.pillow_recognition import RecognizedCharacters as PilReco
+        # from ..deprecated.pillow_recognition import RecognizedCharacters as PilReco
         from .scripts.ssim_recognition import RecognizedCharacters as SsimReco
         self.parent.info_view.notification('Comparing icons...')
 
         if ssim:
             blue_team = SsimReco(team_color='blue')
             red_team = SsimReco(team_color='red')
-        else:
-            blue_team = PilReco(team_color='blue', 
-                                            calibration_index=Switches.calibration_index)
-            red_team = PilReco(team_color='red', 
-                                            calibration_index=Switches.calibration_index)
+        # else:
+        #     blue_team = PilReco(team_color='blue', 
+        #                                     calibration_index=Switches.calibration_index)
+        #     red_team = PilReco(team_color='red', 
+        #                                     calibration_index=Switches.calibration_index)
         blue_team.run()
         red_team.run()
 

@@ -57,11 +57,12 @@ class MCF_Featured():
     @disable_button_while_running(object_='obj_featured',
                                   buttons=('button_aram_get', 'button_rift_get'))
     def parse_aram_games(self):
-        from .scripts import async_featured_games
+        # from ..deprecated import async_featured_games
+        from modules.scripts import mcf_utils
         
         self.parent.info_view.notification('Wait...')
 
-        missing_regions = async_featured_games.parse_games()
+        missing_regions = mcf_utils.async_riot_parsing()
         # print('parse')
         match missing_regions:
             case 0:
@@ -75,7 +76,7 @@ class MCF_Featured():
                                   buttons=('button_aram_get', 'button_rift_get'))
     def parse_rift_games(self):
 
-        from .scripts import storage_data
+        from modules.scripts import mcf_utils
         
         try:
             player_red, player_blue = self.entry_poro_for_parse.get().split('-')
@@ -95,11 +96,8 @@ class MCF_Featured():
 
         time.sleep(0.25)
 
-        from .scripts import storage_data
-
-        # print(player_blue, player_red)
         try:
-            games_by_character = storage_data.get_games_by_character(character=player_blue, state='aram_poro_2') # Characters-|-nickname:region
+            games_by_character = mcf_utils.get_games_by_character(character=player_blue, state='aram_poro_2') # Characters-|-nickname:region
         except MCFException as ex:
             self.parent.info_view.exception(str(ex))
             games_by_character = None
@@ -124,7 +122,7 @@ class MCF_Featured():
             
     
     def show_parsed_games(self, state: str = ''):
-        from .scripts import storage_data
+        from modules.scripts import mcf_utils
 
         if state == 'aram_api':
             character = self.entry_aram_for_storage.get()
@@ -132,7 +130,7 @@ class MCF_Featured():
             character = self.entry_rift_for_storage.get()
 
         try:
-            games_by_character = storage_data.get_games_by_character(character=character, state=state) # Characters-|-nickname:region
+            games_by_character = mcf_utils.get_games_by_character(character=character, state=state) # Characters-|-nickname:region
         except MCFException as ex:
             self.parent.info_view.exception(str(ex))
             games_by_character = None

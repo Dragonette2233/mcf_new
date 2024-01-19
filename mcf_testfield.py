@@ -6,7 +6,6 @@ from mcf_data import (
 from mcf_threads import MCFThread
 from mcf_data import Switches, Validator
 from modules.scripts import (
-    async_poro_games,
     ssim_recognition
 )
 import threading
