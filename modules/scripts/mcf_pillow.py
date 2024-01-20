@@ -16,7 +16,7 @@ def is_league_stream_active():
     if diff_int == 0:
         return True
     
-def generate_scoreboard(self):
+def generate_scoreboard():
     from modules.scripts.ssim_recognition import ScoreRecognition
     screen = ImageGrab.grab()
     score = screen.crop((681, 7, 1261, 99))

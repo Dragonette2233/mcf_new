@@ -16,6 +16,12 @@ from PIL import Image, ImageGrab
 
 # import time
 
+def test_score_tab():
+
+    from modules.scripts import mcf_autogui
+
+    mcf_autogui.open_score_tab()
+
 def simm_test():
     app_test_context.info_view.notification('Processing images...')
     from test_recog_ssim import RecognizedCharacters
@@ -35,8 +41,8 @@ def debugMode(event):
     # print('work')
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
-        case 'trackstop':
-            MCFStorage.save_score(stop_tracking=True)
+        case 'scr':
+            app_test_context.after(3000, test_score_tab)
         case 'gettime':
             data = ssim_recognition.ScoreRecognition.screen_score_recognition()
             MCFStorage.save_score(score=data)
