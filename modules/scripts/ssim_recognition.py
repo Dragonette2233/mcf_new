@@ -162,8 +162,8 @@ class ScoreRecognition:
             cls.get_compare(np.array(image.crop((329, 18, 347, 41)).convert('L')), 'score', 1, 'red')
         ]
 
-        blue_towers = cls.get_compare(np.array(image.crop((35, 14, 47, 29)).convert('L')), 'towers', 0, 'blue')
-        red_towers = cls.get_compare(np.array(image.crop((559, 14, 571, 29)).convert('L')), 'towers', 0, 'red')
+        blue_towers = cls.get_compare(np.array(image.crop((60, 13, 75, 29)).convert('L')), 'towers', 0, 'blue')
+        red_towers = cls.get_compare(np.array(image.crop((495, 13, 509, 29)).convert('L')), 'towers', 0, 'red')
 
         str_final_time = f'{final_time[0]}{final_time[1]}:{final_time[2]}{final_time[3]}' # XX:XX
         minutes, seconds = map(int, str_final_time.split(':'))
@@ -193,10 +193,11 @@ class ScoreRecognition:
         screen = ImageGrab.grab()
         image = screen.crop((681, 7, 1261, 99))
 
+
         if 'bl_tw' in kwargs:
-            image.crop((35, 14, 47, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_blue', 'towers', f'{kwargs["bl_tw"]}.png')) # work
+            image.crop((60, 13, 75, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_blue', 'towers', f'{kwargs["bl_tw"]}.png')) # work
         if 'rd_tw' in kwargs:
-            image.crop((559, 14, 571, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_red', 'towers', f'{kwargs["rd_tw"]}.png')) # work
+            image.crop((495, 13, 509, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_red', 'towers', f'{kwargs["rd_tw"]}.png')) # work
 
         if 'bl_sc_0' in kwargs:
             image.crop((225, 18, 242, 41)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_blue', 'score_0', f'{kwargs["bl_sc_0"]}.png')) # work

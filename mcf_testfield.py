@@ -12,7 +12,7 @@ import threading
 from mcf_riot_api import PoroAPI
 from mcf_riot_api import TGApi
 
-from PIL import Image, ImageGrab
+# from PIL import Image, ImageGrab
 
 # import time
 
@@ -41,6 +41,11 @@ def debugMode(event):
     # print('work')
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'scoredata_shot':
+            from PIL import ImageGrab
+            screen = ImageGrab.grab()
+            image = screen.crop((681, 7, 1261, 99))
+            image.save('score.png')
         case 'scr':
             app_test_context.after(3000, test_score_tab)
         case 'gettime':
@@ -59,7 +64,7 @@ def debugMode(event):
             # app_test_context.info_view.notification(f'SCT starts with {data}')
             # print(dict_data)
             ssim_recognition.ScoreRecognition.collecting_ssim_data(**dict_data)
-            app_test_context.info_view._display_info(f'SCT {data} done', delay=0.3, ground='green')
+            app_test_context.info_view._display_info(f'SCT {data} done', delay=0.6, ground='green')
             # data_values = {
             #         'g_0': 0,
             #         'g_1': 0,

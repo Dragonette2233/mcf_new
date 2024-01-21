@@ -1,8 +1,8 @@
 {
-    "time": 0,
-    "blue_kills": 0,
-    "red_kills": 0,
+    "time": 992,
+    "blue_kills": 54,
+    "red_kills": 59,
     "blue_towers": 0,
-    "red_towers": 0,
+    "red_towers": 4,
     "is_active": false
 }
