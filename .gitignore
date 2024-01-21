@@ -9,6 +9,7 @@ images_lib/buildcrop.png
 images_lib/build_compare.png
 images_lib/scorecrop.png
 images_lib/screenshot_PIL.png
+arambot_lib/mcf_status.png
 deprecated/
 stats_field/
 tests.py
