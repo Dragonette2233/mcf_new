@@ -73,7 +73,7 @@ class TGApi:
     @classmethod
     @switch_active
     def send_simple_message(cls, message):
-
+        Switches.predicted = True
         requests.post(
             url=cls.tg_api_url.format(token=cls.token, method=cls.method_send),
             data={'chat_id': cls.CHAT_ID, 'text': message }

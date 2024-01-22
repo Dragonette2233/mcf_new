@@ -273,7 +273,11 @@ class MCF_Gamechecker:
         
         # currentGameData.players_count = lastgame['info']['participants'] # [0] {}, [1] {}, 2 {}, ... [10] {}
         
-        if len(lastgame['info']['participants']) < 10:
+        try:
+            if len(lastgame['info']['participants']) < 10:
+                self.parent.info_view.exception('Summoner data corrupted')
+                return
+        except:
             self.parent.info_view.exception('Summoner data corrupted')
             return
         

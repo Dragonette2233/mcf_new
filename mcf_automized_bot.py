@@ -58,21 +58,16 @@ class BetSite:
             red_towers = score["red_towers"]
             gametime = int(score["time"])
 
-            # app_blueprint.info_view
-
             if blue_kills + red_kills >= 55 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 0 and red_towers == 0):
-                Switches.predicted = True
-                # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110Б\n')
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
-            elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) >= 4 and (blue_towers > 0 or red_towers > 0):
-                Switches.predicted = True
-                # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
+            elif blue_kills + red_kills >= 70 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 1 and red_towers == 1):
+                TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
+
+            elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) >= 7 and (blue_towers > 0 or red_towers > 0):
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
-            
+
             elif gametime > 300 and blue_kills + red_kills < 20 and abs(blue_kills - red_kills) <= 5:
-                Switches.predicted = True
-                # open('predicts.txt', 'a+', encoding='utf-8').writelines('Predict 110M\n')
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
             # else:
             #     app_blueprint.info_view.exception(f'PR: b{blue_kills} r{red_kills} twb {blue_towers} twr{red_towers}')
