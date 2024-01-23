@@ -61,7 +61,7 @@ class BetSite:
             if blue_kills + red_kills >= 55 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 0 and red_towers == 0):
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
-            elif blue_kills + red_kills >= 70 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 1 and red_towers == 1):
+            elif blue_kills + red_kills >= 75 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 1 and red_towers == 1):
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
             elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) >= 7 and (blue_towers > 0 or red_towers > 0):
@@ -101,6 +101,13 @@ class BetSite:
                 time.sleep(1)
 
     @classmethod
+    def stream_reactivate(cls, driver: webdriver.Chrome):
+        cls.stream_activate(driver=driver)
+        time.sleep(2)
+        cls.stream_activate(driver=driver)
+        time.sleep(2)
+
+    @classmethod
     def stream_activate(cls, driver: webdriver.Chrome):
         stream_active = 0
         while True:
@@ -109,13 +116,15 @@ class BetSite:
                     EC.element_to_be_clickable((By.XPATH, cls.xpath_btn_steam))
                 )
                 element.click()
-                return
+                break
             except (TimeoutException, NoSuchElementException):
                 if stream_active == 20:
-                    return 'FAIL'
+                    return False
                 app_blueprint.info_view.exception('No stream finded yet')
                 stream_active += 1
                 continue
+    
+        return True
 
     @classmethod
     def stream_fullscreen(cls):
@@ -320,11 +329,8 @@ def run_autobot():
         BetSite.remove_cancel(driver=driver)
         BetSite.notify_when_starts(driver=driver)
         stream_avaliable = BetSite.stream_activate(driver=driver)
-        if stream_avaliable != 'FAIL':
-            BetSite.stream_activate(driver=driver)
-            time.sleep(3)
-            BetSite.stream_activate(driver=driver)
-            time.sleep(3)
+        if stream_avaliable:
+            BetSite.stream_reactivate(driver=driver)
             BetSite.stream_fullscreen()
             teams = BetSite.get_characters()
             # find_success = run_autoscanner(driver=driver)
@@ -332,7 +338,6 @@ def run_autobot():
                 TGApi.send_simple_message('Распрознавание неудачно. Повторная попытка')
                 driver.quit()
                 break
-                # time.sleep(300)
             else:
                 find_status = BetSite.find_and_run_game(teams=teams, driver=driver)
 
@@ -341,7 +346,6 @@ def run_autobot():
                     TGApi.send_simple_message('Игра не найдена. Повторная попытка')
                     driver.quit()
                     break
-                    # time.sleep(300)
             app_blueprint.info_view.notification('Porofessors starts in 3min')
             time.sleep(200)
 

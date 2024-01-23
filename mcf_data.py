@@ -136,6 +136,7 @@ PAPICH_SONG_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'song.mp3')
 SCREEN_GAMESCORE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'gamescore_PIL.png')
 TEEMO_SONG_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'hihi.mp3')
 SPECTATOR_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'spectate.bat')
+STATISTICS_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'stats_21.txt')
 SCREENSHOT_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'screenshot_PIL.png')
 
 

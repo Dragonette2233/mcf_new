@@ -1,6 +1,7 @@
 from mcf_data import (
     MCFStorage, 
     ten_roles_dict,
+    STATISTICS_PATH
 )
 from mcf_build import MCFException
 
@@ -56,7 +57,7 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
         }
 
         
-        with open('.\mcf_lib\stats_18.txt', 'r') as stats:
+        with open(STATISTICS_PATH, 'r') as stats:
             list_stats = stats.readlines()
 
         target = None
