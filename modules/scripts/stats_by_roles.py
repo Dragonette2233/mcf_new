@@ -42,9 +42,9 @@ def get_aram_statistic(blue_entry: list, red_entry: list):
             case out, div if div in range(12, 15):
                 if out >= 74: return [f"{'%.1f' % out}%", '🟩']
                 if out < 74: return [f"{'%.1f' % out}%", '🟥']
-            case out, div if out >= 65:
+            case out, div if out >= 70:
                 return [f"{'%.1f' % out}%", '🟩']
-            case out, div if out < 65:
+            case out, div if out < 70:
                 return [f"{'%.1f' % out}%", '🟥']
             case _:
                 return [f"{'%.1f' % out}%", 'white']

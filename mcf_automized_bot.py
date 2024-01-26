@@ -58,16 +58,16 @@ class BetSite:
             red_towers = score["red_towers"]
             gametime = int(score["time"])
 
-            if blue_kills + red_kills >= 55 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 0 and red_towers == 0):
+            if blue_kills + red_kills >= 60 and abs(blue_kills - red_kills) < 5 and (blue_towers == 0 and red_towers == 0):
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
-            elif blue_kills + red_kills >= 75 and abs(blue_kills - red_kills) <= 5 and (blue_towers == 1 and red_towers == 1):
+            elif blue_kills + red_kills >= 80 and abs(blue_kills - red_kills) < 5 and (blue_towers == 1 and red_towers == 1):
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
-            elif blue_kills + red_kills <= 40 and abs(blue_kills - red_kills) >= 7 and (blue_towers > 0 or red_towers > 0):
+            elif blue_kills + red_kills <= 30 and abs(blue_kills - red_kills) >= 7 and (blue_towers > 0 or red_towers > 0):
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
 
-            elif gametime > 300 and blue_kills + red_kills < 20 and abs(blue_kills - red_kills) <= 5:
+            elif gametime > 420 and blue_kills + red_kills < 25 and abs(blue_kills - red_kills) > 5:
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
             # else:
             #     app_blueprint.info_view.exception(f'PR: b{blue_kills} r{red_kills} twb {blue_towers} twr{red_towers}')

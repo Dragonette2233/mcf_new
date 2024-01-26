@@ -231,12 +231,12 @@ class MCF_Gamechecker:
                     team = ('red', '2')
                     TGApi.winner_is(team='red', kills=kills, timestamp=f"[{time_stamp[0]}:{time_stamp[1]}]", disabled=is_disabled)
 
-                Validator.stats_register['W1_res'] = 1 if team[0] == 'blue' else 0
-                Validator.stats_register['W2_res'] = 1 if team[0] == 'red' else 0
+                # Validator.stats_register['W1_res'] = 1 if team[0] == 'blue' else 0
+                # Validator.stats_register['W2_res'] = 1 if team[0] == 'red' else 0
                 Validator.total_register['W1_res'] = 1 if kills > 110 else 0
                 Validator.total_register['W2_res'] = 1 if kills < 110 else 0
 
-                MCFStorage.stats_monitor(validor=Validator.stats_register)
+                # MCFStorage.stats_monitor(validor=Validator.stats_register)
                 MCFStorage.stats_monitor(validor=Validator.total_register)
 
                 for key in Validator.stats_register:

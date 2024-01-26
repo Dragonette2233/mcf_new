@@ -48,8 +48,8 @@ class TGApi:
             formated_dict[f'p_{i}'] = name
 
         formated_dict['nickname'] = nickname
-        formated_dict['W1'], formated_dict['W1_e'] = statsrate['w1'][0], statsrate['w1'][1]
-        formated_dict['W2'], formated_dict['W2_e'] = statsrate['w2'][0], statsrate['w2'][1]
+        # formated_dict['W1'], formated_dict['W1_e'] = statsrate['w1'][0], statsrate['w1'][1]
+        # formated_dict['W2'], formated_dict['W2_e'] = statsrate['w2'][0], statsrate['w2'][1]
         formated_dict['TB'], formated_dict['TB_e'] = statsrate['tb'][0], statsrate['tb'][1]
         formated_dict['TL'], formated_dict['TL_e'] = statsrate['tl'][0], statsrate['tl'][1]
         formated_dict['ALL'] = statsrate['all_m'][0]
@@ -64,8 +64,8 @@ class TGApi:
             data={'chat_id': cls.CHAT_ID, 'text': full_message }
         )
 
-        Validator.stats_register['W1_pr'] = 0 if formated_dict['W1_e'] == '🟥' else 1
-        Validator.stats_register['W2_pr'] = 0 if formated_dict['W2_e'] == '🟥' else 1
+        # Validator.stats_register['W1_pr'] = 0 if formated_dict['W1_e'] == '🟥' else 1
+        # Validator.stats_register['W2_pr'] = 0 if formated_dict['W2_e'] == '🟥' else 1
         Validator.total_register['W1_pr'] = 0 if formated_dict['TB_e'] == '🟥' else 1
         Validator.total_register['W2_pr'] = 0 if formated_dict['TL_e'] == '🟥' else 1
 
