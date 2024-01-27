@@ -128,7 +128,7 @@ class ScoreRecognition:
             similarity_index = ssim(compare_img, cut_image)
 
             # Если найдено более высокое сходство, сохраняем его и путь к изображению
-            if similarity_index > 0.93:
+            if similarity_index > 0.75:
                 return idx
         else:
             return ''
@@ -163,7 +163,7 @@ class ScoreRecognition:
         ]
 
         blue_towers = cls.get_compare(np.array(image.crop((60, 13, 75, 29)).convert('L')), 'towers', 0, 'blue')
-        red_towers = cls.get_compare(np.array(image.crop((495, 13, 509, 29)).convert('L')), 'towers', 0, 'red')
+        red_towers = cls.get_compare(np.array(image.crop((498, 13, 514, 29)).convert('L')), 'towers', 0, 'red')
 
         str_final_time = f'{final_time[0]}{final_time[1]}:{final_time[2]}{final_time[3]}' # XX:XX
         minutes, seconds = map(int, str_final_time.split(':'))
@@ -192,12 +192,13 @@ class ScoreRecognition:
 
         screen = ImageGrab.grab()
         image = screen.crop((681, 7, 1261, 99))
+        image.save('.\\susu.png')
 
 
         if 'bl_tw' in kwargs:
             image.crop((60, 13, 75, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_blue', 'towers', f'{kwargs["bl_tw"]}.png')) # work
         if 'rd_tw' in kwargs:
-            image.crop((495, 13, 509, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_red', 'towers', f'{kwargs["rd_tw"]}.png')) # work
+            image.crop((498, 13, 514, 29)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_red', 'towers', f'{kwargs["rd_tw"]}.png')) # work
 
         if 'bl_sc_0' in kwargs:
             image.crop((225, 18, 242, 41)).convert('L').save(os.path.join('.', 'ssim_score_data', 'team_blue', 'score_0', f'{kwargs["bl_sc_0"]}.png')) # work
