@@ -2856,3 +2856,21 @@ Traceback (most recent call last):
     gameList = data['gameList']
                ~~~~^^^^^^^^^^^^
 KeyError: 'gameList'
+2024-02-01 01:49:08,258 ERROR 'puuid'
+Traceback (most recent call last):
+  File "c:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-01 01:49:10,954 ERROR 'puuid'
+Traceback (most recent call last):
+  File "c:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "c:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'

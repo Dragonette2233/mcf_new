@@ -68,7 +68,7 @@ class MCF_Tophead:
     
     # def ssim_icons_recognition()
 
-    def pillow_icons_recognition(self, ssim=False):
+    def pillow_icons_recognition(self, ssim=True):
         # from ..deprecated.pillow_recognition import RecognizedCharacters as PilReco
         from .scripts.ssim_recognition import RecognizedCharacters as SsimReco
         self.parent.info_view.notification('Comparing icons...')

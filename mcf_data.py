@@ -46,34 +46,9 @@ ALL_CHAMPIONS_IDs = {
     498: 'Xayah', 516: 'Ornn', 517: 'Sylas', 526: 'Rell',
     518: 'Neeko', 523: 'Aphelios', 555: 'Pyke', 875: "Sett",
     711: "Vex", 777: "Yone", 887: "Gwen", 876: "Lillia",
-    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 950: "Naafiri", 
+    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 950: "Naafiri", 901: "Smolder",
     2002: 'Kayn_b', 910: "Hwei",
     2001: "MonkeyKing"
-}
-
-eight_roles_dict = {
-
-    '1': ('Aatrox', 'Belveth', 'Camille', 'Darius', 'Fiora', 'Gnar', 'Gwen', 'Illaoi', 'Irelia', 'Kayn', 
-                    'Leesin', 'Renekton', 'Viego', 'Sylas', 'Sett', 'Swain', 'Hecarim', 'Mordekaiser', 'Tryndamere', 
-                    'Riven', 'Nasus', 'Jax', 'Yasuo', 'Yone', 'Olaf','Violet', 'Wukong', 'Xinzhao', 'Trundle', 'Kled',
-                    'Monkeyking', 'Graves', 'Naafiri'),
-    '2': ('Akali', 'Kassadin', 'Masteryi', 'Rengar', 'Khazix', 'Evelynn', 'Talon', 'Zed', 'Leblanc', 'Nocturne', 
-                 'Qiyana', 'Katarina', 'Pyke', 'Briar'),
-    '3': ('Azir', 'Cassiopeia', 'Lillia', 'Ryze', 'Viktor',  'Ekko', 'Gangplank', 'Anivia', 'Heimerdinger', 
-                    'Vladimir', 'Fiddlesticks', 'Kennen',  'Aurelionsol', 'Gragas', 'Ahri', 'Hwei'),
-    '4': ('Bard', 'Janna', 'Karma', 'Lulu', 'Maokai', 'Morgana', 'Nami', 'Orianna', 'Rakan', 'Renata', 'Senna', 
-                 'Seraphine', 'Sona', 'Soraka', 'Twistedfate', 'Yuumi', 'Zilean', 'Ivern',  'Yorick', 'Annie', 'Milio'),
-    '5': ('Akshan', 'Aphelios', 'Caitlyn', 'Ezreal', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'Kayle', 'Kindred', 
-                   'Kogmaw', 'Lucian', 'Missfortune', 'Samira', 'Sivir', 'Tristana', 'Twitch', 'Vayne', 'Xayah', 
-                   'Zeri', 'Draven', 'Quinn', 'Nilah'),
-    '6':('Syndra', 'Velkoz', 'Xerath', 'Ziggs', 'Zoe', 'Corki', 'Ashe', 'Karthus', 'Malzahar', 'Lux', 'Zyra',
-                    'Brand', 'Taliyah', 'Vex', 'Shaco', 'Teemo',),
-    '7': ('Fizz',  'Lissandra', 'Nidalee', 'Neeko', 'Nunu', 'Varus', 'Veigar', 'Pantheon', 'Rumble', 'Shyvana',  
-              'Reksai', 'Diana', 'Jayce', 'Elise', 'Malphite',),
-   '8': ('Alistar', 'Amumu', 'Braum', 'Chogath', 'Drmundo', 'Galio', 'Garen',  'Leona', 'Nautilus', 'Ornn',
-             'Poppy', 'Rammus', 'Rell', 'Sejuani', 'Shen', 'Sion', 'Skarner', 'Tahmkench', 'Taric', 'Thresh', 'Udyr', 
-             'Urgot', 'Volibear', 'Warwick', 'Zac', 'Blitzcrank', 'Singed', 'Jarvaniv', 'Ksante')
-
 }
 
 ten_roles_dict = {
@@ -91,7 +66,7 @@ ten_roles_dict = {
            'Seraphine', 'Sona', 'Soraka', 'Twistedfate', 'Yuumi', 'Zilean', 'Ivern',  'Yorick', 'Annie', 'Milio'),
     '5': ('Akshan', 'Aphelios', 'Caitlyn', 'Jhin', 'Jinx', 'Kaisa', 'Kalista', 'Kayle', 'Kindred', 
            'Kogmaw', 'Lucian', 'Missfortune', 'Sivir', 'Tristana', 'Twitch', 'Vayne', 'Xayah', 
-           'Zeri', 'Draven', 'Quinn', 'Nilah'),
+           'Zeri', 'Draven', 'Quinn', 'Nilah', 'Smolder'),
     '6':('Syndra', 'Velkoz', 'Xerath', 'Ziggs', 'Zoe', 'Corki', 'Ashe', 'Karthus', 'Malzahar', 'Lux', 'Zyra',
           'Brand', 'Taliyah', 'Vex', 'Shaco', 'Teemo',),
     '7': ('Lissandra', 'Nidalee', 'Neeko', 'Nunu', 'Varus', 'Veigar', 'Pantheon', 'Rumble', 'Shyvana',  
