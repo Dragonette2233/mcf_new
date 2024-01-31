@@ -46,7 +46,7 @@ ALL_CHAMPIONS_IDs = {
     498: 'Xayah', 516: 'Ornn', 517: 'Sylas', 526: 'Rell',
     518: 'Neeko', 523: 'Aphelios', 555: 'Pyke', 875: "Sett",
     711: "Vex", 777: "Yone", 887: "Gwen", 876: "Lillia",
-    888: "Renata", 895: "Nilah", 897: "KSante", 902: "Milio", 950: "Naafiri", 901: "Smolder",
+    888: "Renata", 895: "Nilah", 897: "KSante", 901: "Smolder", 902: "Milio", 950: "Naafiri",
     2002: 'Kayn_b', 910: "Hwei",
     2001: "MonkeyKing"
 }

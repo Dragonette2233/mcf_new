@@ -41,6 +41,10 @@ def debugMode(event):
     # print('work')
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'asparse':
+            from modules.scripts import mcf_utils
+            mcf_utils.async_poro_parsing('Garen')
+            print('done')
         case 'scoredata_shot':
             from PIL import ImageGrab
             screen = ImageGrab.grab()
