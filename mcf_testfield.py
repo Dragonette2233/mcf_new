@@ -44,7 +44,7 @@ def debugMode(event):
         case 'scoredata_shot':
             from PIL import ImageGrab
             screen = ImageGrab.grab()
-            image = screen.crop((681, 7, 1261, 99))
+            image = screen.crop((693, 160, 721, 172))
             image.save('score.png')
         case 'scr':
             app_test_context.after(3000, test_score_tab)

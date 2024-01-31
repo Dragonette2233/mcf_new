@@ -1,6 +1,6 @@
 from telegram import Update
 from telegram import ReplyKeyboardMarkup, KeyboardButton
-from telegram.ext import Application, CommandHandler, CallbackContext, MessageHandler
+from telegram.ext import Application, CommandHandler, CallbackContext, StringRegexHandler, MessageHandler, filters
 from arambot_lib.bot_reload import (
     close_mcf_and_chrome,
     start_mcf,
@@ -19,10 +19,33 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 async def start(update: Update, context: CallbackContext):
-    keyboard = [ [KeyboardButton('/game'), KeyboardButton('/build')], [KeyboardButton('/stats_check')] ]
+    keyboard = [ [KeyboardButton('game'), KeyboardButton('build')], [KeyboardButton('stats_result')] ]
     reply_markup = ReplyKeyboardMarkup(keyboard, resize_keyboard=True)
 
     await update.message.reply_text('Здарова, тварына', reply_markup=reply_markup)
+
+async def gen_url(update: Update, context: CallbackContext):
+    logger.info('here')
+    league_route = '/live/cyber-zone/league-of-legends'
+    league_alt_rout = '/ru/live/cyber-zone/league-of-legends'
+    message = (update.message.text).split('_')[1]
+
+    if not message.startswith('https://1xlite-'):
+        await update.message.reply_text(f'Неверная ссылка для зеркала')
+    elif message.endswith('ru/') or message.endswith('/ru'):
+        new_link = message + league_route
+        with open('./mcf_lib/mirror_page.txt', 'w+') as ex_url:
+            ex_url.write(new_link)
+
+        await update.message.reply_text(f'Зеркало добавлено: {new_link}')
+    elif message.endswith('.top'):
+        new_link = message + league_alt_rout
+        with open('./mcf_lib/mirror_page.txt', 'w+') as ex_url:
+            ex_url.write(new_link)
+
+        await update.message.reply_text(f'Зеркало добавлено: {new_link}')
+
+    # await update.message.reply_text(f'Result: {message}')# {message}'.format(message=message))
 
 async def echo_score(update: Update, context: CallbackContext) -> None:
     
@@ -83,9 +106,12 @@ def main() -> None:
     """Start the bot."""
     application = Application.builder().token(os.getenv('BOT_TOKEN')).build()
     application.add_handler(CommandHandler("start", start))
-    application.add_handler(CommandHandler('game', echo_score))
-    application.add_handler(CommandHandler('build', echo_build))
-    application.add_handler(CommandHandler('stats_check', stats_check))
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex(r'\bgame\b'), echo_score))
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex(r'\bbuild\b'), echo_build))
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex(r'\bstats_result\b'), stats_check))
+    application.add_handler(MessageHandler(filters.TEXT & filters.Regex(r'mirr_\S+'), gen_url))
+    # application.add_handler(CommandHandler('build', echo_build))
+    # application.add_handler(CommandHandler('stats_check', stats_check))
     application.add_handler(CommandHandler('mcf_reload', mcf_reload))
     application.add_handler(CommandHandler('mcf_status', mcf_status))
     # application.add_handler(CommandHandler('stats_check', stats_check))

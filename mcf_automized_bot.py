@@ -38,6 +38,12 @@ class BetSite:
         time.sleep(3)
         mcf_autogui.click(x=1896, y=99) #disable infobar
         return driver
+    
+    @classmethod
+    def gen_url(cls):
+
+        with open('./mcf_lib/mirror_page.txt', 'r') as ex_url:
+            return ex_url.read().strip() 
 
     @classmethod
     def generate_predict(cls, score, driver: webdriver.Chrome):
@@ -64,7 +70,7 @@ class BetSite:
             elif blue_kills + red_kills >= 80 and abs(blue_kills - red_kills) < 5 and (blue_towers == 1 and red_towers == 1):
                 TGApi.send_simple_message('⬆️ Predict 110Б ⬆️')
 
-            elif blue_kills + red_kills <= 30 and abs(blue_kills - red_kills) >= 7 and (blue_towers > 0 or red_towers > 0):
+            elif blue_kills + red_kills <= 35 and abs(blue_kills - red_kills) >= 7 and (blue_towers > 0 or red_towers > 0):
                 TGApi.send_simple_message('⬇️ Predict 110M ⬇️')
 
             elif gametime > 420 and blue_kills + red_kills < 25 and abs(blue_kills - red_kills) > 5:
@@ -324,7 +330,7 @@ def run_autobot():
         Switches.predicted = False
         app_blueprint.refresh()
         app_blueprint.info_view.notification('Waiting for game')
-        driver.get(BetSite.main_url)
+        driver.get(BetSite.gen_url())
         time.sleep(6)
         BetSite.remove_cancel(driver=driver)
         BetSite.notify_when_starts(driver=driver)
