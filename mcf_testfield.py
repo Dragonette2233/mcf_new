@@ -9,12 +9,21 @@ from modules.scripts import (
     ssim_recognition
 )
 import threading
+# from PIL import ImageGrab
 from mcf_riot_api import PoroAPI
 from mcf_riot_api import TGApi
-
-# from PIL import Image, ImageGrab
-
+from PIL import ImageGrab
 # import time
+from mcf_data import MCF_BOT_PATH
+import sys
+import os
+
+
+# sys.path.append(os.path.join(MCF_BOT_PATH, 'mcf'))
+
+
+
+SW = True
 
 def test_score_tab():
 
@@ -38,9 +47,72 @@ def simm_test():
     app_test_context.info_view.success(f'Blue: {len(charlist_blue)} | Red {len(charlist_red)}')
 
 def debugMode(event):
-    # print('work')
+    global SW
     selftest = app_test_context.obj_gamechecker.entry.get()
     match selftest:
+        case 'green':
+            global ImageGrab
+            # from PIL import ImageGrab
+            
+            rect = ImageGrab.grab().crop((76, 865, 174, 867))
+            result = tesg.check_green_fill(rect)
+            app_test_context.info_view.success(f"Green: {result}")
+            
+        case 'shot':
+            from PIL import ImageGrab
+            ImageGrab.grab().save('./shot.png')
+        case 'tws_stop':
+            SW = False
+        case 'tws':
+            from modules.scripts import mcf_autogui
+            from PIL import ImageGrab
+            import time
+
+            def _thread_tws():
+                blue_shot = None
+                red_shot = None
+                blue_backup = 0
+                red_backup = 0
+                counter = 0
+                mcf_autogui.click(1770, 976)
+                while True:
+                    score = ssim_recognition.ScoreRecognition.screen_score_recognition()
+                    if score['red_towers'] == 0:
+                        mcf_autogui.click(1752, 970)
+                        time.sleep(0.07)
+                        mcf_autogui.doubleClick(936, 620)
+                        time.sleep(0.07)
+                        blue_shot = ImageGrab.grab()
+                        blue_t1_health = ssim_recognition.ScoreRecognition.towers_healh_recognition(image=blue_shot)
+                        if not blue_t1_health:
+                            blue_t1_health = blue_backup
+                        else:
+                            blue_backup = blue_t1_health
+                    else:
+                        blue_t1_health = 0
+
+                    if score['blue_towers'] == 0:
+                        mcf_autogui.click(1811, 919)
+                        time.sleep(0.07)
+                        mcf_autogui.doubleClick(951, 490)
+                        time.sleep(0.07)
+                        red_shot = ImageGrab.grab()
+                        red_t1_health = ssim_recognition.ScoreRecognition.towers_healh_recognition(image=red_shot)
+                        if not red_t1_health:
+                            red_t1_health = red_backup
+                        else:
+                            red_backup = red_t1_health
+                    else:
+                        red_t1_health = 0
+                    counter += 1
+                     # f"{'%.1f' % out}%"
+                    app_test_context.info_view.notification(f"BL T1: {blue_t1_health}% | RD T1: {red_t1_health}%")
+                    
+                    # if counter == 10:
+                    break
+
+            MCFThread(func=_thread_tws).start()
+
         case 'asparse':
             from modules.scripts import mcf_utils
             mcf_utils.async_poro_parsing('Garen')
@@ -54,11 +126,24 @@ def debugMode(event):
             app_test_context.after(3000, test_score_tab)
         case 'gettime':
             data = ssim_recognition.ScoreRecognition.screen_score_recognition()
-            MCFStorage.save_score(score=data)
+                
+            app_test_context.info_view.success(
+                    f"G:{data['blue_gold']}_{data['red_gold']}|TW: {data['blue_towers']}_{data['red_towers']}"
+            )
+            # import time
+            # def _gettime():
+            #     while True:
+                    
+            #         time.sleep(2)
+            # MCFThread(func=_gettime).start()
+            
+            # MCFStorage.save_score(score=data)
             # print(data)
         case sc_test if sc_test.startswith('sct'):
             # app_test_context.info_view.notification('SCT starts with')
             # app_test_context.generate_score()
+
+            # example: sct__bl_tw:0
             dict_data = {}
             data = sc_test.split('__')[1]
 

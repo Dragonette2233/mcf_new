@@ -282,7 +282,7 @@ def async_riot_parsing():
                     champ_list = [ALL_CHAMPIONS_IDs.get(id_name) for id_name in id_names]
                     
                     champ_string = ' | '.join([str(item) for item in champ_list])
-                    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                    summoners = '_|_'.join([f"{i['riotId']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
                             
                     routelist.append(f"{champ_string}-|-{summoners}")
                 MCFStorage.write_data(

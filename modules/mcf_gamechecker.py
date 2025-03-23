@@ -103,22 +103,23 @@ class MCF_Gamechecker:
         
         self.parent.info_view.notification('Searching...')
 
-        summoner_data = RiotAPI.get_summoner_puuid(region=currentGameData.region, name=summoner_name[0])
+        summoner_data = RiotAPI.get_summoner_puuid(area=currentGameData.area, name=summoner_name[0])
 
        
         if summoner_data == 404:
             self.parent.info_view.exception('Summoner not found')
             return
         
-        currentGameData.summoner_puuid = summoner_data['puuid']
-        response_activegame = RiotAPI.get_active_by_summonerid(region=currentGameData.region, 
-                                                               summid=summoner_data['id'],
+        currentGameData.summoner_puuid = summoner_data
+        response_activegame = RiotAPI.get_active_by_summonerid(region=currentGameData.region,
+                                                               summid=summoner_data,
                                                                status=True)
             
         # Writing nick and region to json
         MCFStorage.write_data(route=('CheckerLast',), value=self.entry.get())
         
         # print(response_activegame)
+        print(response_activegame.status_code)
         if response_activegame.status_code != 200:
             self.parent.info_view.notification('Loading last game')
             self.show_lastgame_info()
@@ -129,6 +130,7 @@ class MCF_Gamechecker:
             currentGameData.response = response_activegame.json()
             currentGameData.game_id = str(currentGameData.response['gameId']) # 1237890
             currentGameData.match_id = currentGameData.region.upper() + '_' + currentGameData.game_id # EUW_12378912
+            print(currentGameData.match_id)
             currentGameData.champions_ids = [currentGameData.response['participants'][p]['championId'] for p in 
                                              range(10)]
             
@@ -183,18 +185,19 @@ class MCF_Gamechecker:
         self.parent.info_view.success('Matcher checker started')
 
         while Switches.request:
-            
-            while True and Switches.request:
-                try:
-                    finished_game = RiotAPI.get_match_by_gameid(area=currentGameData.area, 
-                                                        gameid=currentGameData.match_id, 
-                                                        status=True)
-                    break
-                except MCFException as ex:
-                    self.parent.info_view.exception(str(ex) + ' | Press refresh to stop')
-                    time.sleep(2.5)
-                
-            if finished_game.status_code == 200:
+            # print('nowl')
+            # while True and Switches.request:
+            try:
+                finished_game = RiotAPI.get_match_by_gameid(area=currentGameData.area, 
+                                                    gameid=currentGameData.match_id, 
+                                                    status=True)
+                # break
+            except:
+                self.parent.info_view.exception('finished game is None')
+                # time.sleep(2.5)
+            # print(finished_game)
+           
+            if finished_game and finished_game.status_code == 200:
 
                 response = finished_game.json()
                 kills = sum(response['info']['participants'][k]['kills'] for k in range(10))

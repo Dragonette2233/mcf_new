@@ -2874,3 +2874,267 @@ Traceback (most recent call last):
     'puuid': result.json()['puuid'],
              ~~~~~~~~~~~~~^^^^^^^^^
 KeyError: 'puuid'
+2024-02-04 02:24:03,819 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-04 02:24:06,511 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-04 02:24:44,352 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-16 23:34:30,625 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-16 23:34:33,353 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-17 01:32:07,248 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-17 01:32:52,893 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-25 01:30:51,350 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-02-25 01:30:54,171 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-03-01 22:51:45,188 ERROR Task exception was never retrieved
+future: <Task finished name='Task-3' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=ContentTypeError(RequestInfo(url=URL('https://la1.api.riotgames.com/lol/spectator/v4/featured-games'), method='GET', headers=<CIMultiDictProxy('Host': 'la1.api.riotgames.com', 'X-Riot-Token': 'RGAPI-2b2685d8-3c3a-483b-8429-f758bc99484d', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'User-Agent': 'Python/3.11 aiohttp/3.8.4')>, real_url=URL('https://la1.api.riotgames.com/lol/spectator/v4/featured-games')), (), message='Attempt to decode JSON with unexpected mimetype: text/html', headers=<CIMultiDictProxy('Server': 'nginx', 'Date': 'Fri, 01 Mar 2024 19:51:40 GMT', 'Content-Type': 'text/html', 'Content-Length': '190', 'Connection': 'keep-alive', 'X-Server': 'redge')>)>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 263, in parsing
+    data = await response.json()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html', url=URL('https://la1.api.riotgames.com/lol/spectator/v4/featured-games')
+2024-03-01 22:51:45,191 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=ContentTypeError(RequestInfo(url=URL('https://la2.api.riotgames.com/lol/spectator/v4/featured-games'), method='GET', headers=<CIMultiDictProxy('Host': 'la2.api.riotgames.com', 'X-Riot-Token': 'RGAPI-2b2685d8-3c3a-483b-8429-f758bc99484d', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'User-Agent': 'Python/3.11 aiohttp/3.8.4')>, real_url=URL('https://la2.api.riotgames.com/lol/spectator/v4/featured-games')), (), message='Attempt to decode JSON with unexpected mimetype: text/html', headers=<CIMultiDictProxy('Server': 'nginx', 'Date': 'Fri, 01 Mar 2024 19:51:40 GMT', 'Content-Type': 'text/html', 'Content-Length': '190', 'Connection': 'keep-alive', 'X-Server': 'redge')>)>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 263, in parsing
+    data = await response.json()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html', url=URL('https://la2.api.riotgames.com/lol/spectator/v4/featured-games')
+2024-03-01 22:51:45,193 ERROR Task exception was never retrieved
+future: <Task finished name='Task-6' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=ContentTypeError(RequestInfo(url=URL('https://oc1.api.riotgames.com/lol/spectator/v4/featured-games'), method='GET', headers=<CIMultiDictProxy('Host': 'oc1.api.riotgames.com', 'X-Riot-Token': 'RGAPI-2b2685d8-3c3a-483b-8429-f758bc99484d', 'Accept': '*/*', 'Accept-Encoding': 'gzip, deflate', 'User-Agent': 'Python/3.11 aiohttp/3.8.4')>, real_url=URL('https://oc1.api.riotgames.com/lol/spectator/v4/featured-games')), (), message='Attempt to decode JSON with unexpected mimetype: text/html', headers=<CIMultiDictProxy('Server': 'nginx', 'Date': 'Fri, 01 Mar 2024 19:51:40 GMT', 'Content-Type': 'text/html', 'Content-Length': '190', 'Connection': 'keep-alive', 'X-Server': 'redge')>)>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 263, in parsing
+    data = await response.json()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\.mcfenv\Lib\site-packages\aiohttp\client_reqrep.py", line 1104, in json
+    raise ContentTypeError(
+aiohttp.client_exceptions.ContentTypeError: 0, message='Attempt to decode JSON with unexpected mimetype: text/html', url=URL('https://oc1.api.riotgames.com/lol/spectator/v4/featured-games')
+2024-04-10 18:16:14,031 ERROR Task exception was never retrieved
+future: <Task finished name='Task-4' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=KeyError('summonerName')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in <listcomp>
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                               ~^^^^^^^^^^^^^^^^
+KeyError: 'summonerName'
+2024-04-10 18:16:14,033 ERROR Task exception was never retrieved
+future: <Task finished name='Task-5' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=KeyError('summonerName')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in <listcomp>
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                               ~^^^^^^^^^^^^^^^^
+KeyError: 'summonerName'
+2024-04-10 18:16:14,035 ERROR Task exception was never retrieved
+future: <Task finished name='Task-7' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=KeyError('summonerName')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in <listcomp>
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                               ~^^^^^^^^^^^^^^^^
+KeyError: 'summonerName'
+2024-04-10 18:16:14,035 ERROR Task exception was never retrieved
+future: <Task finished name='Task-8' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=KeyError('summonerName')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in <listcomp>
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                               ~^^^^^^^^^^^^^^^^
+KeyError: 'summonerName'
+2024-04-10 18:16:14,037 ERROR Task exception was never retrieved
+future: <Task finished name='Task-9' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=KeyError('summonerName')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in <listcomp>
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                               ~^^^^^^^^^^^^^^^^
+KeyError: 'summonerName'
+2024-04-10 18:16:14,037 ERROR Task exception was never retrieved
+future: <Task finished name='Task-10' coro=<async_riot_parsing.<locals>.parsing() done, defined at C:\py-field\MCF\modules\scripts\mcf_utils.py:256> exception=KeyError('summonerName')>
+Traceback (most recent call last):
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in parsing
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\modules\scripts\mcf_utils.py", line 285, in <listcomp>
+    summoners = '_|_'.join([f"{i['summonerName']}:{gameList[s]['platformId']}" for i in gameList[s]['participants']])
+                               ~^^^^^^^^^^^^^^^^
+KeyError: 'summonerName'
+2024-04-16 00:01:46,443 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-16 00:01:49,150 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-23 22:32:34,773 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-23 22:32:37,540 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-23 22:34:05,822 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-23 22:34:14,419 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-26 16:57:39,809 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-26 16:57:43,108 ERROR 'puuid'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 141, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\py-field\MCF\mcf_riot_api.py", line 166, in get_summoner_puuid
+    'puuid': result.json()['puuid'],
+             ~~~~~~~~~~~~~^^^^^^^^^
+KeyError: 'puuid'
+2024-04-26 17:02:41,009 ERROR RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 142, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+2024-04-26 17:02:43,518 ERROR RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 142, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+2024-04-26 17:03:21,019 ERROR RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 142, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+2024-04-26 17:03:23,528 ERROR RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'
+Traceback (most recent call last):
+  File "C:\py-field\MCF\mcf_riot_api.py", line 142, in wrapper
+    result = func(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: RiotAPI.get_summoner_puuid() got an unexpected keyword argument 'region'

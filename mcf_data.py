@@ -81,7 +81,7 @@ ten_roles_dict = {
 APP_TITLE = 'mcf_development'
 ELO_SYMBOLS = ('BR', 'CH', 'DI', 'GO', 'GR', 'IR', 'MA', 'PL', 'PP', 'SI', 'UN')
 SPECTATOR_MODE = 'spectator.{reg}.lol.pvp.net:8080'
-FEATURED_GAMES_URL = "https://{region}.api.riotgames.com/lol/spectator/v4/featured-games"
+FEATURED_GAMES_URL = "https://{region}.api.riotgames.com/lol/spectator/v5/featured-games"
 URL_PORO_BY_REGIONS = "https://porofessor.gg/current-games/{champion}/{region}/queue-450"
 REGIONS_TUPLE = (
     ('br', 'br1', 'americas'), ('lan', 'la1', 'americas'),
@@ -99,7 +99,8 @@ REGIONS_TUPLE = (
     
 """
 
-MCF_ROOT_PATH = os.environ.get('MCF_ROOT')
+MCF_ROOT_PATH = os.environ.get('MCF_ROOT_PATH')
+MCF_BOT_PATH = os.environ.get('MCF_BOT')
 BUTTONS_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'buttons/')
 APP_ICON_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'backgrounds', 'icon_f.png')
 BACKGROUND_IMAGES_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'backgrounds')
@@ -111,7 +112,7 @@ PAPICH_SONG_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'song.mp3')
 SCREEN_GAMESCORE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'gamescore_PIL.png')
 TEEMO_SONG_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'hihi.mp3')
 SPECTATOR_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'spectate.bat')
-STATISTICS_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'stats_21.txt')
+STATISTICS_PATH = os.path.join(MCF_ROOT_PATH, 'mcf_lib', 'stats_24.txt')
 SCREENSHOT_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'screenshot_PIL.png')
 
 
@@ -120,11 +121,11 @@ SCREENSHOT_FILE_PATH = os.path.join(MCF_ROOT_PATH, 'images_lib', 'screenshot_PIL
 
 """
 
-GTIME_DATA_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'gametime')
-BLUE_SCORE_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_blue', 'score_{pos}')
-RED_SCORE_PATH =  os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_red', 'score_{pos}')
-BLUE_TOWER_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_blue', 'towers')
-RED_TOWER_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'team_red', 'towers')
+GTIME_DATA_PATH = os.path.join(MCF_ROOT_PATH, 'ssim_score_data', 'gametime', 'updated')
+BLUE_SCORE_PATH = os.path.join(MCF_BOT_PATH, 'ssim_score_data', 'team_blue', 'score_{pos}')
+RED_SCORE_PATH =  os.path.join(MCF_BOT_PATH, 'ssim_score_data', 'team_red', 'score_{pos}')
+BLUE_TOWER_PATH = os.path.join(MCF_BOT_PATH, 'ssim_score_data', 'team_blue', 'towers')
+RED_TOWER_PATH = os.path.join(MCF_BOT_PATH, 'ssim_score_data', 'team_red', 'towers')
 
 DEBUG_STATS_PATH = os.path.join(MCF_ROOT_PATH, 'arambot_lib', 'debug_stats.json')
 

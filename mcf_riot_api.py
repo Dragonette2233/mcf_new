@@ -121,10 +121,11 @@ class RiotAPI:
         'headers': { "X-Riot-Token": __api_key },
         'timeout': 3
     }
-    __link_summoner_by_name = "https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{name}"
+    __link_summoner_by_riotId = "https://{area}.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{nickName}/{tagLine}"
+    # __link_summoner_by_name = "https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{name}"
     __link_matches_by_puuid = "https://{area}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuid}/ids?start=0&count=2"
     __link_match_by_gameid = "https://{area}.api.riotgames.com/lol/match/v5/matches/{gameid}"
-    __link_active_by_summid = "https://{region}.api.riotgames.com/lol/spectator/v4/active-games/by-summoner/{summid}"
+    __link_active_by_summid = "https://{region}.api.riotgames.com/lol/spectator/v5/active-games/by-summoner/{summid}"
     
     @classmethod
     def get_api_key(cls):
@@ -153,19 +154,22 @@ class RiotAPI:
 
     @connection_handler
     @staticmethod
-    def get_summoner_puuid(region: str, name: str, puuid=False) -> dict:
-        result = requests.get(RiotAPI.__link_summoner_by_name.format(region=region, name=name), 
+    def get_summoner_puuid(area: str, name: str, puuid=False) -> dict:
+
+        if area == 'sea':
+            area = 'asia'
+
+        nickName, tagLine = name.split('#')
+        result = requests.get(RiotAPI.__link_summoner_by_riotId.format(area=area, nickName=nickName, tagLine=tagLine), 
                               **RiotAPI.__headers_timeout)
+        # print('im here', result.text)
         
         status = result.status_code
-
-        if status == 404:
+        if status != 200:
+            # logger.warning(result.json())
             return status
-        
-        return {
-            'puuid': result.json()['puuid'],
-            'id': result.json()['id']
-        }
+        else:
+            return result.json()['puuid']
     
     @connection_handler
     @staticmethod
